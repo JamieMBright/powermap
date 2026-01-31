@@ -263,10 +263,10 @@ function setupBoundaryHover(map: MaplibreMap, boundaryType: BoundaryType): void 
 
   map.on('mousemove', layerIds.fill, (e) => {
     if (e.features && e.features.length > 0) {
-      const feature = e.features[0] as BoundaryFeature;
-      const code = feature.properties?.code;
+      const feature = e.features[0];
+      const code = (feature.properties?.code as string | undefined) ?? null;
 
-      if (code !== hoveredCode) {
+      if (code && code !== hoveredCode) {
         // Reset previous hover
         if (hoveredCode) {
           map.setFilter(layerIds.highlight, ['==', ['get', 'code'], '']);

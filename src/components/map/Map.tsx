@@ -70,7 +70,6 @@ export function Map({ className = '', onMapLoad }: MapProps) {
       new maplibregl.GeolocateControl({
         positionOptions: { enableHighAccuracy: true },
         trackUserLocation: false,
-        showUserHeading: false,
       }),
       isMobile ? 'bottom-right' : 'top-right'
     );
