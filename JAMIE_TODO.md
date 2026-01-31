@@ -4,38 +4,19 @@ Items that require manual action (cannot be automated due to proxy/access restri
 
 ---
 
-## 1. Download Real Boundary Data from UKPN Open Data Portal
+## ~~1. Download Real Boundary Data from UKPN Open Data Portal~~ ✅ COMPLETED
 
-The current boundary files contain placeholder rectangles. Replace them with real geographic data.
+Downloaded and transformed on 2026-01-31:
+- GSP Areas: 58 features (5.6 MB)
+- Local Authorities: 133 features (128 MB)
+- License Area: 1 feature (938 KB)
 
-### Step 1: Download GeoJSON Files
-
-Visit each link below and click **Export** → **GeoJSON**:
-
-| Boundary Type | Download Link | Save As |
-|---------------|---------------|---------|
-| **GSP Areas** | https://ukpowernetworks.opendatasoft.com/explore/dataset/ukpn-grid-supply-points/export/ | `public/data/boundaries/gsp-raw.geojson` |
-| **Local Authorities** | https://ukpowernetworks.opendatasoft.com/explore/dataset/ukpn-local-authorities/export/ | `public/data/boundaries/la-raw.geojson` |
-| **License Area** | https://ukpowernetworks.opendatasoft.com/explore/dataset/uk-power-networks-boundary/export/ | `public/data/boundaries/resp-raw.geojson` |
-
-### Step 2: Transform the Data
-
-Run the transformation script to convert UKPN field names to PowerMap format:
-
-```bash
-node scripts/transform-ukpn-boundaries.js
-```
-
-This will create properly formatted files:
+Files created:
 - `public/data/boundaries/gsp.geojson`
 - `public/data/boundaries/la.geojson`
 - `public/data/boundaries/resp.geojson`
 
-### Step 3: Test the Boundaries
-
-1. Run `npm run dev`
-2. Click the **Boundaries** dropdown (top-left of map)
-3. Select each boundary type to verify they display correctly
+**Next step**: Run `npm run dev` and test boundaries in the app
 
 ---
 
@@ -60,19 +41,9 @@ The OIM layer (power lines, substations from OpenStreetMap) may not be loading.
 
 ---
 
-## 3. Add UKPN ODP API Key (Optional)
+## ~~3. Add UKPN ODP API Key~~ ✅ COMPLETED
 
-If you have a UKPN Open Data Portal API key for higher rate limits:
-
-1. Create `.env.local` file:
-```bash
-cp .env.example .env.local
-```
-
-2. Add your API key:
-```
-UKPN_ODP_API_KEY=your_api_key_here
-```
+API key is already configured in `.env` file.
 
 ---
 
@@ -94,6 +65,8 @@ The current tour ("Barking Grid Reinforcement 2028") could be expanded:
 - [x] Tour thumbnail updated with pylon imagery
 - [x] Transformation script created for UKPN boundary data
 - [x] All tests passing (206 tests)
+- [x] Downloaded real boundary data from UKPN ODP (GSP, LA, RESP)
+- [x] UKPN ODP API key configured
 
 ---
 
