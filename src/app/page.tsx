@@ -13,7 +13,9 @@ import { useYearFilter } from '@/hooks/useYearFilter';
 export default function Home() {
   return (
     <BoundaryProvider>
-      <HomeContent />
+      <Suspense fallback={<PageSkeleton />}>
+        <HomeContent />
+      </Suspense>
     </BoundaryProvider>
   );
 }
@@ -164,6 +166,29 @@ function HomeContent() {
           <span>© UK Power Networks | Open Infrastructure Map</span>
           <span className="hidden sm:inline">Built with MapLibre GL JS</span>
         </div>
+      </div>
+    </main>
+  );
+}
+
+// Loading skeleton for the entire page while Suspense boundary resolves
+function PageSkeleton() {
+  return (
+    <main className="relative h-screen w-full bg-gray-100">
+      {/* Header skeleton */}
+      <header className="absolute top-0 left-0 right-0 z-10 bg-white/90 backdrop-blur-sm shadow-sm">
+        <div className="flex items-center justify-between px-3 py-2 sm:px-4 sm:py-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="h-6 w-24 bg-gray-200 rounded animate-pulse" />
+            <div className="h-5 w-12 bg-gray-200 rounded-full animate-pulse" />
+          </div>
+        </div>
+      </header>
+      {/* Map loading placeholder */}
+      <div className="absolute inset-0 z-0 bg-gray-200 animate-pulse" />
+      {/* Year slider skeleton */}
+      <div className="absolute bottom-16 left-1/2 z-10 w-full max-w-[calc(100%-1rem)] -translate-x-1/2 px-2 sm:bottom-12 sm:max-w-xl sm:px-4">
+        <YearSliderSkeleton />
       </div>
     </main>
   );
