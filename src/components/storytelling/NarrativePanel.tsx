@@ -14,6 +14,13 @@ interface NarrativePanelProps {
   collapsed?: boolean;
   /** Callback to toggle collapsed state */
   onToggleCollapse?: () => void;
+  /** Navigation callbacks for mobile integrated controls */
+  onPrevious?: () => void;
+  onNext?: () => void;
+  onExit?: () => void;
+  isPreviousDisabled?: boolean;
+  isNextDisabled?: boolean;
+  isTransitioning?: boolean;
 }
 
 /**
@@ -26,9 +33,15 @@ export function NarrativePanel({
   position = 'bottom',
   collapsed = false,
   onToggleCollapse,
+  onPrevious,
+  onNext,
+  onExit,
+  isPreviousDisabled = false,
+  isNextDisabled = false,
+  isTransitioning = false,
 }: NarrativePanelProps) {
   const [displayedChapter, setDisplayedChapter] = useState<TourChapter | null>(chapter);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isContentTransitioning, setIsContentTransitioning] = useState(false);
 
   // Handle smooth chapter transitions
   useEffect(() => {
@@ -38,11 +51,11 @@ export function NarrativePanel({
     }
 
     if (chapter.id !== displayedChapter?.id) {
-      setIsTransitioning(true);
+      setIsContentTransitioning(true);
       // Wait for fade out, then update content
       const timer = setTimeout(() => {
         setDisplayedChapter(chapter);
-        setIsTransitioning(false);
+        setIsContentTransitioning(false);
       }, 200);
       return () => clearTimeout(timer);
     }
@@ -52,15 +65,17 @@ export function NarrativePanel({
 
   const isBottom = position === 'bottom';
 
+  const hasNavigation = onPrevious && onNext && onExit;
+
   return (
     <div
       className={`
         fixed z-30 transition-all duration-300 ease-out
         ${isBottom
-          ? 'bottom-20 left-4 right-4 sm:bottom-24 sm:left-auto sm:right-4 sm:max-w-md'
+          ? 'bottom-4 left-4 right-4 sm:bottom-24 sm:left-auto sm:right-4 sm:max-w-md'
           : 'top-20 left-4 bottom-20 w-80 sm:w-96'
         }
-        ${isTransitioning ? 'opacity-50' : 'opacity-100'}
+        ${isContentTransitioning ? 'opacity-50' : 'opacity-100'}
         ${collapsed ? 'translate-y-[calc(100%-3rem)]' : 'translate-y-0'}
       `}
     >
@@ -114,6 +129,63 @@ export function NarrativePanel({
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
               {displayedChapter.narrative}
             </p>
+          </div>
+        )}
+
+        {/* Integrated navigation controls for mobile */}
+        {hasNavigation && isBottom && !collapsed && (
+          <div className="px-4 py-3 border-t border-gray-100 flex items-center justify-between gap-3 sm:hidden">
+            {/* Previous button */}
+            <button
+              onClick={onPrevious}
+              disabled={isPreviousDisabled || isTransitioning}
+              className={`
+                p-2.5 rounded-full transition-all duration-200
+                ${isPreviousDisabled || isTransitioning
+                  ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                  : 'bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 shadow-sm'
+                }
+                min-w-[44px] min-h-[44px] flex items-center justify-center
+              `}
+              aria-label="Previous chapter"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Exit button */}
+            <button
+              onClick={onExit}
+              className="
+                px-4 py-2 rounded-lg
+                bg-white text-gray-700 hover:bg-gray-50 active:bg-gray-100
+                shadow-sm border border-gray-200 transition-all duration-200
+                text-sm font-medium min-h-[44px]
+              "
+              aria-label="Exit tour"
+            >
+              Exit Tour
+            </button>
+
+            {/* Next button */}
+            <button
+              onClick={onNext}
+              disabled={isNextDisabled || isTransitioning}
+              className={`
+                p-2.5 rounded-full transition-all duration-200
+                ${isNextDisabled || isTransitioning
+                  ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                  : 'bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 shadow-sm'
+                }
+                min-w-[44px] min-h-[44px] flex items-center justify-center
+              `}
+              aria-label="Next chapter"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         )}
       </div>

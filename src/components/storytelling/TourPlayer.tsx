@@ -126,17 +126,23 @@ export function TourPlayer({
         </div>
       </div>
 
-      {/* Narrative panel */}
+      {/* Narrative panel with integrated mobile navigation */}
       <NarrativePanel
         chapter={currentChapter}
         isVisible={status === 'playing' || status === 'paused' || status === 'transitioning'}
         position="bottom"
         collapsed={isNarrativeCollapsed}
         onToggleCollapse={handleToggleNarrative}
+        onPrevious={onPreviousChapter}
+        onNext={onNextChapter}
+        onExit={onExitTour}
+        isPreviousDisabled={isFirstChapter}
+        isNextDisabled={isLastChapter}
+        isTransitioning={isTransitioning}
       />
 
-      {/* Bottom controls */}
-      <div className="fixed bottom-28 left-1/2 -translate-x-1/2 z-30 sm:bottom-32">
+      {/* Bottom controls - hidden on mobile, visible on desktop */}
+      <div className="hidden sm:block fixed bottom-32 left-1/2 -translate-x-1/2 z-30">
         <div className="bg-white/95 backdrop-blur-md rounded-full shadow-lg border border-gray-200 px-3 py-2">
           <TourControls
             onPrevious={onPreviousChapter}

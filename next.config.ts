@@ -20,13 +20,13 @@ const nextConfig: NextConfig = {
               // Allow styles from self and inline (for MapLibre)
               "style-src 'self' 'unsafe-inline'",
               // Allow images and data from map tile providers
-              "img-src 'self' data: blob: https://*.cartocdn.com https://*.openstreetmap.org https://*.tile.openstreetmap.org https://*.openfreemap.org https://tiles.stadiamaps.com",
+              "img-src 'self' data: blob: https://*.cartocdn.com https://*.openstreetmap.org https://*.tile.openstreetmap.org https://*.openfreemap.org https://tiles.openfreemap.org https://tiles.stadiamaps.com",
               // Allow WebGL workers
               "worker-src 'self' blob:",
-              // Allow connections to tile servers and APIs
-              "connect-src 'self' https://*.cartocdn.com https://*.openstreetmap.org https://*.tile.openstreetmap.org https://*.openfreemap.org https://tiles.stadiamaps.com https://api.os.uk https://opendataportal.ukpowernetworks.co.uk https://openinframap.org",
-              // Allow fonts
-              "font-src 'self' data:",
+              // Allow connections to tile servers and APIs (including vector tiles and glyphs)
+              "connect-src 'self' https://*.cartocdn.com https://*.openstreetmap.org https://*.tile.openstreetmap.org https://*.openfreemap.org https://tiles.openfreemap.org https://tiles.stadiamaps.com https://api.os.uk https://opendataportal.ukpowernetworks.co.uk https://openinframap.org https://*.openinframap.org",
+              // Allow fonts (including glyph sources for vector tiles)
+              "font-src 'self' data: https://tiles.openfreemap.org",
               // Allow child/frame sources
               "child-src 'self' blob:",
             ].join('; ')

@@ -33,6 +33,13 @@ body > div {
   outline: none;
 }
 
+/* Fix mobile zoom controls being cut off at bottom - position above attribution bar */
+@media (max-width: 639px) {
+  .maplibregl-ctrl-bottom-right {
+    bottom: 24px !important;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

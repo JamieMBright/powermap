@@ -38,6 +38,12 @@ const MIN_YEAR = 2025;
 const MAX_YEAR = 2050;
 const KEY_YEARS = [2025, 2030, 2035, 2040, 2045, 2050];
 
+// Helper function to expand the slider before testing expanded elements
+const expandSlider = () => {
+  const collapsedButton = screen.getByTestId('year-slider');
+  fireEvent.click(collapsedButton);
+};
+
 describe('YearSlider Component', () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -60,15 +66,43 @@ describe('YearSlider Component', () => {
     vi.restoreAllMocks();
   });
 
-  describe('rendering', () => {
+  describe('collapsed state', () => {
+    it('should render in collapsed state by default', () => {
+      render(<YearSlider />);
+
+      // In collapsed state, it shows a button with the year
+      const collapsedButton = screen.getByTestId('year-slider');
+      expect(collapsedButton).toBeInTheDocument();
+      expect(collapsedButton.tagName).toBe('BUTTON');
+    });
+
+    it('should display current year in collapsed state', () => {
+      render(<YearSlider />);
+
+      expect(screen.getByText('2030')).toBeInTheDocument();
+    });
+
+    it('should expand on click', () => {
+      render(<YearSlider />);
+
+      expandSlider();
+
+      // After expanding, should show the Year label and controls
+      expect(screen.getByText('Year')).toBeInTheDocument();
+    });
+  });
+
+  describe('rendering (expanded)', () => {
     it('should render the component', () => {
       render(<YearSlider />);
+      expandSlider();
 
       expect(screen.getByText('Year')).toBeInTheDocument();
     });
 
     it('should display the current year', () => {
       render(<YearSlider />);
+      expandSlider();
 
       // Use testid since year appears in multiple places (display and tick marks)
       expect(screen.getByTestId('year-display')).toHaveTextContent('2030');
@@ -76,6 +110,7 @@ describe('YearSlider Component', () => {
 
     it('should render the slider input', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const slider = screen.getByRole('slider', { name: /select year/i });
       expect(slider).toBeInTheDocument();
@@ -83,6 +118,7 @@ describe('YearSlider Component', () => {
 
     it('should render play/pause button', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const playButton = screen.getByRole('button', { name: /play/i });
       expect(playButton).toBeInTheDocument();
@@ -90,6 +126,7 @@ describe('YearSlider Component', () => {
 
     it('should render previous year button', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const prevButton = screen.getByRole('button', { name: /previous year/i });
       expect(prevButton).toBeInTheDocument();
@@ -97,6 +134,7 @@ describe('YearSlider Component', () => {
 
     it('should render next year button', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const nextButton = screen.getByRole('button', { name: /next year/i });
       expect(nextButton).toBeInTheDocument();
@@ -112,6 +150,7 @@ describe('YearSlider Component', () => {
   describe('slider input', () => {
     it('should have correct min attribute', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const slider = screen.getByRole('slider');
       expect(slider).toHaveAttribute('min', String(MIN_YEAR));
@@ -119,6 +158,7 @@ describe('YearSlider Component', () => {
 
     it('should have correct max attribute', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const slider = screen.getByRole('slider');
       expect(slider).toHaveAttribute('max', String(MAX_YEAR));
@@ -126,6 +166,7 @@ describe('YearSlider Component', () => {
 
     it('should have correct value attribute', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const slider = screen.getByRole('slider');
       expect(slider).toHaveValue('2030');
@@ -133,6 +174,7 @@ describe('YearSlider Component', () => {
 
     it('should call setYear when slider changes', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const slider = screen.getByRole('slider');
       fireEvent.change(slider, { target: { value: '2035' } });
@@ -144,6 +186,7 @@ describe('YearSlider Component', () => {
   describe('navigation buttons', () => {
     it('should call previousYear when previous button is clicked', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const prevButton = screen.getByRole('button', { name: /previous year/i });
       fireEvent.click(prevButton);
@@ -153,6 +196,7 @@ describe('YearSlider Component', () => {
 
     it('should call nextYear when next button is clicked', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const nextButton = screen.getByRole('button', { name: /next year/i });
       fireEvent.click(nextButton);
@@ -168,6 +212,7 @@ describe('YearSlider Component', () => {
       };
 
       render(<YearSlider />);
+      expandSlider();
 
       const prevButton = screen.getByRole('button', { name: /previous year/i });
       expect(prevButton).toBeDisabled();
@@ -181,6 +226,7 @@ describe('YearSlider Component', () => {
       };
 
       render(<YearSlider />);
+      expandSlider();
 
       const nextButton = screen.getByRole('button', { name: /next year/i });
       expect(nextButton).toBeDisabled();
