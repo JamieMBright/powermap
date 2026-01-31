@@ -1,0 +1,215 @@
+{
+  "id": "flexibility-services",
+  "title": "Smart Flexibility in Colchester",
+  "summary": "Discover how EV smart charging and Vehicle-to-Grid technology are helping avoid millions in network reinforcement costs.",
+  "duration": "7 min",
+  "thumbnail": "/data/tours/thumbnails/flexibility.svg",
+  "category": "Flexibility Services",
+  "chapters": [
+    {
+      "id": "introduction",
+      "title": "The Challenge of Peak Demand",
+      "narrative": "Every evening between 5pm and 8pm, electricity demand surges as people return home, cook dinner, and charge their electric vehicles. On Greenstead Road in Colchester, a residential area with high EV uptake, this evening peak is pushing the local distribution transformer to its limits. Without intervention, an expensive upgrade would be needed.",
+      "mapState": {
+        "center": [0.935, 51.885],
+        "zoom": 14,
+        "pitch": 0,
+        "bearing": 0
+      },
+      "annotations": [
+        {
+          "type": "marker",
+          "position": [0.935, 51.885],
+          "content": "Greenstead Road Distribution Transformer"
+        }
+      ],
+      "transition": {
+        "duration": 2000,
+        "easing": "fly"
+      }
+    },
+    {
+      "id": "the-problem",
+      "title": "When EVs Overload the Grid",
+      "narrative": "This 500kVA transformer serves 180 homes. With 35 EVs now on the street - and more arriving monthly - simultaneous charging could demand 250kW. Combined with evening cooking, heating, and appliances, peak demand can exceed the transformer's safe capacity. The traditional solution? Replace the transformer and upgrade the cables. Cost: 120,000 pounds.",
+      "mapState": {
+        "center": [0.935, 51.885],
+        "zoom": 16,
+        "pitch": 45,
+        "bearing": 20
+      },
+      "annotations": [
+        {
+          "type": "popup",
+          "position": [0.935, 51.885],
+          "content": "Transformer Capacity: 500kVA | Peak Demand: 520kVA"
+        },
+        {
+          "type": "marker",
+          "position": [0.937, 51.886],
+          "content": "35 EVs on network"
+        }
+      ],
+      "highlights": {
+        "layers": ["power-line"]
+      },
+      "transition": {
+        "duration": 2500,
+        "easing": "fly"
+      }
+    },
+    {
+      "id": "smart-charging",
+      "title": "Smart Charging: The Intelligent Alternative",
+      "narrative": "Instead of upgrading copper, we can use intelligence. Smart EV chargers receive signals from the network operator during peak periods. Cars that don't need immediate charging are automatically scheduled for later - during overnight low-demand hours. Owners barely notice: their car is still full by morning. The transformer stays within safe limits.",
+      "mapState": {
+        "center": [0.936, 51.886],
+        "zoom": 17,
+        "pitch": 50,
+        "bearing": -15
+      },
+      "annotations": [
+        {
+          "type": "popup",
+          "position": [0.934, 51.885],
+          "content": "Smart Charger A: Paused until 11pm (7kW available)"
+        },
+        {
+          "type": "popup",
+          "position": [0.936, 51.886],
+          "content": "Smart Charger B: Charging now (departure 6am)"
+        },
+        {
+          "type": "popup",
+          "position": [0.938, 51.884],
+          "content": "Smart Charger C: Scheduled for 2am"
+        }
+      ],
+      "transition": {
+        "duration": 2000,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "id": "v2g-power",
+      "title": "Vehicle-to-Grid: Cars as Batteries",
+      "narrative": "Some EVs can do more than pause charging - they can export power back to the grid. During evening peak, V2G-enabled vehicles become distributed batteries, each contributing 5-10kW of export. Twelve V2G cars on Greenstead Road can provide 80kW of support during critical hours. That's like having a small battery storage facility, but using assets that already exist.",
+      "mapState": {
+        "center": [0.935, 51.885],
+        "zoom": 16,
+        "pitch": 40,
+        "bearing": 30
+      },
+      "annotations": [
+        {
+          "type": "popup",
+          "position": [0.933, 51.886],
+          "content": "V2G Export: 7kW (80% SoC, min 50%)"
+        },
+        {
+          "type": "popup",
+          "position": [0.937, 51.884],
+          "content": "V2G Export: 10kW (90% SoC)"
+        },
+        {
+          "type": "marker",
+          "position": [0.935, 51.885],
+          "content": "Net import reduced by 80kW"
+        }
+      ],
+      "transition": {
+        "duration": 2500,
+        "easing": "fly"
+      }
+    },
+    {
+      "id": "economics",
+      "title": "The Business Case",
+      "narrative": "The numbers tell the story. Traditional reinforcement: 120,000 pounds capital cost, 18-month delivery. Flexibility alternative: 8,000 pounds per year for smart charging contracts, 15,000 pounds per year for V2G services. Over 5 years, flexibility costs 115,000 pounds versus 120,000 pounds for reinforcement - but can be deployed in months, not years. And it scales with the problem.",
+      "mapState": {
+        "center": [0.935, 51.885],
+        "zoom": 15,
+        "pitch": 30,
+        "bearing": 0
+      },
+      "annotations": [
+        {
+          "type": "popup",
+          "position": [0.935, 51.885],
+          "content": "5-Year Savings: 5,000 pounds + faster deployment"
+        }
+      ],
+      "transition": {
+        "duration": 2000,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "id": "customer-experience",
+      "title": "What It Means for Residents",
+      "narrative": "For EV owners, flexibility is a win-win. Smart charging customers receive annual payments of 50-100 pounds for allowing their charge times to shift. V2G participants earn up to 400 pounds per year. Most drivers see no impact on their daily routine - they set their departure time, and the system handles the rest. Cars are fully charged when needed.",
+      "mapState": {
+        "center": [0.936, 51.886],
+        "zoom": 17,
+        "pitch": 55,
+        "bearing": -25
+      },
+      "annotations": [
+        {
+          "type": "popup",
+          "position": [0.936, 51.886],
+          "content": "Customer earnings: 75 pounds/year from smart charging"
+        },
+        {
+          "type": "marker",
+          "position": [0.934, 51.885],
+          "content": "Car ready by 7am as requested"
+        }
+      ],
+      "transition": {
+        "duration": 2000,
+        "easing": "fly"
+      }
+    },
+    {
+      "id": "scaling-up",
+      "title": "From Street to Region",
+      "narrative": "Greenstead Road is just one example. Across the network, similar constraints exist on hundreds of transformers. If flexibility can defer or avoid reinforcement at each, the cumulative savings are substantial. In ED3, the network operator plans to procure 500MW of flexibility services - equivalent to avoiding 200 million pounds in conventional reinforcement.",
+      "mapState": {
+        "center": [0.9, 51.89],
+        "zoom": 12,
+        "pitch": 0,
+        "bearing": 0
+      },
+      "highlights": {
+        "boundaries": ["gsp_colchester"]
+      },
+      "annotations": [
+        {
+          "type": "popup",
+          "position": [0.9, 51.89],
+          "content": "ED3 Target: 500MW flexibility, 200 million pounds saved"
+        }
+      ],
+      "transition": {
+        "duration": 3000,
+        "easing": "fly"
+      }
+    },
+    {
+      "id": "conclusion",
+      "title": "The Future of Distribution",
+      "narrative": "Flexibility represents a fundamental shift in how networks operate. Instead of building infrastructure for every peak, we can orchestrate demand and distributed resources to use existing assets more efficiently. EVs, batteries, heat pumps - they're not just loads, they're partners in running a smarter grid. This is how we enable Net Zero without gold-plating the network.",
+      "mapState": {
+        "center": [0.935, 51.885],
+        "zoom": 13,
+        "pitch": 0,
+        "bearing": 0
+      },
+      "transition": {
+        "duration": 2500,
+        "easing": "fly"
+      }
+    }
+  ]
+}
