@@ -41,18 +41,43 @@ function useIsMobile() {
   return isMobile;
 }
 
+// Default boundary type to load on startup
+const DEFAULT_BOUNDARY: BoundaryType = 'gsp';
+
 export function BoundarySelector({ map, className = '' }: BoundarySelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeBoundary, setActiveBoundary] = useState<BoundaryType | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [popup, setPopup] = useState<BoundaryInfoPopup | null>(null);
+  const [hasLoadedDefault, setHasLoadedDefault] = useState(false);
   const isMobile = useIsMobile();
 
   // Use boundary context for selected boundary state
   const { selectBoundary, clearBoundary } = useSelectedBoundary();
 
   const boundaryTypes = getBoundaryTypes();
+
+  // Auto-load default boundary when map is ready
+  useEffect(() => {
+    if (!map || hasLoadedDefault) return;
+
+    const loadDefaultBoundary = async () => {
+      setIsLoading(true);
+      try {
+        await addBoundaryToMap(map, DEFAULT_BOUNDARY);
+        setActiveBoundary(DEFAULT_BOUNDARY);
+        setHasLoadedDefault(true);
+      } catch (err) {
+        console.error('[BoundarySelector] Failed to load default boundary:', err);
+        setError(err instanceof Error ? err.message : 'Failed to load default boundary');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadDefaultBoundary();
+  }, [map, hasLoadedDefault]);
 
   // Handle boundary selection
   const handleBoundarySelect = useCallback(async (boundaryType: BoundaryType | null) => {
