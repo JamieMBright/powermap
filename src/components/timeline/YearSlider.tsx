@@ -41,7 +41,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
       {/* Current Year Display */}
       <div className="flex items-center gap-3 sm:gap-4">
         <span className="text-xs font-medium text-gray-500 sm:text-sm">Year</span>
-        <span data-testid="year-display" className="text-2xl font-bold tabular-nums text-indigo-600 sm:text-3xl">
+        <span data-testid="year-display" className="text-2xl font-bold tabular-nums text-orange-600 sm:text-3xl">
           {year}
         </span>
       </div>
@@ -65,7 +65,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
           onClick={togglePlayback}
           disabled={isAtEnd && !isPlaying}
           data-testid="play-button"
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white transition-colors hover:bg-indigo-700 active:bg-indigo-800 disabled:cursor-not-allowed disabled:opacity-40 sm:h-10 sm:w-10"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-500 text-white transition-colors hover:bg-orange-600 active:bg-orange-700 disabled:cursor-not-allowed disabled:opacity-40 sm:h-10 sm:w-10"
           aria-label={isPlaying ? 'Pause' : 'Play'}
           title={isPlaying ? 'Pause animation' : 'Play animation'}
         >
@@ -78,7 +78,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
           <div className="relative h-3 w-full rounded-full bg-gray-200 sm:h-2">
             {/* Filled Track */}
             <div
-              className="absolute h-full rounded-full bg-indigo-500 transition-all duration-150"
+              className="absolute h-full rounded-full bg-orange-500 transition-all duration-150"
               style={{ width: `${percentage}%` }}
             />
           </div>
@@ -95,7 +95,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
               [&::-webkit-slider-thumb]:h-7 [&::-webkit-slider-thumb]:w-7
               [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none
               [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-2
-              [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:bg-indigo-600
+              [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:bg-orange-500
               [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:transition-transform
               [&::-webkit-slider-thumb]:active:scale-110
               sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:w-5
@@ -103,7 +103,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
               [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:w-7
               [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:appearance-none
               [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-2
-              [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-indigo-600
+              [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-orange-500
               [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:transition-transform
               [&::-moz-range-thumb]:active:scale-110
               sm:[&::-moz-range-thumb]:h-5 sm:[&::-moz-range-thumb]:w-5
@@ -131,13 +131,13 @@ export function YearSlider({ className = '' }: YearSliderProps) {
                 >
                   <div
                     className={`h-2 w-0.5 transition-colors ${
-                      isCurrentYear ? 'bg-indigo-600' : 'bg-gray-300 group-hover:bg-gray-400'
+                      isCurrentYear ? 'bg-orange-500' : 'bg-gray-300 group-hover:bg-gray-400'
                     }`}
                   />
                   <span
                     className={`mt-1 text-xs tabular-nums transition-colors ${
                       isCurrentYear
-                        ? 'font-semibold text-indigo-600'
+                        ? 'font-semibold text-orange-600'
                         : 'text-gray-400 group-hover:text-gray-600'
                     }`}
                   >

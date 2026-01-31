@@ -97,7 +97,7 @@ export function TourSelector({ isOpen, onClose, onSelectTour }: TourSelectorProp
           <div>
             <h2 className="text-lg font-semibold text-gray-900">Guided Tours</h2>
             <p className="text-sm text-gray-500 mt-0.5">
-              Explore UKPN investment stories
+              Explore electricity network investment stories
             </p>
           </div>
           <button
@@ -115,7 +115,7 @@ export function TourSelector({ isOpen, onClose, onSelectTour }: TourSelectorProp
         <div className="flex-1 overflow-y-auto p-4">
           {isLoading && (
             <div className="flex flex-col items-center justify-center py-12">
-              <div className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent" />
+              <div className="h-8 w-8 animate-spin rounded-full border-4 border-orange-500 border-t-transparent" />
               <p className="mt-4 text-sm text-gray-500">Loading tours...</p>
             </div>
           )}
@@ -158,7 +158,7 @@ export function TourSelector({ isOpen, onClose, onSelectTour }: TourSelectorProp
         {/* Footer */}
         <div className="border-t border-gray-200 px-4 py-3 bg-gray-50">
           <p className="text-xs text-gray-500 text-center">
-            Tours highlight UKPN investment projects and network changes
+            Tours highlight investment projects and network changes
           </p>
         </div>
       </div>

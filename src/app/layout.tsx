@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PowerMap | UK Power Networks Investment Strategy",
-  description: "Interactive map visualizing UK Power Networks' future investment strategy from 2025 to 2050. Explore planned network reinforcements, asset investments, and infrastructure developments.",
-  keywords: ["UK Power Networks", "electricity network", "investment", "infrastructure", "map", "DSO", "distribution"],
-  authors: [{ name: "UK Power Networks" }],
+  title: "PowerMap | Electricity Network Investment Strategy",
+  description: "Interactive map visualizing an electricity distribution company's future investment strategy from 2025 to 2050. Explore planned network reinforcements, asset investments, and infrastructure developments.",
+  keywords: ["electricity network", "investment", "infrastructure", "map", "DSO", "distribution", "power grid"],
+  authors: [{ name: "PowerMap Team" }],
   openGraph: {
-    title: "PowerMap | UK Power Networks Investment Strategy",
-    description: "Interactive map visualizing UK Power Networks' future investment strategy from 2025 to 2050.",
+    title: "PowerMap | Electricity Network Investment Strategy",
+    description: "Interactive map visualizing an electricity distribution company's future investment strategy from 2025 to 2050.",
     type: "website",
   },
 };

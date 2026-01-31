@@ -7,7 +7,7 @@ export const MAP_CONFIG = {
   zoom: 7,
   minZoom: 5,
   maxZoom: 18,
-  // UKPN coverage area bounds (approximate)
+  // Coverage area bounds (approximate)
   bounds: [
     [-2.5, 50.5],  // Southwest
     [2.0, 52.5]    // Northeast
@@ -36,12 +36,12 @@ export const ASSET_COLORS: Record<string, string> = {
 // Boundary layer styles
 export const BOUNDARY_STYLES = {
   line: {
-    color: '#6366f1',
+    color: '#f97316',  // orange-500
     width: 2,
     opacity: 0.8,
   },
   fill: {
-    color: '#6366f1',
+    color: '#f97316',  // orange-500
     opacity: 0.1,
   },
   highlight: {

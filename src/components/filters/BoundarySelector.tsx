@@ -157,7 +157,7 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
             bg-white border border-gray-200 hover:bg-gray-50 active:bg-gray-100
             transition-colors duration-150 min-h-[44px]
             sm:py-2 sm:min-h-0
-            ${isOpen ? 'ring-2 ring-indigo-500' : ''}
+            ${isOpen ? 'ring-2 ring-orange-500' : ''}
             ${isLoading ? 'opacity-75 cursor-wait' : ''}
           `}
         >
@@ -263,7 +263,7 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
                 className={`
                   w-full flex items-center gap-4 px-4 py-4 text-left
                   active:bg-gray-100 transition-colors
-                  ${!activeBoundary ? 'bg-indigo-50' : ''}
+                  ${!activeBoundary ? 'bg-orange-50' : ''}
                 `}
               >
                 <span className="w-5 h-5 rounded-full border-2 border-dashed border-gray-300 shrink-0" />
@@ -272,7 +272,7 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
                   <div className="text-sm text-gray-500">Hide all boundaries</div>
                 </div>
                 {!activeBoundary && (
-                  <svg className="w-5 h-5 text-indigo-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-5 h-5 text-orange-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 )}
@@ -339,12 +339,12 @@ function BoundaryOption({ config, isActive, onClick, testId }: BoundaryOptionPro
       className={`
         w-full flex items-center gap-3 px-3 py-2 text-left
         hover:bg-gray-50 transition-colors
-        ${isActive ? 'bg-indigo-50' : ''}
+        ${isActive ? 'bg-orange-50' : ''}
       `}
     >
       {/* Color indicator */}
       <span
-        className={`w-3 h-3 rounded-full ${isActive ? 'ring-2 ring-offset-1 ring-indigo-500' : ''}`}
+        className={`w-3 h-3 rounded-full ${isActive ? 'ring-2 ring-offset-1 ring-orange-500' : ''}`}
         style={{ backgroundColor: config.colors.fill }}
       />
 
@@ -356,7 +356,7 @@ function BoundaryOption({ config, isActive, onClick, testId }: BoundaryOptionPro
 
       {/* Checkmark for active */}
       {isActive && (
-        <svg className="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+        <svg className="w-4 h-4 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
           <path
             fillRule="evenodd"
             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -377,12 +377,12 @@ function BoundaryOptionMobile({ config, isActive, onClick, testId }: BoundaryOpt
       className={`
         w-full flex items-center gap-4 px-4 py-4 text-left
         active:bg-gray-100 transition-colors min-h-[56px]
-        ${isActive ? 'bg-indigo-50' : ''}
+        ${isActive ? 'bg-orange-50' : ''}
       `}
     >
       {/* Color indicator - larger on mobile */}
       <span
-        className={`w-5 h-5 rounded-full shrink-0 ${isActive ? 'ring-2 ring-offset-2 ring-indigo-500' : ''}`}
+        className={`w-5 h-5 rounded-full shrink-0 ${isActive ? 'ring-2 ring-offset-2 ring-orange-500' : ''}`}
         style={{ backgroundColor: config.colors.fill }}
       />
 
@@ -394,7 +394,7 @@ function BoundaryOptionMobile({ config, isActive, onClick, testId }: BoundaryOpt
 
       {/* Checkmark for active */}
       {isActive && (
-        <svg className="w-5 h-5 text-indigo-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <svg className="w-5 h-5 text-orange-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
           <path
             fillRule="evenodd"
             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"

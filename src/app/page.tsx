@@ -79,25 +79,28 @@ function HomeContent() {
         <div className="flex items-center justify-between px-3 py-2 sm:px-4 sm:py-3">
           <div className="flex items-center gap-2 sm:gap-3">
             <h1 className="text-lg font-bold text-gray-900 sm:text-xl">PowerMap</h1>
-            <span className="rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-medium text-indigo-700">
+            <span className="rounded-full bg-orange-100 px-2 py-0.5 text-xs font-medium text-orange-700">
               Beta
             </span>
           </div>
           {/* Navigation - Hidden on mobile, visible on sm and up */}
           <nav className="flex items-center gap-3 sm:gap-4">
-            {/* Guided Tours button */}
+            {/* Guided Tours button - Prominent with animation */}
             <button
               onClick={handleOpenTourSelector}
               className="
-                flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2
-                rounded-lg bg-indigo-600 text-white font-medium text-xs sm:text-sm
-                hover:bg-indigo-700 active:bg-indigo-800
-                transition-colors duration-150
-                min-h-[36px] sm:min-h-[40px]
+                relative flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3
+                rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-sm sm:text-base
+                hover:from-orange-600 hover:to-orange-700 active:from-orange-700 active:to-orange-800
+                transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105
+                min-h-[44px] sm:min-h-[48px]
+                animate-pulse-subtle
               "
               aria-label="Open guided tours"
             >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {/* Glow effect */}
+              <span className="absolute inset-0 rounded-xl bg-orange-400 opacity-0 blur-md transition-opacity group-hover:opacity-30" />
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -105,11 +108,16 @@ function HomeContent() {
                   d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
                 />
               </svg>
-              <span className="hidden xs:inline sm:inline">Guided Tours</span>
+              <span>Explore Tours</span>
+              {/* "New" indicator badge */}
+              <span className="absolute -top-1 -right-1 flex h-4 w-4 sm:h-5 sm:w-5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-300 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-4 w-4 sm:h-5 sm:w-5 bg-orange-300 text-[8px] sm:text-[10px] font-bold text-orange-800 items-center justify-center">!</span>
+              </span>
             </button>
             {/* Subtitle - hidden on mobile */}
             <span className="hidden text-sm text-gray-600 lg:inline">
-              UK Power Networks Investment Strategy 2025-2050
+              Electricity Network Investment Strategy 2025-2050
             </span>
           </nav>
         </div>
@@ -163,7 +171,7 @@ function HomeContent() {
       {/* Attribution - responsive stacking on mobile */}
       <div className="absolute bottom-0 left-0 right-0 z-10 bg-white/80 backdrop-blur-sm px-3 py-1.5 text-xs text-gray-500 sm:px-4 sm:py-2">
         <div className="flex flex-col items-center gap-0.5 text-center sm:flex-row sm:justify-between sm:text-left">
-          <span>© UK Power Networks | Open Infrastructure Map</span>
+          <span>© PowerMap | Open Infrastructure Map</span>
           <span className="hidden sm:inline">Built with MapLibre GL JS</span>
         </div>
       </div>

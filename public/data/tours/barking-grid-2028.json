@@ -1,7 +1,7 @@
 {
   "id": "barking-grid-2028",
   "title": "Barking Grid Reinforcement 2028",
-  "summary": "Explore UKPN's major grid reinforcement project in East London, supporting the Thames Freeport and local growth.",
+  "summary": "Explore the network operator's major grid reinforcement project in East London, supporting the Thames Freeport and local growth.",
   "duration": "5 min",
   "thumbnail": "/data/tours/thumbnails/barking-grid.svg",
   "category": "Major Projects",
@@ -9,7 +9,7 @@
     {
       "id": "introduction",
       "title": "Welcome to the Barking Grid Project",
-      "narrative": "The Barking Grid Reinforcement is one of UKPN's most significant infrastructure investments planned for 2028. This tour will guide you through the project's scope, rationale, and impact on East London's electricity network. The project addresses growing demand from the Thames Freeport development and supports the region's ambitious decarbonisation targets.",
+      "narrative": "The Barking Grid Reinforcement is one of the network operator's most significant infrastructure investments planned for 2028. This tour will guide you through the project's scope, rationale, and impact on East London's electricity network. The project addresses growing demand from the Thames Freeport development and supports the region's ambitious decarbonisation targets.",
       "mapState": {
         "center": [0.13, 51.54],
         "zoom": 10,
@@ -82,7 +82,7 @@
     {
       "id": "project-scope",
       "title": "Project Scope and Investment",
-      "narrative": "The Barking Grid Reinforcement includes: installation of new 132kV Gas-Insulated Switchgear (GIS), two new 132/33kV 90MVA transformers, upgrade of protection and control systems, and new cable routes to adjacent substations. The total investment is approximately 45 million pounds, making it one of the largest single projects in UKPN's ED2 investment plan. Construction is scheduled to begin in 2027 with completion targeted for late 2028.",
+      "narrative": "The Barking Grid Reinforcement includes: installation of new 132kV Gas-Insulated Switchgear (GIS), two new 132/33kV 90MVA transformers, upgrade of protection and control systems, and new cable routes to adjacent substations. The total investment is approximately 45 million pounds, making it one of the largest single projects in the network operator's ED2 investment plan. Construction is scheduled to begin in 2027 with completion targeted for late 2028.",
       "mapState": {
         "center": [0.0815, 51.5365],
         "zoom": 15,
@@ -109,7 +109,7 @@
     {
       "id": "future-benefits",
       "title": "Enabling East London's Future",
-      "narrative": "Once complete, the Barking Grid Reinforcement will unlock significant capacity for growth: up to 200MW of additional demand can be connected, supporting thousands of new homes and businesses. The upgraded infrastructure will also enable faster connection of renewable generation and battery storage, supporting the UK's Net Zero targets. This investment demonstrates UKPN's commitment to building the electricity network that East London needs for the decades ahead.",
+      "narrative": "Once complete, the Barking Grid Reinforcement will unlock significant capacity for growth: up to 200MW of additional demand can be connected, supporting thousands of new homes and businesses. The upgraded infrastructure will also enable faster connection of renewable generation and battery storage, supporting the UK's Net Zero targets. This investment demonstrates the network operator's commitment to building the electricity network that East London needs for the decades ahead.",
       "mapState": {
         "center": [0.08, 51.53],
         "zoom": 11,
