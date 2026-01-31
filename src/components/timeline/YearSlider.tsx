@@ -190,7 +190,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
             value={year}
             onChange={handleSliderChange}
             data-testid="year-slider-input"
-            className="absolute inset-0 h-3 w-full cursor-pointer appearance-none bg-transparent touch-manipulation sm:h-2
+            className="absolute inset-0 w-full cursor-pointer appearance-none bg-transparent touch-manipulation
               [&::-webkit-slider-thumb]:h-7 [&::-webkit-slider-thumb]:w-7
               [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none
               [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-2
