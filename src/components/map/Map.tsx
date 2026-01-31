@@ -7,6 +7,7 @@ import { MAP_CONFIG } from '@/lib/maplibre';
 import { addOIMToMapAsync, type OIMStatus } from '@/lib/oim';
 import { BoundarySelector } from '@/components/filters/BoundarySelector';
 import { InvestmentLayer } from '@/components/map/InvestmentLayer';
+import { useInfrastructurePopup } from '@/hooks/useInfrastructurePopup';
 
 interface MapProps {
   className?: string;
@@ -37,6 +38,9 @@ export function Map({ className = '', onMapLoad }: MapProps) {
     setMap(loadedMap);
     onMapLoad?.(loadedMap);
   }, [onMapLoad]);
+
+  // Enable click popups for infrastructure features
+  useInfrastructurePopup(map);
 
   useEffect(() => {
     if (!mapContainer.current || mapRef.current) return;

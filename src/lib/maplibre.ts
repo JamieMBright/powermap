@@ -111,7 +111,7 @@ const minimalStyle: StyleSpecification = {
         'fill-opacity': 0.5,
       },
     },
-    // Buildings - very light gray, only at higher zoom
+    // Buildings - pale yellow/cream, only at higher zoom
     {
       id: 'building',
       type: 'fill',
@@ -119,8 +119,8 @@ const minimalStyle: StyleSpecification = {
       'source-layer': 'building',
       minzoom: 13,
       paint: {
-        'fill-color': '#eeeeee',
-        'fill-opacity': 0.6,
+        'fill-color': '#fef9e7',  // Pale yellow/cream
+        'fill-opacity': 0.7,
       },
     },
     // Minor roads - light gray

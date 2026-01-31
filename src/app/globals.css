@@ -153,3 +153,30 @@ body {
   transform: translate(-50%, -50%);
   animation: pulse-ring 1.5s ease-out infinite 0.5s;
 }
+
+/* Infrastructure popup styles */
+.infrastructure-popup .maplibregl-popup-content {
+  padding: 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.infrastructure-popup .maplibregl-popup-content > div {
+  padding: 12px;
+}
+
+.infrastructure-popup .maplibregl-popup-close-button {
+  font-size: 18px;
+  padding: 4px 8px;
+  color: #6b7280;
+}
+
+.infrastructure-popup .maplibregl-popup-close-button:hover {
+  color: #1f2937;
+  background: #f3f4f6;
+}
+
+.infrastructure-popup .maplibregl-popup-tip {
+  border-top-color: white;
+}

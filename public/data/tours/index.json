@@ -8,7 +8,25 @@
       "thumbnail": "/data/tours/thumbnails/barking-grid.svg",
       "category": "Major Projects",
       "chapterCount": 5
+    },
+    {
+      "id": "datacentre-connection",
+      "title": "Slough Datacentre Connection 2029",
+      "summary": "Follow the journey of connecting a 50MW hyperscale datacentre, from application to energisation.",
+      "duration": "6 min",
+      "thumbnail": "/data/tours/thumbnails/datacentre.svg",
+      "category": "Major Connections",
+      "chapterCount": 7
+    },
+    {
+      "id": "flexibility-services",
+      "title": "Smart Flexibility in Colchester",
+      "summary": "Discover how EV smart charging and V2G technology help avoid network reinforcement costs.",
+      "duration": "7 min",
+      "thumbnail": "/data/tours/thumbnails/flexibility.svg",
+      "category": "Flexibility Services",
+      "chapterCount": 8
     }
   ],
-  "lastUpdated": "2025-01-01T00:00:00Z"
+  "lastUpdated": "2026-01-31T00:00:00Z"
 }
