@@ -1,8 +1,14 @@
 import type { StyleSpecification, LngLatBoundsLike } from 'maplibre-gl';
 
+// Map style options - fallbacks if CARTO is unavailable
+export const MAP_STYLES = {
+  carto: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+  osm: 'https://tiles.openfreemap.org/styles/liberty', // Fallback
+};
+
 // Map configuration
 export const MAP_CONFIG = {
-  style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json' as string,
+  style: MAP_STYLES.carto,
   center: [-0.1, 51.5] as [number, number], // London
   zoom: 7,
   minZoom: 5,

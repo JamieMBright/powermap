@@ -1,7 +1,7 @@
 'use client';
 
 import { useYearFilter, MIN_YEAR, MAX_YEAR, KEY_YEARS } from '@/hooks/useYearFilter';
-import { useCallback, type ChangeEvent } from 'react';
+import { useCallback, useState, useEffect, useRef, type ChangeEvent } from 'react';
 
 interface YearSliderProps {
   className?: string;
@@ -10,6 +10,7 @@ interface YearSliderProps {
 /**
  * Year slider component for navigating through the 2025-2050 timeline.
  * Features animated playback and URL state sync for shareable links.
+ * On mobile: collapses to a small pill, expands on tap, auto-hides after inactivity.
  */
 export function YearSlider({ className = '' }: YearSliderProps) {
   const {
@@ -23,21 +24,102 @@ export function YearSlider({ className = '' }: YearSliderProps) {
     isAtEnd,
   } = useYearFilter();
 
+  // Mobile collapse state
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const collapseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Detect mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Auto-collapse after 4 seconds of inactivity on mobile
+  const resetCollapseTimer = useCallback(() => {
+    if (collapseTimeoutRef.current) {
+      clearTimeout(collapseTimeoutRef.current);
+    }
+    if (isMobile && isExpanded && !isPlaying) {
+      collapseTimeoutRef.current = setTimeout(() => {
+        setIsExpanded(false);
+      }, 4000);
+    }
+  }, [isMobile, isExpanded, isPlaying]);
+
+  // Reset timer on any interaction
+  useEffect(() => {
+    resetCollapseTimer();
+    return () => {
+      if (collapseTimeoutRef.current) {
+        clearTimeout(collapseTimeoutRef.current);
+      }
+    };
+  }, [resetCollapseTimer, year]);
+
+  // Keep expanded while playing
+  useEffect(() => {
+    if (isPlaying) {
+      setIsExpanded(true);
+    }
+  }, [isPlaying]);
+
   const handleSliderChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       setYear(parseInt(event.target.value, 10));
+      resetCollapseTimer();
     },
-    [setYear]
+    [setYear, resetCollapseTimer]
   );
+
+  const handleExpand = useCallback(() => {
+    setIsExpanded(true);
+    resetCollapseTimer();
+  }, [resetCollapseTimer]);
 
   // Calculate the percentage for styling the slider track
   const percentage = ((year - MIN_YEAR) / (MAX_YEAR - MIN_YEAR)) * 100;
+
+  // Mobile collapsed view - just a small pill showing current year
+  if (isMobile && !isExpanded) {
+    return (
+      <button
+        onClick={handleExpand}
+        className={`flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 shadow-md backdrop-blur-sm transition-all active:scale-95 ${className}`}
+        aria-label={`Year ${year}. Tap to adjust`}
+      >
+        <span className="text-sm font-semibold text-orange-600">{year}</span>
+        <svg className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+      </button>
+    );
+  }
 
   return (
     <div
       data-testid="year-slider"
       className={`flex flex-col items-center gap-2 rounded-lg bg-white/95 px-3 py-3 shadow-lg backdrop-blur-sm sm:gap-3 sm:px-6 sm:py-4 ${className}`}
+      onTouchStart={resetCollapseTimer}
+      onClick={resetCollapseTimer}
     >
+      {/* Mobile: Close button */}
+      {isMobile && (
+        <button
+          onClick={() => setIsExpanded(false)}
+          className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-gray-500 shadow-sm"
+          aria-label="Collapse year slider"
+        >
+          <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      )}
+
       {/* Current Year Display */}
       <div className="flex items-center gap-3 sm:gap-4">
         <span className="text-xs font-medium text-gray-500 sm:text-sm">Year</span>
@@ -50,7 +132,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
       <div className="flex w-full items-center gap-2 sm:gap-3">
         {/* Previous Year Button - 44px min tap target */}
         <button
-          onClick={previousYear}
+          onClick={() => { previousYear(); resetCollapseTimer(); }}
           disabled={isAtStart}
           data-testid="previous-year-button"
           className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 active:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 sm:h-9 sm:w-9"
@@ -62,7 +144,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
 
         {/* Play/Pause Button - 44px min tap target */}
         <button
-          onClick={togglePlayback}
+          onClick={() => { togglePlayback(); resetCollapseTimer(); }}
           disabled={isAtEnd && !isPlaying}
           data-testid="play-button"
           className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-500 text-white transition-colors hover:bg-orange-600 active:bg-orange-700 disabled:cursor-not-allowed disabled:opacity-40 sm:h-10 sm:w-10"
@@ -111,7 +193,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
             aria-label="Select year"
           />
 
-          {/* Tick Marks - hidden on very small screens, show fewer on mobile */}
+          {/* Tick Marks - hidden on mobile */}
           <div className="absolute top-5 hidden w-full justify-between px-0 sm:top-4 sm:flex">
             {KEY_YEARS.map((keyYear) => {
               const tickPercentage =
@@ -120,7 +202,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
               return (
                 <button
                   key={keyYear}
-                  onClick={() => setYear(keyYear)}
+                  onClick={() => { setYear(keyYear); resetCollapseTimer(); }}
                   className="group flex min-h-[44px] min-w-[44px] flex-col items-center justify-start sm:min-h-0 sm:min-w-0"
                   style={{
                     position: 'absolute',
@@ -151,7 +233,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
 
         {/* Next Year Button - 44px min tap target */}
         <button
-          onClick={nextYear}
+          onClick={() => { nextYear(); resetCollapseTimer(); }}
           disabled={isAtEnd}
           data-testid="next-year-button"
           className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 active:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 sm:h-9 sm:w-9"

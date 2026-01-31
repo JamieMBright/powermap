@@ -95,6 +95,31 @@ npm run type-check && npm test
 - Keep tasks small and focused
 - Clear context between major features
 
+## Version Tagging Convention
+
+**Version Format:** `vX.Y-beta` (e.g., v0.5-beta, v0.6-beta)
+
+### How to Bump Version
+1. Update version in `src/lib/version.ts`:
+   ```typescript
+   export const APP_VERSION = 'v0.6-beta';
+   export const APP_VERSION_SHORT = '0.6β';
+   ```
+
+2. Create git tag after merging to main:
+   ```bash
+   git tag -a v0.6-beta -m "Release v0.6-beta: Brief description"
+   git push origin v0.6-beta
+   ```
+
+### When to Bump
+- Bump minor version (0.X) after each significant PR merge
+- Current version displayed in UI next to "PowerMap" title
+- Tag releases on main branch only
+
+### Version History
+- v0.5-beta: Orange theme, collapsible year slider, map fixes
+
 ## Do NOT
 - Use `any` type
 - Skip TypeScript errors
