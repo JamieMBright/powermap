@@ -78,3 +78,78 @@ body {
 .animate-pulse-subtle {
   animation: pulse-subtle 2s ease-in-out infinite;
 }
+
+/* Pulsing animation for highlighted/upgraded assets */
+@keyframes pulse-asset {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px 2px rgba(249, 115, 22, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 15px 5px rgba(249, 115, 22, 0.8);
+  }
+}
+
+.animate-pulse-asset {
+  animation: pulse-asset 1.5s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+/* Upgraded asset marker styles */
+.upgraded-asset-marker {
+  position: relative;
+}
+
+.upgraded-asset-marker::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(249, 115, 22, 0.4);
+  transform: translate(-50%, -50%);
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+.upgraded-asset-marker::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  border: 2px solid rgba(249, 115, 22, 0.6);
+  transform: translate(-50%, -50%);
+  animation: pulse-ring 1.5s ease-out infinite 0.5s;
+}

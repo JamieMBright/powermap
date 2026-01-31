@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-0",
-        "name": "gsp Area 1",
+        "name": "BRAINTREE",
         "_original": {
           "geo_point_2d": {
             "lon": 0.5603360755242933,
@@ -3910,7 +3910,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-1",
-        "name": "gsp Area 2",
+        "name": "BEDDINGTON (SPN)",
         "_original": {
           "geo_point_2d": {
             "lon": -0.07713272221085155,
@@ -7071,7 +7071,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-2",
-        "name": "gsp Area 3",
+        "name": "ST JOHNS WOOD",
         "_original": {
           "geo_point_2d": {
             "lon": -0.16223370061420517,
@@ -16100,7 +16100,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-3",
-        "name": "gsp Area 4",
+        "name": "CANTERBURY NORTH",
         "_original": {
           "geo_point_2d": {
             "lon": 0.9603949609518899,
@@ -19567,7 +19567,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-4",
-        "name": "gsp Area 5",
+        "name": "WIMBLEDON 3&4",
         "_original": {
           "geo_point_2d": {
             "lon": -0.19597151195945392,
@@ -23516,7 +23516,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-5",
-        "name": "gsp Area 6",
+        "name": "RAYLEIGH",
         "_original": {
           "geo_point_2d": {
             "lon": 0.7213029486488594,
@@ -32563,7 +32563,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-6",
-        "name": "gsp Area 7",
+        "name": "WEST WEYBRIDGE",
         "_original": {
           "geo_point_2d": {
             "lon": -0.4508183399015049,
@@ -37150,7 +37150,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-7",
-        "name": "gsp Area 8",
+        "name": "WATFORD SOUTH",
         "_original": {
           "geo_point_2d": {
             "lon": -0.549485115822065,
@@ -47261,7 +47261,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-8",
-        "name": "gsp Area 9",
+        "name": "SELLINDGE",
         "_original": {
           "geo_point_2d": {
             "lon": 0.9233605455400766,
@@ -49598,7 +49598,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-9",
-        "name": "gsp Area 10",
+        "name": "WYMONDLEY",
         "_original": {
           "geo_point_2d": {
             "lon": -0.14217433120819997,
@@ -51995,7 +51995,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-10",
-        "name": "gsp Area 11",
+        "name": "NEW CROSS 66",
         "_original": {
           "geo_point_2d": {
             "lon": -0.06633252241261929,
@@ -58140,7 +58140,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-11",
-        "name": "gsp Area 12",
+        "name": "BRAMFORD",
         "_original": {
           "geo_point_2d": {
             "lon": 1.0627463588034722,
@@ -64713,7 +64713,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-12",
-        "name": "gsp Area 13",
+        "name": "NORWICH",
         "_original": {
           "geo_point_2d": {
             "lon": 1.3143555195183598,
@@ -67092,7 +67092,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-13",
-        "name": "gsp Area 14",
+        "name": "BRIMSDOWN (EPN)",
         "_original": {
           "geo_point_2d": {
             "lon": -0.10574458544906659,
@@ -74147,7 +74147,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-14",
-        "name": "gsp Area 15",
+        "name": "ELSTREE",
         "_original": {
           "geo_point_2d": {
             "lon": -0.34512243555514616,
@@ -86122,7 +86122,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-15",
-        "name": "gsp Area 16",
+        "name": "MILL HILL",
         "_original": {
           "geo_point_2d": {
             "lon": -0.22020593491696666,
@@ -91717,7 +91717,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-16",
-        "name": "gsp Area 17",
+        "name": "BOLNEY",
         "_original": {
           "geo_point_2d": {
             "lon": -0.2668495722962395,
@@ -98708,7 +98708,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-17",
-        "name": "gsp Area 18",
+        "name": "CITY ROAD",
         "_original": {
           "geo_point_2d": {
             "lon": -0.09572684147430942,
@@ -102297,7 +102297,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-18",
-        "name": "gsp Area 19",
+        "name": "EATON SOCON",
         "_original": {
           "geo_point_2d": {
             "lon": -0.21352912022480233,
@@ -106426,7 +106426,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-19",
-        "name": "gsp Area 20",
+        "name": "LALEHAM",
         "_original": {
           "geo_point_2d": {
             "lon": -0.4595093140362993,
@@ -109091,7 +109091,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-20",
-        "name": "gsp Area 21",
+        "name": "PELHAM",
         "_original": {
           "geo_point_2d": {
             "lon": 0.413630040198398,
@@ -113446,7 +113446,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-21",
-        "name": "gsp Area 22",
+        "name": "WEST HAM",
         "_original": {
           "geo_point_2d": {
             "lon": 0.013491793669306985,
@@ -118194,7 +118194,7 @@
                 51.54067017
               ],
               [
-                -0.00003558,
+                -3.558e-05,
                 51.54025992
               ],
               [
@@ -118523,7 +118523,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-22",
-        "name": "gsp Area 23",
+        "name": "KINGSNORTH",
         "_original": {
           "geo_point_2d": {
             "lon": 0.46803050657241063,
@@ -120390,7 +120390,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-23",
-        "name": "gsp Area 24",
+        "name": "WARLEY",
         "_original": {
           "geo_point_2d": {
             "lon": 0.3010907960322155,
@@ -124621,7 +124621,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-24",
-        "name": "gsp Area 25",
+        "name": "WALPOLE",
         "_original": {
           "geo_point_2d": {
             "lon": 0.40597117219067025,
@@ -129917,7 +129917,7 @@
                 52.65771432
               ],
               [
-                0.00003216,
+                3.216e-05,
                 52.65717961
               ],
               [
@@ -131608,7 +131608,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-25",
-        "name": "gsp Area 26",
+        "name": "WILLESDEN 66",
         "_original": {
           "geo_point_2d": {
             "lon": -0.23551467227693146,
@@ -133825,7 +133825,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-26",
-        "name": "gsp Area 27",
+        "name": "BARKING WEST (LPN)",
         "_original": {
           "geo_point_2d": {
             "lon": 0.10062550696872812,
@@ -137238,7 +137238,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-27",
-        "name": "gsp Area 28",
+        "name": "REDBRIDGE",
         "_original": {
           "geo_point_2d": {
             "lon": 0.07323247723504624,
@@ -137302,7 +137302,7 @@
                 51.53985581
               ],
               [
-                -0.00003558,
+                -3.558e-05,
                 51.54025992
               ],
               [
@@ -137390,7 +137390,7 @@
                 51.55194082
               ],
               [
-                0.00004805,
+                4.805e-05,
                 51.55188277
               ],
               [
@@ -139981,7 +139981,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-28",
-        "name": "gsp Area 29",
+        "name": "KEMSLEY",
         "_original": {
           "geo_point_2d": {
             "lon": 0.7929782054003645,
@@ -141178,7 +141178,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-29",
-        "name": "gsp Area 30",
+        "name": "AMERSHAM",
         "_original": {
           "geo_point_2d": {
             "lon": -0.8642913859629802,
@@ -145451,7 +145451,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-30",
-        "name": "gsp Area 31",
+        "name": "TOTTENHAM",
         "_original": {
           "geo_point_2d": {
             "lon": -0.10073475289251212,
@@ -150004,7 +150004,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-31",
-        "name": "gsp Area 32",
+        "name": "ACTON LANE",
         "_original": {
           "geo_point_2d": {
             "lon": -0.21073394219073385,
@@ -151561,7 +151561,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-32",
-        "name": "gsp Area 33",
+        "name": "TILBURY",
         "_original": {
           "geo_point_2d": {
             "lon": 0.43004133735518413,
@@ -155896,7 +155896,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-33",
-        "name": "gsp Area 34",
+        "name": "NORTHFLEET EAST",
         "_original": {
           "geo_point_2d": {
             "lon": 0.21802752061976938,
@@ -161639,7 +161639,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-34",
-        "name": "gsp Area 35",
+        "name": "NEW CROSS 132",
         "_original": {
           "geo_point_2d": {
             "lon": -0.06633252241261929,
@@ -167784,7 +167784,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-35",
-        "name": "gsp Area 36",
+        "name": "BARKING C (EPN)",
         "_original": {
           "geo_point_2d": {
             "lon": 0.151766260017922,
@@ -171203,7 +171203,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-36",
-        "name": "gsp Area 37",
+        "name": "BRIMSDOWN (LPN)",
         "_original": {
           "geo_point_2d": {
             "lon": 0.06605813929338324,
@@ -173020,7 +173020,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-37",
-        "name": "gsp Area 38",
+        "name": "WIMBLEDON 1&2",
         "_original": {
           "geo_point_2d": {
             "lon": -0.11829691195007398,
@@ -174429,7 +174429,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-38",
-        "name": "gsp Area 39",
+        "name": "LODGE ROAD",
         "_original": {
           "geo_point_2d": {
             "lon": -0.16914727551878428,
@@ -182628,7 +182628,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-39",
-        "name": "gsp Area 40",
+        "name": "LITTLEBROOK (LPN)",
         "_original": {
           "geo_point_2d": {
             "lon": 0.17366453487770728,
@@ -184657,7 +184657,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-40",
-        "name": "gsp Area 41",
+        "name": "BURWELL",
         "_original": {
           "geo_point_2d": {
             "lon": 0.2349911359045244,
@@ -186538,7 +186538,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-41",
-        "name": "gsp Area 42",
+        "name": "HACKNEY 66",
         "_original": {
           "geo_point_2d": {
             "lon": -0.038976914538328515,
@@ -194899,7 +194899,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-42",
-        "name": "gsp Area 43",
+        "name": "GRENDON",
         "_original": {
           "geo_point_2d": {
             "lon": -0.49121961578516804,
@@ -195160,7 +195160,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-43",
-        "name": "gsp Area 44",
+        "name": "NINFIELD",
         "_original": {
           "geo_point_2d": {
             "lon": 0.3475870896778267,
@@ -198257,7 +198257,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-44",
-        "name": "gsp Area 45",
+        "name": "SUNDON",
         "_original": {
           "geo_point_2d": {
             "lon": -0.5887449829811204,
@@ -211544,7 +211544,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-45",
-        "name": "gsp Area 46",
+        "name": "LITTLEBROOK (SPN)",
         "_original": {
           "geo_point_2d": {
             "lon": 0.19996910714294935,
@@ -213249,7 +213249,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-46",
-        "name": "gsp Area 47",
+        "name": "WILLESDEN 132",
         "_original": {
           "geo_point_2d": {
             "lon": -0.231853150903737,
@@ -218412,7 +218412,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-47",
-        "name": "gsp Area 48",
+        "name": "ISLINGTON",
         "_original": {
           "geo_point_2d": {
             "lon": -0.1264549333179466,
@@ -219903,7 +219903,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-48",
-        "name": "gsp Area 49",
+        "name": "RYE HOUSE",
         "_original": {
           "geo_point_2d": {
             "lon": 0.05167460104750042,
@@ -224096,7 +224096,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-49",
-        "name": "gsp Area 50",
+        "name": "BEDDINGTON (LPN)",
         "_original": {
           "geo_point_2d": {
             "lon": -0.027748397859061004,
@@ -225200,7 +225200,7 @@
                 51.40951515
               ],
               [
-                0.00008046,
+                8.046e-05,
                 51.40928705
               ],
               [
@@ -226519,7 +226519,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-50",
-        "name": "gsp Area 51",
+        "name": "WEST THURROCK",
         "_original": {
           "geo_point_2d": {
             "lon": 0.308393563343216,
@@ -227832,7 +227832,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-51",
-        "name": "gsp Area 52",
+        "name": "RICHBOROUGH",
         "_original": {
           "geo_point_2d": {
             "lon": 1.3377645426257545,
@@ -230105,7 +230105,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-52",
-        "name": "gsp Area 53",
+        "name": "CHESSINGTON",
         "_original": {
           "geo_point_2d": {
             "lon": -0.3318317251887171,
@@ -234288,7 +234288,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-53",
-        "name": "gsp Area 54",
+        "name": "BARKING WEST (EPN)",
         "_original": {
           "geo_point_2d": {
             "lon": 0.15281263208023863,
@@ -236125,7 +236125,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-54",
-        "name": "gsp Area 55",
+        "name": "HACKNEY 132",
         "_original": {
           "geo_point_2d": {
             "lon": -0.03294093184449722,
@@ -247101,7 +247101,7 @@
                 51.55202086
               ],
               [
-                0.00004805,
+                4.805e-05,
                 51.55188277
               ],
               [
@@ -249494,7 +249494,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-55",
-        "name": "gsp Area 56",
+        "name": "BARKING C (LPN)",
         "_original": {
           "geo_point_2d": {
             "lon": 0.0529010039966497,
@@ -250647,7 +250647,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-56",
-        "name": "gsp Area 57",
+        "name": "WILLESDEN 132",
         "_original": {
           "geo_point_2d": {
             "lon": -0.28493401295071863,
@@ -253202,7 +253202,7 @@
       "type": "Feature",
       "properties": {
         "code": "GSP-57",
-        "name": "gsp Area 58",
+        "name": "HURST (LPN)",
         "_original": {
           "geo_point_2d": {
             "lon": 0.05185506647114974,
@@ -253746,7 +253746,7 @@
                 51.40901495
               ],
               [
-                0.00008046,
+                8.046e-05,
                 51.40928705
               ],
               [
