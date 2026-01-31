@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" fill="none">
+  <!-- Background -->
+  <rect width="400" height="225" fill="#1e3a5f"/>
+
+  <!-- Grid pattern -->
+  <g stroke="#2d5a8a" stroke-width="1" opacity="0.5">
+    <line x1="0" y1="50" x2="400" y2="50"/>
+    <line x1="0" y1="100" x2="400" y2="100"/>
+    <line x1="0" y1="150" x2="400" y2="150"/>
+    <line x1="0" y1="200" x2="400" y2="200"/>
+    <line x1="80" y1="0" x2="80" y2="225"/>
+    <line x1="160" y1="0" x2="160" y2="225"/>
+    <line x1="240" y1="0" x2="240" y2="225"/>
+    <line x1="320" y1="0" x2="320" y2="225"/>
+  </g>
+
+  <!-- Power lines -->
+  <g stroke="#f59e0b" stroke-width="3" stroke-linecap="round">
+    <line x1="50" y1="180" x2="200" y2="100"/>
+    <line x1="200" y1="100" x2="350" y2="150"/>
+    <line x1="200" y1="100" x2="200" y2="50"/>
+    <line x1="200" y1="100" x2="100" y2="80"/>
+    <line x1="200" y1="100" x2="300" y2="60"/>
+  </g>
+
+  <!-- Substations -->
+  <g>
+    <!-- Central substation (Barking Grid) -->
+    <rect x="180" y="80" width="40" height="40" fill="#3b82f6" rx="4"/>
+    <circle cx="200" cy="100" r="8" fill="#fff"/>
+
+    <!-- Secondary substations -->
+    <rect x="40" y="170" width="20" height="20" fill="#10b981" rx="2"/>
+    <rect x="340" y="140" width="20" height="20" fill="#10b981" rx="2"/>
+    <rect x="90" y="70" width="20" height="20" fill="#10b981" rx="2"/>
+    <rect x="290" y="50" width="20" height="20" fill="#10b981" rx="2"/>
+    <rect x="190" y="40" width="20" height="20" fill="#10b981" rx="2"/>
+  </g>
+
+  <!-- Highlight ring around central substation -->
+  <circle cx="200" cy="100" r="30" stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.8">
+    <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Text -->
+  <text x="200" y="200" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="14" font-weight="600">
+    Barking Grid Reinforcement
+  </text>
+  <text x="200" y="218" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">
+    East London - 2028
+  </text>
+</svg>

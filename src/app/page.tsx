@@ -1,8 +1,53 @@
-import { Suspense } from 'react';
+'use client';
+
+import { Suspense, useState, useCallback, useRef } from 'react';
+import type { Map as MaplibreMap } from 'maplibre-gl';
 import { Map } from '@/components/map/Map';
 import { YearSlider } from '@/components/timeline/YearSlider';
+import { TourSelector, TourPlayer } from '@/components/storytelling';
+import { useTour } from '@/hooks/useTour';
 
 export default function Home() {
+  const [isTourSelectorOpen, setIsTourSelectorOpen] = useState(false);
+  const mapRef = useRef<MaplibreMap | null>(null);
+
+  const {
+    activeTour,
+    currentChapter,
+    currentChapterIndex,
+    totalChapters,
+    status,
+    isFirstChapter,
+    isLastChapter,
+    startTour,
+    endTour,
+    nextChapter,
+    previousChapter,
+    goToChapter,
+  } = useTour();
+
+  // Track map instance
+  const handleMapLoad = useCallback((map: MaplibreMap) => {
+    mapRef.current = map;
+  }, []);
+
+  // Handle tour selection
+  const handleSelectTour = useCallback(async (tourId: string) => {
+    await startTour(tourId);
+  }, [startTour]);
+
+  // Open tour selector
+  const handleOpenTourSelector = useCallback(() => {
+    setIsTourSelectorOpen(true);
+  }, []);
+
+  // Close tour selector
+  const handleCloseTourSelector = useCallback(() => {
+    setIsTourSelectorOpen(false);
+  }, []);
+
+  const isTourActive = status !== 'idle';
+
   return (
     <main className="relative h-screen w-full">
       {/* Header - responsive with hidden subtitle on mobile */}
@@ -14,9 +59,32 @@ export default function Home() {
               Beta
             </span>
           </div>
-          {/* Hidden on mobile, visible on sm and up */}
-          <nav className="hidden items-center gap-4 sm:flex">
-            <span className="text-sm text-gray-600">
+          {/* Navigation - Hidden on mobile, visible on sm and up */}
+          <nav className="flex items-center gap-3 sm:gap-4">
+            {/* Guided Tours button */}
+            <button
+              onClick={handleOpenTourSelector}
+              className="
+                flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2
+                rounded-lg bg-indigo-600 text-white font-medium text-xs sm:text-sm
+                hover:bg-indigo-700 active:bg-indigo-800
+                transition-colors duration-150
+                min-h-[36px] sm:min-h-[40px]
+              "
+              aria-label="Open guided tours"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                />
+              </svg>
+              <span className="hidden xs:inline sm:inline">Guided Tours</span>
+            </button>
+            {/* Subtitle - hidden on mobile */}
+            <span className="hidden text-sm text-gray-600 lg:inline">
               UK Power Networks Investment Strategy 2025-2050
             </span>
           </nav>
@@ -24,14 +92,40 @@ export default function Home() {
       </header>
 
       {/* Map - positioned behind header/attribution overlays */}
-      <Map className="absolute inset-0 z-0" />
+      <Map className="absolute inset-0 z-0" onMapLoad={handleMapLoad} />
 
       {/* Year Slider - responsive positioning and width */}
-      <div className="absolute bottom-16 left-1/2 z-10 w-full max-w-[calc(100%-1rem)] -translate-x-1/2 px-2 sm:bottom-12 sm:max-w-xl sm:px-4">
-        <Suspense fallback={<YearSliderSkeleton />}>
-          <YearSlider />
-        </Suspense>
-      </div>
+      {/* Hide during active tour to avoid UI clutter */}
+      {!isTourActive && (
+        <div className="absolute bottom-16 left-1/2 z-10 w-full max-w-[calc(100%-1rem)] -translate-x-1/2 px-2 sm:bottom-12 sm:max-w-xl sm:px-4">
+          <Suspense fallback={<YearSliderSkeleton />}>
+            <YearSlider />
+          </Suspense>
+        </div>
+      )}
+
+      {/* Tour Player - only visible during active tour */}
+      <TourPlayer
+        map={mapRef.current}
+        currentChapter={currentChapter}
+        currentChapterIndex={currentChapterIndex}
+        totalChapters={totalChapters}
+        status={status}
+        isFirstChapter={isFirstChapter}
+        isLastChapter={isLastChapter}
+        tourTitle={activeTour?.title}
+        onNextChapter={nextChapter}
+        onPreviousChapter={previousChapter}
+        onGoToChapter={goToChapter}
+        onExitTour={endTour}
+      />
+
+      {/* Tour Selector Panel */}
+      <TourSelector
+        isOpen={isTourSelectorOpen}
+        onClose={handleCloseTourSelector}
+        onSelectTour={handleSelectTour}
+      />
 
       {/* Attribution - responsive stacking on mobile */}
       <div className="absolute bottom-0 left-0 right-0 z-10 bg-white/80 backdrop-blur-sm px-3 py-1.5 text-xs text-gray-500 sm:px-4 sm:py-2">

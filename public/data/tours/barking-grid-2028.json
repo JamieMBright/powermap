@@ -1,0 +1,128 @@
+{
+  "id": "barking-grid-2028",
+  "title": "Barking Grid Reinforcement 2028",
+  "summary": "Explore UKPN's major grid reinforcement project in East London, supporting the Thames Freeport and local growth.",
+  "duration": "5 min",
+  "thumbnail": "/data/tours/thumbnails/barking-grid.svg",
+  "category": "Major Projects",
+  "chapters": [
+    {
+      "id": "introduction",
+      "title": "Welcome to the Barking Grid Project",
+      "narrative": "The Barking Grid Reinforcement is one of UKPN's most significant infrastructure investments planned for 2028. This tour will guide you through the project's scope, rationale, and impact on East London's electricity network. The project addresses growing demand from the Thames Freeport development and supports the region's ambitious decarbonisation targets.",
+      "mapState": {
+        "center": [0.13, 51.54],
+        "zoom": 10,
+        "pitch": 0,
+        "bearing": 0
+      },
+      "highlights": {
+        "boundaries": ["resp_east"]
+      },
+      "transition": {
+        "duration": 2000,
+        "easing": "fly"
+      }
+    },
+    {
+      "id": "existing-infrastructure",
+      "title": "Current Grid Infrastructure",
+      "narrative": "The existing Barking Grid Substation, built in the 1960s, has served East London reliably for decades. However, aging assets and increasing load requirements mean substantial upgrades are needed. The 132kV network in this area connects multiple primary substations serving industrial, commercial, and residential customers across Barking, Dagenham, and surrounding areas.",
+      "mapState": {
+        "center": [0.0815, 51.5365],
+        "zoom": 14,
+        "pitch": 45,
+        "bearing": -20
+      },
+      "annotations": [
+        {
+          "type": "marker",
+          "position": [0.0815, 51.5365],
+          "content": "Barking Grid Substation"
+        }
+      ],
+      "highlights": {
+        "layers": ["power-line", "power-substation"]
+      },
+      "transition": {
+        "duration": 3000,
+        "easing": "fly"
+      }
+    },
+    {
+      "id": "investment-drivers",
+      "title": "Why This Investment Is Needed",
+      "narrative": "Three key factors drive this investment: First, asset condition - much of the existing switchgear dates from the 1960s and requires replacement. Second, load growth - the Thames Freeport development will add significant new demand for electricity. Third, renewable integration - new solar and battery storage connections require enhanced fault level management. Together, these factors make the Barking Grid reinforcement essential for maintaining reliable supply.",
+      "mapState": {
+        "center": [0.05, 51.52],
+        "zoom": 12,
+        "pitch": 30,
+        "bearing": 15
+      },
+      "annotations": [
+        {
+          "type": "popup",
+          "position": [0.0815, 51.5365],
+          "content": "Asset Replacement: 132kV switchgear upgrade"
+        },
+        {
+          "type": "popup",
+          "position": [0.05, 51.50],
+          "content": "Thames Freeport: New industrial load growth"
+        }
+      ],
+      "highlights": {
+        "boundaries": ["gsp_bark"]
+      },
+      "transition": {
+        "duration": 2500,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "id": "project-scope",
+      "title": "Project Scope and Investment",
+      "narrative": "The Barking Grid Reinforcement includes: installation of new 132kV Gas-Insulated Switchgear (GIS), two new 132/33kV 90MVA transformers, upgrade of protection and control systems, and new cable routes to adjacent substations. The total investment is approximately 45 million pounds, making it one of the largest single projects in UKPN's ED2 investment plan. Construction is scheduled to begin in 2027 with completion targeted for late 2028.",
+      "mapState": {
+        "center": [0.0815, 51.5365],
+        "zoom": 15,
+        "pitch": 60,
+        "bearing": 45
+      },
+      "annotations": [
+        {
+          "type": "marker",
+          "position": [0.0815, 51.5365],
+          "content": "New GIS Installation"
+        },
+        {
+          "type": "marker",
+          "position": [0.085, 51.534],
+          "content": "New Transformer Bay"
+        }
+      ],
+      "transition": {
+        "duration": 2000,
+        "easing": "fly"
+      }
+    },
+    {
+      "id": "future-benefits",
+      "title": "Enabling East London's Future",
+      "narrative": "Once complete, the Barking Grid Reinforcement will unlock significant capacity for growth: up to 200MW of additional demand can be connected, supporting thousands of new homes and businesses. The upgraded infrastructure will also enable faster connection of renewable generation and battery storage, supporting the UK's Net Zero targets. This investment demonstrates UKPN's commitment to building the electricity network that East London needs for the decades ahead.",
+      "mapState": {
+        "center": [0.08, 51.53],
+        "zoom": 11,
+        "pitch": 0,
+        "bearing": 0
+      },
+      "highlights": {
+        "boundaries": ["la_barking_dagenham"]
+      },
+      "transition": {
+        "duration": 3000,
+        "easing": "fly"
+      }
+    }
+  ]
+}
