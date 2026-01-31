@@ -173,46 +173,51 @@ export function YearSlider({ className = '' }: YearSliderProps) {
 
         {/* Slider Container - larger touch area on mobile */}
         <div className="relative flex-1 py-3 sm:py-0">
-          {/* Custom Slider Track Background - taller on mobile for easier touch */}
-          <div className="relative h-3 w-full rounded-full bg-gray-200 sm:h-2">
-            {/* Filled Track */}
-            <div
-              className="absolute h-full rounded-full bg-orange-500 transition-all duration-150"
-              style={{ width: `${percentage}%` }}
+          {/* Inner wrapper with horizontal margin for thumb overflow at edges (2025/2050) */}
+          {/* Margin = half of thumb size: 14px (mx-3.5) on mobile, 10px (mx-2.5) on desktop */}
+          <div className="relative mx-3.5 sm:mx-2.5">
+            {/* Custom Slider Track Background - taller on mobile for easier touch */}
+            <div className="relative h-3 w-full rounded-full bg-gray-200 sm:h-2">
+              {/* Filled Track */}
+              <div
+                className="absolute h-full rounded-full bg-orange-500 transition-all duration-150"
+                style={{ width: `${percentage}%` }}
+              />
+            </div>
+
+            {/* Native Slider - larger thumb on mobile for touch */}
+            <input
+              type="range"
+              min={MIN_YEAR}
+              max={MAX_YEAR}
+              value={year}
+              onChange={handleSliderChange}
+              data-testid="year-slider-input"
+              className="absolute inset-0 w-full cursor-pointer appearance-none bg-transparent touch-manipulation
+                [&::-webkit-slider-thumb]:h-7 [&::-webkit-slider-thumb]:w-7
+                [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none
+                [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-2
+                [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:bg-orange-500
+                [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:transition-transform
+                [&::-webkit-slider-thumb]:active:scale-110
+                sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:w-5
+                sm:[&::-webkit-slider-thumb]:hover:scale-110
+                [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:w-7
+                [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:appearance-none
+                [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-2
+                [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-orange-500
+                [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:transition-transform
+                [&::-moz-range-thumb]:active:scale-110
+                sm:[&::-moz-range-thumb]:h-5 sm:[&::-moz-range-thumb]:w-5
+                sm:[&::-moz-range-thumb]:hover:scale-110"
+              aria-label="Select year"
             />
           </div>
 
-          {/* Native Slider - larger thumb on mobile for touch */}
-          <input
-            type="range"
-            min={MIN_YEAR}
-            max={MAX_YEAR}
-            value={year}
-            onChange={handleSliderChange}
-            data-testid="year-slider-input"
-            className="absolute inset-0 w-full cursor-pointer appearance-none bg-transparent touch-manipulation
-              [&::-webkit-slider-thumb]:h-7 [&::-webkit-slider-thumb]:w-7
-              [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none
-              [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-2
-              [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:bg-orange-500
-              [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:transition-transform
-              [&::-webkit-slider-thumb]:active:scale-110
-              sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:w-5
-              sm:[&::-webkit-slider-thumb]:hover:scale-110
-              [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:w-7
-              [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:appearance-none
-              [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-2
-              [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-orange-500
-              [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:transition-transform
-              [&::-moz-range-thumb]:active:scale-110
-              sm:[&::-moz-range-thumb]:h-5 sm:[&::-moz-range-thumb]:w-5
-              sm:[&::-moz-range-thumb]:hover:scale-110"
-            aria-label="Select year"
-          />
-
           {/* Tick Marks - hidden on mobile, with padding for edge labels */}
           <div className="absolute top-5 left-0 right-0 hidden sm:top-4 sm:block">
-            <div className="relative mx-3">
+            {/* Margin matches the inner slider wrapper for proper tick alignment */}
+            <div className="relative mx-3.5 sm:mx-2.5">
               {KEY_YEARS.map((keyYear, index) => {
                 const tickPercentage =
                   ((keyYear - MIN_YEAR) / (MAX_YEAR - MIN_YEAR)) * 100;
