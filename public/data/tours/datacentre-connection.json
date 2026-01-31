@@ -1,7 +1,7 @@
 {
   "id": "datacentre-connection",
-  "title": "Slough Datacentre Connection 2029",
-  "summary": "Follow the journey of connecting a 50MW hyperscale datacentre to the distribution network, from initial application to energisation.",
+  "title": "Rye House Datacentre Connection 2029",
+  "summary": "Follow the journey of connecting a 50MW hyperscale datacentre in the Lea Valley, from initial application to energisation.",
   "duration": "6 min",
   "thumbnail": "/data/tours/thumbnails/datacentre.svg",
   "category": "Major Connections",
@@ -9,15 +9,15 @@
     {
       "id": "introduction",
       "title": "The Digital Infrastructure Challenge",
-      "narrative": "The UK's digital economy relies on datacentres - facilities that power everything from cloud computing to AI training. A major hyperscale operator has applied to connect a new 50MW datacentre in the Slough Trading Estate. This tour explores what it takes to deliver this connection and the investment required in the electricity network.",
+      "narrative": "The UK's digital economy relies on datacentres - facilities that power everything from cloud computing to AI training. A major hyperscale operator has applied to connect a new 50MW datacentre near Rye House in the Lea Valley, Hertfordshire. This tour explores what it takes to deliver this connection and the investment required in the electricity network.",
       "mapState": {
-        "center": [-0.59, 51.51],
+        "center": [-0.01, 51.77],
         "zoom": 11,
         "pitch": 0,
         "bearing": 0
       },
       "highlights": {
-        "boundaries": ["gsp_slough"]
+        "boundaries": ["gsp_ryehouse"]
       },
       "transition": {
         "duration": 2000,
@@ -27,9 +27,9 @@
     {
       "id": "demand-context",
       "title": "Understanding the Scale",
-      "narrative": "A 50MW datacentre is equivalent to powering 100,000 homes. The facility will operate 24/7/365 with exceptional reliability requirements - even brief power interruptions can cost millions. The Slough area is already one of Europe's largest datacentre clusters, with over 20 facilities. This new connection pushes the local network to its limits.",
+      "narrative": "A 50MW datacentre is equivalent to powering 100,000 homes. The facility will operate 24/7/365 with exceptional reliability requirements - even brief power interruptions can cost millions. The Lea Valley corridor is becoming a growing hub for datacentres, attracted by good connectivity and available land. This new connection will test the local network's capacity.",
       "mapState": {
-        "center": [-0.585, 51.505],
+        "center": [-0.005, 51.765],
         "zoom": 13,
         "pitch": 30,
         "bearing": -15
@@ -37,13 +37,13 @@
       "annotations": [
         {
           "type": "popup",
-          "position": [-0.585, 51.505],
+          "position": [-0.005, 51.765],
           "content": "Proposed Datacentre: 50MW demand, 99.999% reliability required"
         },
         {
           "type": "marker",
-          "position": [-0.59, 51.51],
-          "content": "Existing datacentre cluster"
+          "position": [-0.01, 51.77],
+          "content": "Rye House area"
         }
       ],
       "transition": {
@@ -54,9 +54,9 @@
     {
       "id": "network-assessment",
       "title": "Network Capacity Assessment",
-      "narrative": "When a connection application arrives, engineers assess available capacity. The existing Slough 132/33kV Grid feeds multiple primary substations. Current headroom is only 20MW - insufficient for the 50MW request. Analysis shows the grid transformers are already at 85% utilisation during winter peaks. Upstream reinforcement is essential.",
+      "narrative": "When a connection application arrives, engineers assess available capacity. The existing Rye House 132/33kV Grid feeds multiple primary substations across Hoddesdon and the surrounding area. Current headroom is only 20MW - insufficient for the 50MW request. Analysis shows the grid transformers are already at 85% utilisation during winter peaks. Upstream reinforcement is essential.",
       "mapState": {
-        "center": [-0.595, 51.515],
+        "center": [-0.008, 51.768],
         "zoom": 14,
         "pitch": 45,
         "bearing": 25
@@ -64,12 +64,12 @@
       "annotations": [
         {
           "type": "marker",
-          "position": [-0.595, 51.515],
-          "content": "Slough Grid Substation"
+          "position": [-0.008, 51.768],
+          "content": "Rye House Grid Substation"
         },
         {
           "type": "popup",
-          "position": [-0.58, 51.51],
+          "position": [0.0, 51.76],
           "content": "Current headroom: 20MW | Required: 50MW"
         }
       ],
@@ -84,9 +84,9 @@
     {
       "id": "reinforcement-plan",
       "title": "The Reinforcement Solution",
-      "narrative": "To enable the connection, the network needs: a new 132/33kV 90MVA transformer at Slough Grid (cost: 8 million pounds), 2km of new 33kV cable to the customer's site (cost: 3 million pounds), and switchgear upgrades at two primary substations (cost: 2 million pounds). Total network investment: 13 million pounds. The customer will fund a significant portion as their connection contribution.",
+      "narrative": "To enable the connection, the network needs: a new 132/33kV 90MVA transformer at Rye House Grid (cost: 8 million pounds), 2km of new 33kV cable to the customer's site (cost: 3 million pounds), and switchgear upgrades at two primary substations (cost: 2 million pounds). Total network investment: 13 million pounds. The customer will fund a significant portion as their connection contribution.",
       "mapState": {
-        "center": [-0.59, 51.51],
+        "center": [-0.005, 51.765],
         "zoom": 14,
         "pitch": 50,
         "bearing": -30
@@ -94,17 +94,17 @@
       "annotations": [
         {
           "type": "marker",
-          "position": [-0.595, 51.515],
+          "position": [-0.008, 51.768],
           "content": "New 90MVA Transformer"
         },
         {
           "type": "marker",
-          "position": [-0.585, 51.505],
+          "position": [-0.005, 51.765],
           "content": "New 33kV Cable Route"
         },
         {
           "type": "popup",
-          "position": [-0.59, 51.51],
+          "position": [-0.006, 51.766],
           "content": "Total Investment: 13 million pounds"
         }
       ],
@@ -118,7 +118,7 @@
       "title": "From Application to Power-On",
       "narrative": "Major connections take time. The application was received in Q1 2026. Connection offer issued in Q2 2026. Customer acceptance and design phase runs through 2027. Construction begins early 2028. Commissioning and energisation: Q3 2029. Total timeline: 3.5 years from application to power-on. This timeline reflects the reality of major infrastructure delivery.",
       "mapState": {
-        "center": [-0.585, 51.508],
+        "center": [-0.005, 51.765],
         "zoom": 15,
         "pitch": 60,
         "bearing": 45
@@ -126,7 +126,7 @@
       "annotations": [
         {
           "type": "popup",
-          "position": [-0.585, 51.508],
+          "position": [-0.005, 51.765],
           "content": "Energisation: Q3 2029"
         }
       ],
@@ -138,20 +138,20 @@
     {
       "id": "wider-benefits",
       "title": "Unlocking Capacity for All",
-      "narrative": "The reinforcement funded by this datacentre connection doesn't just serve one customer. The new transformer releases 90MW of capacity to Slough Grid - enabling future connections for other businesses, housing developments, and EV charging infrastructure. This is how major connections drive network investment that benefits everyone.",
+      "narrative": "The reinforcement funded by this datacentre connection doesn't just serve one customer. The new transformer releases 90MW of capacity to Rye House Grid - enabling future connections for other businesses, housing developments in Hoddesdon and Broxbourne, and EV charging infrastructure. This is how major connections drive network investment that benefits everyone.",
       "mapState": {
-        "center": [-0.59, 51.51],
+        "center": [-0.01, 51.77],
         "zoom": 12,
         "pitch": 0,
         "bearing": 0
       },
       "highlights": {
-        "boundaries": ["la_slough"]
+        "boundaries": ["la_broxbourne"]
       },
       "annotations": [
         {
           "type": "popup",
-          "position": [-0.59, 51.51],
+          "position": [-0.01, 51.77],
           "content": "90MW new capacity unlocked for the region"
         }
       ],
@@ -163,9 +163,9 @@
     {
       "id": "conclusion",
       "title": "Powering the Digital Future",
-      "narrative": "This datacentre connection represents the network's role in enabling the UK's digital economy. Behind every cloud service, every AI model, every streaming video is infrastructure - and that infrastructure needs power. The network operator's investment ensures reliable electricity reaches these critical facilities, supporting jobs, innovation, and economic growth across the region.",
+      "narrative": "This datacentre connection represents the network's role in enabling the UK's digital economy. Behind every cloud service, every AI model, every streaming video is infrastructure - and that infrastructure needs power. The network operator's investment ensures reliable electricity reaches these critical facilities, supporting jobs, innovation, and economic growth across Hertfordshire and the wider region.",
       "mapState": {
-        "center": [-0.59, 51.51],
+        "center": [-0.01, 51.77],
         "zoom": 10,
         "pitch": 0,
         "bearing": 0
