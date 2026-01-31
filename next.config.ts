@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
               // Allow WebGL workers
               "worker-src 'self' blob:",
               // Allow connections to tile servers and APIs
-              "connect-src 'self' https://*.cartocdn.com https://*.openstreetmap.org https://*.openfreemap.org https://tiles.stadiamaps.com https://api.os.uk https://opendataportal.ukpowernetworks.co.uk",
+              "connect-src 'self' https://*.cartocdn.com https://*.openstreetmap.org https://*.openfreemap.org https://tiles.stadiamaps.com https://api.os.uk https://opendataportal.ukpowernetworks.co.uk https://openinframap.org",
               // Allow fonts
               "font-src 'self' data:",
               // Allow child/frame sources
