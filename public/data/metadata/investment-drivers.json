@@ -1,0 +1,34 @@
+{
+  "drivers": {
+    "asset_replacement": {
+      "name": "Asset Replacement",
+      "color": "#3B82F6",
+      "description": "Replacement of aging or end-of-life network assets to maintain reliability and safety"
+    },
+    "load_reinforcement": {
+      "name": "Load Reinforcement",
+      "color": "#22C55E",
+      "description": "Network upgrades to support increasing electricity demand from growth and electrification"
+    },
+    "proactive_investment": {
+      "name": "Proactive Investment",
+      "color": "#8B5CF6",
+      "description": "Strategic investments to future-proof the network for anticipated changes"
+    },
+    "fault_level": {
+      "name": "Fault Level",
+      "color": "#F59E0B",
+      "description": "Investments to manage fault current levels within equipment ratings"
+    },
+    "reverse_power_flow": {
+      "name": "Reverse Power Flow",
+      "color": "#EF4444",
+      "description": "Network modifications to accommodate bi-directional power flow from distributed generation"
+    },
+    "connections": {
+      "name": "Connections",
+      "color": "#06B6D4",
+      "description": "Infrastructure to connect new customers, generation, and storage to the network"
+    }
+  }
+}

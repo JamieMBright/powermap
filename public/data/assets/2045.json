@@ -1,0 +1,350 @@
+{
+  "year": 2045,
+  "investments": [
+    {
+      "id": "INV-2045-001",
+      "year": 2045,
+      "location": {
+        "lat": 51.5085,
+        "lng": -0.0757
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-CITY",
+        "la": "LA-CITY",
+        "lsoa": "E01032567"
+      },
+      "investment": {
+        "amount": 55000000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "City of London Grid 2.0",
+        "description": "Next-generation DC distribution for financial district"
+      }
+    },
+    {
+      "id": "INV-2045-002",
+      "year": 2045,
+      "location": {
+        "lat": 51.5425,
+        "lng": 0.0039
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-STRT",
+        "la": "LA-NEWH",
+        "lsoa": "E01002890"
+      },
+      "investment": {
+        "amount": 42000000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Royal Docks Super Hub",
+        "description": "Major supply point for Thames Freeport zone"
+      }
+    },
+    {
+      "id": "INV-2045-003",
+      "year": 2045,
+      "location": {
+        "lat": 52.4068,
+        "lng": 1.5107
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-LOWE",
+        "la": "LA-WAVE",
+        "lsoa": "E01030678"
+      },
+      "investment": {
+        "amount": 68000000,
+        "driver": "reverse_power_flow",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "East Anglia Offshore Hub",
+        "description": "Major grid integration point for North Sea wind"
+      }
+    },
+    {
+      "id": "INV-2045-004",
+      "year": 2045,
+      "location": {
+        "lat": 51.6723,
+        "lng": -0.3456
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-WATH",
+        "la": "LA-WATH",
+        "lsoa": "E01004123"
+      },
+      "investment": {
+        "amount": 28000000,
+        "driver": "proactive_investment",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Watford Autonomous Grid",
+        "description": "AI-controlled self-optimising network pilot"
+      }
+    },
+    {
+      "id": "INV-2045-005",
+      "year": 2045,
+      "location": {
+        "lat": 51.0735,
+        "lng": 1.1857
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-FOLK",
+        "la": "LA-SHEP",
+        "lsoa": "E01024890"
+      },
+      "investment": {
+        "amount": 35000000,
+        "driver": "connections",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Channel Link Interconnector",
+        "description": "New cross-channel power connection support"
+      }
+    },
+    {
+      "id": "INV-2045-006",
+      "year": 2045,
+      "location": {
+        "lat": 51.5812,
+        "lng": -0.1756
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-HAMP",
+        "la": "LA-CAMD",
+        "lsoa": "E01000890"
+      },
+      "investment": {
+        "amount": 19000000,
+        "driver": "load_reinforcement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Hampstead Heath Pump Storage Link",
+        "description": "Connection for urban pumped storage facility"
+      }
+    },
+    {
+      "id": "INV-2045-007",
+      "year": 2045,
+      "location": {
+        "lat": 52.6270,
+        "lng": 0.8791
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-KING",
+        "la": "LA-KING",
+        "lsoa": "E01027123"
+      },
+      "investment": {
+        "amount": 8500000,
+        "driver": "asset_replacement",
+        "type": "overhead_line"
+      },
+      "metadata": {
+        "projectName": "King's Lynn Coastal Resilience",
+        "description": "Undergrounding vulnerable coastal circuits"
+      }
+    },
+    {
+      "id": "INV-2045-008",
+      "year": 2045,
+      "location": {
+        "lat": 51.3558,
+        "lng": -0.1663
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-SUTH",
+        "la": "LA-SUTH",
+        "lsoa": "E01004234"
+      },
+      "investment": {
+        "amount": 11500000,
+        "driver": "fault_level",
+        "type": "switchgear"
+      },
+      "metadata": {
+        "projectName": "Sutton Central Protection Upgrade",
+        "description": "Ultra-fast solid-state protection system"
+      }
+    },
+    {
+      "id": "INV-2045-009",
+      "year": 2045,
+      "location": {
+        "lat": 51.9623,
+        "lng": 0.8891
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-SUDM",
+        "la": "LA-BABE",
+        "lsoa": "E01030234"
+      },
+      "investment": {
+        "amount": 15000000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Sudbury Carbon Capture Link",
+        "description": "Supply for industrial carbon capture facility"
+      }
+    },
+    {
+      "id": "INV-2045-010",
+      "year": 2045,
+      "location": {
+        "lat": 51.2426,
+        "lng": 0.8724
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-ASHF",
+        "la": "LA-ASHF",
+        "lsoa": "E01024567"
+      },
+      "investment": {
+        "amount": 22000000,
+        "driver": "load_reinforcement",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Ashford Net Zero Industrial Park",
+        "description": "Infrastructure for zero-carbon manufacturing hub"
+      }
+    },
+    {
+      "id": "INV-2045-011",
+      "year": 2045,
+      "location": {
+        "lat": 51.4709,
+        "lng": -0.0277
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-LEWI",
+        "la": "LA-LEWI",
+        "lsoa": "E01002456"
+      },
+      "investment": {
+        "amount": 7800000,
+        "driver": "asset_replacement",
+        "type": "switchgear"
+      },
+      "metadata": {
+        "projectName": "Lewisham Network Modernisation",
+        "description": "Replacement of final legacy switchgear"
+      }
+    },
+    {
+      "id": "INV-2045-012",
+      "year": 2045,
+      "location": {
+        "lat": 52.0852,
+        "lng": 0.1926
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-CAMB",
+        "la": "LA-SCAM",
+        "lsoa": "E01018456"
+      },
+      "investment": {
+        "amount": 32000000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Cambridge Biotech Campus",
+        "description": "Major supply for life sciences innovation district"
+      }
+    },
+    {
+      "id": "INV-2045-013",
+      "year": 2045,
+      "location": {
+        "lat": 51.1626,
+        "lng": 0.2614
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-TBRW",
+        "la": "LA-TBRW",
+        "lsoa": "E01024345"
+      },
+      "investment": {
+        "amount": 6200000,
+        "driver": "reverse_power_flow",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Tunbridge Wells V2G Hub",
+        "description": "Vehicle-to-grid enabled distribution"
+      }
+    },
+    {
+      "id": "INV-2045-014",
+      "year": 2045,
+      "location": {
+        "lat": 51.7361,
+        "lng": 0.4708
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-CHEL",
+        "la": "LA-CHEL",
+        "lsoa": "E01021678"
+      },
+      "investment": {
+        "amount": 9100000,
+        "driver": "load_reinforcement",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Chelmsford Urban Densification",
+        "description": "Capacity for high-rise residential development"
+      }
+    },
+    {
+      "id": "INV-2045-015",
+      "year": 2045,
+      "location": {
+        "lat": 51.3917,
+        "lng": 0.8169
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-ROCH",
+        "la": "LA-SWLE",
+        "lsoa": "E01024123"
+      },
+      "investment": {
+        "amount": 4300000,
+        "driver": "asset_replacement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Swale Rural Resilience",
+        "description": "Transformer upgrades for climate adaptation"
+      }
+    }
+  ]
+}

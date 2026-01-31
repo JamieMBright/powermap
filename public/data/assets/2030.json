@@ -1,0 +1,235 @@
+{
+  "year": 2030,
+  "investments": [
+    {
+      "id": "INV-2030-001",
+      "year": 2030,
+      "location": {
+        "lat": 51.5287,
+        "lng": -0.0817
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-CITY",
+        "la": "LA-HACK",
+        "lsoa": "E01001848"
+      },
+      "investment": {
+        "amount": 5500000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Shoreditch EV Hub Substation",
+        "description": "New substation to support electric vehicle charging infrastructure"
+      }
+    },
+    {
+      "id": "INV-2030-002",
+      "year": 2030,
+      "location": {
+        "lat": 51.4816,
+        "lng": -0.0090
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-GRNW",
+        "la": "LA-GRNW",
+        "lsoa": "E01001426"
+      },
+      "investment": {
+        "amount": 8200000,
+        "driver": "connections",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Greenwich Peninsula Development",
+        "description": "Major cable installation for mixed-use development zone"
+      }
+    },
+    {
+      "id": "INV-2030-003",
+      "year": 2030,
+      "location": {
+        "lat": 52.0406,
+        "lng": 0.7594
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-BURE",
+        "la": "LA-WEST",
+        "lsoa": "E01030234"
+      },
+      "investment": {
+        "amount": 12000000,
+        "driver": "reverse_power_flow",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Suffolk Offshore Wind Connection",
+        "description": "Grid reinforcement for offshore wind farm connection"
+      }
+    },
+    {
+      "id": "INV-2030-004",
+      "year": 2030,
+      "location": {
+        "lat": 51.7355,
+        "lng": -0.4722
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-STAB",
+        "la": "LA-STAB",
+        "lsoa": "E01023785"
+      },
+      "investment": {
+        "amount": 3800000,
+        "driver": "asset_replacement",
+        "type": "overhead_line"
+      },
+      "metadata": {
+        "projectName": "Hertfordshire 33kV Line Renewal",
+        "description": "Replacement of aging overhead line with underground cable"
+      }
+    },
+    {
+      "id": "INV-2030-005",
+      "year": 2030,
+      "location": {
+        "lat": 51.1789,
+        "lng": 1.1561
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-FOLK",
+        "la": "LA-FOLK",
+        "lsoa": "E01024567"
+      },
+      "investment": {
+        "amount": 6500000,
+        "driver": "fault_level",
+        "type": "switchgear"
+      },
+      "metadata": {
+        "projectName": "Folkestone Fault Level Management",
+        "description": "Installation of fault current limiters at key network nodes"
+      }
+    },
+    {
+      "id": "INV-2030-006",
+      "year": 2030,
+      "location": {
+        "lat": 51.5849,
+        "lng": -0.0754
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-TOTT",
+        "la": "LA-HARG",
+        "lsoa": "E01002156"
+      },
+      "investment": {
+        "amount": 4200000,
+        "driver": "proactive_investment",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Tottenham Heat Pump Ready",
+        "description": "Transformer upgrades for anticipated heat pump adoption"
+      }
+    },
+    {
+      "id": "INV-2030-007",
+      "year": 2030,
+      "location": {
+        "lat": 51.3811,
+        "lng": 0.5006
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-KENT",
+        "la": "LA-GRVM",
+        "lsoa": "E01024890"
+      },
+      "investment": {
+        "amount": 2900000,
+        "driver": "load_reinforcement",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Ebbsfleet Garden City Supply",
+        "description": "Network reinforcement for new town development"
+      }
+    },
+    {
+      "id": "INV-2030-008",
+      "year": 2030,
+      "location": {
+        "lat": 52.4771,
+        "lng": 1.7537
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-LOWE",
+        "la": "LA-WAVE",
+        "lsoa": "E01030567"
+      },
+      "investment": {
+        "amount": 7800000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Lowestoft Freeport Connection",
+        "description": "New primary substation for freeport industrial zone"
+      }
+    },
+    {
+      "id": "INV-2030-009",
+      "year": 2030,
+      "location": {
+        "lat": 51.4193,
+        "lng": -0.2049
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-WAND",
+        "la": "LA-WAND",
+        "lsoa": "E01004567"
+      },
+      "investment": {
+        "amount": 1600000,
+        "driver": "asset_replacement",
+        "type": "switchgear"
+      },
+      "metadata": {
+        "projectName": "Wandsworth Switchgear Modernisation",
+        "description": "Replacement of legacy oil-filled switchgear"
+      }
+    },
+    {
+      "id": "INV-2030-010",
+      "year": 2030,
+      "location": {
+        "lat": 51.9029,
+        "lng": 0.4618
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-STANST",
+        "la": "LA-UTTL",
+        "lsoa": "E01022890"
+      },
+      "investment": {
+        "amount": 9500000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Stansted Airport Expansion",
+        "description": "Substation upgrade for airport terminal expansion"
+      }
+    }
+  ]
+}

@@ -1,0 +1,419 @@
+{
+  "year": 2050,
+  "investments": [
+    {
+      "id": "INV-2050-001",
+      "year": 2050,
+      "location": {
+        "lat": 51.5145,
+        "lng": -0.0915
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-CITY",
+        "la": "LA-CITY",
+        "lsoa": "E01032890"
+      },
+      "investment": {
+        "amount": 85000000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "London Smart Grid Central Hub",
+        "description": "AI-orchestrated central coordination facility for London grid"
+      }
+    },
+    {
+      "id": "INV-2050-002",
+      "year": 2050,
+      "location": {
+        "lat": 51.4884,
+        "lng": 0.0558
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-GRNW",
+        "la": "LA-GRNW",
+        "lsoa": "E01001567"
+      },
+      "investment": {
+        "amount": 62000000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Greenwich Peninsula Zero Carbon",
+        "description": "Final phase of carbon-neutral district supply"
+      }
+    },
+    {
+      "id": "INV-2050-003",
+      "year": 2050,
+      "location": {
+        "lat": 52.8311,
+        "lng": 1.2540
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-CROMER",
+        "la": "LA-NNOR",
+        "lsoa": "E01026567"
+      },
+      "investment": {
+        "amount": 120000000,
+        "driver": "reverse_power_flow",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Norfolk Offshore Super-Hub",
+        "description": "Major HVDC integration for 10GW offshore wind"
+      }
+    },
+    {
+      "id": "INV-2050-004",
+      "year": 2050,
+      "location": {
+        "lat": 51.6256,
+        "lng": -0.2291
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-BARN",
+        "la": "LA-BARN",
+        "lsoa": "E01000123"
+      },
+      "investment": {
+        "amount": 38000000,
+        "driver": "connections",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Barnet Fusion Energy Link",
+        "description": "Infrastructure for compact fusion power demonstration"
+      }
+    },
+    {
+      "id": "INV-2050-005",
+      "year": 2050,
+      "location": {
+        "lat": 51.0912,
+        "lng": 1.0854
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-FOLK",
+        "la": "LA-FOLK",
+        "lsoa": "E01024789"
+      },
+      "investment": {
+        "amount": 75000000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Channel Super-Connector",
+        "description": "UK-EU multi-terminal HVDC hub"
+      }
+    },
+    {
+      "id": "INV-2050-006",
+      "year": 2050,
+      "location": {
+        "lat": 51.6090,
+        "lng": -0.1010
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-TOTT",
+        "la": "LA-HARG",
+        "lsoa": "E01002234"
+      },
+      "investment": {
+        "amount": 24000000,
+        "driver": "load_reinforcement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Haringey Deep Geothermal Link",
+        "description": "Supply for urban geothermal heating network"
+      }
+    },
+    {
+      "id": "INV-2050-007",
+      "year": 2050,
+      "location": {
+        "lat": 52.2578,
+        "lng": 0.1152
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-CAMB",
+        "la": "LA-CAMB",
+        "lsoa": "E01018123"
+      },
+      "investment": {
+        "amount": 95000000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Cambridge Quantum Computing Campus",
+        "description": "Ultra-stable power for quantum research facility"
+      }
+    },
+    {
+      "id": "INV-2050-008",
+      "year": 2050,
+      "location": {
+        "lat": 51.3260,
+        "lng": -0.0742
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-CROY",
+        "la": "LA-CROY",
+        "lsoa": "E01001234"
+      },
+      "investment": {
+        "amount": 18000000,
+        "driver": "asset_replacement",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Croydon Network Renewal Programme",
+        "description": "Final phase of legacy cable replacement"
+      }
+    },
+    {
+      "id": "INV-2050-009",
+      "year": 2050,
+      "location": {
+        "lat": 51.8742,
+        "lng": 0.5573
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-COLC",
+        "la": "LA-COLC",
+        "lsoa": "E01022123"
+      },
+      "investment": {
+        "amount": 32000000,
+        "driver": "reverse_power_flow",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Colchester Energy Island",
+        "description": "Power-to-X integration for hydrogen production"
+      }
+    },
+    {
+      "id": "INV-2050-010",
+      "year": 2050,
+      "location": {
+        "lat": 51.2080,
+        "lng": 0.7015
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-MAID",
+        "la": "LA-MAID",
+        "lsoa": "E01024890"
+      },
+      "investment": {
+        "amount": 41000000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Maidstone Smart Manufacturing",
+        "description": "Supply for automated manufacturing cluster"
+      }
+    },
+    {
+      "id": "INV-2050-011",
+      "year": 2050,
+      "location": {
+        "lat": 51.5582,
+        "lng": 0.2502
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-HAVR",
+        "la": "LA-HAVR",
+        "lsoa": "E01002678"
+      },
+      "investment": {
+        "amount": 15000000,
+        "driver": "fault_level",
+        "type": "switchgear"
+      },
+      "metadata": {
+        "projectName": "Havering Advanced Protection",
+        "description": "Quantum-encrypted protection communication network"
+      }
+    },
+    {
+      "id": "INV-2050-012",
+      "year": 2050,
+      "location": {
+        "lat": 52.5544,
+        "lng": 1.1351
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-DISS",
+        "la": "LA-SNOR",
+        "lsoa": "E01027890"
+      },
+      "investment": {
+        "amount": 28000000,
+        "driver": "connections",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "South Norfolk Agri-Tech Hub",
+        "description": "Supply for automated vertical farming complex"
+      }
+    },
+    {
+      "id": "INV-2050-013",
+      "year": 2050,
+      "location": {
+        "lat": 51.4257,
+        "lng": 0.5587
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-KENT",
+        "la": "LA-GRVM",
+        "lsoa": "E01024345"
+      },
+      "investment": {
+        "amount": 52000000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Thames Estuary Resilience Hub",
+        "description": "Climate-adapted flood-proof substation"
+      }
+    },
+    {
+      "id": "INV-2050-014",
+      "year": 2050,
+      "location": {
+        "lat": 51.7085,
+        "lng": 0.0034
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-WALT",
+        "la": "LA-WALT",
+        "lsoa": "E01004456"
+      },
+      "investment": {
+        "amount": 12500000,
+        "driver": "asset_replacement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Waltham Forest Urban Upgrade",
+        "description": "Final transformer replacements in regeneration zone"
+      }
+    },
+    {
+      "id": "INV-2050-015",
+      "year": 2050,
+      "location": {
+        "lat": 51.3046,
+        "lng": 1.0658
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-CANT",
+        "la": "LA-CANT",
+        "lsoa": "E01024567"
+      },
+      "investment": {
+        "amount": 22000000,
+        "driver": "load_reinforcement",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Canterbury University Expansion",
+        "description": "High-capacity supply for research campus growth"
+      }
+    },
+    {
+      "id": "INV-2050-016",
+      "year": 2050,
+      "location": {
+        "lat": 51.4979,
+        "lng": -0.1748
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-WSTM",
+        "la": "LA-WSTM",
+        "lsoa": "E01033234"
+      },
+      "investment": {
+        "amount": 48000000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Westminster Net Zero Government Hub",
+        "description": "Carbon-neutral power for government buildings"
+      }
+    },
+    {
+      "id": "INV-2050-017",
+      "year": 2050,
+      "location": {
+        "lat": 52.1204,
+        "lng": 0.4658
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-NEWM",
+        "la": "LA-WESM",
+        "lsoa": "E01029012"
+      },
+      "investment": {
+        "amount": 35000000,
+        "driver": "reverse_power_flow",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Newmarket Hydrogen Storage",
+        "description": "Green hydrogen production and storage facility"
+      }
+    },
+    {
+      "id": "INV-2050-018",
+      "year": 2050,
+      "location": {
+        "lat": 51.4451,
+        "lng": -0.3408
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-RICH",
+        "la": "LA-RICH",
+        "lsoa": "E01003567"
+      },
+      "investment": {
+        "amount": 9800000,
+        "driver": "fault_level",
+        "type": "switchgear"
+      },
+      "metadata": {
+        "projectName": "Richmond Final Protection Upgrade",
+        "description": "Completing the advanced protection rollout"
+      }
+    }
+  ]
+}

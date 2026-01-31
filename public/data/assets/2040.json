@@ -1,0 +1,327 @@
+{
+  "year": 2040,
+  "investments": [
+    {
+      "id": "INV-2040-001",
+      "year": 2040,
+      "location": {
+        "lat": 51.5194,
+        "lng": -0.1270
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-CITY",
+        "la": "LA-CAMD",
+        "lsoa": "E01000678"
+      },
+      "investment": {
+        "amount": 25000000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "King's Cross Zero Carbon Hub",
+        "description": "Ultra-high capacity substation for all-electric district"
+      }
+    },
+    {
+      "id": "INV-2040-002",
+      "year": 2040,
+      "location": {
+        "lat": 51.4684,
+        "lng": -0.4523
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-HEAT",
+        "la": "LA-HOUN",
+        "lsoa": "E01003234"
+      },
+      "investment": {
+        "amount": 35000000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Heathrow Aviation Hub",
+        "description": "Major substation for sustainable aviation fuel production"
+      }
+    },
+    {
+      "id": "INV-2040-003",
+      "year": 2040,
+      "location": {
+        "lat": 52.9548,
+        "lng": 1.1545
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-SHER",
+        "la": "LA-NNOR",
+        "lsoa": "E01026234"
+      },
+      "investment": {
+        "amount": 45000000,
+        "driver": "reverse_power_flow",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Sheringham Offshore Wind Integration",
+        "description": "Grid-scale battery and power electronics hub"
+      }
+    },
+    {
+      "id": "INV-2040-004",
+      "year": 2040,
+      "location": {
+        "lat": 51.8095,
+        "lng": -0.0271
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-HERT",
+        "la": "LA-HERT",
+        "lsoa": "E01023890"
+      },
+      "investment": {
+        "amount": 12000000,
+        "driver": "proactive_investment",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Hertford Superconducting Link",
+        "description": "Pilot high-temperature superconducting cable"
+      }
+    },
+    {
+      "id": "INV-2040-005",
+      "year": 2040,
+      "location": {
+        "lat": 51.1548,
+        "lng": 0.8735
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-ASHF",
+        "la": "LA-ASHF",
+        "lsoa": "E01024789"
+      },
+      "investment": {
+        "amount": 18000000,
+        "driver": "load_reinforcement",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Ashford Green Hydrogen Corridor",
+        "description": "High capacity supply for hydrogen production"
+      }
+    },
+    {
+      "id": "INV-2040-006",
+      "year": 2040,
+      "location": {
+        "lat": 51.5654,
+        "lng": 0.1779
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-BARK",
+        "la": "LA-BARK",
+        "lsoa": "E01000345"
+      },
+      "investment": {
+        "amount": 9500000,
+        "driver": "fault_level",
+        "type": "switchgear"
+      },
+      "metadata": {
+        "projectName": "Thames Gateway Fault Management",
+        "description": "Advanced fault current limiting across Thames corridor"
+      }
+    },
+    {
+      "id": "INV-2040-007",
+      "year": 2040,
+      "location": {
+        "lat": 52.3983,
+        "lng": 0.2622
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-ELYM",
+        "la": "LA-ECAM",
+        "lsoa": "E01018234"
+      },
+      "investment": {
+        "amount": 8700000,
+        "driver": "connections",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Ely Fens Agricultural Hub",
+        "description": "Network for vertical farming and food processing"
+      }
+    },
+    {
+      "id": "INV-2040-008",
+      "year": 2040,
+      "location": {
+        "lat": 51.3890,
+        "lng": -0.2892
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-KING",
+        "la": "LA-KING",
+        "lsoa": "E01002567"
+      },
+      "investment": {
+        "amount": 6200000,
+        "driver": "asset_replacement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Kingston Town Centre Renewal",
+        "description": "Life extension of key distribution transformers"
+      }
+    },
+    {
+      "id": "INV-2040-009",
+      "year": 2040,
+      "location": {
+        "lat": 51.8893,
+        "lng": 1.0773
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-COLC",
+        "la": "LA-TEND",
+        "lsoa": "E01022345"
+      },
+      "investment": {
+        "amount": 14500000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Tendring Flexibility Hub",
+        "description": "Smart substation with grid battery storage"
+      }
+    },
+    {
+      "id": "INV-2040-010",
+      "year": 2040,
+      "location": {
+        "lat": 51.3042,
+        "lng": 0.0323
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-SEVN",
+        "la": "LA-SEVN",
+        "lsoa": "E01024234"
+      },
+      "investment": {
+        "amount": 5800000,
+        "driver": "load_reinforcement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Sevenoaks EV Ready Programme",
+        "description": "Distribution transformer upgrades for mass EV adoption"
+      }
+    },
+    {
+      "id": "INV-2040-011",
+      "year": 2040,
+      "location": {
+        "lat": 52.1879,
+        "lng": 0.9665
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-STOW",
+        "la": "LA-STOW",
+        "lsoa": "E01030567"
+      },
+      "investment": {
+        "amount": 3400000,
+        "driver": "asset_replacement",
+        "type": "overhead_line"
+      },
+      "metadata": {
+        "projectName": "Stowmarket Rural Line Upgrade",
+        "description": "Conductor replacement with higher ampacity"
+      }
+    },
+    {
+      "id": "INV-2040-012",
+      "year": 2040,
+      "location": {
+        "lat": 51.4378,
+        "lng": 0.0685
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-BEXL",
+        "la": "LA-BEXL",
+        "lsoa": "E01000234"
+      },
+      "investment": {
+        "amount": 7100000,
+        "driver": "connections",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Bexley Riverside Development",
+        "description": "Infrastructure for Thames-side regeneration"
+      }
+    },
+    {
+      "id": "INV-2040-013",
+      "year": 2040,
+      "location": {
+        "lat": 51.7520,
+        "lng": 0.4724
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-CHEL",
+        "la": "LA-CHEL",
+        "lsoa": "E01021890"
+      },
+      "investment": {
+        "amount": 16000000,
+        "driver": "reverse_power_flow",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Chelmsford Solar Integration",
+        "description": "Dynamic transformer for bi-directional flow management"
+      }
+    },
+    {
+      "id": "INV-2040-014",
+      "year": 2040,
+      "location": {
+        "lat": 51.2194,
+        "lng": 0.2699
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-TBRW",
+        "la": "LA-TBRW",
+        "lsoa": "E01024678"
+      },
+      "investment": {
+        "amount": 4500000,
+        "driver": "fault_level",
+        "type": "switchgear"
+      },
+      "metadata": {
+        "projectName": "Tunbridge Wells Network Protection",
+        "description": "Solid-state fault current limiters"
+      }
+    }
+  ]
+}

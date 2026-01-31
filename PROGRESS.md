@@ -25,18 +25,20 @@
 | Year slider | UI | 2026-01-31 | 2025-2050 with playback, URL sync |
 | Boundary layers | Map | 2026-01-31 | RESP, GSP, LA, LSOA system |
 | ODP API client | Data | 2026-01-31 | API client with caching |
+| Mobile responsiveness | UI | 2026-01-31 | Touch-friendly, responsive layout |
+| Build fixes | DevOps | 2026-01-31 | Fixed TypeScript + Suspense errors |
+| Investment data overlay | Data | 2026-01-31 | Sample data, InvestmentLayer, useInvestmentData hook |
 
 ## In Progress
 | Task | Agent | Started | Blockers |
 |------|-------|---------|----------|
-| Mobile responsiveness | UI | 2026-01-31 | Background task running |
+| Data aggregation panels | UI | 2026-01-31 | Background task |
+| Unit test suite | Test | 2026-01-31 | Background task |
+| E2E test suite | Test | 2026-01-31 | Background task |
+| Storytelling/tours | UI | 2026-01-31 | Background task |
 
 ## Pending Tasks (Prioritized)
-1. [ ] Investment data overlay (Data Agent)
-2. [ ] Data aggregation panels (UI Agent)
-3. [ ] Unit test suite (Test Agent)
-4. [ ] E2E test suite (Test Agent)
-7. [ ] E2E test suite (Test Agent)
+_All MVP tasks now in progress_
 
 ## Blocked Tasks
 | Task | Blocker | Waiting On |
@@ -56,8 +58,15 @@ _Key decisions or context that should persist across sessions:_
 ## Session Handoff
 _Instructions for next session:_
 - Current focus: MVP core features
-- Next action: Implement year slider component
+- Next action: Add data aggregation panels and complete tests
+- Investment data overlay completed with:
+  - Sample data files for 2025, 2030, 2035, 2040, 2045, 2050
+  - useInvestmentData hook with caching and filtering
+  - InvestmentLayer component with color-coded markers
+  - Driver metadata in investment-drivers.json
 - Files to review:
   - src/components/map/Map.tsx
-  - src/lib/oim.ts
+  - src/components/map/InvestmentLayer.tsx
+  - src/hooks/useInvestmentData.ts
+  - public/data/assets/*.json
   - PLAN.md for full architecture details

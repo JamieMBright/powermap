@@ -1,0 +1,281 @@
+{
+  "year": 2035,
+  "investments": [
+    {
+      "id": "INV-2035-001",
+      "year": 2035,
+      "location": {
+        "lat": 51.5031,
+        "lng": -0.0191
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-CITY",
+        "la": "LA-TOWH",
+        "lsoa": "E01004234"
+      },
+      "investment": {
+        "amount": 15000000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Canary Wharf Super Hub",
+        "description": "Major substation upgrade for financial district expansion"
+      }
+    },
+    {
+      "id": "INV-2035-002",
+      "year": 2035,
+      "location": {
+        "lat": 51.5551,
+        "lng": -0.1084
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-HOLL",
+        "la": "LA-ISLN",
+        "lsoa": "E01002345"
+      },
+      "investment": {
+        "amount": 6800000,
+        "driver": "proactive_investment",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Holloway Smart Grid Rollout",
+        "description": "Advanced cable network with embedded sensors"
+      }
+    },
+    {
+      "id": "INV-2035-003",
+      "year": 2035,
+      "location": {
+        "lat": 52.6309,
+        "lng": 1.2974
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-NORW",
+        "la": "LA-NORW",
+        "lsoa": "E01026789"
+      },
+      "investment": {
+        "amount": 22000000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Norwich Green Energy Hub",
+        "description": "New grid supply point for renewable energy zone"
+      }
+    },
+    {
+      "id": "INV-2035-004",
+      "year": 2035,
+      "location": {
+        "lat": 51.2685,
+        "lng": 0.5218
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-MAID",
+        "la": "LA-MAID",
+        "lsoa": "E01024678"
+      },
+      "investment": {
+        "amount": 8500000,
+        "driver": "reverse_power_flow",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Maidstone Solar Farm Integration",
+        "description": "Grid-forming inverter installation for solar stability"
+      }
+    },
+    {
+      "id": "INV-2035-005",
+      "year": 2035,
+      "location": {
+        "lat": 51.7985,
+        "lng": 0.6393
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-CHEL",
+        "la": "LA-BRAI",
+        "lsoa": "E01021567"
+      },
+      "investment": {
+        "amount": 11500000,
+        "driver": "load_reinforcement",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Braintree Industrial Zone",
+        "description": "High capacity cable for manufacturing cluster"
+      }
+    },
+    {
+      "id": "INV-2035-006",
+      "year": 2035,
+      "location": {
+        "lat": 51.4484,
+        "lng": -0.4156
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-HEAT",
+        "la": "LA-HILL",
+        "lsoa": "E01003890"
+      },
+      "investment": {
+        "amount": 4700000,
+        "driver": "fault_level",
+        "type": "switchgear"
+      },
+      "metadata": {
+        "projectName": "Heathrow Network Protection",
+        "description": "Fault current limiters for airport power security"
+      }
+    },
+    {
+      "id": "INV-2035-007",
+      "year": 2035,
+      "location": {
+        "lat": 51.3514,
+        "lng": 0.7353
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-ROCH",
+        "la": "LA-MEDW",
+        "lsoa": "E01024123"
+      },
+      "investment": {
+        "amount": 3200000,
+        "driver": "asset_replacement",
+        "type": "overhead_line"
+      },
+      "metadata": {
+        "projectName": "Medway Towns Line Modernisation",
+        "description": "Conductor replacement with high-temperature low-sag"
+      }
+    },
+    {
+      "id": "INV-2035-008",
+      "year": 2035,
+      "location": {
+        "lat": 51.6581,
+        "lng": 0.0817
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-ENFD",
+        "la": "LA-ENFD",
+        "lsoa": "E01001234"
+      },
+      "investment": {
+        "amount": 5600000,
+        "driver": "connections",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Enfield Data Centre Cluster",
+        "description": "Dedicated supply for hyperscale data centres"
+      }
+    },
+    {
+      "id": "INV-2035-009",
+      "year": 2035,
+      "location": {
+        "lat": 52.2456,
+        "lng": 0.7122
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-NEWM",
+        "la": "LA-FORE",
+        "lsoa": "E01028901"
+      },
+      "investment": {
+        "amount": 2800000,
+        "driver": "proactive_investment",
+        "type": "switchgear"
+      },
+      "metadata": {
+        "projectName": "Forest Heath Automation",
+        "description": "Self-healing network installation"
+      }
+    },
+    {
+      "id": "INV-2035-010",
+      "year": 2035,
+      "location": {
+        "lat": 51.1093,
+        "lng": 1.3540
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-DOVR",
+        "la": "LA-DOVR",
+        "lsoa": "E01024567"
+      },
+      "investment": {
+        "amount": 18000000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Dover Port Electrification",
+        "description": "Shore power and EV charging infrastructure"
+      }
+    },
+    {
+      "id": "INV-2035-011",
+      "year": 2035,
+      "location": {
+        "lat": 51.4613,
+        "lng": -0.1156
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-LAMB",
+        "la": "LA-LAMB",
+        "lsoa": "E01003456"
+      },
+      "investment": {
+        "amount": 7200000,
+        "driver": "load_reinforcement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Vauxhall Nine Elms Upgrade",
+        "description": "Transformer capacity for regeneration area"
+      }
+    },
+    {
+      "id": "INV-2035-012",
+      "year": 2035,
+      "location": {
+        "lat": 52.0571,
+        "lng": 1.1472
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-IPSW",
+        "la": "LA-IPSW",
+        "lsoa": "E01030123"
+      },
+      "investment": {
+        "amount": 4100000,
+        "driver": "asset_replacement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Ipswich Central Transformer Renewal",
+        "description": "Replacement of 1970s-era grid transformers"
+      }
+    }
+  ]
+}

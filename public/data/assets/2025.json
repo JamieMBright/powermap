@@ -1,0 +1,189 @@
+{
+  "year": 2025,
+  "investments": [
+    {
+      "id": "INV-2025-001",
+      "year": 2025,
+      "location": {
+        "lat": 51.5074,
+        "lng": -0.1278
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-CITY",
+        "la": "LA-WSTM",
+        "lsoa": "E01032739"
+      },
+      "investment": {
+        "amount": 2500000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "City Road Primary Substation Replacement",
+        "description": "Replacement of aging 33/11kV primary substation serving central London"
+      }
+    },
+    {
+      "id": "INV-2025-002",
+      "year": 2025,
+      "location": {
+        "lat": 51.5155,
+        "lng": -0.0922
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-CITY",
+        "la": "LA-ISLN",
+        "lsoa": "E01033585"
+      },
+      "investment": {
+        "amount": 1800000,
+        "driver": "load_reinforcement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Old Street Grid Reinforcement",
+        "description": "Additional transformer capacity for tech hub development"
+      }
+    },
+    {
+      "id": "INV-2025-003",
+      "year": 2025,
+      "location": {
+        "lat": 52.2053,
+        "lng": 0.1218
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-CAMB",
+        "la": "LA-CAMB",
+        "lsoa": "E01017963"
+      },
+      "investment": {
+        "amount": 3200000,
+        "driver": "connections",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Cambridge Science Park Connection",
+        "description": "New 33kV cable connection for research park expansion"
+      }
+    },
+    {
+      "id": "INV-2025-004",
+      "year": 2025,
+      "location": {
+        "lat": 51.8815,
+        "lng": 0.8994
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-COLC",
+        "la": "LA-COLC",
+        "lsoa": "E01021892"
+      },
+      "investment": {
+        "amount": 950000,
+        "driver": "asset_replacement",
+        "type": "switchgear"
+      },
+      "metadata": {
+        "projectName": "Colchester Ring Main Unit Renewal",
+        "description": "Replacement of oil-filled switchgear with SF6-free alternatives"
+      }
+    },
+    {
+      "id": "INV-2025-005",
+      "year": 2025,
+      "location": {
+        "lat": 51.2787,
+        "lng": 1.0803
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-CANT",
+        "la": "LA-CANT",
+        "lsoa": "E01024123"
+      },
+      "investment": {
+        "amount": 1500000,
+        "driver": "reverse_power_flow",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Canterbury Solar Integration",
+        "description": "Transformer upgrades to manage reverse power flow from solar farms"
+      }
+    },
+    {
+      "id": "INV-2025-006",
+      "year": 2025,
+      "location": {
+        "lat": 51.4545,
+        "lng": -0.9784
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-READ",
+        "la": "LA-READ",
+        "lsoa": "E01016453"
+      },
+      "investment": {
+        "amount": 2100000,
+        "driver": "load_reinforcement",
+        "type": "cable"
+      },
+      "metadata": {
+        "projectName": "Reading Town Centre Capacity Upgrade",
+        "description": "New 11kV cable circuits for commercial development"
+      }
+    },
+    {
+      "id": "INV-2025-007",
+      "year": 2025,
+      "location": {
+        "lat": 51.7520,
+        "lng": 1.2577
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-HARW",
+        "la": "LA-TEND",
+        "lsoa": "E01022056"
+      },
+      "investment": {
+        "amount": 4500000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Harwich Port Grid Connection",
+        "description": "New primary substation for port electrification and shore power"
+      }
+    },
+    {
+      "id": "INV-2025-008",
+      "year": 2025,
+      "location": {
+        "lat": 51.3762,
+        "lng": 0.1006
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-BROM",
+        "la": "LA-BROM",
+        "lsoa": "E01000854"
+      },
+      "investment": {
+        "amount": 750000,
+        "driver": "proactive_investment",
+        "type": "switchgear"
+      },
+      "metadata": {
+        "projectName": "Bromley Smart Grid Pilot",
+        "description": "Installation of intelligent switching for network automation"
+      }
+    }
+  ]
+}
