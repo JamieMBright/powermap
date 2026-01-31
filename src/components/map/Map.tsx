@@ -38,58 +38,78 @@ export function Map({ className = '', onMapLoad }: MapProps) {
   useEffect(() => {
     if (!mapContainer.current || mapRef.current) return;
 
-    const mapInstance = new maplibregl.Map({
-      container: mapContainer.current,
-      style: MAP_CONFIG.style,
-      center: MAP_CONFIG.center,
-      zoom: MAP_CONFIG.zoom,
-      minZoom: MAP_CONFIG.minZoom,
-      maxZoom: MAP_CONFIG.maxZoom,
-      // Enable touch interactions
-      touchZoomRotate: true,
-      touchPitch: true,
-      dragRotate: false, // Simpler interaction on mobile
-    });
+    // Log container dimensions for debugging
+    const rect = mapContainer.current.getBoundingClientRect();
+    console.log('[Map] Container dimensions:', rect.width, 'x', rect.height);
 
-    // Add navigation controls - position differently on mobile to avoid overlap
-    // On mobile, position bottom-right to avoid overlapping with BoundarySelector
-    mapInstance.addControl(
-      new maplibregl.NavigationControl({ showCompass: !isMobile }),
-      isMobile ? 'bottom-right' : 'top-right'
-    );
-
-    // Add scale control
-    mapInstance.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
-
-    // Add fullscreen control - only on desktop
-    if (!isMobile) {
-      mapInstance.addControl(new maplibregl.FullscreenControl(), 'top-right');
+    if (rect.width === 0 || rect.height === 0) {
+      console.error('[Map] Container has zero dimensions! Map will not render.');
     }
 
-    // Add geolocate control for mobile users
-    mapInstance.addControl(
-      new maplibregl.GeolocateControl({
-        positionOptions: { enableHighAccuracy: true },
-        trackUserLocation: false,
-      }),
-      isMobile ? 'bottom-right' : 'top-right'
-    );
+    try {
+      const mapInstance = new maplibregl.Map({
+        container: mapContainer.current,
+        style: MAP_CONFIG.style,
+        center: MAP_CONFIG.center,
+        zoom: MAP_CONFIG.zoom,
+        minZoom: MAP_CONFIG.minZoom,
+        maxZoom: MAP_CONFIG.maxZoom,
+        // Enable touch interactions
+        touchZoomRotate: true,
+        touchPitch: true,
+        dragRotate: false, // Simpler interaction on mobile
+      });
 
-    mapInstance.on('load', () => {
-      // Add Open Infrastructure Map layers
-      addOIMToMap(mapInstance);
+      // Log map creation
+      console.log('[Map] MapLibre instance created');
 
-      setIsLoaded(true);
-      handleMapLoad(mapInstance);
-    });
+      // Add navigation controls - position differently on mobile to avoid overlap
+      // On mobile, position bottom-right to avoid overlapping with BoundarySelector
+      mapInstance.addControl(
+        new maplibregl.NavigationControl({ showCompass: !isMobile }),
+        isMobile ? 'bottom-right' : 'top-right'
+      );
 
-    mapRef.current = mapInstance;
+      // Add scale control
+      mapInstance.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
 
-    return () => {
-      mapInstance.remove();
-      mapRef.current = null;
-      setMap(null);
-    };
+      // Add fullscreen control - only on desktop
+      if (!isMobile) {
+        mapInstance.addControl(new maplibregl.FullscreenControl(), 'top-right');
+      }
+
+      // Add geolocate control for mobile users
+      mapInstance.addControl(
+        new maplibregl.GeolocateControl({
+          positionOptions: { enableHighAccuracy: true },
+          trackUserLocation: false,
+        }),
+        isMobile ? 'bottom-right' : 'top-right'
+      );
+
+      mapInstance.on('load', () => {
+        console.log('[Map] Style loaded successfully');
+        // Add Open Infrastructure Map layers
+        addOIMToMap(mapInstance);
+
+        setIsLoaded(true);
+        handleMapLoad(mapInstance);
+      });
+
+      mapInstance.on('error', (e) => {
+        console.error('[Map] Error:', e.error?.message || e);
+      });
+
+      mapRef.current = mapInstance;
+
+      return () => {
+        mapInstance.remove();
+        mapRef.current = null;
+        setMap(null);
+      };
+    } catch (err) {
+      console.error('[Map] Failed to create map:', err);
+    }
   }, [handleMapLoad, isMobile]);
 
   // Use className if provided, otherwise default to relative full-size container

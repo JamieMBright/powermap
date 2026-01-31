@@ -9,6 +9,7 @@ import { useTour } from '@/hooks/useTour';
 import { BoundaryProvider, useBoundaryContext } from '@/contexts/BoundaryContext';
 import { AggregationPanel } from '@/components/ui/AggregationPanel';
 import { useYearFilter } from '@/hooks/useYearFilter';
+import { APP_VERSION_SHORT } from '@/lib/version';
 
 export default function Home() {
   return (
@@ -80,7 +81,7 @@ function HomeContent() {
           <div className="flex items-center gap-2 sm:gap-3">
             <h1 className="text-lg font-bold text-gray-900 sm:text-xl">PowerMap</h1>
             <span className="rounded-full bg-orange-100 px-2 py-0.5 text-xs font-medium text-orange-700">
-              Beta
+              {APP_VERSION_SHORT}
             </span>
           </div>
           {/* Navigation - Hidden on mobile, visible on sm and up */}
