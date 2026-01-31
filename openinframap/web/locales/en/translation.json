@@ -1,0 +1,234 @@
+{
+  "edit": {
+    "edit": "Edit",
+    "remote": "Edit with remote control (JOSM, etc)",
+    "browser": "Edit in browser (iD)",
+    "error": "Unable to load remote editor - make sure it's running and has remote control enabled.\nError: "
+  },
+  "names": {
+    "power": {
+      "transformer": "Transformer",
+      "tower": "Power tower",
+      "pole": "Power pole",
+      "generator": "Generator",
+      "generator-solar": "Solar generator",
+      "wind-turbine": "Wind turbine",
+      "substation": "Substation",
+      "switch": "Switch",
+      "compensator": "Compensator",
+      "converter": "DC converter substation",
+      "cable": "Power cable",
+      "line": "Power line",
+      "solar-panel": "Solar panel",
+      "plant": "Power plant",
+      "hvdc": "HVDC",
+      "line-reference": "Line reference",
+      "solar-panel-node": "Solar panel (node)",
+      "other-generator": "Other generator",
+      "tower-pylon": "Tower/Pylon",
+      "tower-transition": "Transition tower",
+      "pole-transition": "Transition pole",
+      "transformer-3": "Transformer (3 windings)",
+      "switch-disconnector": "Disconnector",
+      "switch-breaker": "Circuit breaker",
+      "switch-other": "Other switch",
+      "reactor-series": "Series reactor",
+      "reactor-shunt": "Shunt reactor",
+      "capacitor-series": "Series capacitor",
+      "capacitor-shunt": "Shunt capacitor",
+      "statcom": "Static VAR compensator",
+      "synchronous-condenser": "Synchronous condenser",
+      "filter": "Filter",
+      "compensator-other": "Other compensator",
+      "current-transformer": "Current transformer",
+      "potential-transformer": "Potential transformer"
+    },
+    "telecoms": {
+      "communication-line": "Telecoms line",
+      "data-center": "Telecoms building",
+      "exchange": "Telephone exchange",
+      "cabinet": "Telecoms cabinet"
+    },
+    "pipeline": "Pipeline",
+    "petroleum": {
+      "well": "Well",
+      "facility": "Petroleum facility"
+    },
+    "gas": {
+      "pipeline": {
+        "transmission": "Transmission",
+        "distribution": "Distribution",
+        "pressure": {
+          "high": "High Pressure",
+          "intermediate": "Intermediate Pressure",
+          "low": "Low Pressure"
+        }
+      }
+    },
+    "water": {
+      "pipeline": "Water pipeline",
+      "sewage-treatment-plant": "Sewage treatment plant",
+      "treatment-plant": "Water treatment plant",
+      "pumping-station": "Pumping station",
+      "well": "Water well",
+      "reservoir": "Water reservoir",
+      "water-pumping-station": "Water pumping station",
+      "sewage-pumping-station": "Sewage pumping station"
+    },
+    "cable": "Cable",
+    "telecom": {
+      "tower-mast": "Tower/Mast",
+      "datacenter": "Datacenter"
+    },
+    "cabinet": "Cabinet",
+    "substance": {
+      "oil": "Oil",
+      "gas": "Gas",
+      "petroleum-intermediate": "Petroleum intermediate",
+      "fuel": "Fuel",
+      "hydrogen": "Hydrogen",
+      "nitrogen": "Nitrogen",
+      "oxygen": "Oxygen",
+      "beer": "Beer",
+      "co2": "CO<sub>2</sub>",
+      "fresh-water": "Fresh water",
+      "hot-water": "Hot water",
+      "steam": "Steam",
+      "wastewater": "Wastewater",
+      "rainwater": "Rainwater"
+    },
+    "method": {
+      "fission": "Fission",
+      "fusion": "Fusion",
+      "wind-turbine": "Wind turbine",
+      "water-storage": "Water storage",
+      "water-pumped-storage": "Pumped storage",
+      "water-run-of-river": "Run-of-river",
+      "tidal-barrage": "Barrage",
+      "tidal-stream": "Stream",
+      "solar-thermal": "Thermal",
+      "solar-photovoltaic": "Photovoltaic",
+      "combustion": "Combustion",
+      "gasification": "Gasification",
+      "anaerobic-digestion": "Anaerobic digestion"
+    },
+    "other-pumping-station": "Other pumping station",
+    "place": "Place"
+  },
+  "info": {
+    "name": "Name",
+    "operator": "Operator",
+    "output": "Power",
+    "source": "Source",
+    "start-date": "Start date",
+    "generation-method": "Generation method",
+    "substation-type": "Substation type",
+    "reference": "Reference",
+    "circuits": "Circuits",
+    "type": "Type",
+    "website": "Website",
+    "view-openstreetmap": "View on OpenStreetMap",
+    "substance": "Substance",
+    "usage": "Usage",
+    "location": "Location",
+    "design": "Design",
+    "material": "Material",
+    "line-attachment": "Line attachment",
+    "line-management": "Line management",
+    "transformer-type": "Transformer type"
+  },
+  "nav": {
+    "about": "about",
+    "stats": "stats",
+    "exports": "exports"
+  },
+  "units": {
+    "kV": "kV",
+    "Hz": "Hz",
+    "MW": "MW",
+    "DC": "DC",
+    "below_10kv": "< 10 kV",
+    "ge_kv": "≥ {{voltage}} kV",
+    "kW": "kW",
+    "V": "V"
+  },
+  "more_info": "More info",
+  "wikipedia": "Wikipedia",
+  "wikimedia-commons": "Wikimedia Commons",
+  "wikidata": "Wikidata",
+  "key": {
+    "name": "Key",
+    "power-lines": "Power Lines",
+    "power-plants": "Power Plants",
+    "power-generators": "Power Generators",
+    "power-line-supports": "Power Line Supports",
+    "switchgear": "Switchgear",
+    "telecoms": "Telecoms",
+    "gas": "Gas",
+    "petroleum": "Petroleum",
+    "water": "Water",
+    "traction": "Traction (< 50 Hz)"
+  },
+  "location": {
+    "underground": "Underground",
+    "underwater": "Underwater",
+    "overhead": "Overhead",
+    "roof": "Roof",
+    "surface": "Surface",
+    "outdoor": "Outdoor",
+    "indoor": "Indoor"
+  },
+  "power": {
+    "source": {
+      "coal": "Coal",
+      "geothermal": "Geothermal",
+      "hydro": "Hydroelectric",
+      "nuclear": "Nuclear",
+      "oil-gas": "Oil/Gas",
+      "gas": "Gas",
+      "solar": "Solar",
+      "wind": "Wind",
+      "biomass": "Biomass",
+      "waste": "Waste",
+      "battery": "Battery",
+      "unknown": "Other/Unknown"
+    },
+    "substation-type": {
+      "transmission": "Transmission",
+      "distribution": "Distribution",
+      "traction": "Traction",
+      "converter": "DC Converter"
+    }
+  },
+  "other": "Other",
+  "warning": "Warning",
+  "warnings": {
+    "webgl": "<p>Your browser may have performance or functionality issues with Open Infrastructure Map.</p><p><a href=\"http://webglreport.com\">WebGL</a> with hardware acceleration is required for this site to perform well.</p><p>If your browser supports WebGL, you may need to disable browser fingerprinting protection for this site.</p>"
+  },
+  "layers": {
+    "background": "Background",
+    "heatmaps": "Heatmaps",
+    "overlays": "Overlays",
+    "infrastructure": "Infrastructure",
+    "validation": "Validation",
+    "nighttime-lights": "Nighttime Lights",
+    "power": "Power",
+    "solar-generation": "Solar Generation",
+    "telecoms": "Telecoms",
+    "petroleum": "Oil & Natural Gas",
+    "water": "Water",
+    "borders": "Borders",
+    "labels": "Labels",
+    "title": "Layers",
+    "other-pipelines": "Other Pipelines",
+    "osmose-power": "Osmose (Power)"
+  },
+  "construction": "under construction",
+  "disused": "disused",
+  "coordinates": "Coordinates",
+  "search": {
+    "clear": "Clear search",
+    "no-results": "No results found"
+  },
+  "openstreetmap": "OpenStreetMap"
+}

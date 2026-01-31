@@ -1,0 +1,233 @@
+{
+    "edit": {
+        "edit": "编辑",
+        "remote": "以远程控制编辑（JOSM等）",
+        "browser": "在浏览器中编辑（iD）",
+        "error": "无法加载远程编辑器——确保其在运行并已启用远程控制。\n错误： "
+    },
+    "names": {
+        "power": {
+            "generator": "发电机",
+            "substation": "变电所",
+            "switch": "开关",
+            "compensator": "补偿器",
+            "converter": "直流换流站",
+            "solar-panel": "太阳能板",
+            "plant": "发电厂",
+            "hvdc": "高压直流",
+            "line-reference": "线路编号",
+            "solar-panel-node": "太阳能板（点）",
+            "tower-pylon": "塔",
+            "switch-breaker": "断路器",
+            "switch-other": "其他开关",
+            "reactor-series": "串联电抗器",
+            "reactor-shunt": "并联电抗器",
+            "capacitor-series": "串联电容器",
+            "capacitor-shunt": "并联电容器",
+            "statcom": "静态无功补偿器",
+            "synchronous-condenser": "同步调相机",
+            "compensator-other": "其他补偿器",
+            "filter": "滤波器",
+            "other-generator": "其他发电机",
+            "line": "架空电线",
+            "cable": "电缆",
+            "transformer": "变压器",
+            "tower": "电塔",
+            "pole": "电杆",
+            "generator-solar": "太阳能发电机",
+            "wind-turbine": "风力发电机",
+            "tower-transition": "转接塔",
+            "pole-transition": "转接杆",
+            "transformer-3": "三相变压器",
+            "switch-disconnector": "隔离开关",
+            "potential-transformer": "电压互感器",
+            "current-transformer": "电流互感器"
+        },
+        "pipeline": "管道",
+        "water": {
+            "sewage-treatment-plant": "污水处理厂",
+            "treatment-plant": "自来水厂",
+            "pumping-station": "泵站",
+            "well": "水井",
+            "sewage-pumping-station": "污水泵站",
+            "water-pumping-station": "水泵站",
+            "pipeline": "水管",
+            "reservoir": "水库"
+        },
+        "telecom": {
+            "datacenter": "数据中心",
+            "tower-mast": "塔"
+        },
+        "substance": {
+            "oil": "原油",
+            "fuel": "燃料",
+            "gas": "天然气",
+            "fresh-water": "淡水",
+            "hot-water": "热水",
+            "hydrogen": "氢",
+            "steam": "蒸汽",
+            "co2": "二氧化碳",
+            "wastewater": "污水",
+            "rainwater": "雨水",
+            "petroleum-intermediate": "石化中间产物",
+            "beer": "啤酒",
+            "oxygen": "氧",
+            "nitrogen": "氮"
+        },
+        "method": {
+            "fusion": "核聚变",
+            "wind-turbine": "风力涡轮机",
+            "water-pumped-storage": "抽水蓄能",
+            "water-storage": "蓄水式",
+            "water-run-of-river": "川流式",
+            "tidal-stream": "潮流",
+            "fission": "核裂变",
+            "tidal-barrage": "堰坝",
+            "solar-thermal": "光热",
+            "solar-photovoltaic": "光电",
+            "combustion": "燃烧",
+            "gasification": "气化",
+            "anaerobic-digestion": "厌氧消化"
+        },
+        "other-pumping-station": "其他泵站",
+        "petroleum": {
+            "well": "油井",
+            "facility": "石油设施"
+        },
+        "telecoms": {
+            "communication-line": "通信线路",
+            "data-center": "通信建筑",
+            "exchange": "电话交换机",
+            "cabinet": "通信柜"
+        },
+        "cable": "线数",
+        "cabinet": "柜",
+        "place": "地名",
+        "gas": {
+            "pipeline": {
+                "pressure": {
+                    "high": "高压",
+                    "intermediate": "中压",
+                    "low": "低压"
+                },
+                "transmission": "输气",
+                "distribution": "配气"
+            }
+        }
+    },
+    "nav": {
+        "about": "关于",
+        "stats": "统计",
+        "exports": "导出"
+    },
+    "info": {
+        "source": "能源",
+        "name": "名称",
+        "operator": "运营者",
+        "output": "装机容量",
+        "start-date": "启用日期",
+        "generation-method": "发电方式",
+        "substation-type": "变电所类型",
+        "type": "类型",
+        "website": "网站",
+        "circuits": "回路",
+        "view-openstreetmap": "在开放街图中查看",
+        "reference": "编号",
+        "substance": "内容物",
+        "usage": "用途",
+        "location": "位置",
+        "design": "塔架设计",
+        "material": "材质",
+        "line-management": "线路管理",
+        "line-attachment": "线缆附着",
+        "transformer-type": "变压器类型"
+    },
+    "units": {
+        "DC": "直流",
+        "below_10kv": "< 10 kV",
+        "ge_kv": "≥ {{voltage}} kV",
+        "kW": "kW",
+        "V": "V",
+        "MW": "MW",
+        "Hz": "Hz",
+        "kV": "kV"
+    },
+    "key": {
+        "water": "水",
+        "name": "图例",
+        "power-lines": "电线",
+        "power-plants": "发电厂",
+        "power-generators": "发电机",
+        "telecoms": "通信",
+        "petroleum": "石化",
+        "power-line-supports": "电线支撑",
+        "switchgear": "开关设备",
+        "traction": "牵引（< 50 Hz）",
+        "gas": "天然气"
+    },
+    "location": {
+        "underground": "地下",
+        "underwater": "水下",
+        "overhead": "天上",
+        "surface": "地面",
+        "outdoor": "室外",
+        "roof": "屋顶",
+        "indoor": "室内"
+    },
+    "power": {
+        "source": {
+            "coal": "煤",
+            "hydro": "水力",
+            "waste": "垃圾",
+            "nuclear": "核能",
+            "geothermal": "地热",
+            "oil-gas": "油气",
+            "gas": "天然气",
+            "solar": "太阳能",
+            "wind": "风能",
+            "battery": "电池",
+            "biomass": "生物质能"
+        },
+        "substation-type": {
+            "transmission": "输电",
+            "distribution": "配电",
+            "traction": "牵引",
+            "converter": "直流换流器"
+        }
+    },
+    "other": "其他",
+    "warning": "警告",
+    "construction": "在建",
+    "layers": {
+        "labels": "地名",
+        "water": "水",
+        "power": "电力",
+        "telecoms": "通信",
+        "petroleum": "油气",
+        "title": "图层",
+        "other-pipelines": "其他管线",
+        "nighttime-lights": "夜间照明",
+        "infrastructure": "基础设施",
+        "osmose-power": "Osmose (电力)",
+        "validation": "检验",
+        "solar-generation": "太阳能发电",
+        "background": "背景",
+        "heatmaps": "热图",
+        "borders": "边界",
+        "overlays": "叠加层"
+    },
+    "more_info": "更多资讯",
+    "wikipedia": "维基百科",
+    "wikimedia-commons": "维基共享资源",
+    "wikidata": "维基数据",
+    "warnings": {
+        "webgl": "<p>您的浏览器可能有Open Infrastructure Map的效能或功能问题。</p><p>需要有<a href=\"http://webglreport.com\">WebGL</a> 硬件加速功能，此网站才能正常运作。</p><p>若您的浏览器支持WebGL，您可能需要停用该网站的浏览器指纹识别保护。</p>"
+    },
+    "disused": "废弃",
+    "coordinates": "坐标",
+    "search": {
+        "clear": "清除搜索",
+        "no-results": "未找到结果"
+    },
+    "openstreetmap": "开放街图"
+}

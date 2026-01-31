@@ -1,0 +1,233 @@
+{
+    "names": {
+        "power": {
+            "transformer": "Transformateur",
+            "tower": "Pylône électrique",
+            "generator-solar": "Générateur solaire",
+            "line-reference": "Référence de la ligne",
+            "substation": "Sous-station",
+            "generator": "Générateur",
+            "solar-panel": "Panneau solaire",
+            "line": "Ligne électrique",
+            "solar-panel-node": "Panneau solaire (noeud)",
+            "tower-pylon": "Tour/Pylône",
+            "wind-turbine": "Eolienne",
+            "cable": "Câble",
+            "other-generator": "Autre générateur",
+            "pole": "Poteau électrique",
+            "compensator": "Compensateur",
+            "reactor-series": "Inductance série",
+            "reactor-shunt": "Inductance shunt",
+            "switch-disconnector": "Sectionneur",
+            "switch-breaker": "Disjoncteur",
+            "capacitor-shunt": "Condensateur-shunt",
+            "plant": "Centrale électrique",
+            "filter": "Filtre",
+            "capacitor-series": "Condensateur en série",
+            "compensator-other": "Autre compensateur",
+            "synchronous-condenser": "Compensateur synchrone",
+            "converter": "Poste de conversion",
+            "transformer-3": "Transformateur (3 enroulements)",
+            "switch": "Appareil de connexion",
+            "hvdc": "CCHT",
+            "switch-other": "Autre interrupteur",
+            "statcom": "Compensateur statique d'énergie réactive",
+            "tower-transition": "Tour/pylône de transition",
+            "potential-transformer": "Transformateur de tension",
+            "pole-transition": "Poteau de transition",
+            "current-transformer": "Transformateur de courant"
+        },
+        "substance": {
+            "co2": "CO<sub>2</sub>",
+            "hydrogen": "Hydrogène",
+            "steam": "Vapeur",
+            "wastewater": "Eaux usées",
+            "rainwater": "Eaux pluviales",
+            "gas": "Gaz",
+            "fresh-water": "Eau froide",
+            "hot-water": "Eau chaude",
+            "oil": "Pétrole",
+            "petroleum-intermediate": "Produits intermédiaires du pétrole",
+            "fuel": "Carburant",
+            "nitrogen": "Diazote",
+            "oxygen": "Dioxygène",
+            "beer": "Bière"
+        },
+        "telecoms": {
+            "cabinet": "Armoire télécommunication",
+            "data-center": "Data Center (bâtiment)",
+            "communication-line": "Ligne télécommunication",
+            "exchange": "Commutateur téléphonique"
+        },
+        "petroleum": {
+            "well": "Forage",
+            "facility": "Plateforme pétrolière"
+        },
+        "water": {
+            "pipeline": "Conduite d'eau",
+            "well": "Puit",
+            "reservoir": "Réservoir d'eau",
+            "sewage-treatment-plant": "Station d'épuration",
+            "treatment-plant": "Station de traitement de l'eau",
+            "sewage-pumping-station": "Poste de refoulement",
+            "water-pumping-station": "Station de pompage de l'eau",
+            "pumping-station": "Station de pompage"
+        },
+        "cable": "Câble",
+        "telecom": {
+            "datacenter": "Datacenter",
+            "tower-mast": "Tour/Mât"
+        },
+        "cabinet": "Armoire",
+        "pipeline": "Pipeline",
+        "other-pumping-station": "Autre station de pompage",
+        "method": {
+            "fission": "Fission",
+            "fusion": "Fusion",
+            "wind-turbine": "Éolienne",
+            "solar-thermal": "Thermique",
+            "solar-photovoltaic": "Photovoltaïque",
+            "combustion": "Combustion",
+            "gasification": "Gazéification",
+            "water-storage": "Stockage d'eau",
+            "anaerobic-digestion": "Digestion anaérobie",
+            "water-pumped-storage": "Pompage-turbinage",
+            "tidal-barrage": "Marémotrice",
+            "water-run-of-river": "Au fil de l'eau",
+            "tidal-stream": "Hydrolienne"
+        },
+        "place": "Lieu",
+        "gas": {
+            "pipeline": {
+                "transmission": "Transport",
+                "distribution": "Distribution",
+                "pressure": {
+                    "intermediate": "Moyenne Pression",
+                    "low": "Basse Pression",
+                    "high": "Haute Pression"
+                }
+            }
+        }
+    },
+    "edit": {
+        "edit": "Editer",
+        "remote": "Editer avec un tiers (JOSM, etc.)",
+        "browser": "Editer en ligne (iD)",
+        "error": "Impossible de charger l'éditeur distant - vérifiez qu'il est en cours d'exécution et que le contrôle à distance est activé.\nErreur : "
+    },
+    "nav": {
+        "about": "à propos",
+        "exports": "exports",
+        "stats": "statistiques"
+    },
+    "info": {
+        "view-openstreetmap": "Voir sur OpenStreetMap",
+        "website": "Site web",
+        "source": "Source",
+        "start-date": "Date de début",
+        "usage": "Utilisation",
+        "location": "Localisation",
+        "output": "Puissance",
+        "name": "Nom",
+        "operator": "Opérateur",
+        "type": "Type",
+        "substation-type": "Type de sous-station",
+        "reference": "Référence",
+        "generation-method": "Méthode de génération",
+        "circuits": "Circuits",
+        "substance": "Substance",
+        "material": "Matériau",
+        "design": "Design",
+        "line-attachment": "Armement aérien",
+        "line-management": "Topologie",
+        "transformer-type": "Type de transformateur"
+    },
+    "other": "Autre",
+    "units": {
+        "V": "V",
+        "kV": "kV",
+        "Hz": "Hz",
+        "MW": "MW",
+        "below_10kv": "< 10 kV",
+        "ge_kv": "≥ {{voltage}} kV",
+        "DC": "DC",
+        "kW": "kW"
+    },
+    "key": {
+        "name": "Légende",
+        "telecoms": "Télécommunications",
+        "petroleum": "Pétrolier",
+        "power-lines": "Lignes électriques",
+        "power-line-supports": "Supports de lignes électriques",
+        "water": "Eau",
+        "switchgear": "Appareillage de connexion",
+        "traction": "Traction (< 50 Hz)",
+        "power-plants": "Centrales électriques",
+        "power-generators": "Générateur électrique",
+        "gas": "Gaz"
+    },
+    "wikidata": "Wikidata",
+    "power": {
+        "source": {
+            "coal": "Charbon",
+            "wind": "Eolien",
+            "biomass": "Biomasse",
+            "geothermal": "Géothermie",
+            "hydro": "Hydro-électricité",
+            "waste": "Déchets",
+            "nuclear": "Nucléaire",
+            "solar": "Solaire",
+            "oil-gas": "Huile/Gaz",
+            "battery": "Batterie",
+            "gas": "Gaz"
+        },
+        "substation-type": {
+            "distribution": "Distribution",
+            "traction": "Traction",
+            "transmission": "Transmission",
+            "converter": "Convertisseur DC"
+        }
+    },
+    "wikimedia-commons": "Wikimedia Commons",
+    "warning": "Avertissement",
+    "layers": {
+        "title": "Couches",
+        "telecoms": "Télécommunications",
+        "power": "Electricité",
+        "water": "Eau",
+        "labels": "Etiquettes",
+        "petroleum": "Pétrole & Gaz naturel",
+        "infrastructure": "Infrastructure",
+        "background": "Arrière-plan",
+        "nighttime-lights": "Lumières de nuit",
+        "heatmaps": "Carte de chaleur",
+        "validation": "Contrôle qualité",
+        "other-pipelines": "Autres canalisations",
+        "overlays": "Surcouches",
+        "osmose-power": "Osmose (Électricité)",
+        "solar-generation": "Solaire",
+        "borders": "Frontières"
+    },
+    "more_info": "Plus d'infos",
+    "wikipedia": "Wikipedia",
+    "construction": "en construction",
+    "location": {
+        "underground": "Souterrain",
+        "underwater": "Sous-marin",
+        "roof": "Toit",
+        "indoor": "Intérieur",
+        "surface": "Surface",
+        "outdoor": "Extérieur",
+        "overhead": "Aérien"
+    },
+    "warnings": {
+        "webgl": "<p>Votre navigateur peut rencontrer des problèmes de performance ou de fonctionnalité avec Open Infrastructure Map.</p><p><a href=\"http://webglreport.com\">WebGL</a> avec accélération matérielle est nécessaire pour que ce site fonctionne correctement.</p><p>Si votre navigateur prend en charge WebGL, vous devrez peut-être désactiver la protection contre le fingerprinting du navigateur pour ce site.</p>"
+    },
+    "disused": "Inutilisé",
+    "coordinates": "Coordonnées",
+    "search": {
+        "clear": "Vider la recherche",
+        "no-results": "Aucun résultat trouvé"
+    },
+    "openstreetmap": "OpenStreetMap"
+}

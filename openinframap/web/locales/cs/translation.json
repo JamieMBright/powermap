@@ -1,0 +1,234 @@
+{
+    "edit": {
+        "edit": "Upravit",
+        "browser": "Upravit v prohlížeči (iD)",
+        "remote": "Upravit vzdáleným ovládáním (JOSM apod.)",
+        "error": "Nepodařilo se načíst vzdálený editor – ujistěte se, že běží a že má povolené vzdálené ovládání.\nChyba: "
+    },
+    "nav": {
+        "about": "o projektu",
+        "exports": "exporty",
+        "stats": "statistiky"
+    },
+    "names": {
+        "power": {
+            "transformer": "Transformátor",
+            "pole": "Sloup elektrického vedení",
+            "generator-solar": "Solární elektrárna",
+            "wind-turbine": "Větrná elektrárna",
+            "generator": "Generátor",
+            "substation": "Rozvodna",
+            "line": "Elektrické vedení",
+            "solar-panel": "Solární panel",
+            "plant": "Elektrárna",
+            "hvdc": "HVDC",
+            "solar-panel-node": "Solární panel (uzel)",
+            "other-generator": "Jiný generátor",
+            "tower-pylon": "Stožár/sloup",
+            "tower": "Elektrický stožár",
+            "switch": "Switch",
+            "compensator": "Kompenzátor",
+            "converter": "Stejnosměrná měničová rozvodna",
+            "tower-transition": "Přechodový stožár",
+            "pole-transition": "Přechodový sloup",
+            "cable": "Napájecí kabel",
+            "line-reference": "Reference linky",
+            "switch-disconnector": "Odpojovač",
+            "transformer-3": "Transformátor (3 vinutí)",
+            "switch-breaker": "Jistič",
+            "switch-other": "Jiný switch",
+            "reactor-series": "Sériový reaktor",
+            "reactor-shunt": "Kompenzační tlumivka",
+            "capacitor-series": "Sériový kapacitor",
+            "capacitor-shunt": "Kompenzační kapacitor",
+            "statcom": "Statický VAR kompenzátor",
+            "current-transformer": "Proudový transformátor",
+            "potential-transformer": "Napěťový transformátor",
+            "synchronous-condenser": "Synchronní kompenzátor",
+            "filter": "Filtr",
+            "compensator-other": "Jiný kompenzátor"
+        },
+        "pipeline": "Potrubí",
+        "water": {
+            "treatment-plant": "Úpravna vod",
+            "pumping-station": "Čerpací stanice",
+            "well": "Studna",
+            "sewage-pumping-station": "Čerpací stanice odpadních vod",
+            "water-pumping-station": "Vodní čerpací stanice",
+            "pipeline": "Vodní potrubí",
+            "sewage-treatment-plant": "Čistírna odpadních vod",
+            "reservoir": "Vodní nádrž"
+        },
+        "substance": {
+            "nitrogen": "Dusík",
+            "oxygen": "Kyslík",
+            "beer": "Pivo",
+            "fresh-water": "Pitná voda",
+            "hot-water": "Horká voda",
+            "gas": "Plyn",
+            "oil": "Olej",
+            "petroleum-intermediate": "Ropný meziprodukt",
+            "hydrogen": "Vodík",
+            "fuel": "Palivo",
+            "wastewater": "Odpadní voda",
+            "steam": "Pára",
+            "co2": "CO<sub>2</sub>",
+            "rainwater": "Dešťová voda"
+        },
+        "other-pumping-station": "Jiná čerpací stanice",
+        "cable": "Kabel",
+        "telecoms": {
+            "cabinet": "Telekomunikační rozvaděč",
+            "communication-line": "Telekomunikační linka",
+            "data-center": "Telekomunikační stavba",
+            "exchange": "Telefonní ústředna"
+        },
+        "petroleum": {
+            "well": "Vrt",
+            "facility": "Ropné zařízení"
+        },
+        "telecom": {
+            "datacenter": "Datacentrum",
+            "tower-mast": "Věž/stožár"
+        },
+        "cabinet": "Rozvaděč",
+        "method": {
+            "fission": "Štěpení",
+            "fusion": "Fúze",
+            "water-storage": "Úložiště vody",
+            "water-pumped-storage": "Přečerpávací úložiště",
+            "water-run-of-river": "Průtoková vodní",
+            "tidal-stream": "Proud",
+            "tidal-barrage": "Přehrada",
+            "solar-thermal": "Tepelná",
+            "solar-photovoltaic": "Fotovoltaická",
+            "combustion": "Spalování",
+            "gasification": "Zplyňování",
+            "anaerobic-digestion": "Anaerobní digestní proces",
+            "wind-turbine": "Větrná turbína"
+        },
+        "place": "Místo",
+        "gas": {
+            "pipeline": {
+                "distribution": "Distribuční",
+                "pressure": {
+                    "high": "Vysoký tlak",
+                    "low": "Nízký tlak",
+                    "intermediate": "Střední tlak"
+                },
+                "transmission": "Přenosná"
+            }
+        }
+    },
+    "info": {
+        "generation-method": "Způsob výroby",
+        "start-date": "Datum vzniku",
+        "source": "Zdroj",
+        "name": "Název",
+        "output": "Výkon",
+        "substation-type": "Typ rozvodny",
+        "reference": "Reference",
+        "circuits": "Obvody",
+        "view-openstreetmap": "Zobazit na OpenStreetMap",
+        "substance": "Látka",
+        "website": "Webové stránky",
+        "operator": "Provozovatel",
+        "type": "Typ",
+        "usage": "Využití",
+        "location": "Umístění",
+        "transformer-type": "Typ transformátoru",
+        "design": "Vzhled",
+        "material": "Materiál",
+        "line-attachment": "Připojení vedení",
+        "line-management": "Správa vedení"
+    },
+    "layers": {
+        "telecoms": "Telekomunikace",
+        "petroleum": "Ropa a zemní plyn",
+        "water": "Voda",
+        "labels": "Štítky",
+        "title": "Vrstvy",
+        "power": "Energie",
+        "osmose-power": "Osmose (Energie)",
+        "other-pipelines": "Jiná potrubí",
+        "nighttime-lights": "Noční osvětlení",
+        "background": "Pozadí",
+        "heatmaps": "Teplotní mapy",
+        "solar-generation": "Solární výroba",
+        "infrastructure": "Infrastruktura",
+        "validation": "Validace",
+        "overlays": "Překrytí",
+        "borders": "Hranice"
+    },
+    "key": {
+        "telecoms": "Telekomunikace",
+        "name": "Klíč",
+        "water": "Voda",
+        "traction": "Trakce (< 50 Hz)",
+        "power-lines": "Elektrické vedení",
+        "power-plants": "Elektrárny",
+        "power-line-supports": "Části elektrického vedení",
+        "power-generators": "Generátory",
+        "switchgear": "Rozvodné zařízení",
+        "petroleum": "Ropa",
+        "gas": "Plyn"
+    },
+    "units": {
+        "V": "V",
+        "MW": "MW",
+        "kW": "kW",
+        "kV": "kV",
+        "Hz": "Hz",
+        "DC": "DC",
+        "below_10kv": "< 10 kV",
+        "ge_kv": "≥ {{voltage}} kV"
+    },
+    "more_info": "Další informace",
+    "location": {
+        "indoor": "Uvnitř",
+        "roof": "Střecha",
+        "surface": "Povrch",
+        "underground": "Pod zemí",
+        "underwater": "Pod vodou",
+        "outdoor": "Venku",
+        "overhead": "Nad zemí"
+    },
+    "wikidata": "Wikidata",
+    "other": "Jiný",
+    "warning": "Varování",
+    "construction": "ve výstavbě",
+    "wikipedia": "Wikipedie",
+    "wikimedia-commons": "Wikimedia Commons",
+    "power": {
+        "source": {
+            "coal": "Uhlí",
+            "geothermal": "Geotermální",
+            "hydro": "Hydroelektrická",
+            "nuclear": "Jaderná",
+            "wind": "Větrná",
+            "waste": "Odpadní",
+            "gas": "Plynová",
+            "solar": "Solární",
+            "battery": "Bateriová",
+            "biomass": "Biomasová",
+            "oil-gas": "Ropná/plynová",
+            "unknown": "Jiné/Neznámé"
+        },
+        "substation-type": {
+            "transmission": "Přenosová",
+            "distribution": "Distribuční",
+            "traction": "Trakční",
+            "converter": "DC usměrňovač"
+        }
+    },
+    "warnings": {
+        "webgl": "<p>Váš prohlížeč může mít výkonnostní nebo funkční problémy s Open Infrastructure Map.</p><p>Aby tento web fungoval správně, je vyžadován <a href=\"http://webglreport.com\">WebGL</a> s hardwarovou akcelerací.</p><p>Pokud váš prohlížeč podporuje WebGL, možná budete muset u tohoto webu v prohlížeči zakázat ochranu před sledováním.</p>"
+    },
+    "disused": "nepoužívané",
+    "coordinates": "Souřadnice",
+    "search": {
+        "clear": "Vymazat vyhledávání",
+        "no-results": "Nenalezeny žádné výsledky"
+    },
+    "openstreetmap": "OpenStreetMap"
+}

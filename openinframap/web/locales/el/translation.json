@@ -1,0 +1,234 @@
+{
+    "nav": {
+        "about": "σχετικά",
+        "exports": "εξαγωγές",
+        "stats": "στατιστικά"
+    },
+    "edit": {
+        "edit": "Επεξεργασία",
+        "remote": "Επεξεργασία με απομακρυσμένο έλεγχο (JOSM, κλπ)",
+        "browser": "Επεξεργασία εντός περιηγητή (iD)",
+        "error": "Αποτυχία φόρτωσης απομακρυσμένου επεξεργαστή - παρακαλούμε βεβαιωθείτε ότι εκτελείται και ότι έχει ενεργοποιημένο τον απομακρυσμένο έλεγχο.\nΣφάλμα: "
+    },
+    "names": {
+        "pipeline": "Αγωγός",
+        "power": {
+            "transformer": "Μετασχηματιστής",
+            "tower": "Πυλώνας ρεύματος",
+            "pole": "Κολώνα ρεύματος",
+            "generator": "Γεννήτρια",
+            "wind-turbine": "Ανεμογεννήτρια",
+            "substation": "Υποσταθμός",
+            "switch": "Διακόπτης",
+            "compensator": "Αντισταθμιστής",
+            "line": "Γραμμή ρεύματος",
+            "plant": "Εργοστάσιο παραγωγής ρεύματος",
+            "generator-solar": "Ηλιακή γεννήτρια",
+            "converter": "Υποσταθμός μετατροπής DC",
+            "cable": "Καλώδιο ρεύματος",
+            "solar-panel": "Ηλιακό πάνελ",
+            "hvdc": "HVDC",
+            "solar-panel-node": "Ηλιακό πάνελ (κόμβος)",
+            "tower-pylon": "Πύργος/Πυλώνας",
+            "line-reference": "Αναφορά γραμμής",
+            "other-generator": "Άλλη γεννήτρια",
+            "pole-transition": "Κολώνα διακλάδωσης",
+            "transformer-3": "Μετασχηματιστής (3 περιελίξεις)",
+            "switch-disconnector": "Αποζεύκτης",
+            "switch-breaker": "Ασφαλειοδιακόπτης",
+            "reactor-series": "Αντιδραστήρας σειράς",
+            "capacitor-series": "Πυκνωτής σειράς",
+            "capacitor-shunt": "Πυκνωτής διακλάδωσης",
+            "tower-transition": "Πυλώνας διακλάδωσης",
+            "switch-other": "Άλλος διακόπτης",
+            "reactor-shunt": "Αντιδραστήρας διακλάδωσης",
+            "filter": "Φίλτρο",
+            "compensator-other": "Άλλος αντισταθμιστής",
+            "statcom": "Στατικός αντισταθμιστής VAR",
+            "synchronous-condenser": "Σύγχρονος συμπυκνωτής",
+            "current-transformer": "Μετασχηματιστής ρεύματος",
+            "potential-transformer": "Μετασχηματιστής τάσης"
+        },
+        "telecoms": {
+            "communication-line": "Γραμμή τηλεπικοινωνιών",
+            "data-center": "Κτήριο τηλεπικοινωνιών",
+            "exchange": "Τηλεφωνικό κέντρο",
+            "cabinet": "Υπαίθριος κατανεμητής (Καφάο)"
+        },
+        "water": {
+            "pipeline": "Αγωγός νερού",
+            "sewage-treatment-plant": "Μονάδα επεξεργασίας λυμάτων",
+            "pumping-station": "Αντλιοστάσιο",
+            "well": "Πηγάδι νερού",
+            "reservoir": "Ταμιευτήρας νερού",
+            "water-pumping-station": "Αντλιοστάσιο νερού",
+            "sewage-pumping-station": "Αντλιοστάσιο λυμάτων",
+            "treatment-plant": "Μονάδα επεξεργασίας νερού"
+        },
+        "telecom": {
+            "tower-mast": "Πύργος/Ιστός",
+            "datacenter": "Κέντρο δεδομένων"
+        },
+        "substance": {
+            "oil": "Πετρέλαιο",
+            "petroleum-intermediate": "Ενδιάμεσο προϊόν πετρελαίου",
+            "co2": "CO<sub>2</sub>",
+            "wastewater": "Λύματα",
+            "hydrogen": "Υδρογόνο",
+            "fresh-water": "Φρέσκο νερό",
+            "steam": "Ατμός",
+            "hot-water": "Καυτό νερό",
+            "gas": "Αέριο",
+            "fuel": "Καύσιμο",
+            "rainwater": "Όμβρια ύδατα",
+            "oxygen": "Οξυγόνο",
+            "nitrogen": "Άζωτο",
+            "beer": "Μπύρα"
+        },
+        "petroleum": {
+            "well": "Πηγάδι",
+            "facility": "Υποδομή πετρελαίου"
+        },
+        "cabinet": "Καφάο",
+        "other-pumping-station": "Άλλο αντλιοστάσιο",
+        "cable": "Καλώδιο",
+        "method": {
+            "fission": "Διάσπαση",
+            "water-storage": "Ταμίευση νερού",
+            "water-run-of-river": "Ροή ποταμού",
+            "tidal-barrage": "Παλιρροιακό φράγμα",
+            "tidal-stream": "Ροή παλίρροιας",
+            "combustion": "Καύση",
+            "gasification": "Αεριοποίηση",
+            "anaerobic-digestion": "Αναερόβια χώνευση",
+            "fusion": "Σύντηξη",
+            "wind-turbine": "Ανεμογεννήτρια",
+            "water-pumped-storage": "Αντλησιοταμίευση",
+            "solar-photovoltaic": "Φωτοβολταϊκά",
+            "solar-thermal": "Θερμική"
+        },
+        "place": "Μέρος",
+        "gas": {
+            "pipeline": {
+                "pressure": {
+                    "high": "υψηλής πίεσης",
+                    "intermediate": "μέσης πίεσης",
+                    "low": "χαμηλής πίεσης"
+                },
+                "transmission": "Μετάδοση",
+                "distribution": "Διανομή"
+            }
+        }
+    },
+    "units": {
+        "kW": "kW",
+        "ge_kv": "≥ {{voltage}} kV",
+        "V": "V",
+        "below_10kv": "< 10 kV",
+        "kV": "kV",
+        "MW": "MW",
+        "Hz": "Hz",
+        "DC": "DC"
+    },
+    "layers": {
+        "telecoms": "Τηλεπικοινωνίες",
+        "water": "Νερό",
+        "power": "Ρεύμα",
+        "title": "Επίπεδα",
+        "petroleum": "Πετρέλαιο & Φυσικό Αέριο",
+        "labels": "Ετικέτες",
+        "nighttime-lights": "Νυχτερινά Φώτα",
+        "other-pipelines": "Άλλοι Αγωγοί",
+        "heatmaps": "Θερμικοί Χάρτες",
+        "background": "Υπόβαθρο",
+        "infrastructure": "Υποδομές",
+        "validation": "Έλεγχος Εγκυρότητας",
+        "solar-generation": "Παραγωγή Ηλιακής Ενέργειας",
+        "osmose-power": "Osmose (Ρεύμα)",
+        "borders": "Σύνορα",
+        "overlays": "Επικαλύψεις"
+    },
+    "info": {
+        "operator": "Διαχειριστής",
+        "output": "Ισχύς",
+        "substation-type": "Είδος υποσταθμού",
+        "reference": "Αναφορά",
+        "website": "Ιστότοπος",
+        "view-openstreetmap": "Δείτε στο OpenStreetMap",
+        "name": "Όνομα",
+        "source": "Πηγή",
+        "start-date": "Ημερομηνία έναρξης",
+        "generation-method": "Μέθοδος παραγωγής",
+        "circuits": "Κυκλώματα",
+        "type": "Είδος",
+        "substance": "Ουσία",
+        "usage": "Χρήση",
+        "location": "Τοποθεσία",
+        "line-management": "Τοπολογία γραμμής",
+        "design": "Μορφή",
+        "material": "Υλικό",
+        "line-attachment": "Σύνδεση γραμμής",
+        "transformer-type": "Είδος μετασχηματιστή"
+    },
+    "wikidata": "Wikidata",
+    "key": {
+        "name": "Κλειδί",
+        "power-lines": "Γραμμές Ρεύματος",
+        "switchgear": "Εξοπλισμός Μεταγωγής Υποσταθμού",
+        "petroleum": "Πετρέλαιο",
+        "traction": "Έλξη (< 50 Hz)",
+        "power-plants": "Εργοστάσια Παραγωγής Ρεύματος",
+        "power-generators": "Γεννήτριες Ρεύματος",
+        "power-line-supports": "Στηρίγματα Γραμμών Ρεύματος",
+        "telecoms": "Τηλεπικοινωνίες",
+        "water": "Νερό",
+        "gas": "Αέριο"
+    },
+    "power": {
+        "source": {
+            "coal": "Άνθρακας",
+            "geothermal": "Γεωθερμική",
+            "hydro": "Υδροηλεκτρική",
+            "nuclear": "Πυρηνική",
+            "oil-gas": "Πετρέλαιο/Αέριο",
+            "solar": "Ηλιακή",
+            "wind": "Αέρας",
+            "biomass": "Βιομάζα",
+            "waste": "Απορρίμματα",
+            "battery": "Μπαταρία",
+            "gas": "Αέριο",
+            "unknown": "Άλλη/Άγνωστη"
+        },
+        "substation-type": {
+            "transmission": "Μετάδοσης",
+            "distribution": "Διανομής",
+            "traction": "Έλξης",
+            "converter": "Μετατροπής DC"
+        }
+    },
+    "other": "Άλλο",
+    "warning": "Προειδοποίηση",
+    "more_info": "Περισσότερες πληροφορίες",
+    "wikipedia": "Wikipedia",
+    "wikimedia-commons": "Wikimedia Commons",
+    "warnings": {
+        "webgl": "<p>Ο περιηγητής σας ίσως να έχει προβλήματα απόδοσης ή λειτουργίας με το Open Infrastructure Map.</p><p><a href=\"http://webglreport.com\">WebGL</a> με επιτάχυνση υλικού απαιτείται για να αποδόσει καλά αυτός ο ιστότοπος.</p><p>Αν ο περιηγητής σας υποστηρίζει WebGL, ίσως να χρειαστεί να απενεργοποιήσετε την προστασία fingerprinting περιηγητή γι' αυτό τον ιστότοπο.</p>"
+    },
+    "construction": "υπό κατασκευή",
+    "location": {
+        "outdoor": "Εξωτερικά",
+        "underground": "Υπόγεια",
+        "underwater": "Υποθαλάσσια",
+        "overhead": "Εναέρια",
+        "roof": "Στέγη",
+        "surface": "Επιφάνεια",
+        "indoor": "Εσωτερικά"
+    },
+    "disused": "αχρησιμοποίητο",
+    "search": {
+        "clear": "Καθαρισμός αναζήτησης",
+        "no-results": "Δεν βρέθηκαν αποτελέσματα"
+    },
+    "coordinates": "Συντεταγμένες",
+    "openstreetmap": "OpenStreetMap"
+}

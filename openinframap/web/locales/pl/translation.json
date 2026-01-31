@@ -1,0 +1,234 @@
+{
+    "names": {
+        "water": {
+            "well": "Studnia",
+            "pipeline": "Rurociąg wodny",
+            "sewage-treatment-plant": "Oczyszczalnia ścieków",
+            "treatment-plant": "Stacja uzdatniania wody",
+            "pumping-station": "Przepompownia",
+            "reservoir": "Zbiornik wodny",
+            "water-pumping-station": "Przepompownia wody",
+            "sewage-pumping-station": "Przepompownia ścieków"
+        },
+        "substance": {
+            "fuel": "Paliwo",
+            "hydrogen": "Wodór",
+            "co2": "CO<sub>2</sub>",
+            "rainwater": "Woda deszczowa",
+            "fresh-water": "Woda czysta",
+            "hot-water": "Woda gorąca",
+            "steam": "Para",
+            "wastewater": "Ścieki",
+            "oil": "Olej",
+            "gas": "Gaz",
+            "petroleum-intermediate": "Półprodukty naftowe",
+            "nitrogen": "Azot",
+            "oxygen": "Tlen",
+            "beer": "Piwo"
+        },
+        "power": {
+            "transformer": "Transformator",
+            "tower": "Stanowisko słupowe",
+            "switch": "Łącznik",
+            "line-reference": "Numer linii",
+            "solar-panel-node": "Panel słoneczny (węzeł)",
+            "tower-pylon": "Słup wysokiego napięcia",
+            "transformer-3": "Transformator trójuzwojeniowy",
+            "switch-disconnector": "Odłącznik",
+            "switch-breaker": "Rozłącznik",
+            "pole": "Słup",
+            "generator": "Generator",
+            "wind-turbine": "Turbina wiatrowa",
+            "substation": "Podstacja",
+            "line": "Linia elektryczna",
+            "solar-panel": "Panel słoneczny",
+            "other-generator": "Inny generator",
+            "tower-transition": "Słup kablowy WN",
+            "pole-transition": "Słup kablowy",
+            "switch-other": "Inny łącznik",
+            "cable": "Kabel elektryczny",
+            "generator-solar": "Generator solarny",
+            "compensator": "Kompensator",
+            "converter": "Przetwarzanie na DC",
+            "plant": "Elektrownia",
+            "hvdc": "HVDC",
+            "capacitor-series": "Kondensator szeregowy",
+            "capacitor-shunt": "Kondensator bocznikowy",
+            "compensator-other": "Inne kompensatory",
+            "statcom": "Statyczny kompensator warystorowy",
+            "synchronous-condenser": "Kompensator synchroniczny",
+            "filter": "Filtr",
+            "reactor-shunt": "Dławik bocznikowy",
+            "reactor-series": "Dławik szeregowy",
+            "current-transformer": "Przekładnik prądowy",
+            "potential-transformer": "Przekładnik napięciowy"
+        },
+        "telecoms": {
+            "communication-line": "Linia telekomunikacyjna",
+            "data-center": "Budynek telekomunikacyjny",
+            "cabinet": "Kabinet telekomunikacyjny",
+            "exchange": "Centrala telefoniczna"
+        },
+        "pipeline": "Rurociąg",
+        "cable": "Kabel",
+        "telecom": {
+            "tower-mast": "Wieża/Maszt",
+            "datacenter": "Centrum danych"
+        },
+        "method": {
+            "wind-turbine": "Turbina powietrzna",
+            "water-storage": "Rezerwuar wody",
+            "solar-photovoltaic": "Fotowoltaika",
+            "combustion": "Spalanie",
+            "water-run-of-river": "Przepływ rzeki",
+            "fission": "Rozszczepienie",
+            "fusion": "Fuzja",
+            "gasification": "Zgazowanie",
+            "anaerobic-digestion": "Fermentacja metanowa",
+            "tidal-barrage": "Zapora",
+            "water-pumped-storage": "Szczytowo-pompowa",
+            "solar-thermal": "Cieplna",
+            "tidal-stream": "Pływowa"
+        },
+        "petroleum": {
+            "well": "Szyb naftowy",
+            "facility": "Zakład naftowy"
+        },
+        "cabinet": "Skrzynka",
+        "other-pumping-station": "Inna stacja pomp",
+        "place": "Miejscowość",
+        "gas": {
+            "pipeline": {
+                "transmission": "Przesyłowy",
+                "distribution": "Rozdzielczy",
+                "pressure": {
+                    "high": "Wysokiego ciśnienia",
+                    "low": "Niskiego ciśnienia",
+                    "intermediate": "Średniego ciśnienia"
+                }
+            }
+        }
+    },
+    "info": {
+        "substation-type": "Rodzaj podstacji",
+        "reference": "Numer",
+        "type": "Rodzaj",
+        "website": "Strona www",
+        "view-openstreetmap": "Zobacz na OpenStreetMap",
+        "name": "Nazwa",
+        "output": "Moc",
+        "start-date": "Data uruchomienia",
+        "operator": "Operator",
+        "source": "Źródło",
+        "material": "Materiał",
+        "location": "Lokalizacja",
+        "generation-method": "Sposób generowania",
+        "substance": "Substancja",
+        "usage": "Zastosowanie",
+        "design": "Design",
+        "circuits": "Obwody",
+        "line-attachment": "Sposób montażu linii",
+        "line-management": "Przebieg linii",
+        "transformer-type": "Rodzaj transformatora"
+    },
+    "units": {
+        "kV": "kV",
+        "DC": "DC",
+        "below_10kv": "<10 kV",
+        "ge_kv": "≥{{voltage}} kV",
+        "V": "V",
+        "kW": "kW",
+        "MW": "MW",
+        "Hz": "Hz"
+    },
+    "wikidata": "Wikidata",
+    "key": {
+        "name": "Legenda",
+        "power-lines": "Linie Elektroenergetyczne",
+        "water": "Woda",
+        "traction": "Trakcyjne (<50 Hz)",
+        "power-plants": "Elektrownie",
+        "power-generators": "Generatory prądu",
+        "switchgear": "Rozdzielnia",
+        "telecoms": "Telekomunikacja",
+        "petroleum": "Ropa naftowa",
+        "power-line-supports": "Konstrukcje wsporcze linii napowietrznych",
+        "gas": "Gaz"
+    },
+    "power": {
+        "source": {
+            "coal": "Węgiel",
+            "oil-gas": "Olej/Gaz",
+            "gas": "Gaz",
+            "solar": "Słoneczna",
+            "geothermal": "Geotermika",
+            "hydro": "Elektrownia wodna",
+            "nuclear": "Elektrownia jądrowa",
+            "wind": "Elektrownia wiatrowa",
+            "biomass": "Biomasa",
+            "waste": "Odpadki",
+            "battery": "Bateria",
+            "unknown": "Inne/Nieznane"
+        },
+        "substation-type": {
+            "transmission": "Przesyłowa",
+            "distribution": "Rozdzielcza",
+            "traction": "Trakcyjna",
+            "converter": "Prostownik DC"
+        }
+    },
+    "other": "Inny",
+    "warning": "Ostrzeżenie",
+    "edit": {
+        "edit": "Edytuj",
+        "remote": "Edytuj w edytorze zewnętrznym (JOSM, itp.)",
+        "browser": "Edytuj w przeglądarce (iD)",
+        "error": "Załadowanie edytora zewnętrznego nie powiodło się – upewnij się, że jest uruchomiony i ma włączoną opcję zdalnego sterowania.\nBłąd: "
+    },
+    "nav": {
+        "about": "o projekcie",
+        "stats": "statystyki",
+        "exports": "eksport danych"
+    },
+    "more_info": "Więcej informacji",
+    "location": {
+        "underground": "Podziemne",
+        "underwater": "Podwodne",
+        "overhead": "Napowietrzne",
+        "roof": "Dach",
+        "surface": "Powierzchnia",
+        "outdoor": "Na zewnątrz",
+        "indoor": "Wewnątrz"
+    },
+    "wikipedia": "Wikipedia",
+    "wikimedia-commons": "Wikimedia Commons",
+    "layers": {
+        "power": "Elektroenergetyka",
+        "telecoms": "Telekomunikacja",
+        "petroleum": "Nafta i gaz ziemny",
+        "water": "Woda",
+        "labels": "Etykiety",
+        "title": "Warstwy",
+        "nighttime-lights": "Światła nocne",
+        "other-pipelines": "Inne rury",
+        "infrastructure": "Infrastruktura",
+        "heatmaps": "Mapy ciepła",
+        "validation": "Walidacja danych",
+        "background": "Tło",
+        "osmose-power": "Osmose (Elektroenergetyka)",
+        "overlays": "Nakładki",
+        "solar-generation": "Wytwarzanie słoneczne",
+        "borders": "Granice"
+    },
+    "construction": "w budowie",
+    "disused": "nieużywany",
+    "warnings": {
+        "webgl": "<p>Twoja przeglądarka może mieć problemy z wydajnością lub funkcjonalnością Open Infrastructure Map.</p><p>Aby strona działa dobrze, potrzebne jest <a href=\"http://webglreport.com\">WebGL</a> z przyspieszeniem sprzętowym.</p><p>Jeśli twoja przeglądarka wspiera WebGL, być może musisz wyłączyć cyfrowy odcisk palca (fingerprinting) przeglądarki.</p>"
+    },
+    "coordinates": "Współrzędne",
+    "search": {
+        "clear": "Wyczyść wyszukiwanie",
+        "no-results": "Brak wyników"
+    },
+    "openstreetmap": "OpenStreetMap"
+}

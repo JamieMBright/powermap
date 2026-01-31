@@ -1,0 +1,53 @@
+{% extends "_base.html" %}
+{% import "_tables.html" as tables %}
+{% set breadcrumbs = [('Stats', url_for('stats')), (country.name, None)] %}
+{% block title %}{{country.name}}{% endblock %}
+{% block description -%}
+Statistics on the electricity network in {{country.name}} from OpenStreetMap.
+{%- endblock %}
+{% block content -%}
+<p>Stats for ISO territory {{country.name}} ({{country.alpha_3}}).</p>
+
+{% if lines.total > 1 %}
+  {{ tables.power_lines_table(lines) }}
+{% endif %}
+
+<div class="table-wrapper">
+  <table>
+    <caption>Power plants in {{country.name}} by source</caption>
+    <thead>
+      <tr>
+        <th>Source</th>
+        <th>Output</th>
+        <th>Count</th>
+      <tr>
+    </thead>
+    <tbody>
+    {% for row in plant_source_stats %}
+      <tr>
+        <td>{{row.source or '[unspecified]'}}</td>
+        <td>{{row.output|power}}</td>
+        <td>{{row._mapping.count}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>All</td>
+        <td>{{plant_stats.output|power}}</td>
+        <td>{{plant_stats.count}}</td>
+      </tr>
+    </tfoot>
+  </table>
+  <p class="footnote">If multiple sources are listed for a power plant, only the first source is used in this breakdown.</p>
+</div>
+
+<h3>Parts</h3>
+<p>This country has {{country_parts|length}} parts:</p>
+<ul>
+{% for part in country_parts %}
+  <li><a href="{{url_for('region', region=part.union)}}">{{part.union}}</a></li>
+{% endfor %}
+</ul>
+<p class="footnote">Stats updated {{stats_date.date()}}</p>
+{% endblock %}

@@ -1,0 +1,230 @@
+* {
+  --light-grey: #fafafa;
+  --mid-grey: #eee;
+  --dark-grey: #ccc;
+
+  --text: #333;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 18px;
+  height: 100%;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+a,
+a:visited {
+  color: var(--text);
+}
+
+header {
+  padding: 3px 8px;
+  border-bottom: 1px solid var(--dark-grey);
+  background-color: var(--mid-grey);
+  flex: 0 0 auto;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2 {
+  display: inline;
+  margin: 0;
+  font-size: 20px;
+}
+
+h1 a,
+h2 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h3 {
+  margin-block-end: 0;
+}
+
+main {
+  margin: 1rem auto;
+  margin-bottom: 20px;
+  padding: 0px 10px;
+  max-width: 1100px;
+  min-width: 50vw;
+  flex: 1 0 auto;
+}
+
+main > * + * {
+  margin-block-start: 1rem;
+}
+
+footer {
+  flex-shrink: 0;
+  padding: 8px 8px;
+  font-size: 0.8rem;
+  background-color: var(--light-grey);
+}
+
+footer > * + * {
+  margin-block-start: 0.5rem;
+}
+
+footer .copyright {
+  font-size: 0.7rem;
+}
+
+footer,
+footer a,
+footer a:visited {
+  color: var(--text);
+}
+
+input {
+  font-size: 1.2em;
+}
+
+p.footnote {
+  font-size: 0.9em;
+  color: #444;
+}
+
+.table-wrapper {
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-wrapper p.footnote {
+  font-size: 0.7em;
+  margin-top: 5px;
+  color: var(--text);
+}
+
+table {
+  font-size: 0.9em;
+  margin-top: 8px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid var(--mid-grey);
+  min-width: 500px;
+}
+
+.table-full-width {
+  width: 100%;
+}
+
+caption {
+  font-weight: bold;
+  font-size: 1.1em;
+  padding-bottom: 3px;
+  width: 100%;
+}
+
+thead {
+  background-color: var(--mid-grey);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--light-grey);
+}
+
+tfoot tr {
+  background-color: var(--mid-grey);
+  font-weight: bold;
+}
+
+th,
+td {
+  padding: 4px;
+}
+
+figure {
+  margin: 5px;
+  background-color: var(--mid-grey);
+  border: 1px var(--dark-grey) solid;
+}
+
+figcaption {
+  font-size: 0.7em;
+  padding: 2px 5px;
+}
+
+figcaption a,
+figcaption a:visited {
+  color: var(--dark-grey);
+}
+
+figure.plant_image {
+  float: right;
+}
+
+/* Responsive tables on small screens */
+
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  table.responsive,
+  table.responsive thead,
+  table.responsive tbody,
+  table.responsive th,
+  table.responsive td,
+  table.responsive tr,
+  table.responsive caption {
+    display: block;
+    clear: both;
+  }
+
+  table.responsive tr {
+    padding-bottom: 1em;
+  }
+
+  table.responsive td.row-name {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  table.responsive td.row-subhead {
+    text-align: center;
+  }
+
+  table.responsive thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  table.responsive td {
+    clear: both;
+  }
+
+  table.responsive td:empty {
+    display: none;
+  }
+
+  table.responsive td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    padding-right: 10px;
+  }
+
+  figure {
+    float: none !important;
+    display: inline-block;
+    margin: auto;
+  }
+}
+
+.chart {
+  min-width: 80vw;
+}

@@ -1,0 +1,197 @@
+{
+    "edit": {
+        "remote": "Rediger med ekstern (JOSM, etc)",
+        "error": "Klarte ikke laste ekstern editor - sørg for at den kjører og at \"remote control\" er skrudd på\nFeil: ",
+        "edit": "Rediger",
+        "browser": "Rediger i nettleseren (iD)"
+    },
+    "names": {
+        "power": {
+            "generator": "Generator",
+            "wind-turbine": "Vindturbin",
+            "switch": "Bryter",
+            "compensator": "Kompensator",
+            "cable": "Kabel",
+            "line": "Kraftlinje",
+            "solar-panel": "Solcellepanel",
+            "transformer": "Transformator",
+            "tower": "Mast",
+            "pole": "Stolpe",
+            "generator-solar": "Solcellepanel",
+            "substation": "Transformatorstasjon",
+            "converter": "Likeretterstasjon",
+            "capacitor-shunt": "Shuntkondensator",
+            "transformer-3": "Transformator (3 viklinger)",
+            "compensator-other": "Annen kompensator",
+            "filter": "Filter",
+            "capacitor-series": "Seriekondensator",
+            "plant": "Kraftverk",
+            "line-reference": "Linjenummer",
+            "solar-panel-node": "Solcelle (node)",
+            "tower-pylon": "Mast",
+            "tower-transition": "Kabelendemast",
+            "pole-transition": "Kabelendestolpe",
+            "switch-disconnector": "Skillebryter",
+            "reactor-series": "Seriereaktor",
+            "switch-breaker": "Effektbryter",
+            "switch-other": "Annen bryter",
+            "reactor-shunt": "Shuntreaktor",
+            "hvdc": "HVDC",
+            "other-generator": "Annen generator",
+            "statcom": "Static VAR compensator",
+            "synchronous-condenser": "Roterende fasekompensator"
+        },
+        "petroleum": {
+            "well": "Brønn",
+            "facility": "Petroleumsanlegg"
+        },
+        "telecoms": {
+            "communication-line": "Telekomlinje",
+            "cabinet": "Telekomskap",
+            "data-center": "Telekombygning",
+            "exchange": "Telefonsentral"
+        },
+        "water": {
+            "pumping-station": "Pumpestasjon",
+            "well": "Vannbrønn",
+            "reservoir": "Magasin",
+            "water-pumping-station": "Vannpumpestasjon",
+            "sewage-pumping-station": "Kloakkpumpestasjon",
+            "pipeline": "Vannledning",
+            "sewage-treatment-plant": "Kloakkrenseanlegg",
+            "treatment-plant": "Vannrenseanlegg"
+        },
+        "cable": "Kabel",
+        "telecom": {
+            "tower-mast": "Tårn/Mast",
+            "datacenter": "Datasenter"
+        },
+        "cabinet": "Skap",
+        "substance": {
+            "oil": "Olje",
+            "fuel": "Drivstoff",
+            "hydrogen": "Hydrogen",
+            "wastewater": "Avløpsvann",
+            "rainwater": "Regnvann",
+            "hot-water": "Varmtvann",
+            "gas": "Gass",
+            "co2": "CO<sub>2</sub>",
+            "fresh-water": "Ferskvann",
+            "steam": "Damp",
+            "petroleum-intermediate": "Petroleum mellomprodukt"
+        },
+        "other-pumping-station": "Annen pumpestasjon",
+        "pipeline": "Rørledning",
+        "method": {
+            "fusion": "Fusjon",
+            "wind-turbine": "Vindturbin",
+            "water-pumped-storage": "Pumpelager",
+            "water-run-of-river": "Elveløp",
+            "tidal-barrage": "Tidevannssperring",
+            "tidal-stream": "Elv",
+            "solar-thermal": "Termisk",
+            "solar-photovoltaic": "Fotovoltaisk",
+            "gasification": "Gassifisering",
+            "fission": "Fisjon",
+            "water-storage": "Magasin",
+            "combustion": "Forbrenning",
+            "anaerobic-digestion": "Anaerob nedbryting"
+        }
+    },
+    "nav": {
+        "about": "Om",
+        "exports": "eksporter",
+        "stats": "statistikk"
+    },
+    "layers": {
+        "power": "Kraft",
+        "telecoms": "Telekom",
+        "petroleum": "Olje og gass",
+        "water": "Vann",
+        "labels": "Merkelapper",
+        "title": "Lag"
+    },
+    "info": {
+        "location": "Plassering",
+        "name": "Navn",
+        "operator": "Operatør",
+        "output": "Installert effekt",
+        "source": "Kilde",
+        "start-date": "Startdato",
+        "reference": "Referanse",
+        "view-openstreetmap": "Vis i OpenStreeMap",
+        "generation-method": "Type",
+        "website": "Nettside",
+        "usage": "Bruk",
+        "circuits": "Kretser",
+        "type": "Type",
+        "substance": "Substans",
+        "substation-type": "Stasjonstype",
+        "design": "Design",
+        "material": "Material",
+        "line-attachment": "Linjevedlegg",
+        "line-management": "Linjehåndtering"
+    },
+    "units": {
+        "kV": "kV",
+        "Hz": "Hz",
+        "below_10kv": "< 10 kV",
+        "kW": "kW",
+        "V": "V",
+        "MW": "MW",
+        "DC": "DC",
+        "ge_kv": "≥ {{voltage}} kV"
+    },
+    "more_info": "Mer informasjon",
+    "wikipedia": "Wikipedia",
+    "wikimedia-commons": "Wikimedia Commons",
+    "key": {
+        "telecoms": "Telekom",
+        "water": "Vann",
+        "power-plants": "Kraftverk",
+        "switchgear": "Koblingsutstyr",
+        "name": "Nøkkel",
+        "petroleum": "Petroleum",
+        "power-lines": "Kraftlinjer",
+        "power-generators": "Strømgeneratorer",
+        "power-line-supports": "Master og stolper",
+        "traction": "Banestrøm (< 50 Hz)"
+    },
+    "power": {
+        "source": {
+            "solar": "Sol",
+            "coal": "Kull",
+            "geothermal": "Geotermisk",
+            "hydro": "Vann",
+            "biomass": "Biomasse",
+            "oil-gas": "Olje/Gass",
+            "nuclear": "Kjernekraft",
+            "battery": "Batteri",
+            "wind": "Vind",
+            "waste": "Avfall",
+            "gas": "Gass"
+        },
+        "substation-type": {
+            "traction": "Jernbanestrøm",
+            "distribution": "Distribusjon",
+            "transmission": "Transmisjon",
+            "converter": "omformer"
+        }
+    },
+    "warning": "Advarsel",
+    "construction": "under bygging",
+    "wikidata": "Wikidata",
+    "other": "Annet",
+    "warnings": {
+        "webgl": "<p>Nettleseren din kan ha ytelses- eller funksjonalitetsproblemer med Open Infrastructure Map.</p><p><a href=\"http://webglreport.com\">WebGL</a> med maskinvareakselerasjon er nødvendig for at dette nettstedet skal fungere godt.</p><p>Hvis nettleseren din støtter WebGL, kan det hende du må deaktivere beskyttelse mot nettleserfingeravtrykk for dette nettstedet.</p>"
+    },
+    "location": {
+        "surface": "På bakken",
+        "overhead": "Luftnett",
+        "roof": "Tak",
+        "underground": "Underjordisk",
+        "underwater": "Undervanns",
+        "indoor": "Innendørs",
+        "outdoor": "Utendørs"
+    }
+}

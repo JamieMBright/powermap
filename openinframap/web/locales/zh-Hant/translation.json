@@ -1,0 +1,234 @@
+{
+    "edit": {
+        "edit": "編輯",
+        "remote": "以遠端控制編輯（JOSM等）",
+        "error": "無法載入遠端編輯器——確保它正在運行並且已啟用遠端控制。\n錯誤： ",
+        "browser": "在瀏覽器中編輯（iD）"
+    },
+    "names": {
+        "power": {
+            "transformer": "變壓器",
+            "generator": "發電機組",
+            "generator-solar": "太陽能發電機",
+            "wind-turbine": "風力發電機",
+            "switch": "開關",
+            "compensator": "補償器",
+            "line": "架空電纜",
+            "solar-panel": "太陽能板",
+            "plant": "發電廠",
+            "hvdc": "高壓直流",
+            "line-reference": "線路編號",
+            "reactor-series": "串聯電抗器",
+            "reactor-shunt": "並聯電抗器",
+            "capacitor-shunt": "並聯電容器",
+            "capacitor-series": "串聯電容器",
+            "statcom": "靜態虛功補償器",
+            "synchronous-condenser": "同步調相機",
+            "tower": "電塔",
+            "pole": "電桿",
+            "substation": "變電所",
+            "converter": "直流轉換變電所",
+            "cable": "電纜",
+            "solar-panel-node": "太陽能板（點）",
+            "other-generator": "其他發電機",
+            "switch-disconnector": "隔離開關",
+            "switch-other": "其他開關",
+            "compensator-other": "其他補償器",
+            "switch-breaker": "斷路器",
+            "tower-pylon": "塔",
+            "transformer-3": "三相變壓器",
+            "tower-transition": "轉接塔",
+            "pole-transition": "轉接桿",
+            "filter": "濾波器",
+            "current-transformer": "電流互感器",
+            "potential-transformer": "電壓互感器"
+        },
+        "petroleum": {
+            "well": "油井",
+            "facility": "石油設施"
+        },
+        "water": {
+            "pumping-station": "泵站",
+            "water-pumping-station": "水泵站",
+            "sewage-treatment-plant": "污水處理廠",
+            "reservoir": "水庫",
+            "pipeline": "水管",
+            "treatment-plant": "自來水廠",
+            "well": "水井",
+            "sewage-pumping-station": "污水泵站"
+        },
+        "cable": "線數",
+        "substance": {
+            "rainwater": "雨水",
+            "oil": "原油",
+            "gas": "天然氣",
+            "hydrogen": "氫",
+            "fuel": "燃料",
+            "co2": "二氧化碳",
+            "steam": "蒸汽",
+            "wastewater": "污水",
+            "petroleum-intermediate": "石化中間產物",
+            "fresh-water": "淡水",
+            "hot-water": "熱水",
+            "beer": "啤酒",
+            "oxygen": "氧",
+            "nitrogen": "氮"
+        },
+        "method": {
+            "fission": "核分裂",
+            "fusion": "核融合",
+            "wind-turbine": "風力渦輪機",
+            "water-storage": "蓄水式",
+            "water-pumped-storage": "抽蓄式",
+            "solar-photovoltaic": "光電",
+            "tidal-stream": "潮流",
+            "combustion": "燃燒",
+            "solar-thermal": "光熱",
+            "water-run-of-river": "川流式",
+            "tidal-barrage": "堰壩",
+            "anaerobic-digestion": "厭氧消化",
+            "gasification": "氣化"
+        },
+        "pipeline": "管道",
+        "telecoms": {
+            "exchange": "電話交換機",
+            "communication-line": "電信線路",
+            "cabinet": "電信櫃",
+            "data-center": "電信建築"
+        },
+        "telecom": {
+            "datacenter": "資料中心",
+            "tower-mast": "塔"
+        },
+        "cabinet": "櫃",
+        "other-pumping-station": "其他泵站",
+        "place": "地名",
+        "gas": {
+            "pipeline": {
+                "pressure": {
+                    "high": "高壓",
+                    "intermediate": "中壓",
+                    "low": "低壓"
+                },
+                "transmission": "輸氣",
+                "distribution": "配氣"
+            }
+        }
+    },
+    "info": {
+        "location": "位置",
+        "material": "材質",
+        "operator": "運營者",
+        "generation-method": "發電方式",
+        "substation-type": "變電所類型",
+        "start-date": "啟用日期",
+        "reference": "編號",
+        "source": "能源",
+        "output": "裝置容量",
+        "type": "類型",
+        "website": "網站",
+        "view-openstreetmap": "在開放街圖中檢視",
+        "usage": "用途",
+        "substance": "內容物",
+        "line-attachment": "線纜附著",
+        "line-management": "線路管理",
+        "design": "塔架設計",
+        "name": "名稱",
+        "circuits": "迴路",
+        "transformer-type": "變壓器類型"
+    },
+    "nav": {
+        "about": "關於",
+        "stats": "統計",
+        "exports": "匯出"
+    },
+    "power": {
+        "source": {
+            "nuclear": "核能",
+            "oil-gas": "油氣",
+            "waste": "垃圾",
+            "geothermal": "地熱",
+            "solar": "太陽能",
+            "hydro": "水力",
+            "coal": "煤",
+            "gas": "天然氣",
+            "wind": "風能",
+            "biomass": "生物質能",
+            "battery": "電池",
+            "unknown": "其他/未知"
+        },
+        "substation-type": {
+            "converter": "直流轉換",
+            "traction": "牽引",
+            "distribution": "配電",
+            "transmission": "輸電"
+        }
+    },
+    "location": {
+        "indoor": "室內",
+        "roof": "屋頂",
+        "outdoor": "室外",
+        "underwater": "水下",
+        "surface": "地面",
+        "underground": "地下",
+        "overhead": "天上"
+    },
+    "key": {
+        "power-generators": "發電機",
+        "power-plants": "發電廠",
+        "water": "水",
+        "name": "圖例",
+        "power-lines": "輸電線",
+        "telecoms": "電信",
+        "switchgear": "開關裝置",
+        "power-line-supports": "電線支撐",
+        "petroleum": "石化",
+        "traction": "牽引 (< 50 Hz)",
+        "gas": "天然氣"
+    },
+    "wikidata": "維基數據",
+    "warning": "警告",
+    "other": "其他",
+    "units": {
+        "Hz": "Hz",
+        "MW": "MW",
+        "below_10kv": "< 10 kV",
+        "ge_kv": "≥ {{voltage}} kV",
+        "kW": "kW",
+        "kV": "kV",
+        "V": "V",
+        "DC": "直流"
+    },
+    "warnings": {
+        "webgl": "<p>您的瀏覽器可能有Open Infrastructure Map的效能或功能問題。</p><p>需要有<a href=\"http://webglreport.com\">WebGL</a> 硬體加速功能，此網站才能正常運作。</p><p>若您的瀏覽器支援WebGL，您可能需要停用該網站的瀏覽器指紋辨識保護。</p>"
+    },
+    "wikipedia": "維基百科",
+    "layers": {
+        "power": "電力",
+        "title": "圖層",
+        "labels": "地名",
+        "water": "水處理",
+        "petroleum": "油氣",
+        "telecoms": "電信",
+        "other-pipelines": "其他管線",
+        "nighttime-lights": "夜間照明",
+        "background": "背景",
+        "infrastructure": "基礎設施",
+        "osmose-power": "Osmose (電力)",
+        "solar-generation": "太陽能發電",
+        "validation": "檢驗",
+        "heatmaps": "熱圖",
+        "overlays": "疊加層",
+        "borders": "邊界"
+    },
+    "construction": "在建",
+    "wikimedia-commons": "維基共享資源",
+    "more_info": "更多資訊",
+    "disused": "廢棄",
+    "coordinates": "座標",
+    "search": {
+        "clear": "清除搜尋",
+        "no-results": "未找到結果"
+    },
+    "openstreetmap": "開放街圖"
+}

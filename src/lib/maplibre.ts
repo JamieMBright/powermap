@@ -14,32 +14,42 @@ const minimalStyle: StyleSpecification = {
     },
   },
   layers: [
-    // Background - off-white
+    // Background - ocean blue (visible at all zoom levels)
     {
       id: 'background',
       type: 'background',
       paint: {
-        'background-color': '#fafafa',
+        'background-color': '#a8c8e8',
       },
     },
-    // Land - subtle fill for landmass visibility at low zoom
+    // Land - light fill for landmass (covers ocean background)
     {
       id: 'land',
       type: 'fill',
       source: 'openmaptiles',
-      'source-layer': 'landcover',
+      'source-layer': 'landuse',
       paint: {
-        'fill-color': '#f3f4f6',
+        'fill-color': '#f5f5f5',
       },
     },
-    // Water - more visible blue for context at all zoom levels
+    // Land fallback - covers areas not in landuse
+    {
+      id: 'land-fallback',
+      type: 'fill',
+      source: 'openmaptiles',
+      'source-layer': 'landcover',
+      paint: {
+        'fill-color': '#f5f5f5',
+      },
+    },
+    // Water - blue for lakes, rivers (on top of land)
     {
       id: 'water',
       type: 'fill',
       source: 'openmaptiles',
       'source-layer': 'water',
       paint: {
-        'fill-color': '#c7d9e8',
+        'fill-color': '#a8c8e8',
       },
     },
     // Landcover - very subtle differentiation (optional, keeps it minimal)
@@ -153,7 +163,7 @@ const minimalStyle: StyleSpecification = {
         ],
       },
     },
-    // Motorways/trunk roads - darkest gray roads (visible from zoom 2)
+    // Motorways/trunk roads - visible pale gray at low zoom
     {
       id: 'road-motorway',
       type: 'line',
@@ -166,12 +176,12 @@ const minimalStyle: StyleSpecification = {
         'line-join': 'round',
       },
       paint: {
-        'line-color': '#9ca3af',
+        'line-color': '#94a3b8',
         'line-width': [
           'interpolate', ['linear'], ['zoom'],
-          2, 0.3,
-          4, 0.8,
-          8, 2,
+          2, 0.5,
+          4, 1.2,
+          8, 2.5,
           12, 4,
           16, 8,
         ],

@@ -1,0 +1,38 @@
+[project]
+name = "oim-stats-server"
+version = "0.1.0"
+description = ""
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "starlette",
+    "databases",
+    "asyncpg",
+    "aiofiles",
+    "jinja2",
+    "uvicorn",
+    "asgi-sitemaps",
+    "httpx",
+    "more-itertools",
+    "async_lru",
+    "pandas>=2.2.3",
+    "bokeh==3.7.0",
+    "pycountry>=24.6.1",
+]
+
+[tool.ruff]
+line-length = 110
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F"]
+ignore = []
+
+[dependency-groups]
+dev = [
+    "ipython>=9.0.2",
+    "mypy>=1.15.0",
+    "pandas-stubs>=2.2.3.250308",
+    "pytest>=8.3.4",
+    "pytest-asyncio>=0.25.3",
+    "ruff>=0.9.7",
+]

@@ -1,0 +1,234 @@
+{
+    "names": {
+        "power": {
+            "transformer": "Transformator",
+            "tower": "Hochspannungsmast",
+            "pole": "Strommast",
+            "generator": "Generator",
+            "generator-solar": "Solargenerator",
+            "wind-turbine": "Windkraftanlage",
+            "substation": "Schaltanlage",
+            "switch": "Hochspannungsschalter",
+            "compensator": "Blindleistungskompensator",
+            "converter": "Stromrichterstation",
+            "cable": "Stromkabel",
+            "line": "Freileitung",
+            "solar-panel": "Solarpanel",
+            "plant": "Kraftwerk",
+            "hvdc": "HGÜ",
+            "line-reference": "Leitungsbezeichnung",
+            "solar-panel-node": "Solarmodul (Knoten)",
+            "other-generator": "Anderer Generator",
+            "tower-pylon": "Hochspannungsmast",
+            "tower-transition": "Hochspannungsmast mit Erdübergang",
+            "pole-transition": "Strommast mit Erdübergang",
+            "transformer-3": "Transformator (3 Wicklungen)",
+            "switch-disconnector": "Trennschalter",
+            "switch-breaker": "Leistungsschalter",
+            "switch-other": "Anderer Schalter",
+            "compensator-other": "Anderer Kompensator",
+            "reactor-series": "Reihendrosselspule",
+            "reactor-shunt": "Kompensationsdrosselspule",
+            "capacitor-series": "Reihenkondensator",
+            "capacitor-shunt": "Parallelkondensator",
+            "filter": "Filter",
+            "statcom": "Statischer Blindleistungskompensator",
+            "synchronous-condenser": "Phasenschieber",
+            "potential-transformer": "Potentialtransformator",
+            "current-transformer": "Stromwandler"
+        },
+        "water": {
+            "reservoir": "Wasserhochbehälter",
+            "pipeline": "Wasser-Pipeline",
+            "sewage-treatment-plant": "Kläranlage",
+            "treatment-plant": "Wasserwerk",
+            "pumping-station": "Pumpwerk",
+            "well": "Brunnen",
+            "water-pumping-station": "Frischwasser-Pumpwerk",
+            "sewage-pumping-station": "Abwasser-Pumpwerk"
+        },
+        "substance": {
+            "fuel": "Treibstoff",
+            "hydrogen": "Wasserstoff",
+            "co2": "CO<sub>2</sub>",
+            "fresh-water": "Frischwasser",
+            "hot-water": "Heißwasser",
+            "steam": "Dampf",
+            "oil": "Öl",
+            "gas": "Gas",
+            "petroleum-intermediate": "Erdöl-Zwischenprodukte",
+            "wastewater": "Abwasser",
+            "rainwater": "Regenwasser",
+            "beer": "Bier",
+            "nitrogen": "Stickstoff",
+            "oxygen": "Sauerstoff"
+        },
+        "telecoms": {
+            "communication-line": "Telefonleitung",
+            "data-center": "Rechenzentrum",
+            "exchange": "Vermittlungsstelle",
+            "cabinet": "Telekommunikationsgehäuse"
+        },
+        "pipeline": "Rohrleitung",
+        "petroleum": {
+            "well": "Bohrloch",
+            "facility": "Erdöl-Betrieb"
+        },
+        "gas": {
+            "pipeline": {
+                "transmission": "Fernleitung",
+                "distribution": "Verteilung",
+                "pressure": {
+                    "high": "Hochdruck",
+                    "intermediate": "Mitteldruck",
+                    "low": "Niederdruck"
+                }
+            }
+        },
+        "cable": "Erdkabel",
+        "telecom": {
+            "tower-mast": "Sendemast",
+            "datacenter": "Rechenzentrum"
+        },
+        "cabinet": "Straßenschrank",
+        "other-pumping-station": "Anderes Pumpwerk",
+        "method": {
+            "fission": "Kernspaltung",
+            "fusion": "Kernfusion",
+            "water-storage": "Wasserspeicher",
+            "water-pumped-storage": "Speicherkraftwerk",
+            "water-run-of-river": "Flußkraftwerk",
+            "solar-thermal": "Sonnenkollektor",
+            "solar-photovoltaic": "Solaranlage",
+            "tidal-barrage": "Gezeitenkraftwerk",
+            "tidal-stream": "Meeresströmungskraftwerk",
+            "wind-turbine": "Windkraftanlage",
+            "combustion": "Verbrennung",
+            "anaerobic-digestion": "Anaerobe Vergärung",
+            "gasification": "Vergasung"
+        },
+        "place": "Ort"
+    },
+    "key": {
+        "name": "Legende",
+        "power-lines": "Leitungen",
+        "power-plants": "Kraftwerke",
+        "power-generators": "Stromerzeuger",
+        "power-line-supports": "Strommasten",
+        "switchgear": "Schaltanlagen",
+        "telecoms": "Telekommunikation",
+        "gas": "Gas",
+        "petroleum": "Brennstoffe",
+        "water": "Wasser",
+        "traction": "Traktion (< 50 Hz)"
+    },
+    "power": {
+        "source": {
+            "nuclear": "Atomkraft",
+            "oil-gas": "Öl/Gas",
+            "solar": "Solar",
+            "wind": "Wind",
+            "coal": "Kohle",
+            "geothermal": "Geothermie",
+            "hydro": "Hydroelektrisch",
+            "biomass": "Biomasse",
+            "waste": "Abfall",
+            "battery": "Batterie",
+            "gas": "Gas",
+            "unknown": "Sonstiges/Unbekannt"
+        },
+        "substation-type": {
+            "converter": "Gleichrichter",
+            "transmission": "Übertragung",
+            "distribution": "Verteilung",
+            "traction": "Bahnstrom"
+        }
+    },
+    "edit": {
+        "edit": "Bearbeiten",
+        "remote": "Ferngesteuert bearbeiten (JOSM, usw)",
+        "browser": "Im Browser bearbeiten (iD)",
+        "error": "Ferngesteuerter Editor konnte nicht geladen werden - bitte prüfe, ob er gestartet und die Fernsteuerung aktiviert ist.\nFehler: "
+    },
+    "info": {
+        "name": "Name",
+        "operator": "Betreiber",
+        "output": "Leistung",
+        "source": "Quelle",
+        "start-date": "Startdatum",
+        "generation-method": "Erzeugungsmethode",
+        "substation-type": "Art der Schaltanlage",
+        "reference": "Referenz",
+        "circuits": "Stromkreise",
+        "type": "Typ",
+        "website": "Webseite",
+        "view-openstreetmap": "Auf OpenStreetMap ansehen",
+        "substance": "Stoff",
+        "usage": "Verwendung",
+        "location": "Lage",
+        "material": "Material",
+        "line-management": "Leitungstopologie",
+        "design": "Form",
+        "line-attachment": "Leitungsbefestigung",
+        "transformer-type": "Transformer Typ"
+    },
+    "nav": {
+        "about": "Über",
+        "stats": "Statistiken",
+        "exports": "Exporte"
+    },
+    "units": {
+        "kV": "kV",
+        "Hz": "Hz",
+        "MW": "MW",
+        "DC": "DC",
+        "below_10kv": "< 10 kV",
+        "ge_kv": "≥ {{voltage}} kV",
+        "kW": "kW",
+        "V": "V"
+    },
+    "more_info": "Mehr Informationen",
+    "wikipedia": "Wikipedia",
+    "wikimedia-commons": "Wikimedia Commons",
+    "wikidata": "Wikidata",
+    "other": "Andere",
+    "warning": "Warnung",
+    "warnings": {
+        "webgl": "<p>Dein Browser hat möglicherweise eine eingeschränkte Leistung oder fehlende Funktionen von Open Infrastructure Map.</p><p><a href=\"http://webglreport.com\">WebGL</a> mit Hardware-Beschelunigung wird für die volle Funktionalität benötigt.</p><p>Wenn dein Browser WebGL unterstützt, musst du möglicherweise den Fingerprinting-Schutz des Browsers für diese Seite deaktivieren.</p>"
+    },
+    "layers": {
+        "power": "Energie",
+        "telecoms": "Telekommunikation",
+        "petroleum": "Öl & Erdgas",
+        "water": "Wasser",
+        "labels": "Bezeichnungen",
+        "title": "Ebenen",
+        "nighttime-lights": "Nächtliche Lichter",
+        "other-pipelines": "Andere Pipelines",
+        "background": "Hintergrund",
+        "infrastructure": "Infrastruktur",
+        "validation": "Prüfung",
+        "solar-generation": "Sonnenerzeugung",
+        "osmose-power": "Osmose (Energie)",
+        "heatmaps": "Heatmaps",
+        "borders": "Grenzen",
+        "overlays": "Überlagerungen"
+    },
+    "construction": "im Bau",
+    "location": {
+        "outdoor": "Draußen",
+        "underground": "Unterirdisch",
+        "underwater": "Unterwasser",
+        "indoor": "Drinnen",
+        "surface": "Oberfläche",
+        "roof": "Dach",
+        "overhead": "über Kopf"
+    },
+    "disused": "stillgelegt",
+    "coordinates": "Koordinaten",
+    "search": {
+        "clear": "Suche löschen",
+        "no-results": "Keine Ergebnisse gefunden"
+    },
+    "openstreetmap": "OpenStreetMap"
+}
