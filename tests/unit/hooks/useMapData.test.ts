@@ -154,12 +154,10 @@ describe('useMapData module', () => {
 
 describe('useDatasetRecords hook', () => {
   beforeEach(() => {
-    vi.useFakeTimers();
     vi.clearAllMocks();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
     vi.restoreAllMocks();
   });
 
@@ -235,9 +233,7 @@ describe('useDatasetRecords hook', () => {
     );
 
     // Wait a bit to ensure fetch would have been called if it was going to
-    await act(async () => {
-      await vi.advanceTimersByTimeAsync(100);
-    });
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     expect(fetchDatasetRecords).not.toHaveBeenCalled();
   });

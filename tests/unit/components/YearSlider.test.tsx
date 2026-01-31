@@ -70,7 +70,8 @@ describe('YearSlider Component', () => {
     it('should display the current year', () => {
       render(<YearSlider />);
 
-      expect(screen.getByText('2030')).toBeInTheDocument();
+      // Use testid since year appears in multiple places (display and tick marks)
+      expect(screen.getByTestId('year-display')).toHaveTextContent('2030');
     });
 
     it('should render the slider input', () => {
@@ -242,7 +243,7 @@ describe('YearSlider Component', () => {
       render(<YearSlider />);
 
       // Current year should be displayed prominently
-      expect(screen.getByText('2030')).toBeInTheDocument();
+      expect(screen.getByTestId('year-display')).toHaveTextContent('2030');
     });
 
     it('should call setYear when key year tick is clicked', () => {
@@ -310,7 +311,7 @@ describe('YearSlider Component', () => {
 
       render(<YearSlider />);
 
-      expect(screen.getByText(String(MIN_YEAR))).toBeInTheDocument();
+      expect(screen.getByTestId('year-display')).toHaveTextContent(String(MIN_YEAR));
     });
 
     it('should display MAX_YEAR correctly', () => {
@@ -322,7 +323,7 @@ describe('YearSlider Component', () => {
 
       render(<YearSlider />);
 
-      expect(screen.getByText(String(MAX_YEAR))).toBeInTheDocument();
+      expect(screen.getByTestId('year-display')).toHaveTextContent(String(MAX_YEAR));
     });
 
     it('should display middle year correctly', () => {
@@ -333,7 +334,7 @@ describe('YearSlider Component', () => {
 
       render(<YearSlider />);
 
-      expect(screen.getByText('2037')).toBeInTheDocument();
+      expect(screen.getByTestId('year-display')).toHaveTextContent('2037');
     });
   });
 });

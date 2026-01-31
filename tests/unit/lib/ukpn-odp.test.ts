@@ -321,7 +321,9 @@ describe('UKPN ODP API Client', () => {
       await fetchAggregation('test-dataset', ['voltage', 'count(*)']);
 
       const calledUrl = mockFetch.mock.calls[0][0];
-      expect(calledUrl).toContain('select=voltage%2Ccount(*)');
+      // URL.searchParams encodes the parameters, so decode to verify
+      const url = new URL(calledUrl);
+      expect(url.searchParams.get('select')).toBe('voltage,count(*)');
     });
 
     it('should include group_by parameters', async () => {

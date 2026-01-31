@@ -1,74 +1,96 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { BoundarySelector } from '@/components/filters/BoundarySelector';
 import type { Map as MaplibreMap } from 'maplibre-gl';
 import type { BoundaryType } from '@/data/types';
 
-// Mock the boundaries module
-const mockAddBoundaryToMap = vi.fn();
-const mockRemoveBoundaryFromMap = vi.fn();
-const mockGetBoundaryFeatureAtPoint = vi.fn();
+// Mock the boundaries module - must be before any imports that use it
+vi.mock('@/lib/boundaries', () => {
+  const mockAddBoundaryToMap = vi.fn();
+  const mockRemoveBoundaryFromMap = vi.fn();
+  const mockGetBoundaryFeatureAtPoint = vi.fn();
 
-vi.mock('@/lib/boundaries', () => ({
-  BOUNDARY_CONFIGS: {
-    resp: {
-      id: 'resp',
-      name: 'RESP',
-      description: 'Regional Energy Strategic Planner boundaries',
-      dataPath: '/data/boundaries/resp.geojson',
-      minZoom: 5,
-      labelMinZoom: 6,
-      colors: {
-        fill: '#8b5cf6',
-        line: '#7c3aed',
-        highlight: '#a78bfa',
+  return {
+    BOUNDARY_CONFIGS: {
+      resp: {
+        id: 'resp',
+        name: 'RESP',
+        description: 'Regional Energy Strategic Planner boundaries',
+        dataPath: '/data/boundaries/resp.geojson',
+        minZoom: 5,
+        labelMinZoom: 6,
+        colors: {
+          fill: '#8b5cf6',
+          line: '#7c3aed',
+          highlight: '#a78bfa',
+        },
+      },
+      gsp: {
+        id: 'gsp',
+        name: 'GSP',
+        description: 'Grid Supply Point boundaries',
+        dataPath: '/data/boundaries/gsp.geojson',
+        minZoom: 7,
+        labelMinZoom: 9,
+        colors: {
+          fill: '#3b82f6',
+          line: '#2563eb',
+          highlight: '#60a5fa',
+        },
+      },
+      la: {
+        id: 'la',
+        name: 'Local Authority',
+        description: 'Local Authority boundaries',
+        dataPath: '/data/boundaries/la.geojson',
+        minZoom: 8,
+        labelMinZoom: 10,
+        colors: {
+          fill: '#10b981',
+          line: '#059669',
+          highlight: '#34d399',
+        },
+      },
+      lsoa: {
+        id: 'lsoa',
+        name: 'LSOA',
+        description: 'Lower Layer Super Output Area boundaries',
+        dataPath: '/data/boundaries/lsoa.geojson',
+        minZoom: 11,
+        labelMinZoom: 13,
+        colors: {
+          fill: '#f59e0b',
+          line: '#d97706',
+          highlight: '#fbbf24',
+        },
       },
     },
-    gsp: {
-      id: 'gsp',
-      name: 'GSP',
-      description: 'Grid Supply Point boundaries',
-      dataPath: '/data/boundaries/gsp.geojson',
-      minZoom: 7,
-      labelMinZoom: 9,
-      colors: {
-        fill: '#3b82f6',
-        line: '#2563eb',
-        highlight: '#60a5fa',
-      },
-    },
-    la: {
-      id: 'la',
-      name: 'Local Authority',
-      description: 'Local Authority boundaries',
-      dataPath: '/data/boundaries/la.geojson',
-      minZoom: 8,
-      labelMinZoom: 10,
-      colors: {
-        fill: '#10b981',
-        line: '#059669',
-        highlight: '#34d399',
-      },
-    },
-    lsoa: {
-      id: 'lsoa',
-      name: 'LSOA',
-      description: 'Lower Layer Super Output Area boundaries',
-      dataPath: '/data/boundaries/lsoa.geojson',
-      minZoom: 11,
-      labelMinZoom: 13,
-      colors: {
-        fill: '#f59e0b',
-        line: '#d97706',
-        highlight: '#fbbf24',
-      },
-    },
-  },
-  getBoundaryTypes: vi.fn(() => ['resp', 'gsp', 'la', 'lsoa'] as BoundaryType[]),
-  addBoundaryToMap: mockAddBoundaryToMap,
-  removeBoundaryFromMap: mockRemoveBoundaryFromMap,
-  getBoundaryFeatureAtPoint: mockGetBoundaryFeatureAtPoint,
-}));
+    getBoundaryTypes: vi.fn(() => ['resp', 'gsp', 'la', 'lsoa'] as BoundaryType[]),
+    addBoundaryToMap: mockAddBoundaryToMap,
+    removeBoundaryFromMap: mockRemoveBoundaryFromMap,
+    getBoundaryFeatureAtPoint: mockGetBoundaryFeatureAtPoint,
+  };
+});
+
+// Import after mocking
+import { BoundarySelector } from '@/components/filters/BoundarySelector';
+import { BoundaryProvider } from '@/contexts/BoundaryContext';
+import { addBoundaryToMap, removeBoundaryFromMap, getBoundaryFeatureAtPoint } from '@/lib/boundaries';
+import type { ReactNode } from 'react';
+
+// Get references to mocked functions
+const mockAddBoundaryToMap = vi.mocked(addBoundaryToMap);
+const mockRemoveBoundaryFromMap = vi.mocked(removeBoundaryFromMap);
+const mockGetBoundaryFeatureAtPoint = vi.mocked(getBoundaryFeatureAtPoint);
+
+// Wrapper component to provide BoundaryContext
+function TestWrapper({ children }: { children: ReactNode }) {
+  return <BoundaryProvider>{children}</BoundaryProvider>;
+}
+
+// Custom render function that includes the wrapper
+function renderWithProvider(ui: React.ReactElement) {
+  return render(ui, { wrapper: TestWrapper });
+}
 
 // Create a mock MapLibre map
 function createMockMap(): MaplibreMap {
@@ -110,28 +132,30 @@ describe('BoundarySelector Component', () => {
 
   describe('rendering', () => {
     it('should render the component', () => {
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       expect(screen.getByText('Boundaries')).toBeInTheDocument();
     });
 
     it('should render the selector button', () => {
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       expect(button).toBeInTheDocument();
     });
 
     it('should apply custom className', () => {
-      const { container } = render(
+      const { container } = renderWithProvider(
         <BoundarySelector map={mockMap} className="custom-class" />
       );
 
-      expect(container.firstChild).toHaveClass('custom-class');
+      // With the wrapper, the first child is the BoundaryProvider wrapper, so we look deeper
+      const selector = container.querySelector('[data-testid="boundary-selector"]') || container.firstChild?.firstChild;
+      expect(selector).toHaveClass('custom-class');
     });
 
     it('should render with null map', () => {
-      render(<BoundarySelector map={null} />);
+      renderWithProvider(<BoundarySelector map={null} />);
 
       expect(screen.getByText('Boundaries')).toBeInTheDocument();
     });
@@ -139,7 +163,7 @@ describe('BoundarySelector Component', () => {
 
   describe('dropdown menu', () => {
     it('should open dropdown when button is clicked', () => {
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       fireEvent.click(button);
@@ -149,7 +173,7 @@ describe('BoundarySelector Component', () => {
     });
 
     it('should show all boundary options when open', () => {
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       fireEvent.click(button);
@@ -161,7 +185,7 @@ describe('BoundarySelector Component', () => {
     });
 
     it('should show boundary descriptions', () => {
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       fireEvent.click(button);
@@ -171,7 +195,7 @@ describe('BoundarySelector Component', () => {
     });
 
     it('should close dropdown after selection', async () => {
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       fireEvent.click(button);
@@ -187,7 +211,7 @@ describe('BoundarySelector Component', () => {
 
   describe('boundary selection', () => {
     it('should call addBoundaryToMap when boundary is selected', async () => {
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       fireEvent.click(button);
@@ -201,7 +225,7 @@ describe('BoundarySelector Component', () => {
     });
 
     it('should call removeBoundaryFromMap when different boundary is selected', async () => {
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       // Select first boundary
       const button = screen.getByRole('button', { name: /boundaries/i });
@@ -226,7 +250,7 @@ describe('BoundarySelector Component', () => {
     });
 
     it('should clear boundary when "None" is selected', async () => {
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       // Select boundary
       const button = screen.getByRole('button', { name: /boundaries/i });
@@ -254,7 +278,7 @@ describe('BoundarySelector Component', () => {
         () => new Promise((resolve) => setTimeout(resolve, 100))
       );
 
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       fireEvent.click(button);
@@ -268,7 +292,7 @@ describe('BoundarySelector Component', () => {
     it('should show error when boundary loading fails', async () => {
       mockAddBoundaryToMap.mockRejectedValue(new Error('Failed to load boundary'));
 
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       fireEvent.click(button);
@@ -282,7 +306,7 @@ describe('BoundarySelector Component', () => {
     });
 
     it('should not call addBoundaryToMap when map is null', async () => {
-      render(<BoundarySelector map={null} />);
+      renderWithProvider(<BoundarySelector map={null} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       fireEvent.click(button);
@@ -298,7 +322,7 @@ describe('BoundarySelector Component', () => {
 
   describe('active boundary display', () => {
     it('should show active boundary name in button', async () => {
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       fireEvent.click(button);
@@ -312,7 +336,7 @@ describe('BoundarySelector Component', () => {
     });
 
     it('should show "Boundaries" when no boundary is selected', () => {
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       expect(button).toHaveTextContent('Boundaries');
@@ -321,7 +345,7 @@ describe('BoundarySelector Component', () => {
 
   describe('toggle behavior', () => {
     it('should toggle dropdown open and closed', () => {
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
 
@@ -337,7 +361,7 @@ describe('BoundarySelector Component', () => {
 
   describe('deselect same boundary', () => {
     it('should deselect boundary when same one is clicked again', async () => {
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       fireEvent.click(button);
@@ -350,10 +374,17 @@ describe('BoundarySelector Component', () => {
         expect(mockAddBoundaryToMap).toHaveBeenCalledWith(mockMap, 'resp');
       });
 
-      // Click RESP again
+      // Click button to open dropdown again
       fireEvent.click(button);
-      const respOptionAgain = screen.getByText('RESP');
-      fireEvent.click(respOptionAgain);
+
+      // There are now two elements with "RESP" - one in button, one in dropdown
+      // Find the one in the dropdown by looking for the option container
+      const respOptions = screen.getAllByText('RESP');
+      // The dropdown option should be the one that's not in the button (has different parent structure)
+      const dropdownOption = respOptions.find((el) =>
+        el.closest('button[title="Go to RESP"]') !== null || el.parentElement?.parentElement?.getAttribute('role') === 'option'
+      ) || respOptions[respOptions.length - 1]; // fallback to last one (the dropdown one)
+      fireEvent.click(dropdownOption);
 
       await waitFor(() => {
         expect(mockRemoveBoundaryFromMap).toHaveBeenCalledWith(mockMap, 'resp');
@@ -367,7 +398,7 @@ describe('BoundarySelector Component', () => {
         () => new Promise((resolve) => setTimeout(resolve, 1000))
       );
 
-      render(<BoundarySelector map={mockMap} />);
+      renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       fireEvent.click(button);
@@ -383,7 +414,7 @@ describe('BoundarySelector Component', () => {
 
   describe('color indicator', () => {
     it('should show neutral color when no boundary selected', () => {
-      const { container } = render(<BoundarySelector map={mockMap} />);
+      const { container } = renderWithProvider(<BoundarySelector map={mockMap} />);
 
       // The color indicator span with default gray color
       const colorIndicator = container.querySelector('span[class*="rounded-full"]');
@@ -391,7 +422,7 @@ describe('BoundarySelector Component', () => {
     });
 
     it('should show boundary color when boundary is selected', async () => {
-      const { container } = render(<BoundarySelector map={mockMap} />);
+      const { container } = renderWithProvider(<BoundarySelector map={mockMap} />);
 
       const button = screen.getByRole('button', { name: /boundaries/i });
       fireEvent.click(button);
