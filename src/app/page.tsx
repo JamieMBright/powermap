@@ -1,4 +1,5 @@
 import { Map } from '@/components/map/Map';
+import { YearSlider } from '@/components/timeline/YearSlider';
 
 export default function Home() {
   return (
@@ -20,8 +21,13 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Map */}
-      <Map className="h-full w-full pt-14" />
+      {/* Map - positioned behind header/attribution overlays */}
+      <Map className="absolute inset-0 z-0" />
+
+      {/* Year Slider - positioned above attribution */}
+      <div className="absolute bottom-12 left-1/2 z-10 w-full max-w-xl -translate-x-1/2 px-4">
+        <YearSlider />
+      </div>
 
       {/* Attribution */}
       <div className="absolute bottom-0 left-0 right-0 z-10 bg-white/80 backdrop-blur-sm px-4 py-2 text-xs text-gray-500">
