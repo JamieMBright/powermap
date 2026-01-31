@@ -2,8 +2,8 @@
 
 ## Current State
 **Phase:** 1 - MVP
-**Status:** In Progress
-**Last Updated:** 2026-01-31 12:30
+**Status:** Complete
+**Last Updated:** 2026-01-31 18:00
 
 ## Completed Tasks
 | Task | Agent | Date | Notes |
@@ -28,17 +28,23 @@
 | Mobile responsiveness | UI | 2026-01-31 | Touch-friendly, responsive layout |
 | Build fixes | DevOps | 2026-01-31 | Fixed TypeScript + Suspense errors |
 | Investment data overlay | Data | 2026-01-31 | Sample data, InvestmentLayer, useInvestmentData hook |
+| Data aggregation panels | UI | 2026-01-31 | AggregationPanel, StatCard, InvestmentCard |
+| Unit test suite | Test | 2026-01-31 | Vitest tests for libs, hooks, components |
+| E2E test suite | Test | 2026-01-31 | Playwright tests for map, slider, boundaries |
+| Storytelling/tours | UI | 2026-01-31 | TourPlayer, TourControls, NarrativePanel, sample tour |
 
 ## In Progress
 | Task | Agent | Started | Blockers |
 |------|-------|---------|----------|
-| Data aggregation panels | UI | 2026-01-31 | Background task |
-| Unit test suite | Test | 2026-01-31 | Background task |
-| E2E test suite | Test | 2026-01-31 | Background task |
-| Storytelling/tours | UI | 2026-01-31 | Background task |
+| None | - | - | - |
 
 ## Pending Tasks (Prioritized)
-_All MVP tasks now in progress_
+_Phase 1 MVP Complete - Moving to Phase 2_
+
+1. [ ] RIGS export automation (Phase 2)
+2. [ ] Open Data Portal live integration (Phase 2)
+3. [ ] Auto-generate tours from EJP documents (Phase 2)
+4. [ ] Performance optimization (Phase 2)
 
 ## Blocked Tasks
 | Task | Blocker | Waiting On |
@@ -51,22 +57,31 @@ _Key decisions or context that should persist across sessions:_
 - OIM tiles loaded from openinframap.org/tiles/power
 - Power lines color-coded by voltage (275kV+ purple, 132kV+ red, 33kV+ amber, 11kV+ green)
 - Substations shown as circles at zoom 8+, labels at zoom 11+
-- Year state to be synced to URL via nuqs library
+- Year state synced to URL via nuqs library
 - Vercel for hosting, GitHub Actions for CI/CD
 - Docker multi-stage build for production
+- Orange color scheme adopted for UI
+- Guided tours feature with Barking Grid sample
 
 ## Session Handoff
 _Instructions for next session:_
-- Current focus: MVP core features
-- Next action: Add data aggregation panels and complete tests
-- Investment data overlay completed with:
-  - Sample data files for 2025, 2030, 2035, 2040, 2045, 2050
-  - useInvestmentData hook with caching and filtering
-  - InvestmentLayer component with color-coded markers
-  - Driver metadata in investment-drivers.json
-- Files to review:
-  - src/components/map/Map.tsx
-  - src/components/map/InvestmentLayer.tsx
-  - src/hooks/useInvestmentData.ts
-  - public/data/assets/*.json
-  - PLAN.md for full architecture details
+- **Phase 1 MVP is COMPLETE**
+- All core features implemented and deployed
+- Live at: https://powermap-prod.vercel.app
+
+### What was built:
+1. **Interactive Map** - MapLibre + Open Infrastructure Map overlay
+2. **Year Slider** - 2025-2050 with animated playback and URL sync
+3. **Boundary System** - RESP, GSP, LA, LSOA toggles
+4. **Investment Data** - Sample data with color-coded markers
+5. **Aggregation Panels** - Boundary selection shows investment breakdown
+6. **Storytelling** - Guided tours with Barking Grid example
+7. **Tests** - Unit tests (Vitest) + E2E tests (Playwright)
+8. **CI/CD** - GitHub Actions + Vercel auto-deploy
+
+### Files to review:
+- src/components/map/Map.tsx - Main map component
+- src/components/storytelling/*.tsx - Tour system
+- src/components/ui/*.tsx - Aggregation panels
+- public/data/ - Sample data files
+- tests/ - Test suites
