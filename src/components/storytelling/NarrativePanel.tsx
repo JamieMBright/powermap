@@ -14,6 +14,13 @@ interface NarrativePanelProps {
   collapsed?: boolean;
   /** Callback to toggle collapsed state */
   onToggleCollapse?: () => void;
+  /** Navigation callbacks for mobile integrated controls */
+  onPrevious?: () => void;
+  onNext?: () => void;
+  onExit?: () => void;
+  isPreviousDisabled?: boolean;
+  isNextDisabled?: boolean;
+  isTransitioning?: boolean;
 }
 
 /**

@@ -24,6 +24,11 @@ function createMockMap(): MaplibreMap {
       layers.set(layer.id, layer);
     }),
     setLayoutProperty: vi.fn(),
+    getLayoutProperty: vi.fn(),
+    on: vi.fn(),
+    off: vi.fn(),
+    removeLayer: vi.fn(),
+    removeSource: vi.fn(),
   } as unknown as MaplibreMap;
 }
 
