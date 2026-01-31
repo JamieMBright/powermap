@@ -70,7 +70,31 @@ function checkSearchParamsSuspense(filePath, content) {
         hint: 'Wrap component using useSearchParams in <Suspense fallback={...}>',
         docs: 'https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout'
       });
+    } else {
+      // Verify Suspense has a fallback prop
+      const suspenseMatch = content.match(/<Suspense[^>]*>/g);
+      if (suspenseMatch) {
+        const hasValidFallback = suspenseMatch.some(s => s.includes('fallback='));
+        if (!hasValidFallback) {
+          WARNINGS.push({
+            file: filePath,
+            message: 'Suspense boundary may be missing fallback prop',
+            hint: 'Add fallback={<LoadingComponent />} to Suspense'
+          });
+        }
+      }
     }
+  }
+
+  // Also check components that might be used in pages
+  const isComponent = filePath.includes('/components/');
+  if (isComponent && !content.includes("'use client'") && !content.includes('"use client"')) {
+    // Component uses search params but might not be marked as client
+    WARNINGS.push({
+      file: filePath,
+      message: 'Component uses useSearchParams/nuqs - ensure parent has Suspense boundary',
+      hint: 'Components using URL state should be wrapped in Suspense at the page level'
+    });
   }
 }
 
