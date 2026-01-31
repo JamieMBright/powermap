@@ -92,8 +92,12 @@ export function Map({ className = '', onMapLoad }: MapProps) {
     };
   }, [handleMapLoad, isMobile]);
 
+  // Use className if provided, otherwise default to relative full-size container
+  // This allows parent to control positioning (absolute, fixed, etc.)
+  const containerClasses = className || 'relative h-full w-full';
+
   return (
-    <div className={`relative h-full w-full ${className}`}>
+    <div className={containerClasses}>
       {/* Map container with touch-action for better mobile scrolling */}
       <div
         ref={mapContainer}

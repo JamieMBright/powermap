@@ -20,7 +20,32 @@ Files created:
 
 ---
 
-## 2. Investigate Open Infrastructure Map (OIM)
+## 2. Debug Map Display Issues
+
+If the map is not displaying, use the diagnostic page:
+
+### Debug Page
+
+Visit `/debug/map` in development to see:
+- Container dimensions (should not be 0x0)
+- Map initialization logs
+- Error messages
+- Style loading status
+
+```bash
+npm run dev
+# Open http://localhost:3000/debug/map
+```
+
+### Common Issues:
+
+1. **Container has zero dimensions**: Parent elements need explicit height
+2. **Style not loading**: Check network requests to `basemaps.cartocdn.com`
+3. **CORS errors**: The CARTO basemap or OIM tiles may be blocked
+
+---
+
+## 3. Investigate Open Infrastructure Map (OIM)
 
 The OIM layer (power lines, substations from OpenStreetMap) may not be loading.
 
@@ -41,13 +66,13 @@ The OIM layer (power lines, substations from OpenStreetMap) may not be loading.
 
 ---
 
-## ~~3. Add UKPN ODP API Key~~ ✅ COMPLETED
+## ~~4. Add UKPN ODP API Key~~ ✅ COMPLETED
 
 API key is already configured in `.env` file.
 
 ---
 
-## 4. Consider Additional Tour Content
+## 5. Consider Additional Tour Content
 
 The current tour ("Barking Grid Reinforcement 2028") could be expanded:
 
@@ -64,9 +89,12 @@ The current tour ("Barking Grid Reinforcement 2028") could be expanded:
 - [x] All "UK Power Networks" / "UKPN" references removed from UI
 - [x] Tour thumbnail updated with pylon imagery
 - [x] Transformation script created for UKPN boundary data
-- [x] All tests passing (206 tests)
+- [x] Fixed Map CSS conflict (relative + absolute position classes)
+- [x] Added Map component unit tests
+- [x] Added debug page at `/debug/map` for troubleshooting
 - [x] Downloaded real boundary data from UKPN ODP (GSP, LA, RESP)
 - [x] UKPN ODP API key configured
+- [x] All tests passing (219 tests)
 
 ---
 
