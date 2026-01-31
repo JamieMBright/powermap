@@ -14,35 +14,15 @@ const minimalStyle: StyleSpecification = {
     },
   },
   layers: [
-    // Background - ocean blue (visible at all zoom levels)
+    // Background - light gray land color
     {
       id: 'background',
       type: 'background',
       paint: {
-        'background-color': '#a8c8e8',
+        'background-color': '#f8f9fa',
       },
     },
-    // Land - light fill for landmass (covers ocean background)
-    {
-      id: 'land',
-      type: 'fill',
-      source: 'openmaptiles',
-      'source-layer': 'landuse',
-      paint: {
-        'fill-color': '#f5f5f5',
-      },
-    },
-    // Land fallback - covers areas not in landuse
-    {
-      id: 'land-fallback',
-      type: 'fill',
-      source: 'openmaptiles',
-      'source-layer': 'landcover',
-      paint: {
-        'fill-color': '#f5f5f5',
-      },
-    },
-    // Water - blue for lakes, rivers (on top of land)
+    // Water - visible blue for oceans, lakes, rivers
     {
       id: 'water',
       type: 'fill',
@@ -50,6 +30,17 @@ const minimalStyle: StyleSpecification = {
       'source-layer': 'water',
       paint: {
         'fill-color': '#a8c8e8',
+      },
+    },
+    // Landcover base - subtle fill
+    {
+      id: 'landcover-base',
+      type: 'fill',
+      source: 'openmaptiles',
+      'source-layer': 'landcover',
+      paint: {
+        'fill-color': '#f0f1f2',
+        'fill-opacity': 0.5,
       },
     },
     // Landcover - very subtle differentiation (optional, keeps it minimal)
@@ -249,7 +240,7 @@ const minimalStyle: StyleSpecification = {
         'text-letter-spacing': 0.1,
       },
       paint: {
-        'text-color': '#6b7280',
+        'text-color': '#475569',
         'text-halo-color': '#ffffff',
         'text-halo-width': 2,
       },
@@ -274,7 +265,7 @@ const minimalStyle: StyleSpecification = {
         ],
       },
       paint: {
-        'text-color': '#374151',
+        'text-color': '#334155',
         'text-halo-color': '#ffffff',
         'text-halo-width': 2,
       },
@@ -299,7 +290,7 @@ const minimalStyle: StyleSpecification = {
         ],
       },
       paint: {
-        'text-color': '#4b5563',
+        'text-color': '#475569',
         'text-halo-color': '#ffffff',
         'text-halo-width': 1.5,
       },
@@ -318,7 +309,7 @@ const minimalStyle: StyleSpecification = {
         'text-size': 10,
       },
       paint: {
-        'text-color': '#9ca3af',
+        'text-color': '#64748b',
         'text-halo-color': '#ffffff',
         'text-halo-width': 1.5,
       },

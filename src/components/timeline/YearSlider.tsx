@@ -121,71 +121,69 @@ export function YearSlider({ className = '' }: YearSliderProps) {
   return (
     <div
       data-testid="year-slider"
-      className={`relative flex flex-col items-center gap-2 overflow-hidden rounded-lg bg-white/95 px-3 py-3 shadow-lg backdrop-blur-sm sm:gap-3 sm:px-6 sm:py-4 ${className}`}
+      className={`relative flex flex-col items-center gap-3 rounded-xl border border-gray-100 bg-white px-4 py-4 shadow-sm sm:gap-4 sm:px-8 sm:py-5 ${className}`}
       onTouchStart={resetCollapseTimer}
       onClick={resetCollapseTimer}
     >
-      {/* Close/Collapse button - both mobile and desktop */}
+      {/* Close/Collapse button */}
       <button
         onClick={handleCollapse}
-        className="absolute top-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-gray-100 text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-600"
+        className="absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full text-gray-300 transition-colors hover:bg-gray-50 hover:text-gray-500"
         aria-label="Collapse year slider"
         title="Collapse"
       >
-        <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
         </svg>
       </button>
 
       {/* Current Year Display */}
-      <div className="flex items-center gap-3 sm:gap-4">
-        <span className="text-xs font-medium text-gray-500 sm:text-sm">Year</span>
-        <span data-testid="year-display" className="text-2xl font-bold tabular-nums text-orange-600 sm:text-3xl">
+      <div className="flex items-baseline gap-2">
+        <span className="text-xs font-medium uppercase tracking-wide text-gray-400">Year</span>
+        <span data-testid="year-display" className="text-3xl font-semibold tabular-nums text-gray-900 sm:text-4xl">
           {year}
         </span>
       </div>
 
       {/* Controls Row */}
-      <div className="flex w-full items-center gap-2 sm:gap-3">
-        {/* Previous Year Button - 44px min tap target */}
+      <div className="flex w-full items-center gap-3 sm:gap-4">
+        {/* Previous Year Button */}
         <button
           onClick={() => { previousYear(); resetCollapseTimer(); }}
           disabled={isAtStart}
           data-testid="previous-year-button"
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 active:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 sm:h-9 sm:w-9"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-500 transition-all hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 active:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-30 sm:h-9 sm:w-9"
           aria-label="Previous year"
           title="Previous year"
         >
           <ChevronLeftIcon />
         </button>
 
-        {/* Play/Pause Button - 44px min tap target */}
+        {/* Play/Pause Button */}
         <button
           onClick={() => { togglePlayback(); resetCollapseTimer(); }}
           disabled={isAtEnd && !isPlaying}
           data-testid="play-button"
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-500 text-white transition-colors hover:bg-orange-600 active:bg-orange-700 disabled:cursor-not-allowed disabled:opacity-40 sm:h-10 sm:w-10"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-orange-500 text-white shadow-sm transition-all hover:bg-orange-600 hover:shadow active:bg-orange-700 disabled:cursor-not-allowed disabled:opacity-30 sm:h-10 sm:w-10"
           aria-label={isPlaying ? 'Pause' : 'Play'}
           title={isPlaying ? 'Pause animation' : 'Play animation'}
         >
           {isPlaying ? <PauseIcon /> : <PlayIcon />}
         </button>
 
-        {/* Slider Container - larger touch area on mobile */}
-        <div className="relative flex-1 py-3 sm:py-0">
-          {/* Inner wrapper with horizontal margin for thumb overflow at edges (2025/2050) */}
-          {/* Margin = half of thumb size: 14px (mx-3.5) on mobile, 10px (mx-2.5) on desktop */}
-          <div className="relative mx-3.5 sm:mx-2.5">
-            {/* Custom Slider Track Background - taller on mobile for easier touch */}
-            <div className="relative h-3 w-full rounded-full bg-gray-200 sm:h-2">
+        {/* Slider Container */}
+        <div className="relative flex-1 py-2 sm:py-0">
+          <div className="relative mx-3 sm:mx-2">
+            {/* Slim Track Background */}
+            <div className="relative h-1.5 w-full rounded-full bg-gray-100">
               {/* Filled Track */}
               <div
-                className="absolute h-full rounded-full bg-orange-500 transition-all duration-150"
+                className="absolute h-full rounded-full bg-orange-500 transition-all duration-100"
                 style={{ width: `${percentage}%` }}
               />
             </div>
 
-            {/* Native Slider - larger thumb on mobile for touch */}
+            {/* Native Slider */}
             <input
               type="range"
               min={MIN_YEAR}
@@ -194,30 +192,29 @@ export function YearSlider({ className = '' }: YearSliderProps) {
               onChange={handleSliderChange}
               data-testid="year-slider-input"
               className="absolute inset-0 w-full cursor-pointer appearance-none bg-transparent touch-manipulation
-                [&::-webkit-slider-thumb]:h-7 [&::-webkit-slider-thumb]:w-7
+                [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5
                 [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none
                 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-2
                 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:bg-orange-500
-                [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:transition-transform
+                [&::-webkit-slider-thumb]:shadow [&::-webkit-slider-thumb]:transition-transform
                 [&::-webkit-slider-thumb]:active:scale-110
-                sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:w-5
+                sm:[&::-webkit-slider-thumb]:h-4 sm:[&::-webkit-slider-thumb]:w-4
                 sm:[&::-webkit-slider-thumb]:hover:scale-110
-                [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:w-7
+                [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5
                 [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:appearance-none
                 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-2
                 [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-orange-500
-                [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:transition-transform
+                [&::-moz-range-thumb]:shadow [&::-moz-range-thumb]:transition-transform
                 [&::-moz-range-thumb]:active:scale-110
-                sm:[&::-moz-range-thumb]:h-5 sm:[&::-moz-range-thumb]:w-5
+                sm:[&::-moz-range-thumb]:h-4 sm:[&::-moz-range-thumb]:w-4
                 sm:[&::-moz-range-thumb]:hover:scale-110"
               aria-label="Select year"
             />
           </div>
 
-          {/* Tick Marks - hidden on mobile, with padding for edge labels */}
-          <div className="absolute top-5 left-0 right-0 hidden sm:top-4 sm:block">
-            {/* Margin matches the inner slider wrapper for proper tick alignment */}
-            <div className="relative mx-3.5 sm:mx-2.5">
+          {/* Tick Marks - hidden on mobile */}
+          <div className="absolute top-4 left-0 right-0 hidden sm:top-3 sm:block">
+            <div className="relative mx-3 sm:mx-2">
               {KEY_YEARS.map((keyYear, index) => {
                 const tickPercentage =
                   ((keyYear - MIN_YEAR) / (MAX_YEAR - MIN_YEAR)) * 100;
@@ -228,7 +225,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
                   <button
                     key={keyYear}
                     onClick={() => { setYear(keyYear); resetCollapseTimer(); }}
-                    className={`group absolute flex flex-col items-center justify-start ${
+                    className={`group absolute flex flex-col ${
                       isFirst ? 'items-start' : isLast ? 'items-end' : 'items-center'
                     }`}
                     style={{
@@ -237,16 +234,11 @@ export function YearSlider({ className = '' }: YearSliderProps) {
                     }}
                     title={`Go to ${keyYear}`}
                   >
-                    <div
-                      className={`h-2 w-0.5 transition-colors ${
-                        isCurrentYear ? 'bg-orange-500' : 'bg-gray-300 group-hover:bg-gray-400'
-                      }`}
-                    />
                     <span
-                      className={`mt-1 text-xs tabular-nums transition-colors ${
+                      className={`text-[10px] tabular-nums transition-colors ${
                         isCurrentYear
-                          ? 'font-semibold text-orange-600'
-                          : 'text-gray-400 group-hover:text-gray-600'
+                          ? 'font-medium text-orange-600'
+                          : 'text-gray-300 group-hover:text-gray-500'
                       }`}
                     >
                       {keyYear}
@@ -258,12 +250,12 @@ export function YearSlider({ className = '' }: YearSliderProps) {
           </div>
         </div>
 
-        {/* Next Year Button - 44px min tap target */}
+        {/* Next Year Button */}
         <button
           onClick={() => { nextYear(); resetCollapseTimer(); }}
           disabled={isAtEnd}
           data-testid="next-year-button"
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 active:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 sm:h-9 sm:w-9"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-500 transition-all hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 active:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-30 sm:h-9 sm:w-9"
           aria-label="Next year"
           title="Next year"
         >

@@ -40,9 +40,9 @@ export const BOUNDARY_CONFIGS: Record<BoundaryType, BoundaryConfig> = {
     minZoom: 7,
     labelMinZoom: 9,
     colors: {
-      fill: '#3b82f6',    // Blue
-      line: '#2563eb',
-      highlight: '#60a5fa',
+      fill: '#1e3a5a',    // Deep navy
+      line: '#1e3a5a',
+      highlight: '#2d4a6a',
     },
   },
   la: {
@@ -196,7 +196,7 @@ export async function addBoundaryToMap(
   const sourceId = getBoundarySourceId(boundaryType);
   const layerIds = getBoundaryLayerIds(boundaryType);
 
-  // Check if source already exists
+  // Check if source already exists (handles race conditions)
   if (map.getSource(sourceId)) {
     return;
   }
@@ -204,21 +204,33 @@ export async function addBoundaryToMap(
   // Load GeoJSON data
   const data = await loadBoundaryData(boundaryType);
 
-  // Add source
-  const sourceSpec: GeoJSONSourceSpecification = {
-    type: 'geojson',
-    data,
-  };
-  map.addSource(sourceId, sourceSpec);
+  // Double-check after async operation (race condition protection)
+  if (map.getSource(sourceId)) {
+    return;
+  }
 
-  // Add layers in order (fill, highlight, line, label)
-  map.addLayer(createFillLayer(config));
-  map.addLayer(createHighlightLayer(config));
-  map.addLayer(createLineLayer(config));
-  map.addLayer(createLabelLayer(config));
+  try {
+    // Add source
+    const sourceSpec: GeoJSONSourceSpecification = {
+      type: 'geojson',
+      data,
+    };
+    map.addSource(sourceId, sourceSpec);
 
-  // Set up hover effect
-  setupBoundaryHover(map, boundaryType);
+    // Add layers in order (fill, highlight, line, label)
+    map.addLayer(createFillLayer(config));
+    map.addLayer(createHighlightLayer(config));
+    map.addLayer(createLineLayer(config));
+    map.addLayer(createLabelLayer(config));
+
+    // Set up hover effect
+    setupBoundaryHover(map, boundaryType);
+  } catch (error) {
+    // Ignore "already exists" errors from race conditions
+    if (error instanceof Error && !error.message.includes('already exists')) {
+      throw error;
+    }
+  }
 }
 
 // Remove boundary source and layers from map
