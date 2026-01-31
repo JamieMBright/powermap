@@ -17,6 +17,17 @@ export function Map({ className = '', onMapLoad }: MapProps) {
   const mapRef = useRef<MaplibreMap | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [map, setMap] = useState<MaplibreMap | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleMapLoad = useCallback((loadedMap: MaplibreMap) => {
     setMap(loadedMap);
@@ -33,16 +44,36 @@ export function Map({ className = '', onMapLoad }: MapProps) {
       zoom: MAP_CONFIG.zoom,
       minZoom: MAP_CONFIG.minZoom,
       maxZoom: MAP_CONFIG.maxZoom,
+      // Enable touch interactions
+      touchZoomRotate: true,
+      touchPitch: true,
+      dragRotate: false, // Simpler interaction on mobile
     });
 
-    // Add navigation controls
-    mapInstance.addControl(new maplibregl.NavigationControl(), 'top-right');
+    // Add navigation controls - position differently on mobile to avoid overlap
+    // On mobile, position bottom-right to avoid overlapping with BoundarySelector
+    mapInstance.addControl(
+      new maplibregl.NavigationControl({ showCompass: !isMobile }),
+      isMobile ? 'bottom-right' : 'top-right'
+    );
 
     // Add scale control
     mapInstance.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
 
-    // Add fullscreen control
-    mapInstance.addControl(new maplibregl.FullscreenControl(), 'top-right');
+    // Add fullscreen control - only on desktop
+    if (!isMobile) {
+      mapInstance.addControl(new maplibregl.FullscreenControl(), 'top-right');
+    }
+
+    // Add geolocate control for mobile users
+    mapInstance.addControl(
+      new maplibregl.GeolocateControl({
+        positionOptions: { enableHighAccuracy: true },
+        trackUserLocation: false,
+        showUserHeading: false,
+      }),
+      isMobile ? 'bottom-right' : 'top-right'
+    );
 
     mapInstance.on('load', () => {
       // Add Open Infrastructure Map layers
@@ -59,11 +90,16 @@ export function Map({ className = '', onMapLoad }: MapProps) {
       mapRef.current = null;
       setMap(null);
     };
-  }, [handleMapLoad]);
+  }, [handleMapLoad, isMobile]);
 
   return (
     <div className={className}>
-      <div ref={mapContainer} className="absolute inset-0" />
+      {/* Map container with touch-action for better mobile scrolling */}
+      <div
+        ref={mapContainer}
+        className="absolute inset-0 touch-manipulation"
+        style={{ touchAction: 'manipulation' }}
+      />
 
       {/* Boundary selector overlay */}
       {isLoaded && <BoundarySelector map={map} />}

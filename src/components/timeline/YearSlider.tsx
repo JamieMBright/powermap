@@ -35,44 +35,44 @@ export function YearSlider({ className = '' }: YearSliderProps) {
 
   return (
     <div
-      className={`flex flex-col items-center gap-3 rounded-lg bg-white/95 px-6 py-4 shadow-lg backdrop-blur-sm ${className}`}
+      className={`flex flex-col items-center gap-2 rounded-lg bg-white/95 px-3 py-3 shadow-lg backdrop-blur-sm sm:gap-3 sm:px-6 sm:py-4 ${className}`}
     >
       {/* Current Year Display */}
-      <div className="flex items-center gap-4">
-        <span className="text-sm font-medium text-gray-500">Year</span>
-        <span className="text-3xl font-bold tabular-nums text-indigo-600">
+      <div className="flex items-center gap-3 sm:gap-4">
+        <span className="text-xs font-medium text-gray-500 sm:text-sm">Year</span>
+        <span className="text-2xl font-bold tabular-nums text-indigo-600 sm:text-3xl">
           {year}
         </span>
       </div>
 
       {/* Controls Row */}
-      <div className="flex w-full items-center gap-3">
-        {/* Previous Year Button */}
+      <div className="flex w-full items-center gap-2 sm:gap-3">
+        {/* Previous Year Button - 44px min tap target */}
         <button
           onClick={previousYear}
           disabled={isAtStart}
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-40"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 active:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 sm:h-9 sm:w-9"
           aria-label="Previous year"
           title="Previous year"
         >
           <ChevronLeftIcon />
         </button>
 
-        {/* Play/Pause Button */}
+        {/* Play/Pause Button - 44px min tap target */}
         <button
           onClick={togglePlayback}
           disabled={isAtEnd && !isPlaying}
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600 text-white transition-colors hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-40"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white transition-colors hover:bg-indigo-700 active:bg-indigo-800 disabled:cursor-not-allowed disabled:opacity-40 sm:h-10 sm:w-10"
           aria-label={isPlaying ? 'Pause' : 'Play'}
           title={isPlaying ? 'Pause animation' : 'Play animation'}
         >
           {isPlaying ? <PauseIcon /> : <PlayIcon />}
         </button>
 
-        {/* Slider Container */}
-        <div className="relative flex-1">
-          {/* Custom Slider Track Background */}
-          <div className="relative h-2 w-full rounded-full bg-gray-200">
+        {/* Slider Container - larger touch area on mobile */}
+        <div className="relative flex-1 py-3 sm:py-0">
+          {/* Custom Slider Track Background - taller on mobile for easier touch */}
+          <div className="relative h-3 w-full rounded-full bg-gray-200 sm:h-2">
             {/* Filled Track */}
             <div
               className="absolute h-full rounded-full bg-indigo-500 transition-all duration-150"
@@ -80,31 +80,35 @@ export function YearSlider({ className = '' }: YearSliderProps) {
             />
           </div>
 
-          {/* Native Slider (transparent, positioned over the track) */}
+          {/* Native Slider - larger thumb on mobile for touch */}
           <input
             type="range"
             min={MIN_YEAR}
             max={MAX_YEAR}
             value={year}
             onChange={handleSliderChange}
-            className="absolute inset-0 h-2 w-full cursor-pointer appearance-none bg-transparent
-              [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5
+            className="absolute inset-0 h-3 w-full cursor-pointer appearance-none bg-transparent touch-manipulation sm:h-2
+              [&::-webkit-slider-thumb]:h-7 [&::-webkit-slider-thumb]:w-7
               [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none
               [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-2
               [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:bg-indigo-600
               [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:transition-transform
-              [&::-webkit-slider-thumb]:hover:scale-110
-              [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5
+              [&::-webkit-slider-thumb]:active:scale-110
+              sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:w-5
+              sm:[&::-webkit-slider-thumb]:hover:scale-110
+              [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:w-7
               [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:appearance-none
               [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-2
               [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-indigo-600
               [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:transition-transform
-              [&::-moz-range-thumb]:hover:scale-110"
+              [&::-moz-range-thumb]:active:scale-110
+              sm:[&::-moz-range-thumb]:h-5 sm:[&::-moz-range-thumb]:w-5
+              sm:[&::-moz-range-thumb]:hover:scale-110"
             aria-label="Select year"
           />
 
-          {/* Tick Marks */}
-          <div className="absolute top-4 flex w-full justify-between px-0">
+          {/* Tick Marks - hidden on very small screens, show fewer on mobile */}
+          <div className="absolute top-5 hidden w-full justify-between px-0 sm:top-4 sm:flex">
             {KEY_YEARS.map((keyYear) => {
               const tickPercentage =
                 ((keyYear - MIN_YEAR) / (MAX_YEAR - MIN_YEAR)) * 100;
@@ -113,7 +117,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
                 <button
                   key={keyYear}
                   onClick={() => setYear(keyYear)}
-                  className="group flex flex-col items-center"
+                  className="group flex min-h-[44px] min-w-[44px] flex-col items-center justify-start sm:min-h-0 sm:min-w-0"
                   style={{
                     position: 'absolute',
                     left: `${tickPercentage}%`,
@@ -141,11 +145,11 @@ export function YearSlider({ className = '' }: YearSliderProps) {
           </div>
         </div>
 
-        {/* Next Year Button */}
+        {/* Next Year Button - 44px min tap target */}
         <button
           onClick={nextYear}
           disabled={isAtEnd}
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-40"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 active:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 sm:h-9 sm:w-9"
           aria-label="Next year"
           title="Next year"
         >

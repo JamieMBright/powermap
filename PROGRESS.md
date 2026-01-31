@@ -19,19 +19,23 @@
 | GitHub Actions | DevOps | 2026-01-31 | CI, security, integration, docker, deploy workflows |
 | MapLibre setup | Map | 2026-01-31 | Base map with OIM integration |
 | Map component | Map | 2026-01-31 | Full-screen map with navigation controls |
+| Vercel configuration | DevOps | 2026-01-31 | vercel.json, deploy workflow, GitHub push |
+| Vercel deployment | DevOps | 2026-01-31 | Live at powermap-prod.vercel.app |
+| Map display fix | Map | 2026-01-31 | Fixed rendering, OIM layers working |
+| Year slider | UI | 2026-01-31 | 2025-2050 with playback, URL sync |
+| Boundary layers | Map | 2026-01-31 | RESP, GSP, LA, LSOA system |
+| ODP API client | Data | 2026-01-31 | API client with caching |
 
 ## In Progress
 | Task | Agent | Started | Blockers |
 |------|-------|---------|----------|
-| None currently | - | - | - |
+| Mobile responsiveness | UI | 2026-01-31 | Background task running |
 
 ## Pending Tasks (Prioritized)
-1. [ ] Year slider component (UI Agent)
-2. [ ] Boundary layer system - RESP, GSP, LA, LSOA (Map Agent)
-3. [ ] ODP API client integration (Data Agent)
-4. [ ] Investment data overlay (Data Agent)
-5. [ ] Data aggregation panels (UI Agent)
-6. [ ] Unit test suite (Test Agent)
+1. [ ] Investment data overlay (Data Agent)
+2. [ ] Data aggregation panels (UI Agent)
+3. [ ] Unit test suite (Test Agent)
+4. [ ] E2E test suite (Test Agent)
 7. [ ] E2E test suite (Test Agent)
 
 ## Blocked Tasks
