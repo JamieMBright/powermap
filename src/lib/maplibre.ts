@@ -22,14 +22,24 @@ const minimalStyle: StyleSpecification = {
         'background-color': '#fafafa',
       },
     },
-    // Water - very subtle blue-gray for context
+    // Land - subtle fill for landmass visibility at low zoom
+    {
+      id: 'land',
+      type: 'fill',
+      source: 'openmaptiles',
+      'source-layer': 'landcover',
+      paint: {
+        'fill-color': '#f3f4f6',
+      },
+    },
+    // Water - more visible blue for context at all zoom levels
     {
       id: 'water',
       type: 'fill',
       source: 'openmaptiles',
       'source-layer': 'water',
       paint: {
-        'fill-color': '#e8eef4',
+        'fill-color': '#c7d9e8',
       },
     },
     // Landcover - very subtle differentiation (optional, keeps it minimal)
@@ -40,7 +50,19 @@ const minimalStyle: StyleSpecification = {
       'source-layer': 'landcover',
       filter: ['==', ['get', 'class'], 'grass'],
       paint: {
-        'fill-color': '#f5f7f5',
+        'fill-color': '#e8f0e8',
+        'fill-opacity': 0.6,
+      },
+    },
+    // Landcover - woodland/forest
+    {
+      id: 'landcover-wood',
+      type: 'fill',
+      source: 'openmaptiles',
+      'source-layer': 'landcover',
+      filter: ['in', ['get', 'class'], ['literal', ['wood', 'forest']]],
+      paint: {
+        'fill-color': '#dce8dc',
         'fill-opacity': 0.5,
       },
     },
@@ -81,7 +103,7 @@ const minimalStyle: StyleSpecification = {
         ],
       },
     },
-    // Secondary/tertiary roads - medium gray
+    // Secondary/tertiary roads - medium gray (visible from zoom 6)
     {
       id: 'road-secondary',
       type: 'line',
@@ -91,28 +113,6 @@ const minimalStyle: StyleSpecification = {
         'all',
         ['in', ['get', 'class'], ['literal', ['secondary', 'tertiary']]],
       ],
-      minzoom: 8,
-      layout: {
-        'line-cap': 'round',
-        'line-join': 'round',
-      },
-      paint: {
-        'line-color': '#d1d5db',
-        'line-width': [
-          'interpolate', ['linear'], ['zoom'],
-          8, 0.5,
-          12, 2,
-          16, 5,
-        ],
-      },
-    },
-    // Primary roads - darker gray
-    {
-      id: 'road-primary',
-      type: 'line',
-      source: 'openmaptiles',
-      'source-layer': 'transportation',
-      filter: ['==', ['get', 'class'], 'primary'],
       minzoom: 6,
       layout: {
         'line-cap': 'round',
@@ -122,20 +122,20 @@ const minimalStyle: StyleSpecification = {
         'line-color': '#c4c7cc',
         'line-width': [
           'interpolate', ['linear'], ['zoom'],
-          6, 0.5,
-          10, 2,
-          14, 4,
-          18, 8,
+          6, 0.3,
+          8, 0.8,
+          12, 2,
+          16, 5,
         ],
       },
     },
-    // Motorways/trunk roads - darkest gray roads
+    // Primary roads - darker gray (visible from zoom 4)
     {
-      id: 'road-motorway',
+      id: 'road-primary',
       type: 'line',
       source: 'openmaptiles',
       'source-layer': 'transportation',
-      filter: ['in', ['get', 'class'], ['literal', ['motorway', 'trunk']]],
+      filter: ['==', ['get', 'class'], 'primary'],
       minzoom: 4,
       layout: {
         'line-cap': 'round',
@@ -145,7 +145,32 @@ const minimalStyle: StyleSpecification = {
         'line-color': '#b8bcc2',
         'line-width': [
           'interpolate', ['linear'], ['zoom'],
-          4, 0.5,
+          4, 0.3,
+          6, 0.8,
+          10, 2,
+          14, 4,
+          18, 8,
+        ],
+      },
+    },
+    // Motorways/trunk roads - darkest gray roads (visible from zoom 2)
+    {
+      id: 'road-motorway',
+      type: 'line',
+      source: 'openmaptiles',
+      'source-layer': 'transportation',
+      filter: ['in', ['get', 'class'], ['literal', ['motorway', 'trunk']]],
+      minzoom: 2,
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-color': '#9ca3af',
+        'line-width': [
+          'interpolate', ['linear'], ['zoom'],
+          2, 0.3,
+          4, 0.8,
           8, 2,
           12, 4,
           16, 8,
@@ -166,7 +191,7 @@ const minimalStyle: StyleSpecification = {
         'line-dasharray': [3, 3],
       },
     },
-    // Boundaries - subtle country/region borders
+    // Boundaries - country borders
     {
       id: 'boundary-country',
       type: 'line',
@@ -174,9 +199,28 @@ const minimalStyle: StyleSpecification = {
       'source-layer': 'boundary',
       filter: ['==', ['get', 'admin_level'], 2],
       paint: {
-        'line-color': '#9ca3af',
-        'line-width': 1,
+        'line-color': '#6b7280',
+        'line-width': 1.5,
         'line-dasharray': [4, 2],
+      },
+    },
+    // Boundaries - region/county borders (visible from zoom 4)
+    {
+      id: 'boundary-region',
+      type: 'line',
+      source: 'openmaptiles',
+      'source-layer': 'boundary',
+      filter: ['in', ['get', 'admin_level'], ['literal', [4, 6]]],
+      minzoom: 4,
+      paint: {
+        'line-color': '#9ca3af',
+        'line-width': [
+          'interpolate', ['linear'], ['zoom'],
+          4, 0.5,
+          8, 1,
+        ],
+        'line-dasharray': [2, 2],
+        'line-opacity': 0.6,
       },
     },
     // Place labels - country names
@@ -200,50 +244,52 @@ const minimalStyle: StyleSpecification = {
         'text-halo-width': 2,
       },
     },
-    // Place labels - cities
+    // Place labels - cities (visible from zoom 3)
     {
       id: 'place-city',
       type: 'symbol',
       source: 'openmaptiles',
       'source-layer': 'place',
       filter: ['==', ['get', 'class'], 'city'],
-      minzoom: 5,
+      minzoom: 3,
       maxzoom: 14,
       layout: {
         'text-field': ['get', 'name:en'],
         'text-font': ['Noto Sans Medium'],
         'text-size': [
           'interpolate', ['linear'], ['zoom'],
-          5, 10,
+          3, 9,
+          5, 11,
           10, 14,
         ],
       },
       paint: {
-        'text-color': '#4b5563',
+        'text-color': '#374151',
         'text-halo-color': '#ffffff',
         'text-halo-width': 2,
       },
     },
-    // Place labels - towns
+    // Place labels - towns (visible from zoom 6)
     {
       id: 'place-town',
       type: 'symbol',
       source: 'openmaptiles',
       'source-layer': 'place',
       filter: ['==', ['get', 'class'], 'town'],
-      minzoom: 8,
+      minzoom: 6,
       maxzoom: 15,
       layout: {
         'text-field': ['get', 'name:en'],
         'text-font': ['Noto Sans Regular'],
         'text-size': [
           'interpolate', ['linear'], ['zoom'],
-          8, 9,
+          6, 8,
+          8, 10,
           12, 12,
         ],
       },
       paint: {
-        'text-color': '#6b7280',
+        'text-color': '#4b5563',
         'text-halo-color': '#ffffff',
         'text-halo-width': 1.5,
       },
