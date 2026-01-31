@@ -34,7 +34,7 @@ describe('maplibre configuration', () => {
     });
 
     it('should have min and max zoom levels', () => {
-      expect(MAP_CONFIG.minZoom).toBe(5);
+      expect(MAP_CONFIG.minZoom).toBe(0);
       expect(MAP_CONFIG.maxZoom).toBe(18);
     });
 

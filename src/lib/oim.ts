@@ -1,5 +1,5 @@
-import type { Map as MaplibreMap, SourceSpecification, LayerSpecification } from 'maplibre-gl';
-import { VOLTAGE_COLORS, VOLTAGE_THRESHOLDS, SUBSTATION_DEFAULT_COLOR } from './maplibre';
+import type { Map as MaplibreMap, SourceSpecification, LayerSpecification, ExpressionSpecification } from 'maplibre-gl';
+import { VOLTAGE_COLORS, VOLTAGE_THRESHOLDS, SUBSTATION_DEFAULT_COLOR, UK_BOUNDS } from './maplibre';
 
 // OIM status tracking
 export type OIMStatus = 'loading' | 'loaded' | 'error' | 'unavailable';
@@ -10,38 +10,58 @@ export interface OIMLoadResult {
   layersAdded: string[];
 }
 
+// UK bounds filter expression for limiting infrastructure display
+const UK_BOUNDS_FILTER: ExpressionSpecification = [
+  'all',
+  ['>=', ['get', '$x'], UK_BOUNDS.west],
+  ['<=', ['get', '$x'], UK_BOUNDS.east],
+  ['>=', ['get', '$y'], UK_BOUNDS.south],
+  ['<=', ['get', '$y'], UK_BOUNDS.north],
+];
+
 // Open Infrastructure Map tile configuration
+// Note: OIM tiles are global, we filter to UK in layer filters
 export const OIM_SOURCE: SourceSpecification = {
   type: 'vector',
   tiles: ['https://openinframap.org/map/power/{z}/{x}/{y}.pbf'],
   minzoom: 2,
   maxzoom: 17,
+  // Restrict tile requests to UK area for performance
+  bounds: [UK_BOUNDS.west, UK_BOUNDS.south, UK_BOUNDS.east, UK_BOUNDS.north],
   attribution: '© <a href="https://openinframap.org">Open Infrastructure Map</a> | © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 };
 
-// Power line layer - colors configured in maplibre.ts VOLTAGE_COLORS
+// Voltage color expression - uses green gradient
+const voltageColorExpression: ExpressionSpecification = [
+  'case',
+  ['>=', ['to-number', ['get', 'voltage'], 0], VOLTAGE_THRESHOLDS['275kV+']], VOLTAGE_COLORS['275kV+'],
+  ['>=', ['to-number', ['get', 'voltage'], 0], VOLTAGE_THRESHOLDS['132kV+']], VOLTAGE_COLORS['132kV+'],
+  ['>=', ['to-number', ['get', 'voltage'], 0], VOLTAGE_THRESHOLDS['33kV+']], VOLTAGE_COLORS['33kV+'],
+  ['>=', ['to-number', ['get', 'voltage'], 0], VOLTAGE_THRESHOLDS['11kV+']], VOLTAGE_COLORS['11kV+'],
+  VOLTAGE_COLORS['default']
+];
+
+// Power line layer - green gradient by voltage
 export const POWER_LINE_LAYER: LayerSpecification = {
   id: 'oim-power-line',
   type: 'line',
   source: 'oim-power',
   'source-layer': 'power_line',
-  minzoom: 3,
+  minzoom: 2,
   paint: {
-    'line-color': [
-      'case',
-      ['>=', ['to-number', ['get', 'voltage'], 0], VOLTAGE_THRESHOLDS['275kV+']], VOLTAGE_COLORS['275kV+'],
-      ['>=', ['to-number', ['get', 'voltage'], 0], VOLTAGE_THRESHOLDS['132kV+']], VOLTAGE_COLORS['132kV+'],
-      ['>=', ['to-number', ['get', 'voltage'], 0], VOLTAGE_THRESHOLDS['33kV+']], VOLTAGE_COLORS['33kV+'],
-      ['>=', ['to-number', ['get', 'voltage'], 0], VOLTAGE_THRESHOLDS['11kV+']], VOLTAGE_COLORS['11kV+'],
-      VOLTAGE_COLORS['default']
-    ],
+    'line-color': voltageColorExpression,
     'line-width': [
       'interpolate', ['linear'], ['zoom'],
+      2, 0.5,
       5, 1,
       10, 2,
-      15, 3
+      15, 4
     ],
-    'line-opacity': 0.8,
+    'line-opacity': [
+      'interpolate', ['linear'], ['zoom'],
+      2, 0.6,
+      8, 0.9
+    ],
   },
   layout: {
     'line-cap': 'round',
@@ -49,28 +69,28 @@ export const POWER_LINE_LAYER: LayerSpecification = {
   },
 };
 
-// Substation layer - colors configured in maplibre.ts VOLTAGE_COLORS
+// Substation point layer - colored by voltage
 export const SUBSTATION_LAYER: LayerSpecification = {
   id: 'oim-substation',
   type: 'circle',
   source: 'oim-power',
-  'source-layer': 'power_substation',
-  minzoom: 8,
+  'source-layer': 'power_substation_point',
+  minzoom: 5,
   paint: {
     'circle-radius': [
       'interpolate', ['linear'], ['zoom'],
-      8, 3,
-      12, 6,
-      16, 10
+      5, 2,
+      8, 4,
+      12, 7,
+      16, 12
     ],
-    'circle-color': [
-      'case',
-      ['>=', ['to-number', ['get', 'voltage'], 0], VOLTAGE_THRESHOLDS['132kV+']], VOLTAGE_COLORS['132kV+'],
-      ['>=', ['to-number', ['get', 'voltage'], 0], VOLTAGE_THRESHOLDS['33kV+']], VOLTAGE_COLORS['33kV+'],
-      ['>=', ['to-number', ['get', 'voltage'], 0], VOLTAGE_THRESHOLDS['11kV+']], VOLTAGE_COLORS['11kV+'],
-      SUBSTATION_DEFAULT_COLOR
+    'circle-color': voltageColorExpression,
+    'circle-stroke-width': [
+      'interpolate', ['linear'], ['zoom'],
+      5, 0.5,
+      10, 1.5,
+      15, 2
     ],
-    'circle-stroke-width': 2,
     'circle-stroke-color': '#ffffff',
     'circle-opacity': 0.9,
   },
@@ -81,24 +101,201 @@ export const SUBSTATION_LABEL_LAYER: LayerSpecification = {
   id: 'oim-substation-label',
   type: 'symbol',
   source: 'oim-power',
-  'source-layer': 'power_substation',
-  minzoom: 11,
+  'source-layer': 'power_substation_point',
+  minzoom: 10,
   layout: {
     'text-field': ['get', 'name'],
-    'text-size': 11,
+    'text-size': [
+      'interpolate', ['linear'], ['zoom'],
+      10, 9,
+      14, 12
+    ],
     'text-anchor': 'top',
     'text-offset': [0, 0.8],
     'text-max-width': 8,
+    'text-optional': true,
   },
   paint: {
-    'text-color': '#374151',
+    'text-color': '#1f2937',
     'text-halo-color': '#ffffff',
     'text-halo-width': 1.5,
   },
 };
 
-// OIM layer IDs for easy reference
-export const OIM_LAYER_IDS = ['oim-power-line', 'oim-substation', 'oim-substation-label'] as const;
+// Power towers layer
+export const POWER_TOWER_LAYER: LayerSpecification = {
+  id: 'oim-power-tower',
+  type: 'circle',
+  source: 'oim-power',
+  'source-layer': 'power_tower',
+  filter: ['==', ['get', 'type'], 'tower'],
+  minzoom: 12,
+  paint: {
+    'circle-radius': [
+      'interpolate', ['linear'], ['zoom'],
+      12, 2,
+      16, 5,
+      20, 8
+    ],
+    'circle-color': '#374151',
+    'circle-stroke-width': 1,
+    'circle-stroke-color': '#ffffff',
+    'circle-opacity': 0.8,
+  },
+};
+
+// Power poles layer
+export const POWER_POLE_LAYER: LayerSpecification = {
+  id: 'oim-power-pole',
+  type: 'circle',
+  source: 'oim-power',
+  'source-layer': 'power_tower',
+  filter: ['==', ['get', 'type'], 'pole'],
+  minzoom: 14,
+  paint: {
+    'circle-radius': [
+      'interpolate', ['linear'], ['zoom'],
+      14, 2,
+      18, 4
+    ],
+    'circle-color': '#6b7280',
+    'circle-stroke-width': 1,
+    'circle-stroke-color': '#ffffff',
+    'circle-opacity': 0.7,
+  },
+};
+
+// Transformer layer
+export const TRANSFORMER_LAYER: LayerSpecification = {
+  id: 'oim-transformer',
+  type: 'circle',
+  source: 'oim-power',
+  'source-layer': 'power_transformer',
+  minzoom: 13,
+  paint: {
+    'circle-radius': [
+      'interpolate', ['linear'], ['zoom'],
+      13, 3,
+      16, 6,
+      20, 10
+    ],
+    'circle-color': '#f59e0b',  // Amber for transformers
+    'circle-stroke-width': 2,
+    'circle-stroke-color': '#ffffff',
+    'circle-opacity': 0.9,
+  },
+};
+
+// Wind turbine layer
+export const WIND_TURBINE_LAYER: LayerSpecification = {
+  id: 'oim-wind-turbine',
+  type: 'circle',
+  source: 'oim-power',
+  'source-layer': 'power_generator',
+  filter: ['==', ['get', 'source'], 'wind'],
+  minzoom: 8,
+  paint: {
+    'circle-radius': [
+      'interpolate', ['linear'], ['zoom'],
+      8, 2,
+      11, 4,
+      14, 8
+    ],
+    'circle-color': '#0ea5e9',  // Sky blue for wind
+    'circle-stroke-width': 1.5,
+    'circle-stroke-color': '#ffffff',
+    'circle-opacity': 0.9,
+  },
+};
+
+// Solar panel/generator layer
+export const SOLAR_LAYER: LayerSpecification = {
+  id: 'oim-solar',
+  type: 'circle',
+  source: 'oim-power',
+  'source-layer': 'power_generator',
+  filter: ['==', ['get', 'source'], 'solar'],
+  minzoom: 10,
+  paint: {
+    'circle-radius': [
+      'interpolate', ['linear'], ['zoom'],
+      10, 2,
+      14, 5,
+      18, 8
+    ],
+    'circle-color': '#eab308',  // Yellow for solar
+    'circle-stroke-width': 1.5,
+    'circle-stroke-color': '#ffffff',
+    'circle-opacity': 0.9,
+  },
+};
+
+// Power plant layer
+export const POWER_PLANT_LAYER: LayerSpecification = {
+  id: 'oim-power-plant',
+  type: 'fill',
+  source: 'oim-power',
+  'source-layer': 'power_plant',
+  minzoom: 6,
+  paint: {
+    'fill-color': '#78716c',  // Stone color for power plants
+    'fill-opacity': 0.3,
+    'fill-outline-color': '#44403c',
+  },
+};
+
+// Power plant labels
+export const POWER_PLANT_LABEL_LAYER: LayerSpecification = {
+  id: 'oim-power-plant-label',
+  type: 'symbol',
+  source: 'oim-power',
+  'source-layer': 'power_plant_point',
+  minzoom: 8,
+  layout: {
+    'text-field': ['get', 'name'],
+    'text-size': [
+      'interpolate', ['linear'], ['zoom'],
+      8, 9,
+      12, 12
+    ],
+    'text-anchor': 'center',
+    'text-max-width': 10,
+    'text-optional': true,
+  },
+  paint: {
+    'text-color': '#44403c',
+    'text-halo-color': '#ffffff',
+    'text-halo-width': 1.5,
+  },
+};
+
+// All OIM layer IDs for reference
+export const OIM_LAYER_IDS = [
+  'oim-power-plant',
+  'oim-power-line',
+  'oim-substation',
+  'oim-power-tower',
+  'oim-power-pole',
+  'oim-transformer',
+  'oim-wind-turbine',
+  'oim-solar',
+  'oim-substation-label',
+  'oim-power-plant-label',
+] as const;
+
+// All OIM layers with their specs
+const ALL_OIM_LAYERS = [
+  { spec: POWER_PLANT_LAYER, name: 'power plants' },
+  { spec: POWER_LINE_LAYER, name: 'power lines' },
+  { spec: SUBSTATION_LAYER, name: 'substations' },
+  { spec: POWER_TOWER_LAYER, name: 'power towers' },
+  { spec: POWER_POLE_LAYER, name: 'power poles' },
+  { spec: TRANSFORMER_LAYER, name: 'transformers' },
+  { spec: WIND_TURBINE_LAYER, name: 'wind turbines' },
+  { spec: SOLAR_LAYER, name: 'solar generators' },
+  { spec: SUBSTATION_LABEL_LAYER, name: 'substation labels' },
+  { spec: POWER_PLANT_LABEL_LAYER, name: 'power plant labels' },
+];
 
 // Test if OIM tiles are accessible
 async function testOIMAvailability(): Promise<boolean> {
@@ -106,7 +303,7 @@ async function testOIMAvailability(): Promise<boolean> {
     // Test with a single tile request (zoom 5, center of UK)
     const testUrl = 'https://openinframap.org/map/power/5/15/10.pbf';
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
 
     const response = await fetch(testUrl, {
       method: 'HEAD',
@@ -131,7 +328,19 @@ export async function addOIMToMapAsync(
     layersAdded: [],
   };
 
-  onStatusChange?.('loading');
+  // Track if we've already called onStatusChange with a final status
+  let hasReportedFinalStatus = false;
+  const reportStatus = (status: OIMStatus, error?: string) => {
+    if (hasReportedFinalStatus && (status === 'loaded' || status === 'error' || status === 'unavailable')) {
+      return;
+    }
+    if (status !== 'loading') {
+      hasReportedFinalStatus = true;
+    }
+    onStatusChange?.(status, error);
+  };
+
+  reportStatus('loading');
 
   try {
     // First test if OIM is accessible
@@ -141,7 +350,7 @@ export async function addOIMToMapAsync(
       console.warn('[OIM] Infrastructure map tiles are not available');
       result.status = 'unavailable';
       result.error = 'Infrastructure map service is currently unavailable';
-      onStatusChange?.('unavailable', result.error);
+      reportStatus('unavailable', result.error);
       return result;
     }
 
@@ -151,14 +360,8 @@ export async function addOIMToMapAsync(
       console.log('[OIM] Source added');
     }
 
-    // Add layers with error handling for each
-    const layersToAdd = [
-      { spec: POWER_LINE_LAYER, name: 'power lines' },
-      { spec: SUBSTATION_LAYER, name: 'substations' },
-      { spec: SUBSTATION_LABEL_LAYER, name: 'substation labels' },
-    ];
-
-    for (const { spec, name } of layersToAdd) {
+    // Add all layers with error handling
+    for (const { spec, name } of ALL_OIM_LAYERS) {
       try {
         if (!map.getLayer(spec.id)) {
           map.addLayer(spec);
@@ -176,7 +379,7 @@ export async function addOIMToMapAsync(
         console.error('[OIM] Source error:', e.error);
         result.status = 'error';
         result.error = 'Failed to load infrastructure map tiles';
-        onStatusChange?.('error', result.error);
+        reportStatus('error', result.error);
       }
     };
 
@@ -187,8 +390,7 @@ export async function addOIMToMapAsync(
       if (e.sourceId === 'oim-power' && e.isSourceLoaded) {
         console.log('[OIM] Source data loaded successfully');
         result.status = 'loaded';
-        onStatusChange?.('loaded');
-        // Remove the listener after successful load
+        reportStatus('loaded');
         map.off('sourcedata', sourceDataHandler);
       }
     };
@@ -198,7 +400,7 @@ export async function addOIMToMapAsync(
     // Set initial status based on layers added
     if (result.layersAdded.length > 0) {
       result.status = 'loaded';
-      onStatusChange?.('loaded');
+      reportStatus('loaded');
     }
 
     return result;
@@ -207,7 +409,7 @@ export async function addOIMToMapAsync(
     console.error('[OIM] Failed to add layers:', errorMessage);
     result.status = 'error';
     result.error = errorMessage;
-    onStatusChange?.('error', errorMessage);
+    reportStatus('error', errorMessage);
     return result;
   }
 }
@@ -221,25 +423,20 @@ export function addOIMToMap(map: MaplibreMap): void {
       console.log('[OIM] Source added');
     }
 
-    // Add layers
-    if (!map.getLayer('oim-power-line')) {
-      map.addLayer(POWER_LINE_LAYER);
-      console.log('[OIM] Power line layer added');
+    // Add all layers
+    for (const { spec, name } of ALL_OIM_LAYERS) {
+      try {
+        if (!map.getLayer(spec.id)) {
+          map.addLayer(spec);
+          console.log(`[OIM] ${name} layer added`);
+        }
+      } catch (layerError) {
+        console.error(`[OIM] Failed to add ${name} layer:`, layerError);
+      }
     }
 
-    if (!map.getLayer('oim-substation')) {
-      map.addLayer(SUBSTATION_LAYER);
-      console.log('[OIM] Substation layer added');
-    }
-
-    if (!map.getLayer('oim-substation-label')) {
-      map.addLayer(SUBSTATION_LABEL_LAYER);
-      console.log('[OIM] Substation label layer added');
-    }
-
-    // Set up error listener for source loading errors
+    // Set up error listener
     map.on('error', (e) => {
-      // Check if this is an OIM-related error
       const errorMsg = e.error?.message || '';
       if (errorMsg.includes('oim') || errorMsg.includes('openinframap')) {
         console.error('[OIM] Source loading error:', errorMsg);

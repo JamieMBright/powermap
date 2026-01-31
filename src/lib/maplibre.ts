@@ -1,7 +1,7 @@
 import type { StyleSpecification, LngLatBoundsLike } from 'maplibre-gl';
 
 // Minimal grayscale basemap style - designed to let infrastructure stand out
-// Uses OpenFreeMap vector tiles (OpenMapTiles schema)
+// Uses OpenFreeMap vector tiles (OpenMapTiles schema) + Natural Earth for low zoom
 const minimalStyle: StyleSpecification = {
   version: 8,
   name: 'PowerMap Minimal',
@@ -12,14 +12,57 @@ const minimalStyle: StyleSpecification = {
       url: 'https://tiles.openfreemap.org/planet',
       attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>',
     },
+    // Natural Earth raster for low zoom background
+    'natural-earth': {
+      type: 'raster',
+      tiles: [
+        'https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
+        'https://b.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
+        'https://c.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
+      ],
+      tileSize: 256,
+      maxzoom: 6,
+      attribution: '© CARTO',
+    },
   },
   layers: [
-    // Background - light gray land color
+    // Background - ocean blue color (default before tiles load)
     {
       id: 'background',
       type: 'background',
       paint: {
-        'background-color': '#f8f9fa',
+        'background-color': '#a8c8e8',  // Ocean blue
+      },
+    },
+    // Raster basemap for low zoom (shows land masses clearly)
+    {
+      id: 'natural-earth-raster',
+      type: 'raster',
+      source: 'natural-earth',
+      maxzoom: 6,
+      paint: {
+        'raster-opacity': [
+          'interpolate', ['linear'], ['zoom'],
+          0, 1,
+          5, 1,
+          6, 0,
+        ],
+      },
+    },
+    // Land fill for higher zoom levels (vector)
+    {
+      id: 'land',
+      type: 'fill',
+      source: 'openmaptiles',
+      'source-layer': 'landcover',
+      minzoom: 4,
+      paint: {
+        'fill-color': '#f8f9fa',
+        'fill-opacity': [
+          'interpolate', ['linear'], ['zoom'],
+          4, 0,
+          6, 1,
+        ],
       },
     },
     // Water - visible blue for oceans, lakes, rivers
@@ -28,6 +71,7 @@ const minimalStyle: StyleSpecification = {
       type: 'fill',
       source: 'openmaptiles',
       'source-layer': 'water',
+      minzoom: 4,
       paint: {
         'fill-color': '#a8c8e8',
       },
@@ -381,7 +425,7 @@ export const MAP_CONFIG = {
   center: [0.3, 51.6] as [number, number],
   // Zoom level 8 shows county-level detail
   zoom: 8,
-  minZoom: 5,
+  minZoom: 0,  // Allow zooming out to see full context
   maxZoom: 18,
   // UKPN coverage area bounds (East Anglia, London, South East)
   bounds: [
@@ -389,6 +433,14 @@ export const MAP_CONFIG = {
     [2.0, 53.0]    // Northeast
   ] as LngLatBoundsLike,
 };
+
+// UK bounding box for filtering infrastructure
+export const UK_BOUNDS = {
+  west: -8.0,
+  south: 49.5,
+  east: 2.5,
+  north: 61.0,
+} as const;
 
 // Investment driver colors
 export const DRIVER_COLORS: Record<string, string> = {
@@ -428,22 +480,21 @@ export const BOUNDARY_STYLES = {
 
 /**
  * Voltage color configuration for power infrastructure visualization.
+ * Uses a green gradient where darker = higher voltage.
  *
  * Voltage thresholds and their meanings in the UK power network:
- * - 275kV+ (Purple): National Grid transmission - highest voltage backbone network
- * - 132kV+ (Red): Sub-transmission - regional distribution from grid supply points
- * - 33kV+ (Amber): Primary distribution - feeds primary substations and large industrial loads
- * - 11kV+ (Green): Secondary distribution - most common distribution voltage, feeds local transformers
- * - default (Gray): Low voltage (<11kV) or unknown - typically 400V/230V consumer supply
- *
- * Colors chosen for visual distinction and accessibility on map backgrounds.
+ * - 275kV+ (Dark green): National Grid transmission - highest voltage backbone network
+ * - 132kV+ (Forest green): Sub-transmission - regional distribution from grid supply points
+ * - 33kV+ (Medium green): Primary distribution - feeds primary substations and large industrial loads
+ * - 11kV+ (Light green): Secondary distribution - most common distribution voltage, feeds local transformers
+ * - default (Pale green): Low voltage (<11kV) or unknown - typically 400V/230V consumer supply
  */
 export const VOLTAGE_COLORS = {
-  '275kV+': '#7c3aed',  // Purple - transmission (violet-600)
-  '132kV+': '#dc2626',  // Red - sub-transmission (red-600)
-  '33kV+': '#f59e0b',   // Amber - primary distribution (amber-500)
-  '11kV+': '#22c55e',   // Green - secondary distribution (green-500)
-  'default': '#94a3b8', // Gray - unknown/low voltage (slate-400)
+  '275kV+': '#14532d',  // Dark green - transmission (green-900)
+  '132kV+': '#166534',  // Forest green - sub-transmission (green-800)
+  '33kV+': '#15803d',   // Medium green - primary distribution (green-700)
+  '11kV+': '#22c55e',   // Light green - secondary distribution (green-500)
+  'default': '#86efac', // Pale green - unknown/low voltage (green-300)
 } as const;
 
 /**

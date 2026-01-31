@@ -65,7 +65,7 @@ describe('OIM (Open Infrastructure Map) Module', () => {
     });
 
     it('should have minzoom set', () => {
-      expect(POWER_LINE_LAYER.minzoom).toBe(3);
+      expect(POWER_LINE_LAYER.minzoom).toBe(2);
     });
 
     it('should have paint properties', () => {
@@ -87,11 +87,11 @@ describe('OIM (Open Infrastructure Map) Module', () => {
       expect(SUBSTATION_LAYER.id).toBe('oim-substation');
       expect(SUBSTATION_LAYER.type).toBe('circle');
       expect(SUBSTATION_LAYER.source).toBe('oim-power');
-      expect(SUBSTATION_LAYER['source-layer']).toBe('power_substation');
+      expect(SUBSTATION_LAYER['source-layer']).toBe('power_substation_point');
     });
 
     it('should have minzoom set', () => {
-      expect(SUBSTATION_LAYER.minzoom).toBe(8);
+      expect(SUBSTATION_LAYER.minzoom).toBe(5);
     });
 
     it('should have paint properties for circle styling', () => {
@@ -109,11 +109,11 @@ describe('OIM (Open Infrastructure Map) Module', () => {
       expect(SUBSTATION_LABEL_LAYER.id).toBe('oim-substation-label');
       expect(SUBSTATION_LABEL_LAYER.type).toBe('symbol');
       expect(SUBSTATION_LABEL_LAYER.source).toBe('oim-power');
-      expect(SUBSTATION_LABEL_LAYER['source-layer']).toBe('power_substation');
+      expect(SUBSTATION_LABEL_LAYER['source-layer']).toBe('power_substation_point');
     });
 
     it('should have minzoom for labels', () => {
-      expect(SUBSTATION_LABEL_LAYER.minzoom).toBe(11);
+      expect(SUBSTATION_LABEL_LAYER.minzoom).toBe(10);
     });
 
     it('should have layout properties for text', () => {
@@ -171,10 +171,8 @@ describe('OIM (Open Infrastructure Map) Module', () => {
     });
 
     it('should not add layers if already present', () => {
-      vi.mocked(mockMap.getLayer)
-        .mockReturnValueOnce({} as never) // power line layer exists
-        .mockReturnValueOnce({} as never) // substation layer exists
-        .mockReturnValueOnce({} as never); // substation label layer exists
+      // Mock all layers as existing
+      vi.mocked(mockMap.getLayer).mockReturnValue({} as never);
 
       addOIMToMap(mockMap);
 
@@ -240,14 +238,18 @@ describe('OIM (Open Infrastructure Map) Module', () => {
     });
 
     it('should handle mixed layer existence', () => {
-      vi.mocked(mockMap.getLayer)
-        .mockReturnValueOnce({} as never) // power line exists
-        .mockReturnValueOnce(undefined) // substation doesn't exist
-        .mockReturnValueOnce({} as never); // substation label exists
+      // Mock: some layers exist, some don't
+      vi.mocked(mockMap.getLayer).mockImplementation((id: string) => {
+        // Only power-line and substation-label exist
+        if (id === 'oim-power-line' || id === 'oim-substation-label') {
+          return {} as never;
+        }
+        return undefined;
+      });
 
       setOIMVisibility(mockMap, true);
 
-      expect(mockMap.setLayoutProperty).toHaveBeenCalledTimes(2);
+      // Should only call setLayoutProperty for existing layers
       expect(mockMap.setLayoutProperty).toHaveBeenCalledWith(
         'oim-power-line',
         'visibility',

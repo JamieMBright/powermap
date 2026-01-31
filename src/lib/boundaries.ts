@@ -18,14 +18,15 @@ export interface BoundaryConfig {
 }
 
 // Boundary type configurations
+// minZoom set low (2) to allow boundaries visible even when zoomed out
 export const BOUNDARY_CONFIGS: Record<BoundaryType, BoundaryConfig> = {
   resp: {
     id: 'resp',
     name: 'RESP',
     description: 'Regional Energy Strategic Planner boundaries',
     dataPath: '/data/boundaries/resp.geojson',
-    minZoom: 5,
-    labelMinZoom: 6,
+    minZoom: 2,
+    labelMinZoom: 5,
     colors: {
       fill: '#8b5cf6',    // Violet
       line: '#7c3aed',
@@ -37,8 +38,8 @@ export const BOUNDARY_CONFIGS: Record<BoundaryType, BoundaryConfig> = {
     name: 'GSP',
     description: 'Grid Supply Point boundaries',
     dataPath: '/data/boundaries/gsp.geojson',
-    minZoom: 7,
-    labelMinZoom: 9,
+    minZoom: 2,
+    labelMinZoom: 7,
     colors: {
       fill: '#1e3a5a',    // Deep navy
       line: '#1e3a5a',
@@ -50,8 +51,8 @@ export const BOUNDARY_CONFIGS: Record<BoundaryType, BoundaryConfig> = {
     name: 'Local Authority',
     description: 'Local Authority boundaries',
     dataPath: '/data/boundaries/la.geojson',
-    minZoom: 8,
-    labelMinZoom: 10,
+    minZoom: 2,
+    labelMinZoom: 9,
     colors: {
       fill: '#10b981',    // Emerald
       line: '#059669',
@@ -63,8 +64,8 @@ export const BOUNDARY_CONFIGS: Record<BoundaryType, BoundaryConfig> = {
     name: 'LSOA',
     description: 'Lower Layer Super Output Area boundaries',
     dataPath: '/data/boundaries/lsoa.geojson',
-    minZoom: 11,
-    labelMinZoom: 13,
+    minZoom: 8,
+    labelMinZoom: 11,
     colors: {
       fill: '#f59e0b',    // Amber
       line: '#d97706',
