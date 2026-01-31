@@ -115,7 +115,7 @@ export function TourControls({
           p-2 sm:p-2.5 rounded-full transition-all duration-200
           ${isNextDisabled || isTransitioning
             ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
-            : 'bg-indigo-600 text-white hover:bg-indigo-700 active:bg-indigo-800 shadow-sm'
+            : 'bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 shadow-sm'
           }
           min-w-[44px] min-h-[44px] flex items-center justify-center
         `}

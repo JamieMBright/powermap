@@ -107,7 +107,7 @@ export function TourPlayer({
             {/* Tour title */}
             {tourTitle && (
               <div className="text-center mb-2">
-                <span className="text-xs font-medium text-indigo-600 uppercase tracking-wider">
+                <span className="text-xs font-medium text-orange-600 uppercase tracking-wider">
                   Guided Tour
                 </span>
                 <h2 className="text-sm font-semibold text-gray-900 truncate">
@@ -153,7 +153,7 @@ export function TourPlayer({
       {status === 'loading' && (
         <div className="fixed inset-0 z-40 bg-black/30 flex items-center justify-center">
           <div className="bg-white rounded-xl shadow-xl p-6 flex flex-col items-center">
-            <div className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent" />
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-orange-500 border-t-transparent" />
             <p className="mt-4 text-sm text-gray-600">Loading tour...</p>
           </div>
         </div>

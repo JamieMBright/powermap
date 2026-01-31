@@ -10,7 +10,7 @@ interface StatCardProps {
   /** Optional additional description */
   description?: string;
   /** Optional color theme */
-  color?: 'default' | 'indigo' | 'emerald' | 'amber' | 'red';
+  color?: 'default' | 'orange' | 'emerald' | 'amber' | 'red';
   /** Optional icon */
   icon?: React.ReactNode;
   /** Optional size variant */
@@ -24,11 +24,11 @@ const colorClasses = {
     text: 'text-gray-900',
     label: 'text-gray-600',
   },
-  indigo: {
-    bg: 'bg-indigo-50',
-    border: 'border-indigo-200',
-    text: 'text-indigo-900',
-    label: 'text-indigo-700',
+  orange: {
+    bg: 'bg-orange-50',
+    border: 'border-orange-200',
+    text: 'text-orange-900',
+    label: 'text-orange-700',
   },
   emerald: {
     bg: 'bg-emerald-50',

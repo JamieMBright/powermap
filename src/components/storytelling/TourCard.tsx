@@ -22,9 +22,9 @@ export function TourCard({ tour, onSelect, isSelected = false }: TourCardProps) 
       className={`
         w-full text-left rounded-lg overflow-hidden
         bg-white border transition-all duration-200
-        hover:shadow-lg hover:border-indigo-300
-        focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2
-        ${isSelected ? 'border-indigo-500 shadow-lg ring-2 ring-indigo-500' : 'border-gray-200 shadow-sm'}
+        hover:shadow-lg hover:border-orange-300
+        focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2
+        ${isSelected ? 'border-orange-500 shadow-lg ring-2 ring-orange-500' : 'border-gray-200 shadow-sm'}
       `}
     >
       {/* Thumbnail */}
@@ -42,7 +42,7 @@ export function TourCard({ tour, onSelect, isSelected = false }: TourCardProps) 
         </div>
         {/* Category badge */}
         {tour.category && (
-          <div className="absolute top-2 left-2 px-2 py-1 bg-indigo-600/90 text-white text-xs font-medium rounded">
+          <div className="absolute top-2 left-2 px-2 py-1 bg-orange-500/90 text-white text-xs font-medium rounded">
             {tour.category}
           </div>
         )}

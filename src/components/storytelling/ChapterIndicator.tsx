@@ -39,12 +39,12 @@ export function ChapterIndicator({
             onClick={() => onChapterClick(index)}
             className={`
               rounded-full transition-all duration-200
-              focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2
+              focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2
               ${compact ? 'w-2 h-2' : 'w-3 h-3'}
               ${isCurrent
-                ? 'bg-indigo-600 scale-110'
+                ? 'bg-orange-500 scale-110'
                 : isPast
-                  ? 'bg-indigo-400 hover:bg-indigo-500'
+                  ? 'bg-orange-400 hover:bg-orange-500'
                   : 'bg-gray-300 hover:bg-gray-400'
               }
             `}

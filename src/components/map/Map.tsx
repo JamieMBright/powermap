@@ -111,7 +111,7 @@ export function Map({ className = '', onMapLoad }: MapProps) {
       {!isLoaded && (
         <div data-testid="map-loading" className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
           <div className="flex flex-col items-center gap-2">
-            <div className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent" />
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-orange-500 border-t-transparent" />
             <span className="text-sm text-gray-600">Loading map...</span>
           </div>
         </div>
