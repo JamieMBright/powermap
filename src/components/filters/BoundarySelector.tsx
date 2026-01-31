@@ -9,9 +9,15 @@ import {
   addBoundaryToMap,
   removeBoundaryFromMap,
   getBoundaryFeatureAtPoint,
+  updateBoundaryChoropleth,
+  resetBoundaryChoropleth,
   type BoundaryConfig,
 } from '@/lib/boundaries';
 import { useSelectedBoundary } from '@/contexts/BoundaryContext';
+import { useYearFilter } from '@/hooks/useYearFilter';
+import { useBoundaryInvestments, type DriverSelection } from '@/hooks/useBoundaryInvestments';
+import { InvestmentDriverSelector } from './InvestmentDriverSelector';
+import { InvestmentLegend } from '@/components/ui/InvestmentLegend';
 
 interface BoundarySelectorProps {
   map: MaplibreMap | null;
@@ -51,10 +57,21 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
   const [error, setError] = useState<string | null>(null);
   const [popup, setPopup] = useState<BoundaryInfoPopup | null>(null);
   const [hasLoadedDefault, setHasLoadedDefault] = useState(false);
+  const [selectedDriver, setSelectedDriver] = useState<DriverSelection>('all');
   const isMobile = useIsMobile();
 
   // Use boundary context for selected boundary state
   const { selectBoundary, clearBoundary } = useSelectedBoundary();
+
+  // Get current year from URL state
+  const { year } = useYearFilter();
+
+  // Calculate investment stats per boundary
+  const { stats: investmentStats } = useBoundaryInvestments(year, {
+    boundaryType: activeBoundary,
+    selectedDriver,
+    enabled: !!activeBoundary && !!map,
+  });
 
   const boundaryTypes = getBoundaryTypes();
 
@@ -161,6 +178,23 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
       return () => document.removeEventListener('click', handleClickOutside);
     }
   }, [popup]);
+
+  // Update choropleth when investment stats change
+  useEffect(() => {
+    if (!map || !activeBoundary) return;
+
+    if (investmentStats && investmentStats.byCode.size > 0) {
+      updateBoundaryChoropleth(
+        map,
+        activeBoundary,
+        investmentStats.byCode,
+        investmentStats.min,
+        investmentStats.max
+      );
+    } else {
+      resetBoundaryChoropleth(map, activeBoundary);
+    }
+  }, [map, activeBoundary, investmentStats]);
 
   const activeConfig = activeBoundary ? BOUNDARY_CONFIGS[activeBoundary] : null;
 
@@ -343,6 +377,26 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
           onClose={() => setPopup(null)}
           isMobile={isMobile}
         />
+      )}
+
+      {/* Investment driver selector - shown when boundary is active */}
+      {activeBoundary && (
+        <div className="mt-2">
+          <InvestmentDriverSelector
+            selectedDriver={selectedDriver}
+            onDriverChange={setSelectedDriver}
+          />
+        </div>
+      )}
+
+      {/* Investment legend - shown when boundary is active and has data */}
+      {activeBoundary && investmentStats && investmentStats.max > 0 && (
+        <div className="mt-2">
+          <InvestmentLegend
+            minAmount={investmentStats.min}
+            maxAmount={investmentStats.max}
+          />
+        </div>
       )}
     </div>
   );

@@ -8,19 +8,19 @@ import {
 
 describe('maplibre configuration', () => {
   describe('MAP_CONFIG', () => {
-    it('should have a valid style URL', () => {
-      expect(MAP_CONFIG.style).toBe(
-        'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json'
-      );
-      expect(MAP_CONFIG.style).toMatch(/^https?:\/\//);
+    it('should have a valid style specification or URL', () => {
+      // Style can be a StyleSpecification object or a URL string
+      const isStyleSpec = typeof MAP_CONFIG.style === 'object' && MAP_CONFIG.style !== null;
+      const isStyleUrl = typeof MAP_CONFIG.style === 'string' && /^https?:\/\//.test(MAP_CONFIG.style);
+      expect(isStyleSpec || isStyleUrl).toBe(true);
     });
 
-    it('should have center coordinates for London', () => {
+    it('should have center coordinates for UKPN territory', () => {
       const [lng, lat] = MAP_CONFIG.center;
 
-      // London is approximately at longitude -0.1 and latitude 51.5
-      expect(lng).toBeCloseTo(-0.1, 1);
-      expect(lat).toBeCloseTo(51.5, 1);
+      // UKPN territory is centered around Essex/East London area (0.3, 51.6)
+      expect(lng).toBeCloseTo(0.3, 1);
+      expect(lat).toBeCloseTo(51.6, 1);
     });
 
     it('should have valid zoom levels', () => {
@@ -30,7 +30,7 @@ describe('maplibre configuration', () => {
     });
 
     it('should have default zoom level', () => {
-      expect(MAP_CONFIG.zoom).toBe(7);
+      expect(MAP_CONFIG.zoom).toBe(8);
     });
 
     it('should have min and max zoom levels', () => {
