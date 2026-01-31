@@ -41,7 +41,11 @@ const voltageColorExpression: ExpressionSpecification = [
   VOLTAGE_COLORS['default']
 ];
 
-// Power line layer - green gradient by voltage
+// === POWER INFRASTRUCTURE LAYERS ===
+// See ZOOM_LEVELS.md for comprehensive zoom visibility strategy
+// Layer hierarchy: Lines (2) → Plants (6) → Substations (5) → Turbines (8) → Solar (10) → Towers (12) → Transformers (13) → Poles (14)
+
+// Power line layer - green gradient by voltage (global view zoom 2+)
 export const POWER_LINE_LAYER: LayerSpecification = {
   id: 'oim-power-line',
   type: 'line',
@@ -69,7 +73,7 @@ export const POWER_LINE_LAYER: LayerSpecification = {
   },
 };
 
-// Substation point layer - colored by voltage
+// Substation point layer - colored by voltage (regional view zoom 5+)
 export const SUBSTATION_LAYER: LayerSpecification = {
   id: 'oim-substation',
   type: 'circle',
@@ -96,7 +100,7 @@ export const SUBSTATION_LAYER: LayerSpecification = {
   },
 };
 
-// Substation labels
+// Substation labels (local view zoom 10+)
 export const SUBSTATION_LABEL_LAYER: LayerSpecification = {
   id: 'oim-substation-label',
   type: 'symbol',
@@ -122,7 +126,7 @@ export const SUBSTATION_LABEL_LAYER: LayerSpecification = {
   },
 };
 
-// Power towers layer
+// Power towers layer (street view zoom 12+)
 export const POWER_TOWER_LAYER: LayerSpecification = {
   id: 'oim-power-tower',
   type: 'circle',
@@ -144,7 +148,7 @@ export const POWER_TOWER_LAYER: LayerSpecification = {
   },
 };
 
-// Power poles layer
+// Power poles layer (detail view zoom 14+)
 export const POWER_POLE_LAYER: LayerSpecification = {
   id: 'oim-power-pole',
   type: 'circle',
@@ -165,7 +169,7 @@ export const POWER_POLE_LAYER: LayerSpecification = {
   },
 };
 
-// Transformer layer
+// Transformer layer (street view zoom 13+)
 export const TRANSFORMER_LAYER: LayerSpecification = {
   id: 'oim-transformer',
   type: 'circle',
@@ -186,7 +190,7 @@ export const TRANSFORMER_LAYER: LayerSpecification = {
   },
 };
 
-// Wind turbine layer
+// Wind turbine layer (local view zoom 8+)
 export const WIND_TURBINE_LAYER: LayerSpecification = {
   id: 'oim-wind-turbine',
   type: 'circle',
@@ -208,7 +212,7 @@ export const WIND_TURBINE_LAYER: LayerSpecification = {
   },
 };
 
-// Solar panel/generator layer
+// Solar panel/generator layer (local view zoom 10+)
 export const SOLAR_LAYER: LayerSpecification = {
   id: 'oim-solar',
   type: 'circle',
@@ -230,7 +234,7 @@ export const SOLAR_LAYER: LayerSpecification = {
   },
 };
 
-// Power plant layer
+// Power plant layer (regional view zoom 6+)
 export const POWER_PLANT_LAYER: LayerSpecification = {
   id: 'oim-power-plant',
   type: 'fill',
@@ -244,7 +248,7 @@ export const POWER_PLANT_LAYER: LayerSpecification = {
   },
 };
 
-// Power plant labels
+// Power plant labels (local view zoom 8+)
 export const POWER_PLANT_LABEL_LAYER: LayerSpecification = {
   id: 'oim-power-plant-label',
   type: 'symbol',

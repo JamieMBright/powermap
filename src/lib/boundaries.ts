@@ -17,8 +17,10 @@ export interface BoundaryConfig {
   };
 }
 
-// Boundary type configurations
-// minZoom set low (2) to allow boundaries visible even when zoomed out
+// === UKPN BOUNDARY LAYERS ===
+// See ZOOM_LEVELS.md for comprehensive zoom visibility strategy
+// Boundary hierarchy: RESP/GSP/LA (zoom 2) → LSOA (zoom 8)
+// Labels appear progressively: RESP (5) → GSP (7) → LA (9) → LSOA (11)
 export const BOUNDARY_CONFIGS: Record<BoundaryType, BoundaryConfig> = {
   resp: {
     id: 'resp',
