@@ -93,7 +93,7 @@ export function Map({ className = '', onMapLoad }: MapProps) {
   }, [handleMapLoad, isMobile]);
 
   return (
-    <div className={className}>
+    <div className={`relative h-full w-full ${className}`}>
       {/* Map container with touch-action for better mobile scrolling */}
       <div
         ref={mapContainer}
