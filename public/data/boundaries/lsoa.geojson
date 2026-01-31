@@ -1,0 +1,175 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "E01000001",
+        "name": "City of London 001A"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-0.095, 51.513],
+          [-0.085, 51.513],
+          [-0.085, 51.518],
+          [-0.095, 51.518],
+          [-0.095, 51.513]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "E01000002",
+        "name": "City of London 001B"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-0.085, 51.513],
+          [-0.075, 51.513],
+          [-0.075, 51.518],
+          [-0.085, 51.518],
+          [-0.085, 51.513]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "E01000003",
+        "name": "City of London 001C"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-0.095, 51.508],
+          [-0.085, 51.508],
+          [-0.085, 51.513],
+          [-0.095, 51.513],
+          [-0.095, 51.508]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "E01000004",
+        "name": "City of London 001D"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-0.085, 51.508],
+          [-0.075, 51.508],
+          [-0.075, 51.513],
+          [-0.085, 51.513],
+          [-0.085, 51.508]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "E01001234",
+        "name": "Hackney 012A"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-0.06, 51.545],
+          [-0.04, 51.545],
+          [-0.04, 51.555],
+          [-0.06, 51.555],
+          [-0.06, 51.545]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "E01001235",
+        "name": "Hackney 012B"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-0.04, 51.545],
+          [-0.02, 51.545],
+          [-0.02, 51.555],
+          [-0.04, 51.555],
+          [-0.04, 51.545]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "E01002000",
+        "name": "Tower Hamlets 001A"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-0.05, 51.5],
+          [-0.03, 51.5],
+          [-0.03, 51.51],
+          [-0.05, 51.51],
+          [-0.05, 51.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "E01002001",
+        "name": "Tower Hamlets 001B"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-0.03, 51.5],
+          [-0.01, 51.5],
+          [-0.01, 51.51],
+          [-0.03, 51.51],
+          [-0.03, 51.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "E01003500",
+        "name": "Newham 005A"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [0.01, 51.52],
+          [0.03, 51.52],
+          [0.03, 51.53],
+          [0.01, 51.53],
+          [0.01, 51.52]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "E01003501",
+        "name": "Newham 005B"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [0.03, 51.52],
+          [0.05, 51.52],
+          [0.05, 51.53],
+          [0.03, 51.53],
+          [0.03, 51.52]
+        ]]
+      }
+    }
+  ]
+}

@@ -1,10 +1,11 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
 import maplibregl, { Map as MaplibreMap } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { MAP_CONFIG } from '@/lib/maplibre';
 import { addOIMToMap } from '@/lib/oim';
+import { BoundarySelector } from '@/components/filters/BoundarySelector';
 
 interface MapProps {
   className?: string;
@@ -15,11 +16,17 @@ export function Map({ className = '', onMapLoad }: MapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MaplibreMap | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [map, setMap] = useState<MaplibreMap | null>(null);
+
+  const handleMapLoad = useCallback((loadedMap: MaplibreMap) => {
+    setMap(loadedMap);
+    onMapLoad?.(loadedMap);
+  }, [onMapLoad]);
 
   useEffect(() => {
     if (!mapContainer.current || mapRef.current) return;
 
-    const map = new maplibregl.Map({
+    const mapInstance = new maplibregl.Map({
       container: mapContainer.current,
       style: MAP_CONFIG.style,
       center: MAP_CONFIG.center,
@@ -29,33 +36,38 @@ export function Map({ className = '', onMapLoad }: MapProps) {
     });
 
     // Add navigation controls
-    map.addControl(new maplibregl.NavigationControl(), 'top-right');
+    mapInstance.addControl(new maplibregl.NavigationControl(), 'top-right');
 
     // Add scale control
-    map.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
+    mapInstance.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
 
     // Add fullscreen control
-    map.addControl(new maplibregl.FullscreenControl(), 'top-right');
+    mapInstance.addControl(new maplibregl.FullscreenControl(), 'top-right');
 
-    map.on('load', () => {
+    mapInstance.on('load', () => {
       // Add Open Infrastructure Map layers
-      addOIMToMap(map);
+      addOIMToMap(mapInstance);
 
       setIsLoaded(true);
-      onMapLoad?.(map);
+      handleMapLoad(mapInstance);
     });
 
-    mapRef.current = map;
+    mapRef.current = mapInstance;
 
     return () => {
-      map.remove();
+      mapInstance.remove();
       mapRef.current = null;
+      setMap(null);
     };
-  }, [onMapLoad]);
+  }, [handleMapLoad]);
 
   return (
     <div className={className}>
       <div ref={mapContainer} className="absolute inset-0" />
+
+      {/* Boundary selector overlay */}
+      {isLoaded && <BoundarySelector map={map} />}
+
       {!isLoaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
           <div className="flex flex-col items-center gap-2">
