@@ -6,10 +6,27 @@ import { Map } from '@/components/map/Map';
 import { YearSlider } from '@/components/timeline/YearSlider';
 import { TourSelector, TourPlayer } from '@/components/storytelling';
 import { useTour } from '@/hooks/useTour';
+import { BoundaryProvider, useBoundaryContext } from '@/contexts/BoundaryContext';
+import { AggregationPanel } from '@/components/ui/AggregationPanel';
+import { useYearFilter } from '@/hooks/useYearFilter';
 
 export default function Home() {
+  return (
+    <BoundaryProvider>
+      <HomeContent />
+    </BoundaryProvider>
+  );
+}
+
+function HomeContent() {
   const [isTourSelectorOpen, setIsTourSelectorOpen] = useState(false);
   const mapRef = useRef<MaplibreMap | null>(null);
+
+  // Boundary context for aggregation panel
+  const { selectedBoundary, clearBoundary, aggregatedStats, isLoading } = useBoundaryContext();
+
+  // Year filter for displaying current year in aggregation panel
+  const { year } = useYearFilter();
 
   const {
     activeTour,
@@ -45,6 +62,11 @@ export default function Home() {
   const handleCloseTourSelector = useCallback(() => {
     setIsTourSelectorOpen(false);
   }, []);
+
+  // Handle closing the aggregation panel
+  const handleCloseAggregationPanel = useCallback(() => {
+    clearBoundary();
+  }, [clearBoundary]);
 
   const isTourActive = status !== 'idle';
 
@@ -103,6 +125,15 @@ export default function Home() {
           </Suspense>
         </div>
       )}
+
+      {/* Aggregation Panel - shows when a boundary is selected */}
+      <AggregationPanel
+        selectedBoundary={selectedBoundary}
+        stats={aggregatedStats}
+        year={year}
+        onClose={handleCloseAggregationPanel}
+        isLoading={isLoading}
+      />
 
       {/* Tour Player - only visible during active tour */}
       <TourPlayer
