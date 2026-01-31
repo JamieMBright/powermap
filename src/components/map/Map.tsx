@@ -6,6 +6,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { MAP_CONFIG } from '@/lib/maplibre';
 import { addOIMToMap } from '@/lib/oim';
 import { BoundarySelector } from '@/components/filters/BoundarySelector';
+import { InvestmentLayer } from '@/components/map/InvestmentLayer';
 
 interface MapProps {
   className?: string;
@@ -96,15 +97,19 @@ export function Map({ className = '', onMapLoad }: MapProps) {
       {/* Map container with touch-action for better mobile scrolling */}
       <div
         ref={mapContainer}
+        data-testid="map-container"
         className="absolute inset-0 touch-manipulation"
         style={{ touchAction: 'manipulation' }}
       />
+
+      {/* Investment data layer */}
+      {isLoaded && <InvestmentLayer map={map} />}
 
       {/* Boundary selector overlay */}
       {isLoaded && <BoundarySelector map={map} />}
 
       {!isLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
+        <div data-testid="map-loading" className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
           <div className="flex flex-col items-center gap-2">
             <div className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent" />
             <span className="text-sm text-gray-600">Loading map...</span>

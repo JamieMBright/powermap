@@ -35,12 +35,13 @@ export function YearSlider({ className = '' }: YearSliderProps) {
 
   return (
     <div
+      data-testid="year-slider"
       className={`flex flex-col items-center gap-2 rounded-lg bg-white/95 px-3 py-3 shadow-lg backdrop-blur-sm sm:gap-3 sm:px-6 sm:py-4 ${className}`}
     >
       {/* Current Year Display */}
       <div className="flex items-center gap-3 sm:gap-4">
         <span className="text-xs font-medium text-gray-500 sm:text-sm">Year</span>
-        <span className="text-2xl font-bold tabular-nums text-indigo-600 sm:text-3xl">
+        <span data-testid="year-display" className="text-2xl font-bold tabular-nums text-indigo-600 sm:text-3xl">
           {year}
         </span>
       </div>
@@ -51,6 +52,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
         <button
           onClick={previousYear}
           disabled={isAtStart}
+          data-testid="previous-year-button"
           className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 active:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 sm:h-9 sm:w-9"
           aria-label="Previous year"
           title="Previous year"
@@ -62,6 +64,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
         <button
           onClick={togglePlayback}
           disabled={isAtEnd && !isPlaying}
+          data-testid="play-button"
           className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white transition-colors hover:bg-indigo-700 active:bg-indigo-800 disabled:cursor-not-allowed disabled:opacity-40 sm:h-10 sm:w-10"
           aria-label={isPlaying ? 'Pause' : 'Play'}
           title={isPlaying ? 'Pause animation' : 'Play animation'}
@@ -87,6 +90,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
             max={MAX_YEAR}
             value={year}
             onChange={handleSliderChange}
+            data-testid="year-slider-input"
             className="absolute inset-0 h-3 w-full cursor-pointer appearance-none bg-transparent touch-manipulation sm:h-2
               [&::-webkit-slider-thumb]:h-7 [&::-webkit-slider-thumb]:w-7
               [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none
@@ -149,6 +153,7 @@ export function YearSlider({ className = '' }: YearSliderProps) {
         <button
           onClick={nextYear}
           disabled={isAtEnd}
+          data-testid="next-year-button"
           className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 active:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 sm:h-9 sm:w-9"
           aria-label="Next year"
           title="Next year"

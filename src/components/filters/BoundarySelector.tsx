@@ -11,6 +11,7 @@ import {
   getBoundaryFeatureAtPoint,
   type BoundaryConfig,
 } from '@/lib/boundaries';
+import { useSelectedBoundary } from '@/contexts/BoundaryContext';
 
 interface BoundarySelectorProps {
   map: MaplibreMap | null;
@@ -48,6 +49,9 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
   const [popup, setPopup] = useState<BoundaryInfoPopup | null>(null);
   const isMobile = useIsMobile();
 
+  // Use boundary context for selected boundary state
+  const { selectBoundary, clearBoundary } = useSelectedBoundary();
+
   const boundaryTypes = getBoundaryTypes();
 
   // Handle boundary selection
@@ -56,6 +60,8 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
 
     setError(null);
     setPopup(null);
+    // Clear selected boundary in context when changing boundary type
+    clearBoundary();
 
     // Remove current boundary if exists
     if (activeBoundary) {
@@ -81,23 +87,31 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
     } finally {
       setIsLoading(false);
     }
-  }, [map, activeBoundary]);
+  }, [map, activeBoundary, clearBoundary]);
 
-  // Handle click on boundary to show info popup
+  // Handle click on boundary to show info popup and update context
   useEffect(() => {
     if (!map || !activeBoundary) return;
 
     const handleClick = (e: MapMouseEvent) => {
       const feature = getBoundaryFeatureAtPoint(map, activeBoundary, e.point);
       if (feature) {
-        setPopup({
+        const boundaryInfo = {
           code: feature.properties.code,
           name: feature.properties.name,
           boundaryType: activeBoundary,
           position: { x: e.point.x, y: e.point.y },
+        };
+        setPopup(boundaryInfo);
+        // Update context with selected boundary
+        selectBoundary({
+          type: activeBoundary,
+          code: feature.properties.code,
+          name: feature.properties.name,
         });
       } else {
         setPopup(null);
+        clearBoundary();
       }
     };
 
@@ -105,14 +119,15 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
     return () => {
       map.off('click', handleClick);
     };
-  }, [map, activeBoundary]);
+  }, [map, activeBoundary, selectBoundary, clearBoundary]);
 
   // Close popup when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (!target.closest('.boundary-popup')) {
+      if (!target.closest('.boundary-popup') && !target.closest('.aggregation-panel')) {
         setPopup(null);
+        // Note: We don't clear boundary context here to allow the AggregationPanel to remain open
       }
     };
 
@@ -130,12 +145,13 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
   }, []);
 
   return (
-    <div className={`absolute top-14 left-2 z-20 sm:top-20 sm:left-4 ${className}`}>
+    <div data-testid="boundary-selector" className={`absolute top-14 left-2 z-20 sm:top-20 sm:left-4 ${className}`}>
       {/* Selector button - larger on mobile for 44px tap target */}
       <div className="relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
           disabled={isLoading}
+          data-testid="boundary-selector-button"
           className={`
             flex items-center gap-2 px-3 py-2.5 rounded-lg shadow-lg
             bg-white border border-gray-200 hover:bg-gray-50 active:bg-gray-100
@@ -202,6 +218,7 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
                   config={config}
                   isActive={isActive}
                   onClick={() => handleBoundarySelect(type)}
+                  testId={`boundary-option-${type}`}
                 />
               );
             })}
@@ -275,6 +292,7 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
                     config={config}
                     isActive={isActive}
                     onClick={() => handleBoundarySelect(type)}
+                    testId={`boundary-option-${type}`}
                   />
                 );
               })}
@@ -310,12 +328,14 @@ interface BoundaryOptionProps {
   config: BoundaryConfig;
   isActive: boolean;
   onClick: () => void;
+  testId?: string;
 }
 
-function BoundaryOption({ config, isActive, onClick }: BoundaryOptionProps) {
+function BoundaryOption({ config, isActive, onClick, testId }: BoundaryOptionProps) {
   return (
     <button
       onClick={onClick}
+      data-testid={testId}
       className={`
         w-full flex items-center gap-3 px-3 py-2 text-left
         hover:bg-gray-50 transition-colors
@@ -349,10 +369,11 @@ function BoundaryOption({ config, isActive, onClick }: BoundaryOptionProps) {
 }
 
 // Mobile-optimized boundary option with larger tap targets
-function BoundaryOptionMobile({ config, isActive, onClick }: BoundaryOptionProps) {
+function BoundaryOptionMobile({ config, isActive, onClick, testId }: BoundaryOptionProps) {
   return (
     <button
       onClick={onClick}
+      data-testid={testId}
       className={`
         w-full flex items-center gap-4 px-4 py-4 text-left
         active:bg-gray-100 transition-colors min-h-[56px]
