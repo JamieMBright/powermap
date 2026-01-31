@@ -20,11 +20,11 @@ const nextConfig: NextConfig = {
               // Allow styles from self and inline (for MapLibre)
               "style-src 'self' 'unsafe-inline'",
               // Allow images and data from map tile providers
-              "img-src 'self' data: blob: https://*.cartocdn.com https://*.openstreetmap.org https://*.openfreemap.org https://tiles.stadiamaps.com",
+              "img-src 'self' data: blob: https://*.cartocdn.com https://*.openstreetmap.org https://*.tile.openstreetmap.org https://*.openfreemap.org https://tiles.stadiamaps.com",
               // Allow WebGL workers
               "worker-src 'self' blob:",
               // Allow connections to tile servers and APIs
-              "connect-src 'self' https://*.cartocdn.com https://*.openstreetmap.org https://*.openfreemap.org https://tiles.stadiamaps.com https://api.os.uk https://opendataportal.ukpowernetworks.co.uk https://openinframap.org",
+              "connect-src 'self' https://*.cartocdn.com https://*.openstreetmap.org https://*.tile.openstreetmap.org https://*.openfreemap.org https://tiles.stadiamaps.com https://api.os.uk https://opendataportal.ukpowernetworks.co.uk https://openinframap.org",
               // Allow fonts
               "font-src 'self' data:",
               // Allow child/frame sources
