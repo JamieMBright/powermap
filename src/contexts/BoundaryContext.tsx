@@ -6,10 +6,14 @@ import {
   useState,
   useCallback,
   useMemo,
+  useEffect,
   type ReactNode,
 } from 'react';
-import type { BoundaryType, AssetInvestment } from '@/data/types';
-import { useAggregation, EMPTY_STATS, type AggregatedStats } from '@/hooks/useAggregation';
+import type { BoundaryType } from '@/data/types';
+import {
+  aggregateInvestmentsByBoundary,
+  type AggregatedStats as RealAggregatedStats,
+} from '@/lib/investmentAggregation';
 
 /**
  * Selected boundary information
@@ -21,6 +25,25 @@ export interface SelectedBoundary {
 }
 
 /**
+ * Aggregated statistics for display
+ */
+export interface AggregatedStats {
+  totalInvestment: number;
+  assetCount: number;
+  byDriver: Record<string, number>;
+  byAssetType: Record<string, number>;
+  averageInvestmentPerAsset: number;
+}
+
+const EMPTY_STATS: AggregatedStats = {
+  totalInvestment: 0,
+  assetCount: 0,
+  byDriver: {},
+  byAssetType: {},
+  averageInvestmentPerAsset: 0,
+};
+
+/**
  * Boundary context value interface
  */
 interface BoundaryContextValue {
@@ -30,10 +53,6 @@ interface BoundaryContextValue {
   selectBoundary: (boundary: SelectedBoundary | null) => void;
   /** Clear the selected boundary */
   clearBoundary: () => void;
-  /** Current investment data */
-  investments: AssetInvestment[];
-  /** Set investment data */
-  setInvestments: (investments: AssetInvestment[]) => void;
   /** Current year filter */
   year: number;
   /** Set year filter */
@@ -42,8 +61,6 @@ interface BoundaryContextValue {
   aggregatedStats: AggregatedStats;
   /** Whether data is currently loading */
   isLoading: boolean;
-  /** Set loading state */
-  setIsLoading: (loading: boolean) => void;
 }
 
 // Create context with default values
@@ -56,8 +73,6 @@ interface BoundaryProviderProps {
   children: ReactNode;
   /** Initial year (defaults to 2025) */
   initialYear?: number;
-  /** Initial investment data */
-  initialInvestments?: AssetInvestment[];
 }
 
 /**
@@ -66,12 +81,11 @@ interface BoundaryProviderProps {
 export function BoundaryProvider({
   children,
   initialYear = 2025,
-  initialInvestments = [],
 }: BoundaryProviderProps) {
   const [selectedBoundary, setSelectedBoundary] = useState<SelectedBoundary | null>(null);
-  const [investments, setInvestments] = useState<AssetInvestment[]>(initialInvestments);
   const [year, setYear] = useState(initialYear);
   const [isLoading, setIsLoading] = useState(false);
+  const [aggregatedStats, setAggregatedStats] = useState<AggregatedStats>(EMPTY_STATS);
 
   const selectBoundary = useCallback((boundary: SelectedBoundary | null) => {
     setSelectedBoundary(boundary);
@@ -79,31 +93,63 @@ export function BoundaryProvider({
 
   const clearBoundary = useCallback(() => {
     setSelectedBoundary(null);
+    setAggregatedStats(EMPTY_STATS);
   }, []);
 
-  // Calculate aggregated stats based on current selection
-  const aggregatedStats = useAggregation(investments, {
-    boundaryType: selectedBoundary?.type,
-    boundaryCode: selectedBoundary?.code,
-    year,
-  });
+  // Fetch and aggregate data when boundary or year changes
+  useEffect(() => {
+    if (!selectedBoundary) {
+      setAggregatedStats(EMPTY_STATS);
+      return;
+    }
+
+    let cancelled = false;
+    setIsLoading(true);
+
+    aggregateInvestmentsByBoundary(
+      selectedBoundary.type as 'resp' | 'gsp' | 'la',
+      selectedBoundary.code,
+      year
+    )
+      .then((stats: RealAggregatedStats) => {
+        if (cancelled) return;
+        setAggregatedStats({
+          totalInvestment: stats.totalInvestment,
+          assetCount: stats.assetCount,
+          byDriver: stats.byDriver,
+          byAssetType: stats.byAssetType,
+          averageInvestmentPerAsset: stats.averageInvestmentPerAsset,
+        });
+      })
+      .catch((error) => {
+        console.error('[BoundaryContext] Failed to aggregate:', error);
+        if (!cancelled) {
+          setAggregatedStats(EMPTY_STATS);
+        }
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setIsLoading(false);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedBoundary, year]);
 
   const value = useMemo<BoundaryContextValue>(() => ({
     selectedBoundary,
     selectBoundary,
     clearBoundary,
-    investments,
-    setInvestments,
     year,
     setYear,
     aggregatedStats,
     isLoading,
-    setIsLoading,
   }), [
     selectedBoundary,
     selectBoundary,
     clearBoundary,
-    investments,
     year,
     aggregatedStats,
     isLoading,
@@ -148,4 +194,4 @@ export function useAggregatedStats(): AggregatedStats {
   return aggregatedStats;
 }
 
-export { BoundaryContext };
+export { BoundaryContext, EMPTY_STATS };

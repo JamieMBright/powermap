@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import type { BoundaryType, InvestmentDriver, AssetType } from '@/data/types';
-import type { AggregatedStats } from '@/hooks/useAggregation';
+import type { AggregatedStats } from '@/contexts/BoundaryContext';
 import { StatCard } from './StatCard';
-import { InvestmentCard, getDriverConfig } from './InvestmentCard';
+import { getDriverConfig } from './InvestmentCard';
 import { BOUNDARY_CONFIGS } from '@/lib/boundaries';
 
 interface SelectedBoundary {
@@ -27,7 +27,7 @@ interface AggregationPanelProps {
 }
 
 // Asset type display names
-const ASSET_TYPE_NAMES: Record<AssetType, string> = {
+const ASSET_TYPE_NAMES: Record<string, string> = {
   substation: 'Substations',
   transformer: 'Transformers',
   cable: 'Cables',
@@ -35,20 +35,30 @@ const ASSET_TYPE_NAMES: Record<AssetType, string> = {
   switchgear: 'Switchgear',
 };
 
+// Driver display names
+const DRIVER_NAMES: Record<string, string> = {
+  asset_replacement: 'Asset Replacement',
+  load_reinforcement: 'Load Reinforcement',
+  proactive_investment: 'Proactive Investment',
+  fault_level: 'Fault Level',
+  reverse_power_flow: 'Reverse Power Flow',
+  connections: 'Connections',
+};
+
 /**
  * Format currency value with appropriate suffix
  */
 function formatCurrency(amount: number): string {
   if (amount >= 1_000_000_000) {
-    return `${(amount / 1_000_000_000).toFixed(2)}bn`;
+    return `£${(amount / 1_000_000_000).toFixed(2)}bn`;
   }
   if (amount >= 1_000_000) {
-    return `${(amount / 1_000_000).toFixed(2)}m`;
+    return `£${(amount / 1_000_000).toFixed(2)}m`;
   }
   if (amount >= 1_000) {
-    return `${(amount / 1_000).toFixed(1)}k`;
+    return `£${(amount / 1_000).toFixed(1)}k`;
   }
-  return amount.toLocaleString('en-GB');
+  return `£${amount.toLocaleString('en-GB')}`;
 }
 
 /**
@@ -58,13 +68,13 @@ function DriverDonutChart({
   byDriver,
   totalInvestment,
 }: {
-  byDriver: AggregatedStats['byDriver'];
+  byDriver: Record<string, number>;
   totalInvestment: number;
 }) {
   // Sort drivers by amount descending
-  const sortedDrivers = (Object.entries(byDriver) as [InvestmentDriver, typeof byDriver[InvestmentDriver]][])
-    .filter(([_, data]) => data.amount > 0)
-    .sort((a, b) => b[1].amount - a[1].amount);
+  const sortedDrivers = Object.entries(byDriver)
+    .filter(([_, amount]) => amount > 0)
+    .sort((a, b) => b[1] - a[1]);
 
   if (sortedDrivers.length === 0 || totalInvestment === 0) {
     return (
@@ -78,9 +88,9 @@ function DriverDonutChart({
   let currentAngle = 0;
   const segments: string[] = [];
 
-  for (const [driver, data] of sortedDrivers) {
-    const config = getDriverConfig(driver);
-    const angle = (data.amount / totalInvestment) * 360;
+  for (const [driver, amount] of sortedDrivers) {
+    const config = getDriverConfig(driver as InvestmentDriver);
+    const angle = (amount / totalInvestment) * 360;
     segments.push(`${config.color} ${currentAngle}deg ${currentAngle + angle}deg`);
     currentAngle += angle;
   }
@@ -99,8 +109,9 @@ function DriverDonutChart({
 
       {/* Legend */}
       <div className="flex-1 space-y-1">
-        {sortedDrivers.slice(0, 4).map(([driver, data]) => {
-          const config = getDriverConfig(driver);
+        {sortedDrivers.slice(0, 4).map(([driver, amount]) => {
+          const config = getDriverConfig(driver as InvestmentDriver);
+          const percentage = (amount / totalInvestment) * 100;
           return (
             <div key={driver} className="flex items-center gap-2">
               <span
@@ -108,10 +119,10 @@ function DriverDonutChart({
                 style={{ backgroundColor: config.color }}
               />
               <span className="flex-1 text-xs text-gray-600 truncate">
-                {config.name}
+                {DRIVER_NAMES[driver] || driver}
               </span>
               <span className="text-xs font-medium text-gray-900 tabular-nums">
-                {data.percentage.toFixed(0)}%
+                {percentage.toFixed(0)}%
               </span>
             </div>
           );
@@ -131,13 +142,13 @@ function DriverDonutChart({
  */
 function AssetTypeBreakdown({
   byAssetType,
-  totalAssets,
+  totalInvestment,
 }: {
-  byAssetType: AggregatedStats['byAssetType'];
-  totalAssets: number;
+  byAssetType: Record<string, number>;
+  totalInvestment: number;
 }) {
-  const sortedTypes = (Object.entries(byAssetType) as [AssetType, number][])
-    .filter(([_, count]) => count > 0)
+  const sortedTypes = Object.entries(byAssetType)
+    .filter(([_, amount]) => amount > 0)
     .sort((a, b) => b[1] - a[1]);
 
   if (sortedTypes.length === 0) {
@@ -148,20 +159,20 @@ function AssetTypeBreakdown({
     );
   }
 
-  const maxCount = Math.max(...sortedTypes.map(([_, count]) => count));
+  const maxAmount = Math.max(...sortedTypes.map(([_, amount]) => amount));
 
   return (
     <div className="space-y-2">
-      {sortedTypes.map(([type, count]) => {
-        const percentage = totalAssets > 0 ? (count / totalAssets) * 100 : 0;
-        const barWidth = maxCount > 0 ? (count / maxCount) * 100 : 0;
+      {sortedTypes.map(([type, amount]) => {
+        const percentage = totalInvestment > 0 ? (amount / totalInvestment) * 100 : 0;
+        const barWidth = maxAmount > 0 ? (amount / maxAmount) * 100 : 0;
 
         return (
           <div key={type}>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-gray-600">{ASSET_TYPE_NAMES[type]}</span>
+              <span className="text-gray-600">{ASSET_TYPE_NAMES[type] || type}</span>
               <span className="text-gray-900 font-medium tabular-nums">
-                {count} <span className="text-gray-400">({percentage.toFixed(0)}%)</span>
+                {formatCurrency(amount)} <span className="text-gray-400">({percentage.toFixed(0)}%)</span>
               </span>
             </div>
             <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
@@ -169,6 +180,63 @@ function AssetTypeBreakdown({
                 className="h-full bg-orange-500 rounded-full transition-all duration-300"
                 style={{ width: `${barWidth}%` }}
               />
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/**
+ * Driver breakdown cards
+ */
+function DriverBreakdown({
+  byDriver,
+  totalInvestment,
+}: {
+  byDriver: Record<string, number>;
+  totalInvestment: number;
+}) {
+  const sortedDrivers = Object.entries(byDriver)
+    .filter(([_, amount]) => amount > 0)
+    .sort((a, b) => b[1] - a[1]);
+
+  if (sortedDrivers.length === 0) {
+    return (
+      <div className="text-center py-4 text-gray-400 text-sm">
+        No investments for this year
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-2">
+      {sortedDrivers.map(([driver, amount]) => {
+        const config = getDriverConfig(driver as InvestmentDriver);
+        const percentage = totalInvestment > 0 ? (amount / totalInvestment) * 100 : 0;
+
+        return (
+          <div
+            key={driver}
+            className="flex items-center gap-3 p-3 bg-white border border-gray-100 rounded-lg"
+          >
+            <div
+              className="w-3 h-3 rounded-full shrink-0"
+              style={{ backgroundColor: config.color }}
+            />
+            <div className="flex-1 min-w-0">
+              <div className="text-sm font-medium text-gray-900">
+                {DRIVER_NAMES[driver] || driver}
+              </div>
+              <div className="text-xs text-gray-500">
+                {percentage.toFixed(1)}% of total
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="text-sm font-semibold text-gray-900">
+                {formatCurrency(amount)}
+              </div>
             </div>
           </div>
         );
@@ -217,11 +285,6 @@ export function AggregationPanel({
   }
 
   const boundaryConfig = BOUNDARY_CONFIGS[selectedBoundary.type];
-
-  // Sort drivers by amount for display
-  const sortedDrivers = (Object.entries(stats.byDriver) as [InvestmentDriver, typeof stats.byDriver[InvestmentDriver]][])
-    .filter(([_, data]) => data.amount > 0)
-    .sort((a, b) => b[1].amount - a[1].amount);
 
   const content = (
     <>
@@ -284,7 +347,7 @@ export function AggregationPanel({
             />
             <StatCard
               label="Assets"
-              value={stats.assetCount}
+              value={stats.assetCount.toString()}
               color="emerald"
               size="md"
             />
@@ -305,34 +368,21 @@ export function AggregationPanel({
             </div>
 
             {/* Investment cards */}
-            <div className="space-y-2">
-              {sortedDrivers.map(([driver, data]) => (
-                <InvestmentCard
-                  key={driver}
-                  driver={driver}
-                  amount={data.amount}
-                  assetCount={data.count}
-                  percentage={data.percentage}
-                />
-              ))}
-            </div>
-
-            {sortedDrivers.length === 0 && (
-              <div className="text-center py-4 text-gray-400 text-sm">
-                No investments for this year
-              </div>
-            )}
+            <DriverBreakdown
+              byDriver={stats.byDriver}
+              totalInvestment={stats.totalInvestment}
+            />
           </div>
 
           {/* Asset type breakdown */}
           <div className="px-4 pb-4">
             <h3 className="text-sm font-semibold text-gray-900 mb-3">
-              Assets by Type
+              Investment by Asset Type
             </h3>
             <div className="p-3 bg-gray-50 rounded-lg">
               <AssetTypeBreakdown
                 byAssetType={stats.byAssetType}
-                totalAssets={stats.assetCount}
+                totalInvestment={stats.totalInvestment}
               />
             </div>
           </div>
