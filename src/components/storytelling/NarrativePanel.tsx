@@ -33,9 +33,15 @@ export function NarrativePanel({
   position = 'bottom',
   collapsed = false,
   onToggleCollapse,
+  onPrevious,
+  onNext,
+  onExit,
+  isPreviousDisabled = false,
+  isNextDisabled = false,
+  isTransitioning = false,
 }: NarrativePanelProps) {
   const [displayedChapter, setDisplayedChapter] = useState<TourChapter | null>(chapter);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isContentTransitioning, setIsContentTransitioning] = useState(false);
 
   // Handle smooth chapter transitions
   useEffect(() => {
@@ -45,11 +51,11 @@ export function NarrativePanel({
     }
 
     if (chapter.id !== displayedChapter?.id) {
-      setIsTransitioning(true);
+      setIsContentTransitioning(true);
       // Wait for fade out, then update content
       const timer = setTimeout(() => {
         setDisplayedChapter(chapter);
-        setIsTransitioning(false);
+        setIsContentTransitioning(false);
       }, 200);
       return () => clearTimeout(timer);
     }
@@ -59,15 +65,17 @@ export function NarrativePanel({
 
   const isBottom = position === 'bottom';
 
+  const hasNavigation = onPrevious && onNext && onExit;
+
   return (
     <div
       className={`
         fixed z-30 transition-all duration-300 ease-out
         ${isBottom
-          ? 'bottom-20 left-4 right-4 sm:bottom-24 sm:left-auto sm:right-4 sm:max-w-md'
+          ? 'bottom-4 left-4 right-4 sm:bottom-24 sm:left-auto sm:right-4 sm:max-w-md'
           : 'top-20 left-4 bottom-20 w-80 sm:w-96'
         }
-        ${isTransitioning ? 'opacity-50' : 'opacity-100'}
+        ${isContentTransitioning ? 'opacity-50' : 'opacity-100'}
         ${collapsed ? 'translate-y-[calc(100%-3rem)]' : 'translate-y-0'}
       `}
     >
