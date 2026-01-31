@@ -19,6 +19,7 @@ export function Map({ className = '', onMapLoad }: MapProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [map, setMap] = useState<MaplibreMap | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [initAttempt, setInitAttempt] = useState(0);
 
   // Detect mobile viewport
   useEffect(() => {
@@ -38,47 +39,56 @@ export function Map({ className = '', onMapLoad }: MapProps) {
   useEffect(() => {
     if (!mapContainer.current || mapRef.current) return;
 
-    // Log container dimensions for debugging
-    const rect = mapContainer.current.getBoundingClientRect();
+    const container = mapContainer.current;
+    const rect = container.getBoundingClientRect();
     console.log('[Map] Container dimensions:', rect.width, 'x', rect.height);
 
+    // Retry if container has zero dimensions (can happen during initial render)
     if (rect.width === 0 || rect.height === 0) {
-      console.error('[Map] Container has zero dimensions! Map will not render.');
+      if (initAttempt < 10) {
+        console.warn('[Map] Container has zero dimensions, retrying...');
+        const timer = setTimeout(() => setInitAttempt(n => n + 1), 100);
+        return () => clearTimeout(timer);
+      }
+      console.error('[Map] Container still has zero dimensions after retries!');
+      return;
     }
 
     try {
+      console.log('[Map] Creating MapLibre instance...');
       const mapInstance = new maplibregl.Map({
-        container: mapContainer.current,
+        container: container,
         style: MAP_CONFIG.style,
         center: MAP_CONFIG.center,
         zoom: MAP_CONFIG.zoom,
         minZoom: MAP_CONFIG.minZoom,
         maxZoom: MAP_CONFIG.maxZoom,
-        // Enable touch interactions
         touchZoomRotate: true,
         touchPitch: true,
-        dragRotate: false, // Simpler interaction on mobile
+        dragRotate: false,
+        attributionControl: false,
       });
 
-      // Log map creation
       console.log('[Map] MapLibre instance created');
 
-      // Add navigation controls - position differently on mobile to avoid overlap
-      // On mobile, position bottom-right to avoid overlapping with BoundarySelector
+      // Add navigation controls with zoom +/- buttons
       mapInstance.addControl(
         new maplibregl.NavigationControl({ showCompass: !isMobile }),
         isMobile ? 'bottom-right' : 'top-right'
       );
 
       // Add scale control
-      mapInstance.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
+      mapInstance.addControl(
+        new maplibregl.ScaleControl({ unit: 'metric' }),
+        'bottom-left'
+      );
 
       // Add fullscreen control - only on desktop
       if (!isMobile) {
         mapInstance.addControl(new maplibregl.FullscreenControl(), 'top-right');
       }
 
-      // Add geolocate control for mobile users
+      // Add geolocate control
       mapInstance.addControl(
         new maplibregl.GeolocateControl({
           positionOptions: { enableHighAccuracy: true },
@@ -87,11 +97,16 @@ export function Map({ className = '', onMapLoad }: MapProps) {
         isMobile ? 'bottom-right' : 'top-right'
       );
 
+      // Add attribution
+      mapInstance.addControl(
+        new maplibregl.AttributionControl({ compact: true }),
+        'bottom-right'
+      );
+
       mapInstance.on('load', () => {
         console.log('[Map] Style loaded successfully');
-        // Add Open Infrastructure Map layers
+        mapInstance.resize();
         addOIMToMap(mapInstance);
-
         setIsLoaded(true);
         handleMapLoad(mapInstance);
       });
@@ -100,9 +115,16 @@ export function Map({ className = '', onMapLoad }: MapProps) {
         console.error('[Map] Error:', e.error?.message || e);
       });
 
+      // Handle container resize
+      const resizeObserver = new ResizeObserver(() => {
+        mapInstance.resize();
+      });
+      resizeObserver.observe(container);
+
       mapRef.current = mapInstance;
 
       return () => {
+        resizeObserver.disconnect();
         mapInstance.remove();
         mapRef.current = null;
         setMap(null);
@@ -110,7 +132,7 @@ export function Map({ className = '', onMapLoad }: MapProps) {
     } catch (err) {
       console.error('[Map] Failed to create map:', err);
     }
-  }, [handleMapLoad, isMobile]);
+  }, [handleMapLoad, isMobile, initAttempt]);
 
   // Use className if provided, otherwise default to relative full-size container
   // This allows parent to control positioning (absolute, fixed, etc.)

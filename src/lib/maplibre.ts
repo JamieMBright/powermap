@@ -6,17 +6,19 @@ export const MAP_STYLES = {
   osm: 'https://tiles.openfreemap.org/styles/liberty', // Fallback
 };
 
-// Map configuration
+// Map configuration - centered on UKPN coverage area
 export const MAP_CONFIG = {
   style: MAP_STYLES.carto,
-  center: [-0.1, 51.5] as [number, number], // London
-  zoom: 7,
+  // Center on Essex/East London area - heart of UKPN territory
+  center: [0.3, 51.6] as [number, number],
+  // Zoom level 8 shows county-level detail
+  zoom: 8,
   minZoom: 5,
   maxZoom: 18,
-  // Coverage area bounds (approximate)
+  // UKPN coverage area bounds (East Anglia, London, South East)
   bounds: [
-    [-2.5, 50.5],  // Southwest
-    [2.0, 52.5]    // Northeast
+    [-2.0, 50.0],  // Southwest
+    [2.0, 53.0]    // Northeast
   ] as LngLatBoundsLike,
 };
 
