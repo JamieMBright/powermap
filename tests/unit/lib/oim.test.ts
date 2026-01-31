@@ -40,7 +40,7 @@ describe('OIM (Open Infrastructure Map) Module', () => {
 
     it('should have correct tile URL', () => {
       expect(OIM_SOURCE.tiles).toContain(
-        'https://openinframap.org/tiles/power/{z}/{x}/{y}.pbf'
+        'https://openinframap.org/map/power/{z}/{x}/{y}.pbf'
       );
     });
 

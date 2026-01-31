@@ -348,3 +348,95 @@ export function getBoundaryTypes(): BoundaryType[] {
 export function getBoundaryConfig(boundaryType: BoundaryType): BoundaryConfig {
   return BOUNDARY_CONFIGS[boundaryType];
 }
+
+// Choropleth color scale (orange gradient matching PowerMap theme)
+export const CHOROPLETH_COLORS = [
+  '#fff7ed', // Very light orange (lowest)
+  '#fed7aa', // Light orange
+  '#fdba74', // Orange-300
+  '#fb923c', // Orange-400 (medium)
+  '#f97316', // Orange-500
+  '#ea580c', // Orange-600
+  '#c2410c', // Orange-700 (highest)
+] as const;
+
+/**
+ * Get choropleth color for a given investment amount
+ */
+export function getChoroplethColor(amount: number, minAmount: number, maxAmount: number): string {
+  if (amount <= 0 || maxAmount <= minAmount) {
+    return CHOROPLETH_COLORS[0];
+  }
+
+  const normalized = (amount - minAmount) / (maxAmount - minAmount);
+  const index = Math.min(
+    Math.floor(normalized * CHOROPLETH_COLORS.length),
+    CHOROPLETH_COLORS.length - 1
+  );
+  return CHOROPLETH_COLORS[index];
+}
+
+/**
+ * Get breakpoints for choropleth legend
+ */
+export function getChoroplethBreakpoints(minAmount: number, maxAmount: number): number[] {
+  const range = maxAmount - minAmount;
+  if (range <= 0) return [0];
+
+  const numSteps = CHOROPLETH_COLORS.length;
+  return Array.from({ length: numSteps }, (_, i) =>
+    minAmount + (range * i) / (numSteps - 1)
+  );
+}
+
+/**
+ * Update boundary fill colors based on investment amounts (choropleth)
+ */
+export function updateBoundaryChoropleth(
+  map: MaplibreMap,
+  boundaryType: BoundaryType,
+  investmentsByCode: Map<string, number>,
+  minAmount: number,
+  maxAmount: number
+): void {
+  const layerIds = getBoundaryLayerIds(boundaryType);
+
+  if (!map.getLayer(layerIds.fill)) {
+    return;
+  }
+
+  // Build match expression for data-driven fill color
+  const matchExpression: (string | number | string[])[] = ['match', ['get', 'code']];
+
+  investmentsByCode.forEach((amount, code) => {
+    const color = getChoroplethColor(amount, minAmount, maxAmount);
+    matchExpression.push(code, color);
+  });
+
+  // Default color for boundaries with no investment data
+  matchExpression.push(CHOROPLETH_COLORS[0]);
+
+  // Update the fill color with the match expression
+  map.setPaintProperty(layerIds.fill, 'fill-color', matchExpression);
+  // Increase opacity to make choropleth more visible
+  map.setPaintProperty(layerIds.fill, 'fill-opacity', 0.6);
+}
+
+/**
+ * Reset boundary choropleth to default static fill color
+ */
+export function resetBoundaryChoropleth(
+  map: MaplibreMap,
+  boundaryType: BoundaryType
+): void {
+  const config = BOUNDARY_CONFIGS[boundaryType];
+  const layerIds = getBoundaryLayerIds(boundaryType);
+
+  if (!map.getLayer(layerIds.fill)) {
+    return;
+  }
+
+  // Reset to static fill color
+  map.setPaintProperty(layerIds.fill, 'fill-color', config.colors.fill);
+  map.setPaintProperty(layerIds.fill, 'fill-opacity', 0.1);
+}

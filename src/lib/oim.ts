@@ -13,7 +13,7 @@ export interface OIMLoadResult {
 // Open Infrastructure Map tile configuration
 export const OIM_SOURCE: SourceSpecification = {
   type: 'vector',
-  tiles: ['https://openinframap.org/tiles/power/{z}/{x}/{y}.pbf'],
+  tiles: ['https://openinframap.org/map/power/{z}/{x}/{y}.pbf'],
   minzoom: 2,
   maxzoom: 17,
   attribution: '© <a href="https://openinframap.org">Open Infrastructure Map</a> | © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -104,7 +104,7 @@ export const OIM_LAYER_IDS = ['oim-power-line', 'oim-substation', 'oim-substatio
 async function testOIMAvailability(): Promise<boolean> {
   try {
     // Test with a single tile request (zoom 5, center of UK)
-    const testUrl = 'https://openinframap.org/tiles/power/5/15/10.pbf';
+    const testUrl = 'https://openinframap.org/map/power/5/15/10.pbf';
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
 
