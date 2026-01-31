@@ -22,9 +22,10 @@ npm run validate
 
 This runs:
 1. `npm run type-check` - TypeScript compilation (MUST pass)
-2. `npm test` - All unit tests (MUST pass)
-3. `npm run lint` - ESLint checks
-4. `npm run build` - Next.js build (if network allows)
+2. `npm run check:ssr` - Next.js SSG/SSR checks (MUST pass)
+3. `npm test` - All unit tests (MUST pass)
+4. `npm run lint` - ESLint checks (informational)
+5. `npm run build` - Next.js build (if network allows)
 
 ### Minimum Required Checks Before Push
 At minimum, these MUST pass before pushing:
@@ -42,6 +43,13 @@ npm run type-check && npm test
 1. **Missing imports in test files** - Test setup must import all vitest globals used
 2. **Type errors in source files** - Run `npm run type-check` to catch these
 3. **ESM/CommonJS issues** - vitest.config uses .mts extension for ESM
+4. **useSearchParams without Suspense** - Wrap components using nuqs/useSearchParams in `<Suspense>`
+5. **Client hooks in server components** - Add `'use client'` directive to files using useState, etc.
+
+### Next.js SSG/SSR Rules
+- **ALWAYS** wrap components using `useSearchParams()` or `nuqs` hooks in a `<Suspense>` boundary
+- Page components in `/app` that use client hooks need `'use client'` at the top
+- Run `npm run check:ssr` to catch these issues before pushing
 
 ## Code Conventions
 - Use functional components with hooks

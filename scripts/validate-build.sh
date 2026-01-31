@@ -36,10 +36,13 @@ run_check() {
 # 1. TypeScript type checking (most important - this is what broke the Vercel build)
 run_check "TypeScript Check" "npm run type-check"
 
-# 2. Unit tests
+# 2. Next.js SSG/SSR checks (catches useSearchParams without Suspense, etc.)
+run_check "Next.js SSG Checks" "node scripts/check-nextjs-ssr.js"
+
+# 3. Unit tests
 run_check "Unit Tests" "npm test"
 
-# 3. Linting (informational - doesn't block Vercel build)
+# 4. Linting (informational - doesn't block Vercel build)
 echo ""
 echo -e "${YELLOW}▶ Running: ESLint (informational)${NC}"
 LINT_OUTPUT=$(npm run lint 2>&1 || true)
@@ -48,7 +51,7 @@ LINT_WARNINGS=$(echo "$LINT_OUTPUT" | grep -c "warning" || echo "0")
 echo -e "${YELLOW}  Found $LINT_ERRORS errors, $LINT_WARNINGS warnings${NC}"
 echo -e "${YELLOW}  (Lint errors don't block Vercel build, but should be fixed)${NC}"
 
-# 4. Try to build (skip if network issues with fonts)
+# 5. Try to build (skip if network issues with fonts)
 echo ""
 echo -e "${YELLOW}▶ Running: Next.js Build${NC}"
 if npm run build 2>&1; then
