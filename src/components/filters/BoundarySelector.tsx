@@ -11,7 +11,6 @@ import {
   getBoundaryFeatureAtPoint,
   updateBoundaryChoropleth,
   resetBoundaryChoropleth,
-  getBoundarySourceId,
   type BoundaryConfig,
 } from '@/lib/boundaries';
 import { useSelectedBoundary } from '@/contexts/BoundaryContext';
@@ -69,6 +68,10 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
   const [selectedDriver, setSelectedDriver] = useState<DriverSelection>('all');
   const isMobile = useIsMobile();
 
+  // Refs for stable event handler access to current values
+  const mapRef = useRef(map);
+  const activeBoundaryRef = useRef(activeBoundary);
+
   // Use boundary context for selected boundary state
   const { selectBoundary, clearBoundary } = useSelectedBoundary();
 
@@ -80,6 +83,16 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
     boundaryType: activeBoundary,
     selectedDriver,
     enabled: !!activeBoundary && !!map,
+  });
+
+  // Ref for investment stats (used by stable event handler)
+  const investmentStatsRef = useRef(investmentStats);
+
+  // Keep refs updated with latest values
+  useEffect(() => {
+    mapRef.current = map;
+    activeBoundaryRef.current = activeBoundary;
+    investmentStatsRef.current = investmentStats;
   });
 
   const boundaryTypes = getBoundaryTypes();
@@ -106,17 +119,25 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
   }, [map, hasLoadedDefault]);
 
   // Re-add boundary layers after map style change
+  // Uses refs for stable handler that always accesses current values
   useEffect(() => {
-    if (!map || !activeBoundary) return;
-
     const handleStyleChange = async () => {
+      const currentMap = mapRef.current;
+      const currentBoundary = activeBoundaryRef.current;
+      const currentStats = investmentStatsRef.current;
+
+      if (!currentMap || !currentBoundary) {
+        console.log('[BoundarySelector] Style change ignored - no map or boundary');
+        return;
+      }
+
       // Always re-add boundary after style change (source is always removed)
-      console.log('[BoundarySelector] Re-adding boundary after style change:', activeBoundary);
+      console.log('[BoundarySelector] Re-adding boundary after style change:', currentBoundary);
       try {
-        await addBoundaryToMap(map, activeBoundary);
+        await addBoundaryToMap(currentMap, currentBoundary);
         // Re-apply choropleth if we have investment stats
-        if (investmentStats?.byCode && investmentStats.byCode.size > 0) {
-          updateBoundaryChoropleth(map, activeBoundary, investmentStats.byCode, investmentStats.min, investmentStats.max);
+        if (currentStats?.byCode && currentStats.byCode.size > 0) {
+          updateBoundaryChoropleth(currentMap, currentBoundary, currentStats.byCode, currentStats.min, currentStats.max);
         }
       } catch (err) {
         console.error('[BoundarySelector] Failed to re-add boundary after style change:', err);
@@ -127,7 +148,7 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
     return () => {
       window.removeEventListener(MAP_STYLE_CHANGE_EVENT, handleStyleChange);
     };
-  }, [map, activeBoundary, investmentStats]);
+  }, []); // Empty deps - handler uses refs for current values
 
   // Handle boundary selection
   const handleBoundarySelect = useCallback(async (boundaryType: BoundaryType | null) => {
