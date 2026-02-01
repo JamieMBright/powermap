@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react';
 import type { Map as MaplibreMap } from 'maplibre-gl';
 import { MAP_STYLES, MAP_STYLE_NAMES } from '@/lib/maplibre';
 import { addOIMToMap, OIM_LAYER_IDS } from '@/lib/oim';
+import { initializeOIMSymbols, clearOIMSymbolsCache } from '@/lib/oim-symbols';
 
 // Custom event for style change - allows other components to re-add their layers
 export const MAP_STYLE_CHANGE_EVENT = 'powermap:stylechange';
@@ -35,12 +36,18 @@ export function MapStyleSelector({ map }: MapStyleSelectorProps) {
       }
     });
 
+    // Clear OIM symbols cache before style change (images are lost with style)
+    clearOIMSymbolsCache();
+
     // Set the new style
     map.setStyle(style);
 
     // Re-add all layers after style loads
     map.once('style.load', () => {
-      // Re-add OIM layers first
+      // Reinitialize OIM symbol loader for new style
+      initializeOIMSymbols(map);
+
+      // Re-add OIM layers
       addOIMToMap(map);
 
       // Restore OIM visibility states

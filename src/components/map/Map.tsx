@@ -5,6 +5,7 @@ import maplibregl, { Map as MaplibreMap } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { MAP_CONFIG } from '@/lib/maplibre';
 import { addOIMToMapAsync, type OIMStatus } from '@/lib/oim';
+import { initializeOIMSymbols, clearOIMSymbolsCache } from '@/lib/oim-symbols';
 import { BoundarySelector } from '@/components/filters/BoundarySelector';
 import { LayerControl } from '@/components/filters/LayerControl';
 import { MapStyleSelector } from '@/components/filters/MapStyleSelector';
@@ -115,6 +116,10 @@ export function Map({ className = '', onMapLoad }: MapProps) {
         console.log('[Map] Style loaded successfully');
         mapInstance.resize();
 
+        // Initialize OIM symbol loader for icon loading
+        const cleanupSymbols = initializeOIMSymbols(mapInstance);
+        console.log('[Map] OIM symbol loader initialized');
+
         // Load OIM layers with status tracking
         setOimStatus('loading');
         try {
@@ -128,6 +133,9 @@ export function Map({ className = '', onMapLoad }: MapProps) {
           setOimStatus('error');
           setOimError(err instanceof Error ? err.message : 'Unknown error');
         }
+
+        // Store cleanup function for later
+        (mapInstance as unknown as { _cleanupSymbols?: () => void })._cleanupSymbols = cleanupSymbols;
 
         setIsLoaded(true);
         handleMapLoad(mapInstance);
@@ -147,6 +155,10 @@ export function Map({ className = '', onMapLoad }: MapProps) {
 
       return () => {
         resizeObserver.disconnect();
+        // Cleanup OIM symbol loader
+        const cleanupFn = (mapInstance as unknown as { _cleanupSymbols?: () => void })._cleanupSymbols;
+        if (cleanupFn) cleanupFn();
+        clearOIMSymbolsCache();
         mapInstance.remove();
         mapRef.current = null;
         setMap(null);

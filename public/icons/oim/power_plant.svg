@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Power plant icon -->
+  <circle cx="16" cy="16" r="14" fill="white" stroke="#333" stroke-width="1.5"/>
+  <!-- Building -->
+  <rect x="6" y="14" width="12" height="12" fill="#78716c"/>
+  <!-- Chimney -->
+  <rect x="20" y="8" width="5" height="18" fill="#57534e"/>
+  <!-- Smoke -->
+  <ellipse cx="22.5" cy="6" rx="3" ry="2" fill="#a8a29e" opacity="0.7"/>
+  <ellipse cx="24" cy="4" rx="2" ry="1.5" fill="#a8a29e" opacity="0.5"/>
+  <!-- Window -->
+  <rect x="9" y="17" width="6" height="4" fill="#fef3c7"/>
+</svg>

@@ -203,41 +203,43 @@ const power_solar_panel: LayerSpecification = {
 // Power towers
 const power_tower: LayerSpecification = {
   id: 'power_tower',
-  type: 'circle',
+  type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_tower',
   filter: ['==', ['get', 'type'], 'tower'],
   minzoom: 13,
-  paint: {
-    'circle-color': '#444',
-    'circle-radius': [
+  layout: {
+    'icon-image': 'power_tower',
+    'icon-size': [
       'interpolate', ['exponential', 1.2], ['zoom'],
-      13, 1.5,
-      21, 6
+      13, 0.3,
+      17, 0.6,
+      21, 1.0
     ],
-    'circle-stroke-color': '#fff',
-    'circle-stroke-width': 1,
+    'icon-allow-overlap': true,
   },
 };
 
 // Power poles
 const power_pole: LayerSpecification = {
   id: 'power_pole',
-  type: 'circle',
+  type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_tower',
   filter: ['==', ['get', 'type'], 'pole'],
   minzoom: 13,
-  paint: {
-    'circle-color': '#666',
-    'circle-radius': [
+  layout: {
+    'icon-image': 'power_pole',
+    'icon-size': [
       'interpolate', ['exponential', 1.3], ['zoom'],
-      13, 1,
-      20, 4
+      13, 0.2,
+      17, 0.4,
+      20, 0.7
     ],
-    'circle-stroke-color': '#fff',
-    'circle-stroke-width': 0.5,
-    'circle-opacity': [
+    'icon-allow-overlap': true,
+  },
+  paint: {
+    'icon-opacity': [
       'interpolate', ['linear'], ['zoom'],
       13, 0,
       13.5, 1
@@ -248,19 +250,19 @@ const power_pole: LayerSpecification = {
 // Transformers
 const power_transformer: LayerSpecification = {
   id: 'power_transformer',
-  type: 'circle',
+  type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_transformer',
   minzoom: 14,
-  paint: {
-    'circle-color': voltage_color('voltage_primary'),
-    'circle-radius': [
+  layout: {
+    'icon-image': 'power_transformer',
+    'icon-size': [
       'interpolate', ['exponential', 1.2], ['zoom'],
-      14, 3,
-      20, 8
+      14, 0.4,
+      17, 0.7,
+      20, 1.0
     ],
-    'circle-stroke-color': '#fff',
-    'circle-stroke-width': 1.5,
+    'icon-allow-overlap': true,
   },
 };
 
@@ -332,27 +334,27 @@ const power_wind_turbine_point: LayerSpecification = {
 // Wind turbines (high zoom)
 const power_wind_turbine: LayerSpecification = {
   id: 'power_wind_turbine',
-  type: 'circle',
+  type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_generator',
   filter: ['==', ['get', 'source'], 'wind'],
   minzoom: 11,
-  paint: {
-    'circle-color': '#3b82f6',
-    'circle-radius': [
+  layout: {
+    'icon-image': 'power_wind',
+    'icon-size': [
       'interpolate', ['linear'], ['zoom'],
-      11, 2,
-      16, 6
+      11, 0.3,
+      14, 0.5,
+      17, 0.8
     ],
-    'circle-stroke-color': '#fff',
-    'circle-stroke-width': 1,
+    'icon-allow-overlap': true,
   },
 };
 
 // Solar generators (points)
 const power_generator_solar: LayerSpecification = {
   id: 'power_generator_solar',
-  type: 'circle',
+  type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_generator',
   filter: ['all',
@@ -360,22 +362,22 @@ const power_generator_solar: LayerSpecification = {
     ['==', ['get', 'is_node'], true]
   ],
   minzoom: 15,
-  paint: {
-    'circle-color': '#726BA9',
-    'circle-radius': [
+  layout: {
+    'icon-image': 'power_generator_solar',
+    'icon-size': [
       'interpolate', ['linear'], ['zoom'],
-      15, 2,
-      20, 6
+      15, 0.3,
+      18, 0.5,
+      20, 0.8
     ],
-    'circle-stroke-color': '#fff',
-    'circle-stroke-width': 1,
+    'icon-allow-overlap': true,
   },
 };
 
 // Other generators
 const power_generator: LayerSpecification = {
   id: 'power_generator',
-  type: 'circle',
+  type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_generator',
   filter: ['all',
@@ -384,15 +386,15 @@ const power_generator: LayerSpecification = {
     ['has', 'output']
   ],
   minzoom: 11,
-  paint: {
-    'circle-color': '#059669',
-    'circle-radius': [
+  layout: {
+    'icon-image': 'power_generator',
+    'icon-size': [
       'interpolate', ['linear'], ['zoom'],
-      11, 2,
-      16, 6
+      11, 0.3,
+      14, 0.5,
+      17, 0.8
     ],
-    'circle-stroke-color': '#fff',
-    'circle-stroke-width': 1,
+    'icon-allow-overlap': true,
   },
 };
 
@@ -501,38 +503,38 @@ const power_plant_label: LayerSpecification = {
 // Compensators (reactors, capacitors)
 const power_compensator: LayerSpecification = {
   id: 'power_compensator',
-  type: 'circle',
+  type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_compensator',
   minzoom: 14,
-  paint: {
-    'circle-color': '#8b5cf6',
-    'circle-radius': [
+  layout: {
+    'icon-image': 'power_compensator',
+    'icon-size': [
       'interpolate', ['exponential', 1.2], ['zoom'],
-      14, 3,
-      20, 8
+      14, 0.4,
+      17, 0.7,
+      20, 1.0
     ],
-    'circle-stroke-color': '#fff',
-    'circle-stroke-width': 1,
+    'icon-allow-overlap': true,
   },
 };
 
 // Switches
 const power_switch: LayerSpecification = {
   id: 'power_switch',
-  type: 'circle',
+  type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_switch',
   minzoom: 15,
-  paint: {
-    'circle-color': '#ef4444',
-    'circle-radius': [
+  layout: {
+    'icon-image': 'power_switch',
+    'icon-size': [
       'interpolate', ['exponential', 1.2], ['zoom'],
-      15, 2,
-      20, 6
+      15, 0.3,
+      18, 0.5,
+      20, 0.8
     ],
-    'circle-stroke-color': '#fff',
-    'circle-stroke-width': 1,
+    'icon-allow-overlap': true,
   },
 };
 
