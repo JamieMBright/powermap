@@ -5,6 +5,9 @@ import type { Map as MaplibreMap } from 'maplibre-gl';
 import { MAP_STYLES, MAP_STYLE_NAMES } from '@/lib/maplibre';
 import { addOIMToMap, OIM_LAYER_IDS } from '@/lib/oim';
 
+// Custom event for style change - allows other components to re-add their layers
+export const MAP_STYLE_CHANGE_EVENT = 'powermap:stylechange';
+
 interface MapStyleSelectorProps {
   map: MaplibreMap | null;
 }
@@ -35,11 +38,12 @@ export function MapStyleSelector({ map }: MapStyleSelectorProps) {
     // Set the new style
     map.setStyle(style);
 
-    // Re-add OIM layers after style loads
+    // Re-add all layers after style loads
     map.once('style.load', () => {
+      // Re-add OIM layers first
       addOIMToMap(map);
 
-      // Restore visibility states
+      // Restore OIM visibility states
       setTimeout(() => {
         OIM_LAYER_IDS.forEach(layerId => {
           try {
@@ -50,6 +54,9 @@ export function MapStyleSelector({ map }: MapStyleSelectorProps) {
             // Ignore
           }
         });
+
+        // Dispatch custom event so other components can re-add their layers
+        window.dispatchEvent(new CustomEvent(MAP_STYLE_CHANGE_EVENT, { detail: { map } }));
       }, 100);
     });
 

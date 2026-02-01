@@ -28,6 +28,98 @@
       "id": "INV-2025-asset-0003",
       "year": 2025,
       "location": {
+        "lat": 52.6297,
+        "lng": 1.2923
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-32-26",
+        "la": "LA-EPN-2",
+        "lsoa": "LSOA-EPN-32-26"
+      },
+      "investment": {
+        "amount": 101394000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Norwich Main Investment",
+        "assetId": "asset-0003"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0004",
+      "year": 2025,
+      "location": {
+        "lat": 52.085,
+        "lng": 1.0683
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-30-20",
+        "la": "LA-EPN-0",
+        "lsoa": "LSOA-EPN-30-20"
+      },
+      "investment": {
+        "amount": 90309000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Bramford Grid Investment",
+        "assetId": "asset-0004"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0005",
+      "year": 2025,
+      "location": {
+        "lat": 51.4545,
+        "lng": -0.9784
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-10-14",
+        "la": "LA-SPN-0",
+        "lsoa": "LSOA-SPN-10-14"
+      },
+      "investment": {
+        "amount": 113249000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Reading Grid Investment",
+        "assetId": "asset-0005"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0007",
+      "year": 2025,
+      "location": {
+        "lat": 51.5155,
+        "lng": -0.0922
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-19-15",
+        "la": "LA-LPN-4",
+        "lsoa": "LSOA-LPN-19-15"
+      },
+      "investment": {
+        "amount": 29004000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "City Road Primary Investment",
+        "assetId": "asset-0007"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0008",
+      "year": 2025,
+      "location": {
         "lat": 51.528,
         "lng": 0.005
       },
@@ -38,17 +130,17 @@
         "lsoa": "LSOA-LPN-20-15"
       },
       "investment": {
-        "amount": 40089000,
-        "driver": "asset_replacement",
+        "amount": 8870000,
+        "driver": "fault_level",
         "type": "substation"
       },
       "metadata": {
         "projectName": "West Ham Primary Investment",
-        "assetId": "asset-0003"
+        "assetId": "asset-0008"
       }
     },
     {
-      "id": "INV-2025-asset-0004",
+      "id": "INV-2025-asset-0009",
       "year": 2025,
       "location": {
         "lat": 51.4745,
@@ -61,17 +153,17 @@
         "lsoa": "LSOA-LPN-19-14"
       },
       "investment": {
-        "amount": 34785000,
-        "driver": "proactive_investment",
+        "amount": 17986000,
+        "driver": "asset_replacement",
         "type": "substation"
       },
       "metadata": {
         "projectName": "New Cross Primary Investment",
-        "assetId": "asset-0004"
+        "assetId": "asset-0009"
       }
     },
     {
-      "id": "INV-2025-asset-0005",
+      "id": "INV-2025-asset-0010",
       "year": 2025,
       "location": {
         "lat": 51.5064,
@@ -84,17 +176,17 @@
         "lsoa": "LSOA-LPN-19-15"
       },
       "investment": {
-        "amount": 44608000,
-        "driver": "connections",
+        "amount": 29292000,
+        "driver": "proactive_investment",
         "type": "substation"
       },
       "metadata": {
-        "projectName": "Bankside Investment",
-        "assetId": "asset-0005"
+        "projectName": "Bankside Substation Investment",
+        "assetId": "asset-0010"
       }
     },
     {
-      "id": "INV-2025-asset-0006",
+      "id": "INV-2025-asset-0011",
       "year": 2025,
       "location": {
         "lat": 51.4214,
@@ -107,63 +199,109 @@
         "lsoa": "LSOA-LPN-18-14"
       },
       "investment": {
-        "amount": 44099000,
-        "driver": "fault_level",
+        "amount": 17049000,
+        "driver": "load_reinforcement",
         "type": "substation"
       },
       "metadata": {
         "projectName": "Wimbledon Grid Investment",
-        "assetId": "asset-0006"
+        "assetId": "asset-0011"
       }
     },
     {
-      "id": "INV-2025-asset-0007",
+      "id": "INV-2025-asset-0015",
       "year": 2025,
       "location": {
-        "lat": 51.3727,
-        "lng": -0.0988
+        "lat": 51.4535,
+        "lng": -0.0134
       },
       "boundaries": {
         "resp": "RESP-LPN",
-        "gsp": "GSP-19-13",
+        "gsp": "GSP-19-14",
         "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-13"
+        "lsoa": "LSOA-LPN-19-14"
       },
       "investment": {
-        "amount": 77401000,
+        "amount": 55917000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Lewisham Primary Investment",
+        "assetId": "asset-0015"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0017",
+      "year": 2025,
+      "location": {
+        "lat": 51.543,
+        "lng": -0.0027
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-19-15",
+        "la": "LA-LPN-4",
+        "lsoa": "LSOA-LPN-19-15"
+      },
+      "investment": {
+        "amount": 9158000,
         "driver": "proactive_investment",
         "type": "substation"
       },
       "metadata": {
-        "projectName": "Croydon Grid Investment",
-        "assetId": "asset-0007"
+        "projectName": "Stratford Primary Investment",
+        "assetId": "asset-0017"
       }
     },
     {
-      "id": "INV-2025-asset-0008",
+      "id": "INV-2025-asset-0019",
       "year": 2025,
       "location": {
-        "lat": 52.6297,
-        "lng": 1.2923
+        "lat": 51.577,
+        "lng": 0.183
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-32-26",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-32-26"
+        "resp": "RESP-LPN",
+        "gsp": "GSP-21-15",
+        "la": "LA-LPN-1",
+        "lsoa": "LSOA-LPN-21-15"
       },
       "investment": {
-        "amount": 27527000,
-        "driver": "fault_level",
+        "amount": 38137000,
+        "driver": "asset_replacement",
         "type": "substation"
       },
       "metadata": {
-        "projectName": "Norwich Main Investment",
-        "assetId": "asset-0008"
+        "projectName": "Romford Primary Investment",
+        "assetId": "asset-0019"
       }
     },
     {
-      "id": "INV-2025-asset-0009",
+      "id": "INV-2025-asset-0020",
+      "year": 2025,
+      "location": {
+        "lat": 51.5587,
+        "lng": 0.076
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-20-15",
+        "la": "LA-LPN-0",
+        "lsoa": "LSOA-LPN-20-15"
+      },
+      "investment": {
+        "amount": 24149000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Ilford Primary Investment",
+        "assetId": "asset-0020"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0021",
       "year": 2025,
       "location": {
         "lat": 52.2053,
@@ -176,17 +314,17 @@
         "lsoa": "LSOA-EPN-21-22"
       },
       "investment": {
-        "amount": 17986000,
+        "amount": 34379000,
         "driver": "asset_replacement",
         "type": "substation"
       },
       "metadata": {
         "projectName": "Cambridge Grid Investment",
-        "assetId": "asset-0009"
+        "assetId": "asset-0021"
       }
     },
     {
-      "id": "INV-2025-asset-0010",
+      "id": "INV-2025-asset-0022",
       "year": 2025,
       "location": {
         "lat": 52.0567,
@@ -199,17 +337,17 @@
         "lsoa": "LSOA-EPN-31-20"
       },
       "investment": {
-        "amount": 29292000,
-        "driver": "proactive_investment",
+        "amount": 48595000,
+        "driver": "asset_replacement",
         "type": "substation"
       },
       "metadata": {
         "projectName": "Ipswich Grid Investment",
-        "assetId": "asset-0010"
+        "assetId": "asset-0022"
       }
     },
     {
-      "id": "INV-2025-asset-0011",
+      "id": "INV-2025-asset-0023",
       "year": 2025,
       "location": {
         "lat": 51.8891,
@@ -222,17 +360,17 @@
         "lsoa": "LSOA-EPN-29-18"
       },
       "investment": {
-        "amount": 30103000,
-        "driver": "proactive_investment",
+        "amount": 34173000,
+        "driver": "load_reinforcement",
         "type": "substation"
       },
       "metadata": {
         "projectName": "Colchester Primary Investment",
-        "assetId": "asset-0011"
+        "assetId": "asset-0023"
       }
     },
     {
-      "id": "INV-2025-asset-0012",
+      "id": "INV-2025-asset-0024",
       "year": 2025,
       "location": {
         "lat": 52.5695,
@@ -245,17 +383,247 @@
         "lsoa": "LSOA-EPN-17-25"
       },
       "investment": {
-        "amount": 49147000,
-        "driver": "asset_replacement",
+        "amount": 49231000,
+        "driver": "reverse_power_flow",
         "type": "substation"
       },
       "metadata": {
         "projectName": "Peterborough Grid Investment",
-        "assetId": "asset-0012"
+        "assetId": "asset-0024"
       }
     },
     {
-      "id": "INV-2025-asset-0014",
+      "id": "INV-2025-asset-0025",
+      "year": 2025,
+      "location": {
+        "lat": 52.2467,
+        "lng": 0.7191
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-27-22",
+        "la": "LA-EPN-2",
+        "lsoa": "LSOA-EPN-27-22"
+      },
+      "investment": {
+        "amount": 37085000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Bury St Edmunds Investment",
+        "assetId": "asset-0025"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0026",
+      "year": 2025,
+      "location": {
+        "lat": 52.4761,
+        "lng": 1.7332
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-37-24",
+        "la": "LA-EPN-2",
+        "lsoa": "LSOA-EPN-37-24"
+      },
+      "investment": {
+        "amount": 5868000,
+        "driver": "fault_level",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Lowestoft Primary Investment",
+        "assetId": "asset-0026"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0028",
+      "year": 2025,
+      "location": {
+        "lat": 51.7356,
+        "lng": 0.4724
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-24-17",
+        "la": "LA-EPN-4",
+        "lsoa": "LSOA-EPN-24-17"
+      },
+      "investment": {
+        "amount": 28983000,
+        "driver": "reverse_power_flow",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Chelmsford Primary Investment",
+        "assetId": "asset-0028"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0030",
+      "year": 2025,
+      "location": {
+        "lat": 51.5768,
+        "lng": 0.4562
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-24-15",
+        "la": "LA-EPN-4",
+        "lsoa": "LSOA-EPN-24-15"
+      },
+      "investment": {
+        "amount": 14506000,
+        "driver": "fault_level",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Basildon Primary Investment",
+        "assetId": "asset-0030"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0031",
+      "year": 2025,
+      "location": {
+        "lat": 51.5413,
+        "lng": 0.7092
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-27-15",
+        "la": "LA-EPN-2",
+        "lsoa": "LSOA-EPN-27-15"
+      },
+      "investment": {
+        "amount": 22797000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Southend Primary Investment",
+        "assetId": "asset-0031"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0032",
+      "year": 2025,
+      "location": {
+        "lat": 51.8782,
+        "lng": 0.5512
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-25-18",
+        "la": "LA-EPN-0",
+        "lsoa": "LSOA-EPN-25-18"
+      },
+      "investment": {
+        "amount": 9005000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Braintree Primary Investment",
+        "assetId": "asset-0032"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0033",
+      "year": 2025,
+      "location": {
+        "lat": 52.6583,
+        "lng": 0.1594
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-21-26",
+        "la": "LA-EPN-1",
+        "lsoa": "LSOA-EPN-21-26"
+      },
+      "investment": {
+        "amount": 15191000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Wisbech Primary Investment",
+        "assetId": "asset-0033"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0034",
+      "year": 2025,
+      "location": {
+        "lat": 52.3318,
+        "lng": -0.1827
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-18-23",
+        "la": "LA-EPN-3",
+        "lsoa": "LSOA-EPN-18-23"
+      },
+      "investment": {
+        "amount": 23544000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Huntingdon Primary Investment",
+        "assetId": "asset-0034"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0035",
+      "year": 2025,
+      "location": {
+        "lat": 52.5513,
+        "lng": 0.0882
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-20-25",
+        "la": "LA-EPN-0",
+        "lsoa": "LSOA-EPN-20-25"
+      },
+      "investment": {
+        "amount": 24004000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "March Primary Investment",
+        "assetId": "asset-0035"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0036",
+      "year": 2025,
+      "location": {
+        "lat": 50.8225,
+        "lng": -0.1372
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-18-8",
+        "la": "LA-SPN-3",
+        "lsoa": "LSOA-SPN-18-8"
+      },
+      "investment": {
+        "amount": 11858000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Brighton Grid Investment",
+        "assetId": "asset-0036"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0037",
       "year": 2025,
       "location": {
         "lat": 51.2787,
@@ -268,17 +636,63 @@
         "lsoa": "LSOA-SPN-30-12"
       },
       "investment": {
-        "amount": 45510000,
-        "driver": "proactive_investment",
+        "amount": 18915000,
+        "driver": "connections",
         "type": "substation"
       },
       "metadata": {
         "projectName": "Canterbury Primary Investment",
-        "assetId": "asset-0014"
+        "assetId": "asset-0037"
       }
     },
     {
-      "id": "INV-2025-asset-0018",
+      "id": "INV-2025-asset-0038",
+      "year": 2025,
+      "location": {
+        "lat": 51.272,
+        "lng": 0.5217
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-25-12",
+        "la": "LA-SPN-0",
+        "lsoa": "LSOA-SPN-25-12"
+      },
+      "investment": {
+        "amount": 40258000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Maidstone Primary Investment",
+        "assetId": "asset-0038"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0039",
+      "year": 2025,
+      "location": {
+        "lat": 51.2362,
+        "lng": -0.5733
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-14-12",
+        "la": "LA-SPN-4",
+        "lsoa": "LSOA-SPN-14-12"
+      },
+      "investment": {
+        "amount": 46944000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Guildford Grid Investment",
+        "assetId": "asset-0039"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0040",
       "year": 2025,
       "location": {
         "lat": 51.1471,
@@ -291,368 +705,58 @@
         "lsoa": "LSOA-SPN-28-11"
       },
       "investment": {
-        "amount": 33483000,
-        "driver": "load_reinforcement",
+        "amount": 6514000,
+        "driver": "fault_level",
         "type": "substation"
       },
       "metadata": {
         "projectName": "Ashford Primary Investment",
-        "assetId": "asset-0018"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0019",
-      "year": 2025,
-      "location": {
-        "lat": 52.664956,
-        "lng": 1.353845
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-33-26",
-        "la": "LA-EPN-3",
-        "lsoa": "LSOA-EPN-33-26"
-      },
-      "investment": {
-        "amount": 1550000,
-        "driver": "connections",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0019"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0022",
-      "year": 2025,
-      "location": {
-        "lat": 52.535397,
-        "lng": -0.308337
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-16-25",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-16-25"
-      },
-      "investment": {
-        "amount": 47513000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Peterborough Primary 5 Investment",
-        "assetId": "asset-0022"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0023",
-      "year": 2025,
-      "location": {
-        "lat": 52.643237,
-        "lng": 1.265608
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-32-26",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-32-26"
-      },
-      "investment": {
-        "amount": 4975000,
-        "driver": "asset_replacement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Norwich OHL Section 9 Investment",
-        "assetId": "asset-0023"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0024",
-      "year": 2025,
-      "location": {
-        "lat": 51.746174,
-        "lng": 0.483369
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-24-17",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-24-17"
-      },
-      "investment": {
-        "amount": 7798000,
-        "driver": "asset_replacement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "projectName": "Chelmsford Grid Transformer 6 Investment",
-        "assetId": "asset-0024"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0026",
-      "year": 2025,
-      "location": {
-        "lat": 51.735762,
-        "lng": 0.472104
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-24-17",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-24-17"
-      },
-      "investment": {
-        "amount": 1625000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0026"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0029",
-      "year": 2025,
-      "location": {
-        "lat": 52.639793,
-        "lng": 0.690828
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-26-26",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-26-26"
-      },
-      "investment": {
-        "amount": 605000,
-        "driver": "asset_replacement",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0029"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0030",
-      "year": 2025,
-      "location": {
-        "lat": 51.775145,
-        "lng": 0.710302
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-27-17",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-27-17"
-      },
-      "investment": {
-        "amount": 144000,
-        "driver": "fault_level",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0030"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0032",
-      "year": 2025,
-      "location": {
-        "lat": 51.689329,
-        "lng": 0.233774
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-22-16",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-22-16"
-      },
-      "investment": {
-        "amount": 542000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0032"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0033",
-      "year": 2025,
-      "location": {
-        "lat": 51.888407,
-        "lng": 0.903406
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-29-18",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-29-18"
-      },
-      "investment": {
-        "amount": 250000,
-        "driver": "asset_replacement",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0033"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0034",
-      "year": 2025,
-      "location": {
-        "lat": 52.172027,
-        "lng": 0.137618
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-21-21",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-21-21"
-      },
-      "investment": {
-        "amount": 6051000,
-        "driver": "load_reinforcement",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "projectName": "Cambridge RMU 1 Investment",
-        "assetId": "asset-0034"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0035",
-      "year": 2025,
-      "location": {
-        "lat": 52.217263,
-        "lng": 0.16308
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-21-22",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-21-22"
-      },
-      "investment": {
-        "amount": 3690000,
-        "driver": "proactive_investment",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0035"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0036",
-      "year": 2025,
-      "location": {
-        "lat": 52.590908,
-        "lng": -0.1488
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-18-25",
-        "la": "LA-EPN-3",
-        "lsoa": "LSOA-EPN-18-25"
-      },
-      "investment": {
-        "amount": 958000,
-        "driver": "asset_replacement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0036"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0037",
-      "year": 2025,
-      "location": {
-        "lat": 52.585471,
-        "lng": 1.310308
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-33-25",
-        "la": "LA-EPN-3",
-        "lsoa": "LSOA-EPN-33-25"
-      },
-      "investment": {
-        "amount": 12413000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0037"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0039",
-      "year": 2025,
-      "location": {
-        "lat": 51.421297,
-        "lng": 0.584394
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-25-14",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-25-14"
-      },
-      "investment": {
-        "amount": 332000,
-        "driver": "proactive_investment",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0039"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0040",
-      "year": 2025,
-      "location": {
-        "lat": 51.888201,
-        "lng": 0.901788
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-29-18",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-29-18"
-      },
-      "investment": {
-        "amount": 6451000,
-        "driver": "proactive_investment",
-        "type": "overhead_line"
-      },
-      "metadata": {
         "assetId": "asset-0040"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0041",
+      "year": 2025,
+      "location": {
+        "lat": 51.1092,
+        "lng": -0.187
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-18-11",
+        "la": "LA-SPN-3",
+        "lsoa": "LSOA-SPN-18-11"
+      },
+      "investment": {
+        "amount": 8302000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Crawley Primary Investment",
+        "assetId": "asset-0041"
       }
     },
     {
       "id": "INV-2025-asset-0042",
       "year": 2025,
       "location": {
-        "lat": 51.734592,
-        "lng": 0.460001
+        "lat": 51.1279,
+        "lng": 1.3134
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-24-17",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-24-17"
+        "resp": "RESP-SPN",
+        "gsp": "GSP-33-11",
+        "la": "LA-SPN-3",
+        "lsoa": "LSOA-SPN-33-11"
       },
       "investment": {
-        "amount": 12429000,
-        "driver": "proactive_investment",
+        "amount": 50459000,
+        "driver": "fault_level",
         "type": "substation"
       },
       "metadata": {
+        "projectName": "Dover Primary Investment",
         "assetId": "asset-0042"
       }
     },
@@ -660,66 +764,137 @@
       "id": "INV-2025-asset-0043",
       "year": 2025,
       "location": {
-        "lat": 52.57651,
-        "lng": -0.158377
+        "lat": 50.8552,
+        "lng": 0.5889
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-18-25",
-        "la": "LA-EPN-3",
-        "lsoa": "LSOA-EPN-18-25"
+        "resp": "RESP-SPN",
+        "gsp": "GSP-25-8",
+        "la": "LA-SPN-0",
+        "lsoa": "LSOA-SPN-25-8"
       },
       "investment": {
-        "amount": 243000,
-        "driver": "proactive_investment",
-        "type": "transformer"
+        "amount": 20171000,
+        "driver": "asset_replacement",
+        "type": "substation"
       },
       "metadata": {
+        "projectName": "Hastings Primary Investment",
         "assetId": "asset-0043"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0044",
+      "year": 2025,
+      "location": {
+        "lat": 50.7688,
+        "lng": 0.29
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-22-7",
+        "la": "LA-SPN-2",
+        "lsoa": "LSOA-SPN-22-7"
+      },
+      "investment": {
+        "amount": 23645000,
+        "driver": "reverse_power_flow",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Eastbourne Primary Investment",
+        "assetId": "asset-0044"
       }
     },
     {
       "id": "INV-2025-asset-0045",
       "year": 2025,
       "location": {
-        "lat": 52.141791,
-        "lng": 0.04889
+        "lat": 51.132,
+        "lng": 0.2647
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-20-21",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-20-21"
+        "resp": "RESP-SPN",
+        "gsp": "GSP-22-11",
+        "la": "LA-SPN-2",
+        "lsoa": "LSOA-SPN-22-11"
       },
       "investment": {
-        "amount": 8924000,
-        "driver": "reverse_power_flow",
-        "type": "cable"
+        "amount": 34239000,
+        "driver": "asset_replacement",
+        "type": "substation"
       },
       "metadata": {
-        "projectName": "Cambridge Cable Route 2 Investment",
+        "projectName": "Tunbridge Wells Investment",
         "assetId": "asset-0045"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0046",
+      "year": 2025,
+      "location": {
+        "lat": 51.2737,
+        "lng": 0.1888
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-21-12",
+        "la": "LA-SPN-1",
+        "lsoa": "LSOA-SPN-21-12"
+      },
+      "investment": {
+        "amount": 32509000,
+        "driver": "fault_level",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Sevenoaks Primary Investment",
+        "assetId": "asset-0046"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0047",
+      "year": 2025,
+      "location": {
+        "lat": 51.1952,
+        "lng": 0.2747
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-22-11",
+        "la": "LA-SPN-2",
+        "lsoa": "LSOA-SPN-22-11"
+      },
+      "investment": {
+        "amount": 5625000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Tonbridge Primary Investment",
+        "assetId": "asset-0047"
       }
     },
     {
       "id": "INV-2025-asset-0048",
       "year": 2025,
       "location": {
-        "lat": 52.284134,
-        "lng": 0.478146
+        "lat": 51.3361,
+        "lng": 1.4168
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-24-22",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-24-22"
+        "resp": "RESP-SPN",
+        "gsp": "GSP-34-13",
+        "la": "LA-SPN-4",
+        "lsoa": "LSOA-SPN-34-13"
       },
       "investment": {
-        "amount": 5860000,
-        "driver": "asset_replacement",
-        "type": "cable"
+        "amount": 18368000,
+        "driver": "connections",
+        "type": "substation"
       },
       "metadata": {
+        "projectName": "Ramsgate Primary Investment",
         "assetId": "asset-0048"
       }
     },
@@ -727,285 +902,160 @@
       "id": "INV-2025-asset-0049",
       "year": 2025,
       "location": {
-        "lat": 52.569546,
-        "lng": -0.226017
+        "lat": 51.0814,
+        "lng": 1.166
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-17-25",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-17-25"
+        "resp": "RESP-SPN",
+        "gsp": "GSP-31-10",
+        "la": "LA-SPN-1",
+        "lsoa": "LSOA-SPN-31-10"
       },
       "investment": {
-        "amount": 6782000,
-        "driver": "load_reinforcement",
+        "amount": 19308000,
+        "driver": "reverse_power_flow",
         "type": "substation"
       },
       "metadata": {
+        "projectName": "Folkestone Primary Investment",
         "assetId": "asset-0049"
       }
     },
     {
-      "id": "INV-2025-asset-0050",
+      "id": "INV-2025-asset-0053",
       "year": 2025,
       "location": {
-        "lat": 52.439381,
-        "lng": -0.190717
+        "lat": 51.0634,
+        "lng": -0.3265
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-18-24",
-        "la": "LA-EPN-3",
-        "lsoa": "LSOA-EPN-18-24"
+        "resp": "RESP-SPN",
+        "gsp": "GSP-16-10",
+        "la": "LA-SPN-1",
+        "lsoa": "LSOA-SPN-16-10"
       },
       "investment": {
-        "amount": 400000,
-        "driver": "load_reinforcement",
-        "type": "switchgear"
+        "amount": 32382000,
+        "driver": "connections",
+        "type": "substation"
       },
       "metadata": {
-        "assetId": "asset-0050"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0051",
-      "year": 2025,
-      "location": {
-        "lat": 51.452068,
-        "lng": 1.233511
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-32-14",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-32-14"
-      },
-      "investment": {
-        "amount": 104000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0051"
+        "projectName": "Horsham Primary Investment",
+        "assetId": "asset-0053"
       }
     },
     {
       "id": "INV-2025-asset-0054",
       "year": 2025,
       "location": {
-        "lat": 51.767064,
-        "lng": 0.100814
+        "lat": 51.3162,
+        "lng": -0.5565
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-21-17",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-21-17"
+        "resp": "RESP-SPN",
+        "gsp": "GSP-14-13",
+        "la": "LA-SPN-4",
+        "lsoa": "LSOA-SPN-14-13"
       },
       "investment": {
-        "amount": 1321000,
-        "driver": "load_reinforcement",
-        "type": "transformer"
+        "amount": 23721000,
+        "driver": "asset_replacement",
+        "type": "substation"
       },
       "metadata": {
+        "projectName": "Woking Primary Investment",
         "assetId": "asset-0054"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0055",
-      "year": 2025,
-      "location": {
-        "lat": 52.035805,
-        "lng": 1.067954
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-30-20",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-30-20"
-      },
-      "investment": {
-        "amount": 1227000,
-        "driver": "load_reinforcement",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0055"
       }
     },
     {
       "id": "INV-2025-asset-0056",
       "year": 2025,
       "location": {
-        "lat": 51.41378,
-        "lng": 1.529107
+        "lat": 51.5269,
+        "lng": -0.0768
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-35-14",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-35-14"
+        "resp": "RESP-LPN",
+        "gsp": "GSP-19-15",
+        "la": "LA-LPN-4",
+        "lsoa": "LSOA-LPN-19-15"
       },
       "investment": {
-        "amount": 130000,
-        "driver": "asset_replacement",
-        "type": "overhead_line"
+        "amount": 4804000,
+        "driver": "connections",
+        "type": "substation"
       },
       "metadata": {
+        "projectName": "Shoreditch DSS Investment",
         "assetId": "asset-0056"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0057",
-      "year": 2025,
-      "location": {
-        "lat": 52.52854,
-        "lng": -0.313769
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-16-25",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-16-25"
-      },
-      "investment": {
-        "amount": 3202000,
-        "driver": "proactive_investment",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0057"
       }
     },
     {
       "id": "INV-2025-asset-0058",
       "year": 2025,
       "location": {
-        "lat": 52.042592,
-        "lng": 1.099692
+        "lat": 51.5273,
+        "lng": -0.0549
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-30-20",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-30-20"
+        "resp": "RESP-LPN",
+        "gsp": "GSP-19-15",
+        "la": "LA-LPN-4",
+        "lsoa": "LSOA-LPN-19-15"
       },
       "investment": {
-        "amount": 2227000,
-        "driver": "asset_replacement",
+        "amount": 9535000,
+        "driver": "reverse_power_flow",
         "type": "substation"
       },
       "metadata": {
+        "projectName": "Bethnal Green DSS Investment",
         "assetId": "asset-0058"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0059",
-      "year": 2025,
-      "location": {
-        "lat": 52.027635,
-        "lng": 0.288371
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-22-20",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-22-20"
-      },
-      "investment": {
-        "amount": 115000,
-        "driver": "proactive_investment",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0059"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0060",
-      "year": 2025,
-      "location": {
-        "lat": 52.608952,
-        "lng": 0.304468
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-23-26",
-        "la": "LA-EPN-3",
-        "lsoa": "LSOA-EPN-23-26"
-      },
-      "investment": {
-        "amount": 1509000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0060"
       }
     },
     {
       "id": "INV-2025-asset-0061",
       "year": 2025,
       "location": {
-        "lat": 52.099703,
-        "lng": 0.913642
+        "lat": 51.5099,
+        "lng": -0.0159
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-29-20",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-29-20"
+        "resp": "RESP-LPN",
+        "gsp": "GSP-19-15",
+        "la": "LA-LPN-4",
+        "lsoa": "LSOA-LPN-19-15"
       },
       "investment": {
-        "amount": 524000,
+        "amount": 1438000,
         "driver": "asset_replacement",
-        "type": "switchgear"
+        "type": "substation"
       },
       "metadata": {
+        "projectName": "Poplar DSS Investment",
         "assetId": "asset-0061"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0062",
-      "year": 2025,
-      "location": {
-        "lat": 52.486003,
-        "lng": 0.949132
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-29-24",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-29-24"
-      },
-      "investment": {
-        "amount": 347000,
-        "driver": "fault_level",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0062"
       }
     },
     {
       "id": "INV-2025-asset-0064",
       "year": 2025,
       "location": {
-        "lat": 52.189642,
-        "lng": -0.431123
+        "lat": 51.4716,
+        "lng": -0.07
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-15-21",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-15-21"
+        "resp": "RESP-LPN",
+        "gsp": "GSP-19-14",
+        "la": "LA-LPN-4",
+        "lsoa": "LSOA-LPN-19-14"
       },
       "investment": {
-        "amount": 1632000,
+        "amount": 7203000,
         "driver": "fault_level",
         "type": "substation"
       },
       "metadata": {
+        "projectName": "Peckham DSS Investment",
         "assetId": "asset-0064"
       }
     },
@@ -1013,110 +1063,114 @@
       "id": "INV-2025-asset-0065",
       "year": 2025,
       "location": {
-        "lat": 52.128461,
-        "lng": 0.050987
+        "lat": 51.4741,
+        "lng": -0.0931
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-20-21",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-20-21"
+        "resp": "RESP-LPN",
+        "gsp": "GSP-19-14",
+        "la": "LA-LPN-4",
+        "lsoa": "LSOA-LPN-19-14"
       },
       "investment": {
-        "amount": 302000,
-        "driver": "reverse_power_flow",
-        "type": "switchgear"
+        "amount": 6356000,
+        "driver": "connections",
+        "type": "substation"
       },
       "metadata": {
+        "projectName": "Camberwell DSS Investment",
         "assetId": "asset-0065"
       }
     },
     {
-      "id": "INV-2025-asset-0066",
+      "id": "INV-2025-asset-0068",
       "year": 2025,
       "location": {
-        "lat": 52.614187,
-        "lng": -0.217281
+        "lat": 51.462,
+        "lng": -0.1318
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-17-26",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-17-26"
+        "resp": "RESP-LPN",
+        "gsp": "GSP-18-14",
+        "la": "LA-LPN-3",
+        "lsoa": "LSOA-LPN-18-14"
       },
       "investment": {
-        "amount": 7153000,
+        "amount": 6187000,
         "driver": "asset_replacement",
-        "type": "transformer"
+        "type": "substation"
       },
       "metadata": {
-        "assetId": "asset-0066"
+        "projectName": "Clapham DSS Investment",
+        "assetId": "asset-0068"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0069",
+      "year": 2025,
+      "location": {
+        "lat": 51.4571,
+        "lng": -0.192
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-18-14",
+        "la": "LA-LPN-3",
+        "lsoa": "LSOA-LPN-18-14"
+      },
+      "investment": {
+        "amount": 2348000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Wandsworth DSS Investment",
+        "assetId": "asset-0069"
       }
     },
     {
       "id": "INV-2025-asset-0070",
       "year": 2025,
       "location": {
-        "lat": 52.23993,
-        "lng": -0.013815
+        "lat": 51.464,
+        "lng": -0.2161
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-19-22",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-19-22"
+        "resp": "RESP-LPN",
+        "gsp": "GSP-17-14",
+        "la": "LA-LPN-2",
+        "lsoa": "LSOA-LPN-17-14"
       },
       "investment": {
-        "amount": 45241000,
-        "driver": "proactive_investment",
+        "amount": 1405000,
+        "driver": "asset_replacement",
         "type": "substation"
       },
       "metadata": {
-        "projectName": "Cambridge Primary 9 Investment",
+        "projectName": "Putney DSS Investment",
         "assetId": "asset-0070"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0071",
-      "year": 2025,
-      "location": {
-        "lat": 52.531522,
-        "lng": -0.199965
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-18-25",
-        "la": "LA-EPN-3",
-        "lsoa": "LSOA-EPN-18-25"
-      },
-      "investment": {
-        "amount": 489000,
-        "driver": "load_reinforcement",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0071"
       }
     },
     {
       "id": "INV-2025-asset-0072",
       "year": 2025,
       "location": {
-        "lat": 52.011876,
-        "lng": 1.597907
+        "lat": 52.4166,
+        "lng": 0.7523
       },
       "boundaries": {
         "resp": "RESP-EPN",
-        "gsp": "GSP-35-20",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-35-20"
+        "gsp": "GSP-27-24",
+        "la": "LA-EPN-2",
+        "lsoa": "LSOA-EPN-27-24"
       },
       "investment": {
-        "amount": 516000,
-        "driver": "proactive_investment",
-        "type": "switchgear"
+        "amount": 3095000,
+        "driver": "asset_replacement",
+        "type": "substation"
       },
       "metadata": {
+        "projectName": "Thetford DSS Investment",
         "assetId": "asset-0072"
       }
     },
@@ -1124,44 +1178,68 @@
       "id": "INV-2025-asset-0073",
       "year": 2025,
       "location": {
-        "lat": 52.653372,
-        "lng": 0.252702
+        "lat": 52.3797,
+        "lng": 1.1077
       },
       "boundaries": {
         "resp": "RESP-EPN",
-        "gsp": "GSP-22-26",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-22-26"
+        "gsp": "GSP-31-23",
+        "la": "LA-EPN-1",
+        "lsoa": "LSOA-EPN-31-23"
       },
       "investment": {
-        "amount": 262000,
-        "driver": "load_reinforcement",
-        "type": "switchgear"
+        "amount": 1624000,
+        "driver": "connections",
+        "type": "substation"
       },
       "metadata": {
+        "projectName": "Diss DSS Investment",
         "assetId": "asset-0073"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0074",
+      "year": 2025,
+      "location": {
+        "lat": 51.9634,
+        "lng": 1.3512
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-33-19",
+        "la": "LA-EPN-3",
+        "lsoa": "LSOA-EPN-33-19"
+      },
+      "investment": {
+        "amount": 8428000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Felixstowe DSS Investment",
+        "assetId": "asset-0074"
       }
     },
     {
       "id": "INV-2025-asset-0076",
       "year": 2025,
       "location": {
-        "lat": 52.02188,
-        "lng": 1.157253
+        "lat": 52.189,
+        "lng": 0.9983
       },
       "boundaries": {
         "resp": "RESP-EPN",
-        "gsp": "GSP-31-20",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-31-20"
+        "gsp": "GSP-29-21",
+        "la": "LA-EPN-4",
+        "lsoa": "LSOA-EPN-29-21"
       },
       "investment": {
-        "amount": 2016000,
-        "driver": "proactive_investment",
-        "type": "cable"
+        "amount": 9382000,
+        "driver": "asset_replacement",
+        "type": "substation"
       },
       "metadata": {
-        "projectName": "Ipswich Cable Route 7 Investment",
+        "projectName": "Stowmarket DSS Investment",
         "assetId": "asset-0076"
       }
     },
@@ -1169,22 +1247,22 @@
       "id": "INV-2025-asset-0077",
       "year": 2025,
       "location": {
-        "lat": 52.562167,
-        "lng": -0.163087
+        "lat": 52.0816,
+        "lng": 0.4412
       },
       "boundaries": {
         "resp": "RESP-EPN",
-        "gsp": "GSP-18-25",
-        "la": "LA-EPN-3",
-        "lsoa": "LSOA-EPN-18-25"
+        "gsp": "GSP-24-20",
+        "la": "LA-EPN-4",
+        "lsoa": "LSOA-EPN-24-20"
       },
       "investment": {
-        "amount": 1291000,
-        "driver": "load_reinforcement",
-        "type": "overhead_line"
+        "amount": 3975000,
+        "driver": "asset_replacement",
+        "type": "substation"
       },
       "metadata": {
-        "projectName": "Peterborough OHL Section 4 Investment",
+        "projectName": "Haverhill DSS Investment",
         "assetId": "asset-0077"
       }
     },
@@ -1192,832 +1270,77 @@
       "id": "INV-2025-asset-0079",
       "year": 2025,
       "location": {
-        "lat": 52.576128,
-        "lng": -0.231161
+        "lat": 51.8723,
+        "lng": 0.1712
       },
       "boundaries": {
         "resp": "RESP-EPN",
-        "gsp": "GSP-17-25",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-17-25"
-      },
-      "investment": {
-        "amount": 907000,
-        "driver": "load_reinforcement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0079"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0080",
-      "year": 2025,
-      "location": {
-        "lat": 52.111535,
-        "lng": 1.137822
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-31-21",
+        "gsp": "GSP-21-18",
         "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-31-21"
+        "lsoa": "LSOA-EPN-21-18"
       },
       "investment": {
-        "amount": 6613000,
-        "driver": "load_reinforcement",
+        "amount": 9880000,
+        "driver": "asset_replacement",
         "type": "substation"
       },
       "metadata": {
-        "projectName": "Ipswich Primary 6 Investment",
-        "assetId": "asset-0080"
+        "projectName": "Bishops Stortford DSS Investment",
+        "assetId": "asset-0079"
       }
     },
     {
       "id": "INV-2025-asset-0081",
       "year": 2025,
       "location": {
-        "lat": 52.216598,
-        "lng": 0.140896
+        "lat": 51.7318,
+        "lng": 0.6741
       },
       "boundaries": {
         "resp": "RESP-EPN",
-        "gsp": "GSP-21-22",
+        "gsp": "GSP-26-17",
         "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-21-22"
+        "lsoa": "LSOA-EPN-26-17"
       },
       "investment": {
-        "amount": 1115000,
-        "driver": "load_reinforcement",
-        "type": "overhead_line"
+        "amount": 3562000,
+        "driver": "fault_level",
+        "type": "substation"
       },
       "metadata": {
+        "projectName": "Maldon DSS Investment",
         "assetId": "asset-0081"
       }
     },
     {
-      "id": "INV-2025-asset-0082",
+      "id": "INV-2025-asset-0083",
       "year": 2025,
       "location": {
-        "lat": 52.119982,
-        "lng": 0.191199
+        "lat": 51.5216,
+        "lng": 0.581
       },
       "boundaries": {
         "resp": "RESP-EPN",
-        "gsp": "GSP-21-21",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-21-21"
+        "gsp": "GSP-25-15",
+        "la": "LA-EPN-0",
+        "lsoa": "LSOA-EPN-25-15"
       },
       "investment": {
-        "amount": 4116000,
-        "driver": "asset_replacement",
+        "amount": 7976000,
+        "driver": "fault_level",
         "type": "substation"
       },
       "metadata": {
-        "projectName": "Cambridge Primary 8 Investment",
-        "assetId": "asset-0082"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0084",
-      "year": 2025,
-      "location": {
-        "lat": 51.924477,
-        "lng": 0.55009
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-25-19",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-25-19"
-      },
-      "investment": {
-        "amount": 3968000,
-        "driver": "load_reinforcement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0084"
+        "projectName": "Canvey Island DSS Investment",
+        "assetId": "asset-0083"
       }
     },
     {
       "id": "INV-2025-asset-0085",
       "year": 2025,
       "location": {
-        "lat": 52.405189,
-        "lng": -0.283159
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-17-24",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-17-24"
-      },
-      "investment": {
-        "amount": 235000,
-        "driver": "fault_level",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0085"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0090",
-      "year": 2025,
-      "location": {
-        "lat": 52.468277,
-        "lng": -0.228557
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-17-24",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-17-24"
-      },
-      "investment": {
-        "amount": 1357000,
-        "driver": "connections",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Peterborough OHL Section 9 Investment",
-        "assetId": "asset-0090"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0091",
-      "year": 2025,
-      "location": {
-        "lat": 52.559056,
-        "lng": 1.230763
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-32-25",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-32-25"
-      },
-      "investment": {
-        "amount": 6452000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0091"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0092",
-      "year": 2025,
-      "location": {
-        "lat": 52.199709,
-        "lng": 0.228764
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-22-21",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-22-21"
-      },
-      "investment": {
-        "amount": 551000,
-        "driver": "asset_replacement",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0092"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0093",
-      "year": 2025,
-      "location": {
-        "lat": 51.890083,
-        "lng": 1.590391
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-35-18",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-35-18"
-      },
-      "investment": {
-        "amount": 882000,
-        "driver": "load_reinforcement",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0093"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0094",
-      "year": 2025,
-      "location": {
-        "lat": 52.618319,
-        "lng": -0.220262
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-17-26",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-17-26"
-      },
-      "investment": {
-        "amount": 892000,
-        "driver": "connections",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0094"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0096",
-      "year": 2025,
-      "location": {
-        "lat": 52.577344,
-        "lng": -0.245514
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-17-25",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-17-25"
-      },
-      "investment": {
-        "amount": 7801000,
-        "driver": "connections",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0096"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0098",
-      "year": 2025,
-      "location": {
-        "lat": 52.084474,
-        "lng": 1.181632
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-31-20",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-31-20"
-      },
-      "investment": {
-        "amount": 3028000,
-        "driver": "asset_replacement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0098"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0099",
-      "year": 2025,
-      "location": {
-        "lat": 52.63211,
-        "lng": 1.189074
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-31-26",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-31-26"
-      },
-      "investment": {
-        "amount": 8435000,
-        "driver": "load_reinforcement",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Norwich Primary 3 Investment",
-        "assetId": "asset-0099"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0100",
-      "year": 2025,
-      "location": {
-        "lat": 51.889514,
-        "lng": 0.864277
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-28-18",
-        "la": "LA-EPN-3",
-        "lsoa": "LSOA-EPN-28-18"
-      },
-      "investment": {
-        "amount": 635000,
-        "driver": "connections",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0100"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0101",
-      "year": 2025,
-      "location": {
-        "lat": 51.864145,
-        "lng": 0.904277
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-29-18",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-29-18"
-      },
-      "investment": {
-        "amount": 1027000,
-        "driver": "proactive_investment",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0101"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0102",
-      "year": 2025,
-      "location": {
-        "lat": 52.077836,
-        "lng": 1.129109
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-31-20",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-31-20"
-      },
-      "investment": {
-        "amount": 5312000,
-        "driver": "load_reinforcement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0102"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0103",
-      "year": 2025,
-      "location": {
-        "lat": 52.56185,
-        "lng": -0.234286
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-17-25",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-17-25"
-      },
-      "investment": {
-        "amount": 22130000,
-        "driver": "asset_replacement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "projectName": "Peterborough Grid Transformer 4 Investment",
-        "assetId": "asset-0103"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0104",
-      "year": 2025,
-      "location": {
-        "lat": 51.775808,
-        "lng": -0.017391
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-19-17",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-19-17"
-      },
-      "investment": {
-        "amount": 5328000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0104"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0105",
-      "year": 2025,
-      "location": {
-        "lat": 51.846022,
-        "lng": 0.904373
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-29-18",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-29-18"
-      },
-      "investment": {
-        "amount": 2442000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0105"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0106",
-      "year": 2025,
-      "location": {
-        "lat": 52.265,
-        "lng": 0.944493
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-29-22",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-29-22"
-      },
-      "investment": {
-        "amount": 4014000,
-        "driver": "load_reinforcement",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0106"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0108",
-      "year": 2025,
-      "location": {
-        "lat": 51.730615,
-        "lng": 0.458276
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-24-17",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-24-17"
-      },
-      "investment": {
-        "amount": 1096000,
-        "driver": "reverse_power_flow",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0108"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0109",
-      "year": 2025,
-      "location": {
-        "lat": 52.086117,
-        "lng": 1.173967
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-31-20",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-31-20"
-      },
-      "investment": {
-        "amount": 378000,
-        "driver": "asset_replacement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0109"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0111",
-      "year": 2025,
-      "location": {
-        "lat": 52.156801,
-        "lng": 0.036161
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-20-21",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-20-21"
-      },
-      "investment": {
-        "amount": 9879000,
-        "driver": "proactive_investment",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Cambridge Primary 8 Investment",
-        "assetId": "asset-0111"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0113",
-      "year": 2025,
-      "location": {
-        "lat": 51.750718,
-        "lng": 0.511058
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-25-17",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-25-17"
-      },
-      "investment": {
-        "amount": 88000,
-        "driver": "asset_replacement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0113"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0114",
-      "year": 2025,
-      "location": {
-        "lat": 51.417983,
-        "lng": 1.652493
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-36-14",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-36-14"
-      },
-      "investment": {
-        "amount": 224000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0114"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0115",
-      "year": 2025,
-      "location": {
-        "lat": 52.591279,
-        "lng": 1.078785
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-30-25",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-30-25"
-      },
-      "investment": {
-        "amount": 3275000,
-        "driver": "load_reinforcement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0115"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0116",
-      "year": 2025,
-      "location": {
-        "lat": 52.578974,
-        "lng": -0.19778
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-18-25",
-        "la": "LA-EPN-3",
-        "lsoa": "LSOA-EPN-18-25"
-      },
-      "investment": {
-        "amount": 171000,
-        "driver": "fault_level",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0116"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0118",
-      "year": 2025,
-      "location": {
-        "lat": 51.772544,
-        "lng": 0.089253
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-20-17",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-20-17"
-      },
-      "investment": {
-        "amount": 671000,
-        "driver": "connections",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0118"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0119",
-      "year": 2025,
-      "location": {
-        "lat": 52.063007,
-        "lng": 1.126992
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-31-20",
-        "la": "LA-EPN-1",
-        "lsoa": "LSOA-EPN-31-20"
-      },
-      "investment": {
-        "amount": 30630000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0119"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0120",
-      "year": 2025,
-      "location": {
-        "lat": 51.760456,
-        "lng": 0.074397
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-20-17",
-        "la": "LA-EPN-0",
-        "lsoa": "LSOA-EPN-20-17"
-      },
-      "investment": {
-        "amount": 8255000,
-        "driver": "fault_level",
-        "type": "cable"
-      },
-      "metadata": {
-        "projectName": "Harlow Cable Route 2 Investment",
-        "assetId": "asset-0120"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0121",
-      "year": 2025,
-      "location": {
-        "lat": 52.56918,
-        "lng": 0.966103
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-29-25",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-29-25"
-      },
-      "investment": {
-        "amount": 783000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0121"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0126",
-      "year": 2025,
-      "location": {
-        "lat": 52.56703,
-        "lng": -0.244464
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-17-25",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-17-25"
-      },
-      "investment": {
-        "amount": 11635000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0126"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0129",
-      "year": 2025,
-      "location": {
-        "lat": 52.236802,
-        "lng": 0.214504
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-22-22",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-22-22"
-      },
-      "investment": {
-        "amount": 1343000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Cambridge Primary 3 Investment",
-        "assetId": "asset-0129"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0130",
-      "year": 2025,
-      "location": {
-        "lat": 52.639563,
-        "lng": 1.27415
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-32-26",
-        "la": "LA-EPN-2",
-        "lsoa": "LSOA-EPN-32-26"
-      },
-      "investment": {
-        "amount": 11452000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0130"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0131",
-      "year": 2025,
-      "location": {
-        "lat": 51.897085,
-        "lng": 0.911205
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-29-18",
-        "la": "LA-EPN-4",
-        "lsoa": "LSOA-EPN-29-18"
-      },
-      "investment": {
-        "amount": 1829000,
-        "driver": "connections",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Colchester OHL Section 9 Investment",
-        "assetId": "asset-0131"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0132",
-      "year": 2025,
-      "location": {
-        "lat": 51.925355,
-        "lng": 0.887117
-      },
-      "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-28-19",
-        "la": "LA-EPN-3",
-        "lsoa": "LSOA-EPN-28-19"
-      },
-      "investment": {
-        "amount": 9434000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Colchester Primary 4 Investment",
-        "assetId": "asset-0132"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0133",
-      "year": 2025,
-      "location": {
-        "lat": 51.422063,
-        "lng": 0.305147
+        "lat": 51.4614,
+        "lng": 0.3537
       },
       "boundaries": {
         "resp": "RESP-EPN",
@@ -2026,77 +1349,840 @@
         "lsoa": "LSOA-EPN-23-14"
       },
       "investment": {
-        "amount": 152000,
-        "driver": "proactive_investment",
-        "type": "switchgear"
+        "amount": 7379000,
+        "driver": "reverse_power_flow",
+        "type": "substation"
       },
       "metadata": {
-        "assetId": "asset-0133"
+        "projectName": "Tilbury DSS Investment",
+        "assetId": "asset-0085"
       }
     },
     {
-      "id": "INV-2025-asset-0134",
+      "id": "INV-2025-asset-0086",
       "year": 2025,
       "location": {
-        "lat": 52.599187,
-        "lng": 1.332366
+        "lat": 51.342,
+        "lng": 0.735
       },
       "boundaries": {
-        "resp": "RESP-EPN",
-        "gsp": "GSP-33-25",
-        "la": "LA-EPN-3",
-        "lsoa": "LSOA-EPN-33-25"
+        "resp": "RESP-SPN",
+        "gsp": "GSP-27-13",
+        "la": "LA-SPN-2",
+        "lsoa": "LSOA-SPN-27-13"
       },
       "investment": {
-        "amount": 496000,
-        "driver": "load_reinforcement",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0134"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0135",
-      "year": 2025,
-      "location": {
-        "lat": 51.519469,
-        "lng": 0.05478
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-15",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-15"
-      },
-      "investment": {
-        "amount": 776000,
+        "amount": 8663000,
         "driver": "asset_replacement",
         "type": "substation"
       },
       "metadata": {
-        "assetId": "asset-0135"
+        "projectName": "Sittingbourne DSS Investment",
+        "assetId": "asset-0086"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0088",
+      "year": 2025,
+      "location": {
+        "lat": 51.3609,
+        "lng": 1.0253
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-30-13",
+        "la": "LA-SPN-0",
+        "lsoa": "LSOA-SPN-30-13"
+      },
+      "investment": {
+        "amount": 9882000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Whitstable DSS Investment",
+        "assetId": "asset-0088"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0089",
+      "year": 2025,
+      "location": {
+        "lat": 51.3714,
+        "lng": 1.1245
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-31-13",
+        "la": "LA-SPN-1",
+        "lsoa": "LSOA-SPN-31-13"
+      },
+      "investment": {
+        "amount": 5654000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Herne Bay DSS Investment",
+        "assetId": "asset-0089"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0090",
+      "year": 2025,
+      "location": {
+        "lat": 51.386,
+        "lng": 1.3865
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-33-13",
+        "la": "LA-SPN-3",
+        "lsoa": "LSOA-SPN-33-13"
+      },
+      "investment": {
+        "amount": 2170000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Margate DSS Investment",
+        "assetId": "asset-0090"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0091",
+      "year": 2025,
+      "location": {
+        "lat": 51.2221,
+        "lng": 1.4019
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-34-12",
+        "la": "LA-SPN-4",
+        "lsoa": "LSOA-SPN-34-12"
+      },
+      "investment": {
+        "amount": 3732000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Deal DSS Investment",
+        "assetId": "asset-0091"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0092",
+      "year": 2025,
+      "location": {
+        "lat": 51.0719,
+        "lng": 1.0833
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-30-10",
+        "la": "LA-SPN-0",
+        "lsoa": "LSOA-SPN-30-10"
+      },
+      "investment": {
+        "amount": 5843000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Hythe DSS Investment",
+        "assetId": "asset-0092"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0093",
+      "year": 2025,
+      "location": {
+        "lat": 50.9887,
+        "lng": 0.9428
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-29-9",
+        "la": "LA-SPN-4",
+        "lsoa": "LSOA-SPN-29-9"
+      },
+      "investment": {
+        "amount": 5959000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "New Romney DSS Investment",
+        "assetId": "asset-0093"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0094",
+      "year": 2025,
+      "location": {
+        "lat": 50.9503,
+        "lng": 0.734
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-27-9",
+        "la": "LA-SPN-2",
+        "lsoa": "LSOA-SPN-27-9"
+      },
+      "investment": {
+        "amount": 1867000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Rye DSS Investment",
+        "assetId": "asset-0094"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0095",
+      "year": 2025,
+      "location": {
+        "lat": 50.8419,
+        "lng": 0.4679
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-24-8",
+        "la": "LA-SPN-4",
+        "lsoa": "LSOA-SPN-24-8"
+      },
+      "investment": {
+        "amount": 5895000,
+        "driver": "reverse_power_flow",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Bexhill DSS Investment",
+        "assetId": "asset-0095"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0096",
+      "year": 2025,
+      "location": {
+        "lat": 50.7929,
+        "lng": -0.0091
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-19-7",
+        "la": "LA-SPN-4",
+        "lsoa": "LSOA-SPN-19-7"
+      },
+      "investment": {
+        "amount": 8289000,
+        "driver": "fault_level",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Peacehaven DSS Investment",
+        "assetId": "asset-0096"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0097",
+      "year": 2025,
+      "location": {
+        "lat": 50.7933,
+        "lng": 0.0541
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-20-7",
+        "la": "LA-SPN-0",
+        "lsoa": "LSOA-SPN-20-7"
+      },
+      "investment": {
+        "amount": 1103000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Newhaven DSS Investment",
+        "assetId": "asset-0097"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0099",
+      "year": 2025,
+      "location": {
+        "lat": 50.9703,
+        "lng": 0.096
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-20-9",
+        "la": "LA-SPN-0",
+        "lsoa": "LSOA-SPN-20-9"
+      },
+      "investment": {
+        "amount": 7067000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Uckfield DSS Investment",
+        "assetId": "asset-0099"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0100",
+      "year": 2025,
+      "location": {
+        "lat": 51.0583,
+        "lng": 0.1633
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-21-10",
+        "la": "LA-SPN-1",
+        "lsoa": "LSOA-SPN-21-10"
+      },
+      "investment": {
+        "amount": 5584000,
+        "driver": "fault_level",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Crowborough DSS Investment",
+        "assetId": "asset-0100"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0101",
+      "year": 2025,
+      "location": {
+        "lat": 51.1829,
+        "lng": 0.3915
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-23-11",
+        "la": "LA-SPN-3",
+        "lsoa": "LSOA-SPN-23-11"
+      },
+      "investment": {
+        "amount": 3609000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Paddock Wood DSS Investment",
+        "assetId": "asset-0101"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0103",
+      "year": 2025,
+      "location": {
+        "lat": 51.0952,
+        "lng": 0.5437
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-25-10",
+        "la": "LA-SPN-0",
+        "lsoa": "LSOA-SPN-25-10"
+      },
+      "investment": {
+        "amount": 2057000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Cranbrook DSS Investment",
+        "assetId": "asset-0103"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0104",
+      "year": 2025,
+      "location": {
+        "lat": 51.1959,
+        "lng": 0.0659
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-20-11",
+        "la": "LA-SPN-0",
+        "lsoa": "LSOA-SPN-20-11"
+      },
+      "investment": {
+        "amount": 3067000,
+        "driver": "reverse_power_flow",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Edenbridge DSS Investment",
+        "assetId": "asset-0104"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0105",
+      "year": 2025,
+      "location": {
+        "lat": 51.1261,
+        "lng": -0.0094
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-19-11",
+        "la": "LA-SPN-4",
+        "lsoa": "LSOA-SPN-19-11"
+      },
+      "investment": {
+        "amount": 8906000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "East Grinstead DSS Investment",
+        "assetId": "asset-0105"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0106",
+      "year": 2025,
+      "location": {
+        "lat": 51.002,
+        "lng": -0.1043
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-18-10",
+        "la": "LA-SPN-3",
+        "lsoa": "LSOA-SPN-18-10"
+      },
+      "investment": {
+        "amount": 3163000,
+        "driver": "proactive_investment",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Haywards Heath DSS Investment",
+        "assetId": "asset-0106"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0107",
+      "year": 2025,
+      "location": {
+        "lat": 50.9548,
+        "lng": -0.1275
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-18-9",
+        "la": "LA-SPN-3",
+        "lsoa": "LSOA-SPN-18-9"
+      },
+      "investment": {
+        "amount": 1099000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Burgess Hill DSS Investment",
+        "assetId": "asset-0107"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0108",
+      "year": 2025,
+      "location": {
+        "lat": 50.8322,
+        "lng": -0.2677
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-17-8",
+        "la": "LA-SPN-2",
+        "lsoa": "LSOA-SPN-17-8"
+      },
+      "investment": {
+        "amount": 3572000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Shoreham DSS Investment",
+        "assetId": "asset-0108"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0109",
+      "year": 2025,
+      "location": {
+        "lat": 50.8097,
+        "lng": -0.5411
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-14-8",
+        "la": "LA-SPN-4",
+        "lsoa": "LSOA-SPN-14-8"
+      },
+      "investment": {
+        "amount": 7171000,
+        "driver": "load_reinforcement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Littlehampton DSS Investment",
+        "assetId": "asset-0109"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0110",
+      "year": 2025,
+      "location": {
+        "lat": 50.787,
+        "lng": -0.6735
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-13-7",
+        "la": "LA-SPN-3",
+        "lsoa": "LSOA-SPN-13-7"
+      },
+      "investment": {
+        "amount": 5976000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Bognor Regis DSS Investment",
+        "assetId": "asset-0110"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0112",
+      "year": 2025,
+      "location": {
+        "lat": 51.0041,
+        "lng": -0.937
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-10-10",
+        "la": "LA-SPN-0",
+        "lsoa": "LSOA-SPN-10-10"
+      },
+      "investment": {
+        "amount": 8075000,
+        "driver": "connections",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Petersfield DSS Investment",
+        "assetId": "asset-0112"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0113",
+      "year": 2025,
+      "location": {
+        "lat": 51.0899,
+        "lng": -0.7135
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-12-10",
+        "la": "LA-SPN-2",
+        "lsoa": "LSOA-SPN-12-10"
+      },
+      "investment": {
+        "amount": 5887000,
+        "driver": "asset_replacement",
+        "type": "substation"
+      },
+      "metadata": {
+        "projectName": "Haslemere DSS Investment",
+        "assetId": "asset-0113"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0115",
+      "year": 2025,
+      "location": {
+        "lat": 51.532,
+        "lng": -0.1058
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-18-15",
+        "la": "LA-LPN-3",
+        "lsoa": "LSOA-LPN-18-15"
+      },
+      "investment": {
+        "amount": 586000,
+        "driver": "connections",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Angel Transformer Investment",
+        "assetId": "asset-0115"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0117",
+      "year": 2025,
+      "location": {
+        "lat": 51.5282,
+        "lng": -0.1339
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-18-15",
+        "la": "LA-LPN-3",
+        "lsoa": "LSOA-LPN-18-15"
+      },
+      "investment": {
+        "amount": 1147000,
+        "driver": "reverse_power_flow",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Euston Transformer Investment",
+        "assetId": "asset-0117"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0120",
+      "year": 2025,
+      "location": {
+        "lat": 51.5053,
+        "lng": -0.0866
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-19-15",
+        "la": "LA-LPN-4",
+        "lsoa": "LSOA-LPN-19-15"
+      },
+      "investment": {
+        "amount": 191000,
+        "driver": "asset_replacement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "London Bridge Transformer Investment",
+        "assetId": "asset-0120"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0123",
+      "year": 2025,
+      "location": {
+        "lat": 51.4863,
+        "lng": -0.1236
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-18-14",
+        "la": "LA-LPN-3",
+        "lsoa": "LSOA-LPN-18-14"
+      },
+      "investment": {
+        "amount": 874000,
+        "driver": "fault_level",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Vauxhall Transformer Investment",
+        "assetId": "asset-0123"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0124",
+      "year": 2025,
+      "location": {
+        "lat": 51.4884,
+        "lng": -0.1058
+      },
+      "boundaries": {
+        "resp": "RESP-LPN",
+        "gsp": "GSP-18-14",
+        "la": "LA-LPN-3",
+        "lsoa": "LSOA-LPN-18-14"
+      },
+      "investment": {
+        "amount": 776000,
+        "driver": "connections",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Kennington Transformer Investment",
+        "assetId": "asset-0124"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0125",
+      "year": 2025,
+      "location": {
+        "lat": 52.3995,
+        "lng": 0.2622
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-22-23",
+        "la": "LA-EPN-2",
+        "lsoa": "LSOA-EPN-22-23"
+      },
+      "investment": {
+        "amount": 1052000,
+        "driver": "asset_replacement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Ely Transformer Investment",
+        "assetId": "asset-0125"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0129",
+      "year": 2025,
+      "location": {
+        "lat": 52.5689,
+        "lng": 1.1182
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-31-25",
+        "la": "LA-EPN-1",
+        "lsoa": "LSOA-EPN-31-25"
+      },
+      "investment": {
+        "amount": 338000,
+        "driver": "reverse_power_flow",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Wymondham Transformer Investment",
+        "assetId": "asset-0129"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0131",
+      "year": 2025,
+      "location": {
+        "lat": 52.3428,
+        "lng": 1.5015
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-35-23",
+        "la": "LA-EPN-0",
+        "lsoa": "LSOA-EPN-35-23"
+      },
+      "investment": {
+        "amount": 813000,
+        "driver": "asset_replacement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Halesworth Transformer Investment",
+        "assetId": "asset-0131"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0132",
+      "year": 2025,
+      "location": {
+        "lat": 52.22,
+        "lng": 1.4918
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-34-22",
+        "la": "LA-EPN-4",
+        "lsoa": "LSOA-EPN-34-22"
+      },
+      "investment": {
+        "amount": 282000,
+        "driver": "connections",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Saxmundham Transformer Investment",
+        "assetId": "asset-0132"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0133",
+      "year": 2025,
+      "location": {
+        "lat": 52.2071,
+        "lng": 1.5736
+      },
+      "boundaries": {
+        "resp": "RESP-EPN",
+        "gsp": "GSP-35-22",
+        "la": "LA-EPN-0",
+        "lsoa": "LSOA-EPN-35-22"
+      },
+      "investment": {
+        "amount": 511000,
+        "driver": "reverse_power_flow",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Leiston Transformer Investment",
+        "assetId": "asset-0133"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0136",
+      "year": 2025,
+      "location": {
+        "lat": 51.4415,
+        "lng": 0.367
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-23-14",
+        "la": "LA-SPN-3",
+        "lsoa": "LSOA-SPN-23-14"
+      },
+      "investment": {
+        "amount": 698000,
+        "driver": "asset_replacement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Gravesend Transformer Investment",
+        "assetId": "asset-0136"
       }
     },
     {
       "id": "INV-2025-asset-0137",
       "year": 2025,
       "location": {
-        "lat": 51.500197,
-        "lng": -0.390501
+        "lat": 51.3878,
+        "lng": 0.5004
       },
       "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-16-15",
-        "la": "LA-LPN-1",
-        "lsoa": "LSOA-LPN-16-15"
+        "resp": "RESP-SPN",
+        "gsp": "GSP-25-13",
+        "la": "LA-SPN-0",
+        "lsoa": "LSOA-SPN-25-13"
       },
       "investment": {
-        "amount": 1178000,
-        "driver": "reverse_power_flow",
-        "type": "cable"
+        "amount": 306000,
+        "driver": "asset_replacement",
+        "type": "transformer"
       },
       "metadata": {
+        "projectName": "Rochester Transformer Investment",
         "assetId": "asset-0137"
       }
     },
@@ -2104,3288 +2190,138 @@
       "id": "INV-2025-asset-0138",
       "year": 2025,
       "location": {
-        "lat": 51.396562,
-        "lng": -0.416993
+        "lat": 51.3797,
+        "lng": 0.5257
       },
       "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-15-13",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-15-13"
+        "resp": "RESP-SPN",
+        "gsp": "GSP-25-13",
+        "la": "LA-SPN-0",
+        "lsoa": "LSOA-SPN-25-13"
       },
       "investment": {
-        "amount": 972000,
+        "amount": 499000,
         "driver": "fault_level",
         "type": "transformer"
       },
       "metadata": {
+        "projectName": "Chatham Transformer Investment",
         "assetId": "asset-0138"
       }
     },
     {
-      "id": "INV-2025-asset-0139",
+      "id": "INV-2025-asset-0140",
       "year": 2025,
       "location": {
-        "lat": 51.538019,
-        "lng": -0.122825
+        "lat": 51.3658,
+        "lng": 0.6106
       },
       "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-15",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-15"
+        "resp": "RESP-SPN",
+        "gsp": "GSP-26-13",
+        "la": "LA-SPN-1",
+        "lsoa": "LSOA-SPN-26-13"
       },
       "investment": {
-        "amount": 4753000,
-        "driver": "reverse_power_flow",
-        "type": "overhead_line"
+        "amount": 334000,
+        "driver": "load_reinforcement",
+        "type": "transformer"
       },
       "metadata": {
-        "projectName": "Central London OHL Section 3 Investment",
-        "assetId": "asset-0139"
+        "projectName": "Rainham Transformer Investment",
+        "assetId": "asset-0140"
       }
     },
     {
       "id": "INV-2025-asset-0141",
       "year": 2025,
       "location": {
-        "lat": 51.323827,
-        "lng": -0.198486
+        "lat": 51.4413,
+        "lng": 0.766
       },
       "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-13",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-13"
+        "resp": "RESP-SPN",
+        "gsp": "GSP-27-14",
+        "la": "LA-SPN-2",
+        "lsoa": "LSOA-SPN-27-14"
       },
       "investment": {
-        "amount": 520000,
+        "amount": 404000,
+        "driver": "asset_replacement",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Sheerness Transformer Investment",
+        "assetId": "asset-0141"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0142",
+      "year": 2025,
+      "location": {
+        "lat": 51.2749,
+        "lng": 1.3391
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-33-12",
+        "la": "LA-SPN-3",
+        "lsoa": "LSOA-SPN-33-12"
+      },
+      "investment": {
+        "amount": 1096000,
         "driver": "connections",
         "type": "transformer"
       },
       "metadata": {
-        "assetId": "asset-0141"
+        "projectName": "Sandwich Transformer Investment",
+        "assetId": "asset-0142"
+      }
+    },
+    {
+      "id": "INV-2025-asset-0143",
+      "year": 2025,
+      "location": {
+        "lat": 51.3601,
+        "lng": 1.439
+      },
+      "boundaries": {
+        "resp": "RESP-SPN",
+        "gsp": "GSP-34-13",
+        "la": "LA-SPN-4",
+        "lsoa": "LSOA-SPN-34-13"
+      },
+      "investment": {
+        "amount": 391000,
+        "driver": "fault_level",
+        "type": "transformer"
+      },
+      "metadata": {
+        "projectName": "Broadstairs Transformer Investment",
+        "assetId": "asset-0143"
       }
     },
     {
       "id": "INV-2025-asset-0144",
       "year": 2025,
       "location": {
-        "lat": 51.336368,
-        "lng": -0.242111
+        "lat": 51.3815,
+        "lng": 1.3398
       },
       "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-17-13",
-        "la": "LA-LPN-2",
-        "lsoa": "LSOA-LPN-17-13"
+        "resp": "RESP-SPN",
+        "gsp": "GSP-33-13",
+        "la": "LA-SPN-3",
+        "lsoa": "LSOA-SPN-33-13"
       },
       "investment": {
-        "amount": 3432000,
-        "driver": "fault_level",
+        "amount": 720000,
+        "driver": "connections",
         "type": "transformer"
       },
       "metadata": {
+        "projectName": "Westgate Transformer Investment",
         "assetId": "asset-0144"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0145",
-      "year": 2025,
-      "location": {
-        "lat": 51.505731,
-        "lng": -0.03288
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 1521000,
-        "driver": "reverse_power_flow",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0145"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0146",
-      "year": 2025,
-      "location": {
-        "lat": 51.379148,
-        "lng": -0.136865
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-13",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-13"
-      },
-      "investment": {
-        "amount": 463000,
-        "driver": "fault_level",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0146"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0147",
-      "year": 2025,
-      "location": {
-        "lat": 51.547911,
-        "lng": -0.101296
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-15",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-15"
-      },
-      "investment": {
-        "amount": 2387000,
-        "driver": "asset_replacement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Central London OHL Section 1 Investment",
-        "assetId": "asset-0147"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0149",
-      "year": 2025,
-      "location": {
-        "lat": 51.439498,
-        "lng": -0.25722
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-17-14",
-        "la": "LA-LPN-2",
-        "lsoa": "LSOA-LPN-17-14"
-      },
-      "investment": {
-        "amount": 752000,
-        "driver": "load_reinforcement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0149"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0151",
-      "year": 2025,
-      "location": {
-        "lat": 51.472876,
-        "lng": 0.005829
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-14",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-14"
-      },
-      "investment": {
-        "amount": 23658000,
-        "driver": "reverse_power_flow",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Central London Primary 2 Investment",
-        "assetId": "asset-0151"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0152",
-      "year": 2025,
-      "location": {
-        "lat": 51.481893,
-        "lng": 0.042524
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-14",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-14"
-      },
-      "investment": {
-        "amount": 1401000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0152"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0154",
-      "year": 2025,
-      "location": {
-        "lat": 51.622651,
-        "lng": 0.185071
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-21-16",
-        "la": "LA-LPN-1",
-        "lsoa": "LSOA-LPN-21-16"
-      },
-      "investment": {
-        "amount": 421000,
-        "driver": "asset_replacement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0154"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0155",
-      "year": 2025,
-      "location": {
-        "lat": 51.527403,
-        "lng": -0.000277
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 1027000,
-        "driver": "proactive_investment",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0155"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0156",
-      "year": 2025,
-      "location": {
-        "lat": 51.515968,
-        "lng": -0.035646
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 5312000,
-        "driver": "load_reinforcement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0156"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0157",
-      "year": 2025,
-      "location": {
-        "lat": 51.36811,
-        "lng": -0.095072
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-13",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-13"
-      },
-      "investment": {
-        "amount": 22130000,
-        "driver": "asset_replacement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "projectName": "Central London Grid Transformer 4 Investment",
-        "assetId": "asset-0157"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0158",
-      "year": 2025,
-      "location": {
-        "lat": 51.415633,
-        "lng": -0.332136
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-16-14",
-        "la": "LA-LPN-1",
-        "lsoa": "LSOA-LPN-16-14"
-      },
-      "investment": {
-        "amount": 5328000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0158"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0159",
-      "year": 2025,
-      "location": {
-        "lat": 51.340391,
-        "lng": -0.09582
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-13",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-13"
-      },
-      "investment": {
-        "amount": 2442000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0159"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0161",
-      "year": 2025,
-      "location": {
-        "lat": 51.47313,
-        "lng": -0.117614
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-14",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-14"
-      },
-      "investment": {
-        "amount": 287000,
-        "driver": "load_reinforcement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0161"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0162",
-      "year": 2025,
-      "location": {
-        "lat": 51.476976,
-        "lng": -0.037661
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-14",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-14"
-      },
-      "investment": {
-        "amount": 3127000,
-        "driver": "proactive_investment",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0162"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0163",
-      "year": 2025,
-      "location": {
-        "lat": 51.615223,
-        "lng": -0.077774
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-16",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-16"
-      },
-      "investment": {
-        "amount": 213000,
-        "driver": "connections",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0163"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0164",
-      "year": 2025,
-      "location": {
-        "lat": 51.507518,
-        "lng": -0.129106
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-15",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-15"
-      },
-      "investment": {
-        "amount": 2541000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0164"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0165",
-      "year": 2025,
-      "location": {
-        "lat": 51.392106,
-        "lng": -0.083731
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-13",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-13"
-      },
-      "investment": {
-        "amount": 552000,
-        "driver": "load_reinforcement",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0165"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0167",
-      "year": 2025,
-      "location": {
-        "lat": 51.461059,
-        "lng": 0.005929
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-14",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-14"
-      },
-      "investment": {
-        "amount": 88000,
-        "driver": "asset_replacement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0167"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0168",
-      "year": 2025,
-      "location": {
-        "lat": 51.305533,
-        "lng": 0.248693
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-22-13",
-        "la": "LA-LPN-2",
-        "lsoa": "LSOA-LPN-22-13"
-      },
-      "investment": {
-        "amount": 224000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0168"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0169",
-      "year": 2025,
-      "location": {
-        "lat": 51.666547,
-        "lng": 0.049142
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-16",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-16"
-      },
-      "investment": {
-        "amount": 3275000,
-        "driver": "load_reinforcement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0169"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0170",
-      "year": 2025,
-      "location": {
-        "lat": 51.378385,
-        "lng": -0.073168
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-13",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-13"
-      },
-      "investment": {
-        "amount": 171000,
-        "driver": "fault_level",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0170"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0172",
-      "year": 2025,
-      "location": {
-        "lat": 51.539129,
-        "lng": 0.066802
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-15",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-15"
-      },
-      "investment": {
-        "amount": 671000,
-        "driver": "connections",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0172"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0173",
-      "year": 2025,
-      "location": {
-        "lat": 51.508554,
-        "lng": -0.036704
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 30630000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0173"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0174",
-      "year": 2025,
-      "location": {
-        "lat": 51.53107,
-        "lng": 0.056898
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-15",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-15"
-      },
-      "investment": {
-        "amount": 8255000,
-        "driver": "fault_level",
-        "type": "cable"
-      },
-      "metadata": {
-        "projectName": "Central London Cable Route 2 Investment",
-        "assetId": "asset-0174"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0175",
-      "year": 2025,
-      "location": {
-        "lat": 51.659748,
-        "lng": 0.009949
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-16",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-16"
-      },
-      "investment": {
-        "amount": 783000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0175"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0180",
-      "year": 2025,
-      "location": {
-        "lat": 51.371218,
-        "lng": -0.101178
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-13",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-13"
-      },
-      "investment": {
-        "amount": 11635000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0180"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0183",
-      "year": 2025,
-      "location": {
-        "lat": 51.528401,
-        "lng": -0.065797
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 1343000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Central London Primary 3 Investment",
-        "assetId": "asset-0183"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0184",
-      "year": 2025,
-      "location": {
-        "lat": 51.509509,
-        "lng": -0.031063
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 11452000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0184"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0185",
-      "year": 2025,
-      "location": {
-        "lat": 51.547991,
-        "lng": 0.004053
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-15",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-15"
-      },
-      "investment": {
-        "amount": 1829000,
-        "driver": "connections",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Central London OHL Section 9 Investment",
-        "assetId": "asset-0185"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0186",
-      "year": 2025,
-      "location": {
-        "lat": 51.565659,
-        "lng": -0.011002
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 9434000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Central London Primary 4 Investment",
-        "assetId": "asset-0186"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0187",
-      "year": 2025,
-      "location": {
-        "lat": 51.306789,
-        "lng": -0.219949
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-17-13",
-        "la": "LA-LPN-2",
-        "lsoa": "LSOA-LPN-17-13"
-      },
-      "investment": {
-        "amount": 152000,
-        "driver": "proactive_investment",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0187"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0188",
-      "year": 2025,
-      "location": {
-        "lat": 51.481972,
-        "lng": -0.094212
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-14",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-14"
-      },
-      "investment": {
-        "amount": 496000,
-        "driver": "load_reinforcement",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0188"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0189",
-      "year": 2025,
-      "location": {
-        "lat": 51.519469,
-        "lng": 0.05478
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-15",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-15"
-      },
-      "investment": {
-        "amount": 776000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0189"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0191",
-      "year": 2025,
-      "location": {
-        "lat": 51.500197,
-        "lng": -0.390501
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-16-15",
-        "la": "LA-LPN-1",
-        "lsoa": "LSOA-LPN-16-15"
-      },
-      "investment": {
-        "amount": 1178000,
-        "driver": "reverse_power_flow",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0191"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0192",
-      "year": 2025,
-      "location": {
-        "lat": 51.396562,
-        "lng": -0.416993
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-15-13",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-15-13"
-      },
-      "investment": {
-        "amount": 972000,
-        "driver": "fault_level",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0192"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0193",
-      "year": 2025,
-      "location": {
-        "lat": 51.538019,
-        "lng": -0.122825
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-15",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-15"
-      },
-      "investment": {
-        "amount": 4753000,
-        "driver": "reverse_power_flow",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Central London OHL Section 3 Investment",
-        "assetId": "asset-0193"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0195",
-      "year": 2025,
-      "location": {
-        "lat": 51.323827,
-        "lng": -0.198486
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-13",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-13"
-      },
-      "investment": {
-        "amount": 520000,
-        "driver": "connections",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0195"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0198",
-      "year": 2025,
-      "location": {
-        "lat": 51.336368,
-        "lng": -0.242111
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-17-13",
-        "la": "LA-LPN-2",
-        "lsoa": "LSOA-LPN-17-13"
-      },
-      "investment": {
-        "amount": 3432000,
-        "driver": "fault_level",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0198"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0199",
-      "year": 2025,
-      "location": {
-        "lat": 51.505731,
-        "lng": -0.03288
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 1521000,
-        "driver": "reverse_power_flow",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0199"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0200",
-      "year": 2025,
-      "location": {
-        "lat": 51.379148,
-        "lng": -0.136865
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-13",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-13"
-      },
-      "investment": {
-        "amount": 463000,
-        "driver": "fault_level",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0200"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0201",
-      "year": 2025,
-      "location": {
-        "lat": 51.547911,
-        "lng": -0.101296
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-15",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-15"
-      },
-      "investment": {
-        "amount": 2387000,
-        "driver": "asset_replacement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Central London OHL Section 1 Investment",
-        "assetId": "asset-0201"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0203",
-      "year": 2025,
-      "location": {
-        "lat": 51.439498,
-        "lng": -0.25722
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-17-14",
-        "la": "LA-LPN-2",
-        "lsoa": "LSOA-LPN-17-14"
-      },
-      "investment": {
-        "amount": 752000,
-        "driver": "load_reinforcement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0203"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0205",
-      "year": 2025,
-      "location": {
-        "lat": 51.472876,
-        "lng": 0.005829
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-14",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-14"
-      },
-      "investment": {
-        "amount": 23658000,
-        "driver": "reverse_power_flow",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Central London Primary 2 Investment",
-        "assetId": "asset-0205"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0206",
-      "year": 2025,
-      "location": {
-        "lat": 51.481893,
-        "lng": 0.042524
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-14",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-14"
-      },
-      "investment": {
-        "amount": 1401000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0206"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0208",
-      "year": 2025,
-      "location": {
-        "lat": 51.622651,
-        "lng": 0.185071
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-21-16",
-        "la": "LA-LPN-1",
-        "lsoa": "LSOA-LPN-21-16"
-      },
-      "investment": {
-        "amount": 421000,
-        "driver": "asset_replacement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0208"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0209",
-      "year": 2025,
-      "location": {
-        "lat": 51.527403,
-        "lng": -0.000277
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 1027000,
-        "driver": "proactive_investment",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0209"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0210",
-      "year": 2025,
-      "location": {
-        "lat": 51.515968,
-        "lng": -0.035646
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 5312000,
-        "driver": "load_reinforcement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0210"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0211",
-      "year": 2025,
-      "location": {
-        "lat": 51.36811,
-        "lng": -0.095072
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-13",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-13"
-      },
-      "investment": {
-        "amount": 22130000,
-        "driver": "asset_replacement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "projectName": "Central London Grid Transformer 4 Investment",
-        "assetId": "asset-0211"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0212",
-      "year": 2025,
-      "location": {
-        "lat": 51.415633,
-        "lng": -0.332136
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-16-14",
-        "la": "LA-LPN-1",
-        "lsoa": "LSOA-LPN-16-14"
-      },
-      "investment": {
-        "amount": 5328000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0212"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0213",
-      "year": 2025,
-      "location": {
-        "lat": 51.340391,
-        "lng": -0.09582
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-13",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-13"
-      },
-      "investment": {
-        "amount": 2442000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0213"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0215",
-      "year": 2025,
-      "location": {
-        "lat": 51.47313,
-        "lng": -0.117614
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-14",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-14"
-      },
-      "investment": {
-        "amount": 287000,
-        "driver": "load_reinforcement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0215"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0216",
-      "year": 2025,
-      "location": {
-        "lat": 51.476976,
-        "lng": -0.037661
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-14",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-14"
-      },
-      "investment": {
-        "amount": 3127000,
-        "driver": "proactive_investment",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0216"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0217",
-      "year": 2025,
-      "location": {
-        "lat": 51.615223,
-        "lng": -0.077774
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-16",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-16"
-      },
-      "investment": {
-        "amount": 213000,
-        "driver": "connections",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0217"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0218",
-      "year": 2025,
-      "location": {
-        "lat": 51.507518,
-        "lng": -0.129106
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-15",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-15"
-      },
-      "investment": {
-        "amount": 2541000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0218"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0219",
-      "year": 2025,
-      "location": {
-        "lat": 51.392106,
-        "lng": -0.083731
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-13",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-13"
-      },
-      "investment": {
-        "amount": 552000,
-        "driver": "load_reinforcement",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0219"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0221",
-      "year": 2025,
-      "location": {
-        "lat": 51.461059,
-        "lng": 0.005929
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-14",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-14"
-      },
-      "investment": {
-        "amount": 88000,
-        "driver": "asset_replacement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0221"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0222",
-      "year": 2025,
-      "location": {
-        "lat": 51.305533,
-        "lng": 0.248693
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-22-13",
-        "la": "LA-LPN-2",
-        "lsoa": "LSOA-LPN-22-13"
-      },
-      "investment": {
-        "amount": 224000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0222"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0223",
-      "year": 2025,
-      "location": {
-        "lat": 51.666547,
-        "lng": 0.049142
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-16",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-16"
-      },
-      "investment": {
-        "amount": 3275000,
-        "driver": "load_reinforcement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0223"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0224",
-      "year": 2025,
-      "location": {
-        "lat": 51.378385,
-        "lng": -0.073168
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-13",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-13"
-      },
-      "investment": {
-        "amount": 171000,
-        "driver": "fault_level",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0224"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0226",
-      "year": 2025,
-      "location": {
-        "lat": 51.539129,
-        "lng": 0.066802
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-15",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-15"
-      },
-      "investment": {
-        "amount": 671000,
-        "driver": "connections",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0226"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0227",
-      "year": 2025,
-      "location": {
-        "lat": 51.508554,
-        "lng": -0.036704
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 30630000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0227"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0228",
-      "year": 2025,
-      "location": {
-        "lat": 51.53107,
-        "lng": 0.056898
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-15",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-15"
-      },
-      "investment": {
-        "amount": 8255000,
-        "driver": "fault_level",
-        "type": "cable"
-      },
-      "metadata": {
-        "projectName": "Central London Cable Route 2 Investment",
-        "assetId": "asset-0228"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0229",
-      "year": 2025,
-      "location": {
-        "lat": 51.659748,
-        "lng": 0.009949
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-16",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-16"
-      },
-      "investment": {
-        "amount": 783000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0229"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0234",
-      "year": 2025,
-      "location": {
-        "lat": 51.371218,
-        "lng": -0.101178
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-13",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-13"
-      },
-      "investment": {
-        "amount": 11635000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0234"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0237",
-      "year": 2025,
-      "location": {
-        "lat": 51.528401,
-        "lng": -0.065797
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 1343000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Central London Primary 3 Investment",
-        "assetId": "asset-0237"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0238",
-      "year": 2025,
-      "location": {
-        "lat": 51.509509,
-        "lng": -0.031063
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 11452000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0238"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0239",
-      "year": 2025,
-      "location": {
-        "lat": 51.547991,
-        "lng": 0.004053
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-15",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-15"
-      },
-      "investment": {
-        "amount": 1829000,
-        "driver": "connections",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Central London OHL Section 9 Investment",
-        "assetId": "asset-0239"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0240",
-      "year": 2025,
-      "location": {
-        "lat": 51.565659,
-        "lng": -0.011002
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-15",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-15"
-      },
-      "investment": {
-        "amount": 9434000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Central London Primary 4 Investment",
-        "assetId": "asset-0240"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0241",
-      "year": 2025,
-      "location": {
-        "lat": 51.306789,
-        "lng": -0.219949
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-17-13",
-        "la": "LA-LPN-2",
-        "lsoa": "LSOA-LPN-17-13"
-      },
-      "investment": {
-        "amount": 152000,
-        "driver": "proactive_investment",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0241"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0242",
-      "year": 2025,
-      "location": {
-        "lat": 51.481972,
-        "lng": -0.094212
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-19-14",
-        "la": "LA-LPN-4",
-        "lsoa": "LSOA-LPN-19-14"
-      },
-      "investment": {
-        "amount": 496000,
-        "driver": "load_reinforcement",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0242"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0243",
-      "year": 2025,
-      "location": {
-        "lat": 51.519469,
-        "lng": 0.05478
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-20-15",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-20-15"
-      },
-      "investment": {
-        "amount": 776000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0243"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0245",
-      "year": 2025,
-      "location": {
-        "lat": 51.500197,
-        "lng": -0.390501
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-16-15",
-        "la": "LA-LPN-1",
-        "lsoa": "LSOA-LPN-16-15"
-      },
-      "investment": {
-        "amount": 1178000,
-        "driver": "reverse_power_flow",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0245"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0246",
-      "year": 2025,
-      "location": {
-        "lat": 51.396562,
-        "lng": -0.416993
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-15-13",
-        "la": "LA-LPN-0",
-        "lsoa": "LSOA-LPN-15-13"
-      },
-      "investment": {
-        "amount": 972000,
-        "driver": "fault_level",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0246"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0247",
-      "year": 2025,
-      "location": {
-        "lat": 51.538019,
-        "lng": -0.122825
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-15",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-15"
-      },
-      "investment": {
-        "amount": 4753000,
-        "driver": "reverse_power_flow",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Central London OHL Section 3 Investment",
-        "assetId": "asset-0247"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0249",
-      "year": 2025,
-      "location": {
-        "lat": 51.323827,
-        "lng": -0.198486
-      },
-      "boundaries": {
-        "resp": "RESP-LPN",
-        "gsp": "GSP-18-13",
-        "la": "LA-LPN-3",
-        "lsoa": "LSOA-LPN-18-13"
-      },
-      "investment": {
-        "amount": 520000,
-        "driver": "connections",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0249"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0252",
-      "year": 2025,
-      "location": {
-        "lat": 50.772735,
-        "lng": -0.329625
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-16-7",
-        "la": "LA-SPN-1",
-        "lsoa": "LSOA-SPN-16-7"
-      },
-      "investment": {
-        "amount": 3432000,
-        "driver": "fault_level",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0252"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0253",
-      "year": 2025,
-      "location": {
-        "lat": 51.128231,
-        "lng": 1.30402
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-33-11",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-33-11"
-      },
-      "investment": {
-        "amount": 1521000,
-        "driver": "reverse_power_flow",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0253"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0254",
-      "year": 2025,
-      "location": {
-        "lat": 51.465246,
-        "lng": -1.041841
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-9-14",
-        "la": "LA-SPN-4",
-        "lsoa": "LSOA-SPN-9-14"
-      },
-      "investment": {
-        "amount": 463000,
-        "driver": "fault_level",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0254"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0255",
-      "year": 2025,
-      "location": {
-        "lat": 50.854909,
-        "lng": -0.116157
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-18-8",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-18-8"
-      },
-      "investment": {
-        "amount": 2387000,
-        "driver": "asset_replacement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Brighton OHL Section 1 Investment",
-        "assetId": "asset-0255"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0257",
-      "year": 2025,
-      "location": {
-        "lat": 50.978996,
-        "lng": -0.380616
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-16-9",
-        "la": "LA-SPN-1",
-        "lsoa": "LSOA-SPN-16-9"
-      },
-      "investment": {
-        "amount": 752000,
-        "driver": "load_reinforcement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0257"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0259",
-      "year": 2025,
-      "location": {
-        "lat": 51.097045,
-        "lng": -0.191964
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-18-10",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-18-10"
-      },
-      "investment": {
-        "amount": 23658000,
-        "driver": "reverse_power_flow",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Crawley Primary 2 Investment",
-        "assetId": "asset-0259"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0260",
-      "year": 2025,
-      "location": {
-        "lat": 51.108317,
-        "lng": -0.146095
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-18-11",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-18-11"
-      },
-      "investment": {
-        "amount": 1401000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0260"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0262",
-      "year": 2025,
-      "location": {
-        "lat": 51.345301,
-        "lng": 1.112115
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-31-13",
-        "la": "LA-SPN-1",
-        "lsoa": "LSOA-SPN-31-13"
-      },
-      "investment": {
-        "amount": 421000,
-        "driver": "asset_replacement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0262"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0263",
-      "year": 2025,
-      "location": {
-        "lat": 51.112303,
-        "lng": 1.315823
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-33-11",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-33-11"
-      },
-      "investment": {
-        "amount": 1027000,
-        "driver": "proactive_investment",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0263"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0264",
-      "year": 2025,
-      "location": {
-        "lat": 51.291382,
-        "lng": 1.065725
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-30-12",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-30-12"
-      },
-      "investment": {
-        "amount": 5312000,
-        "driver": "load_reinforcement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0264"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0265",
-      "year": 2025,
-      "location": {
-        "lat": 51.44685,
-        "lng": -0.972186
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-10-14",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-10-14"
-      },
-      "investment": {
-        "amount": 22130000,
-        "driver": "asset_replacement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "projectName": "Reading Grid Transformer 4 Investment",
-        "assetId": "asset-0265"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0266",
-      "year": 2025,
-      "location": {
-        "lat": 50.931267,
-        "lng": -0.633459
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-13-9",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-13-9"
-      },
-      "investment": {
-        "amount": 5328000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0266"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0267",
-      "year": 2025,
-      "location": {
-        "lat": 51.203891,
-        "lng": -0.57032
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-14-12",
-        "la": "LA-SPN-4",
-        "lsoa": "LSOA-SPN-14-12"
-      },
-      "investment": {
-        "amount": 2442000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0267"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0268",
-      "year": 2025,
-      "location": {
-        "lat": 51.232307,
-        "lng": 0.495709
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-24-12",
-        "la": "LA-SPN-4",
-        "lsoa": "LSOA-SPN-24-12"
-      },
-      "investment": {
-        "amount": 4014000,
-        "driver": "load_reinforcement",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0268"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0270",
-      "year": 2025,
-      "location": {
-        "lat": 51.143984,
-        "lng": 0.865973
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-28-11",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-28-11"
-      },
-      "investment": {
-        "amount": 1096000,
-        "driver": "reverse_power_flow",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0270"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0272",
-      "year": 2025,
-      "location": {
-        "lat": 51.278721,
-        "lng": 1.08473
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-30-12",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-30-12"
-      },
-      "investment": {
-        "amount": 1128000,
-        "driver": "load_reinforcement",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0272"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0273",
-      "year": 2025,
-      "location": {
-        "lat": 51.486844,
-        "lng": -0.953285
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-10-14",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-10-14"
-      },
-      "investment": {
-        "amount": 552000,
-        "driver": "load_reinforcement",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0273"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0275",
-      "year": 2025,
-      "location": {
-        "lat": 51.156549,
-        "lng": 0.898961
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-28-11",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-28-11"
-      },
-      "investment": {
-        "amount": 88000,
-        "driver": "asset_replacement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0275"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0276",
-      "year": 2025,
-      "location": {
-        "lat": 50.711066,
-        "lng": 1.326839
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-33-7",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-33-7"
-      },
-      "investment": {
-        "amount": 224000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0276"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0277",
-      "year": 2025,
-      "location": {
-        "lat": 51.433095,
-        "lng": 0.653356
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-26-14",
-        "la": "LA-SPN-1",
-        "lsoa": "LSOA-SPN-26-14"
-      },
-      "investment": {
-        "amount": 3275000,
-        "driver": "load_reinforcement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0277"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0278",
-      "year": 2025,
-      "location": {
-        "lat": 51.463974,
-        "lng": -0.93568
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-10-14",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-10-14"
-      },
-      "investment": {
-        "amount": 171000,
-        "driver": "fault_level",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0278"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0280",
-      "year": 2025,
-      "location": {
-        "lat": 51.108487,
-        "lng": -0.202623
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-17-11",
-        "la": "LA-SPN-2",
-        "lsoa": "LSOA-SPN-17-11"
-      },
-      "investment": {
-        "amount": 671000,
-        "driver": "connections",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0280"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0281",
-      "year": 2025,
-      "location": {
-        "lat": 51.282484,
-        "lng": 1.064455
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-30-12",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-30-12"
-      },
-      "investment": {
-        "amount": 30630000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0281"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0282",
-      "year": 2025,
-      "location": {
-        "lat": 51.098413,
-        "lng": -0.215002
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-17-10",
-        "la": "LA-SPN-2",
-        "lsoa": "LSOA-SPN-17-10"
-      },
-      "investment": {
-        "amount": 8255000,
-        "driver": "fault_level",
-        "type": "cable"
-      },
-      "metadata": {
-        "projectName": "Crawley Cable Route 2 Investment",
-        "assetId": "asset-0282"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0283",
-      "year": 2025,
-      "location": {
-        "lat": 51.419496,
-        "lng": 0.521078
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-25-14",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-25-14"
-      },
-      "investment": {
-        "amount": 783000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0283"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0288",
-      "year": 2025,
-      "location": {
-        "lat": 51.45203,
-        "lng": -0.982364
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-10-14",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-10-14"
-      },
-      "investment": {
-        "amount": 11635000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0288"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0291",
-      "year": 2025,
-      "location": {
-        "lat": 50.839301,
-        "lng": -0.087758
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-19-8",
-        "la": "LA-SPN-4",
-        "lsoa": "LSOA-SPN-19-8"
-      },
-      "investment": {
-        "amount": 1343000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Brighton Primary 3 Investment",
-        "assetId": "asset-0291"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0292",
-      "year": 2025,
-      "location": {
-        "lat": 51.283631,
-        "lng": 1.071225
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-30-12",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-30-12"
-      },
-      "investment": {
-        "amount": 11452000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0292"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0293",
-      "year": 2025,
-      "location": {
-        "lat": 51.242189,
-        "lng": -0.565196
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-14-12",
-        "la": "LA-SPN-4",
-        "lsoa": "LSOA-SPN-14-12"
-      },
-      "investment": {
-        "amount": 1829000,
-        "driver": "connections",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Guildford OHL Section 9 Investment",
-        "assetId": "asset-0293"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0294",
-      "year": 2025,
-      "location": {
-        "lat": 51.263391,
-        "lng": -0.583262
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-14-12",
-        "la": "LA-SPN-4",
-        "lsoa": "LSOA-SPN-14-12"
-      },
-      "investment": {
-        "amount": 9434000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Guildford Primary 4 Investment",
-        "assetId": "asset-0294"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0295",
-      "year": 2025,
-      "location": {
-        "lat": 50.713577,
-        "lng": -0.254827
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-17-7",
-        "la": "LA-SPN-2",
-        "lsoa": "LSOA-SPN-17-7"
-      },
-      "investment": {
-        "amount": 152000,
-        "driver": "proactive_investment",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0295"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0296",
-      "year": 2025,
-      "location": {
-        "lat": 51.256743,
-        "lng": 0.541733
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-25-12",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-25-12"
-      },
-      "investment": {
-        "amount": 496000,
-        "driver": "load_reinforcement",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0296"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0297",
-      "year": 2025,
-      "location": {
-        "lat": 51.403923,
-        "lng": -1.0397
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-9-14",
-        "la": "LA-SPN-4",
-        "lsoa": "LSOA-SPN-9-14"
-      },
-      "investment": {
-        "amount": 776000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0297"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0299",
-      "year": 2025,
-      "location": {
-        "lat": 51.100394,
-        "lng": -0.830441
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-11-11",
-        "la": "LA-SPN-1",
-        "lsoa": "LSOA-SPN-11-11"
-      },
-      "investment": {
-        "amount": 1178000,
-        "driver": "reverse_power_flow",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0299"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0300",
-      "year": 2025,
-      "location": {
-        "lat": 50.893124,
-        "lng": -0.919852
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-10-8",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-10-8"
-      },
-      "investment": {
-        "amount": 972000,
-        "driver": "fault_level",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0300"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0301",
-      "year": 2025,
-      "location": {
-        "lat": 50.846995,
-        "lng": -0.13338
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-18-8",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-18-8"
-      },
-      "investment": {
-        "amount": 4753000,
-        "driver": "reverse_power_flow",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Brighton OHL Section 3 Investment",
-        "assetId": "asset-0301"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0303",
-      "year": 2025,
-      "location": {
-        "lat": 50.747654,
-        "lng": -0.18239
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-18-7",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-18-7"
-      },
-      "investment": {
-        "amount": 520000,
-        "driver": "connections",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0303"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0306",
-      "year": 2025,
-      "location": {
-        "lat": 50.772735,
-        "lng": -0.329625
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-16-7",
-        "la": "LA-SPN-1",
-        "lsoa": "LSOA-SPN-16-7"
-      },
-      "investment": {
-        "amount": 3432000,
-        "driver": "fault_level",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0306"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0307",
-      "year": 2025,
-      "location": {
-        "lat": 51.128231,
-        "lng": 1.30402
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-33-11",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-33-11"
-      },
-      "investment": {
-        "amount": 1521000,
-        "driver": "reverse_power_flow",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0307"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0308",
-      "year": 2025,
-      "location": {
-        "lat": 51.465246,
-        "lng": -1.041841
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-9-14",
-        "la": "LA-SPN-4",
-        "lsoa": "LSOA-SPN-9-14"
-      },
-      "investment": {
-        "amount": 463000,
-        "driver": "fault_level",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0308"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0309",
-      "year": 2025,
-      "location": {
-        "lat": 50.854909,
-        "lng": -0.116157
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-18-8",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-18-8"
-      },
-      "investment": {
-        "amount": 2387000,
-        "driver": "asset_replacement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Brighton OHL Section 1 Investment",
-        "assetId": "asset-0309"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0311",
-      "year": 2025,
-      "location": {
-        "lat": 50.978996,
-        "lng": -0.380616
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-16-9",
-        "la": "LA-SPN-1",
-        "lsoa": "LSOA-SPN-16-9"
-      },
-      "investment": {
-        "amount": 752000,
-        "driver": "load_reinforcement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0311"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0313",
-      "year": 2025,
-      "location": {
-        "lat": 51.097045,
-        "lng": -0.191964
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-18-10",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-18-10"
-      },
-      "investment": {
-        "amount": 23658000,
-        "driver": "reverse_power_flow",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Crawley Primary 2 Investment",
-        "assetId": "asset-0313"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0314",
-      "year": 2025,
-      "location": {
-        "lat": 51.108317,
-        "lng": -0.146095
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-18-11",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-18-11"
-      },
-      "investment": {
-        "amount": 1401000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0314"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0316",
-      "year": 2025,
-      "location": {
-        "lat": 51.345301,
-        "lng": 1.112115
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-31-13",
-        "la": "LA-SPN-1",
-        "lsoa": "LSOA-SPN-31-13"
-      },
-      "investment": {
-        "amount": 421000,
-        "driver": "asset_replacement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0316"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0317",
-      "year": 2025,
-      "location": {
-        "lat": 51.112303,
-        "lng": 1.315823
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-33-11",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-33-11"
-      },
-      "investment": {
-        "amount": 1027000,
-        "driver": "proactive_investment",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0317"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0318",
-      "year": 2025,
-      "location": {
-        "lat": 51.291382,
-        "lng": 1.065725
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-30-12",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-30-12"
-      },
-      "investment": {
-        "amount": 5312000,
-        "driver": "load_reinforcement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0318"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0319",
-      "year": 2025,
-      "location": {
-        "lat": 51.44685,
-        "lng": -0.972186
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-10-14",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-10-14"
-      },
-      "investment": {
-        "amount": 22130000,
-        "driver": "asset_replacement",
-        "type": "transformer"
-      },
-      "metadata": {
-        "projectName": "Reading Grid Transformer 4 Investment",
-        "assetId": "asset-0319"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0320",
-      "year": 2025,
-      "location": {
-        "lat": 50.931267,
-        "lng": -0.633459
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-13-9",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-13-9"
-      },
-      "investment": {
-        "amount": 5328000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0320"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0321",
-      "year": 2025,
-      "location": {
-        "lat": 51.203891,
-        "lng": -0.57032
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-14-12",
-        "la": "LA-SPN-4",
-        "lsoa": "LSOA-SPN-14-12"
-      },
-      "investment": {
-        "amount": 2442000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0321"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0322",
-      "year": 2025,
-      "location": {
-        "lat": 51.232307,
-        "lng": 0.495709
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-24-12",
-        "la": "LA-SPN-4",
-        "lsoa": "LSOA-SPN-24-12"
-      },
-      "investment": {
-        "amount": 4014000,
-        "driver": "load_reinforcement",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0322"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0324",
-      "year": 2025,
-      "location": {
-        "lat": 51.143984,
-        "lng": 0.865973
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-28-11",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-28-11"
-      },
-      "investment": {
-        "amount": 1096000,
-        "driver": "reverse_power_flow",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0324"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0326",
-      "year": 2025,
-      "location": {
-        "lat": 51.278721,
-        "lng": 1.08473
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-30-12",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-30-12"
-      },
-      "investment": {
-        "amount": 1128000,
-        "driver": "load_reinforcement",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0326"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0327",
-      "year": 2025,
-      "location": {
-        "lat": 51.486844,
-        "lng": -0.953285
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-10-14",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-10-14"
-      },
-      "investment": {
-        "amount": 552000,
-        "driver": "load_reinforcement",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0327"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0329",
-      "year": 2025,
-      "location": {
-        "lat": 51.156549,
-        "lng": 0.898961
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-28-11",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-28-11"
-      },
-      "investment": {
-        "amount": 88000,
-        "driver": "asset_replacement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0329"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0330",
-      "year": 2025,
-      "location": {
-        "lat": 50.711066,
-        "lng": 1.326839
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-33-7",
-        "la": "LA-SPN-3",
-        "lsoa": "LSOA-SPN-33-7"
-      },
-      "investment": {
-        "amount": 224000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0330"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0331",
-      "year": 2025,
-      "location": {
-        "lat": 51.433095,
-        "lng": 0.653356
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-26-14",
-        "la": "LA-SPN-1",
-        "lsoa": "LSOA-SPN-26-14"
-      },
-      "investment": {
-        "amount": 3275000,
-        "driver": "load_reinforcement",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "assetId": "asset-0331"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0332",
-      "year": 2025,
-      "location": {
-        "lat": 51.463974,
-        "lng": -0.93568
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-10-14",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-10-14"
-      },
-      "investment": {
-        "amount": 171000,
-        "driver": "fault_level",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0332"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0334",
-      "year": 2025,
-      "location": {
-        "lat": 51.108487,
-        "lng": -0.202623
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-17-11",
-        "la": "LA-SPN-2",
-        "lsoa": "LSOA-SPN-17-11"
-      },
-      "investment": {
-        "amount": 671000,
-        "driver": "connections",
-        "type": "cable"
-      },
-      "metadata": {
-        "assetId": "asset-0334"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0335",
-      "year": 2025,
-      "location": {
-        "lat": 51.282484,
-        "lng": 1.064455
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-30-12",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-30-12"
-      },
-      "investment": {
-        "amount": 30630000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0335"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0336",
-      "year": 2025,
-      "location": {
-        "lat": 51.098413,
-        "lng": -0.215002
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-17-10",
-        "la": "LA-SPN-2",
-        "lsoa": "LSOA-SPN-17-10"
-      },
-      "investment": {
-        "amount": 8255000,
-        "driver": "fault_level",
-        "type": "cable"
-      },
-      "metadata": {
-        "projectName": "Crawley Cable Route 2 Investment",
-        "assetId": "asset-0336"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0337",
-      "year": 2025,
-      "location": {
-        "lat": 51.419496,
-        "lng": 0.521078
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-25-14",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-25-14"
-      },
-      "investment": {
-        "amount": 783000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0337"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0342",
-      "year": 2025,
-      "location": {
-        "lat": 51.45203,
-        "lng": -0.982364
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-10-14",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-10-14"
-      },
-      "investment": {
-        "amount": 11635000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "assetId": "asset-0342"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0345",
-      "year": 2025,
-      "location": {
-        "lat": 50.839301,
-        "lng": -0.087758
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-19-8",
-        "la": "LA-SPN-4",
-        "lsoa": "LSOA-SPN-19-8"
-      },
-      "investment": {
-        "amount": 1343000,
-        "driver": "asset_replacement",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Brighton Primary 3 Investment",
-        "assetId": "asset-0345"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0346",
-      "year": 2025,
-      "location": {
-        "lat": 51.283631,
-        "lng": 1.071225
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-30-12",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-30-12"
-      },
-      "investment": {
-        "amount": 11452000,
-        "driver": "reverse_power_flow",
-        "type": "transformer"
-      },
-      "metadata": {
-        "assetId": "asset-0346"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0347",
-      "year": 2025,
-      "location": {
-        "lat": 51.242189,
-        "lng": -0.565196
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-14-12",
-        "la": "LA-SPN-4",
-        "lsoa": "LSOA-SPN-14-12"
-      },
-      "investment": {
-        "amount": 1829000,
-        "driver": "connections",
-        "type": "overhead_line"
-      },
-      "metadata": {
-        "projectName": "Guildford OHL Section 9 Investment",
-        "assetId": "asset-0347"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0348",
-      "year": 2025,
-      "location": {
-        "lat": 51.263391,
-        "lng": -0.583262
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-14-12",
-        "la": "LA-SPN-4",
-        "lsoa": "LSOA-SPN-14-12"
-      },
-      "investment": {
-        "amount": 9434000,
-        "driver": "connections",
-        "type": "substation"
-      },
-      "metadata": {
-        "projectName": "Guildford Primary 4 Investment",
-        "assetId": "asset-0348"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0349",
-      "year": 2025,
-      "location": {
-        "lat": 50.713577,
-        "lng": -0.254827
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-17-7",
-        "la": "LA-SPN-2",
-        "lsoa": "LSOA-SPN-17-7"
-      },
-      "investment": {
-        "amount": 152000,
-        "driver": "proactive_investment",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0349"
-      }
-    },
-    {
-      "id": "INV-2025-asset-0350",
-      "year": 2025,
-      "location": {
-        "lat": 51.256743,
-        "lng": 0.541733
-      },
-      "boundaries": {
-        "resp": "RESP-SPN",
-        "gsp": "GSP-25-12",
-        "la": "LA-SPN-0",
-        "lsoa": "LSOA-SPN-25-12"
-      },
-      "investment": {
-        "amount": 496000,
-        "driver": "load_reinforcement",
-        "type": "switchgear"
-      },
-      "metadata": {
-        "assetId": "asset-0350"
       }
     }
   ]

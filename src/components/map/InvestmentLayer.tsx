@@ -10,6 +10,7 @@ import {
   type InvestmentDriverMeta,
 } from '@/hooks/useInvestmentData';
 import { useYearFilter } from '@/hooks/useYearFilter';
+import { MAP_STYLE_CHANGE_EVENT } from '@/components/filters/MapStyleSelector';
 
 // Layer and source IDs
 const INVESTMENT_SOURCE_ID = 'investment-data';
@@ -218,60 +219,62 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
   }, [driversMetadata]);
 
   // Initialize layer on map
-  useEffect(() => {
+  const initializeLayer = useCallback(() => {
     if (!map) return;
 
-    const initializeLayer = () => {
-      // Add source if it doesn't exist
-      if (!map.getSource(INVESTMENT_SOURCE_ID)) {
-        map.addSource(INVESTMENT_SOURCE_ID, {
-          type: 'geojson',
-          data: {
-            type: 'FeatureCollection',
-            features: [],
-          },
-        });
-      }
+    // Add source if it doesn't exist
+    if (!map.getSource(INVESTMENT_SOURCE_ID)) {
+      map.addSource(INVESTMENT_SOURCE_ID, {
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: [],
+        },
+      });
+    }
 
-      // Add circle layer for investments
-      if (!map.getLayer(INVESTMENT_LAYER_ID)) {
-        map.addLayer({
-          id: INVESTMENT_LAYER_ID,
-          type: 'circle',
-          source: INVESTMENT_SOURCE_ID,
-          paint: {
-            'circle-radius': ['get', 'radius'],
-            'circle-color': ['get', 'color'],
-            'circle-opacity': 0.8,
-            'circle-stroke-width': 2,
-            'circle-stroke-color': '#ffffff',
-            'circle-stroke-opacity': 0.9,
-          },
-        });
+    // Add circle layer for investments
+    if (!map.getLayer(INVESTMENT_LAYER_ID)) {
+      map.addLayer({
+        id: INVESTMENT_LAYER_ID,
+        type: 'circle',
+        source: INVESTMENT_SOURCE_ID,
+        paint: {
+          'circle-radius': ['get', 'radius'],
+          'circle-color': ['get', 'color'],
+          'circle-opacity': 0.8,
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#ffffff',
+          'circle-stroke-opacity': 0.9,
+        },
+      });
 
-        // Add labels layer for larger investments
-        map.addLayer({
-          id: INVESTMENT_LABELS_LAYER_ID,
-          type: 'symbol',
-          source: INVESTMENT_SOURCE_ID,
-          filter: ['>=', ['get', 'amount'], 10000000], // Only show labels for investments >= 10M
-          layout: {
-            'text-field': ['get', 'projectName'],
-            'text-size': 11,
-            'text-offset': [0, 2],
-            'text-anchor': 'top',
-            'text-max-width': 12,
-          },
-          paint: {
-            'text-color': '#374151',
-            'text-halo-color': '#ffffff',
-            'text-halo-width': 1.5,
-          },
-        });
+      // Add labels layer for larger investments
+      map.addLayer({
+        id: INVESTMENT_LABELS_LAYER_ID,
+        type: 'symbol',
+        source: INVESTMENT_SOURCE_ID,
+        filter: ['>=', ['get', 'amount'], 10000000], // Only show labels for investments >= 10M
+        layout: {
+          'text-field': ['get', 'projectName'],
+          'text-size': 11,
+          'text-offset': [0, 2],
+          'text-anchor': 'top',
+          'text-max-width': 12,
+        },
+        paint: {
+          'text-color': '#374151',
+          'text-halo-color': '#ffffff',
+          'text-halo-width': 1.5,
+        },
+      });
 
-        setIsLayerAdded(true);
-      }
-    };
+      setIsLayerAdded(true);
+    }
+  }, [map]);
+
+  useEffect(() => {
+    if (!map) return;
 
     // If map is already loaded, initialize immediately
     if (map.isStyleLoaded()) {
@@ -288,7 +291,32 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
         popupRef.current = null;
       }
     };
-  }, [map]);
+  }, [map, initializeLayer]);
+
+  // Re-add investment layers after map style change
+  useEffect(() => {
+    if (!map) return;
+
+    const handleStyleChange = () => {
+      // Check if the source was removed (it would be after a style change)
+      if (!map.getSource(INVESTMENT_SOURCE_ID)) {
+        console.log('[InvestmentLayer] Re-adding layers after style change');
+        setIsLayerAdded(false);
+        initializeLayer();
+        // Re-populate with current data
+        const source = map.getSource(INVESTMENT_SOURCE_ID) as GeoJSONSource | undefined;
+        if (source && investments.length > 0) {
+          const geojson = investmentsToGeoJSON(investments, driverColors());
+          source.setData(geojson);
+        }
+      }
+    };
+
+    window.addEventListener(MAP_STYLE_CHANGE_EVENT, handleStyleChange);
+    return () => {
+      window.removeEventListener(MAP_STYLE_CHANGE_EVENT, handleStyleChange);
+    };
+  }, [map, initializeLayer, investments, driverColors]);
 
   // Update data when investments change
   useEffect(() => {
