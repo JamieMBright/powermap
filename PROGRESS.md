@@ -3,7 +3,7 @@
 ## Current State
 **Phase:** 1 - MVP
 **Status:** Complete
-**Last Updated:** 2026-02-01 02:35
+**Last Updated:** 2026-02-01 06:40
 
 ## Completed Tasks
 | Task | Agent | Date | Notes |
@@ -37,6 +37,9 @@
 | Case study thumbnails | UI | 2026-02-01 | Added datacentre.svg and flexibility.svg |
 | Map style change fix | Map | 2026-02-01 | Re-apply choropleth after style change |
 | OIM tests update | Test | 2026-02-01 | Updated tests to match current layer names |
+| OIM icon system | Map | 2026-02-01 | SVG icons for power infrastructure matching OIM |
+| OIM symbol loader | Map | 2026-02-01 | On-demand icon loading with styleimagemissing |
+| OIM layer conversion | Map | 2026-02-01 | Converted circle layers to symbol layers with icons |
 
 ## In Progress
 | Task | Agent | Started | Blockers |
@@ -59,7 +62,7 @@ _Phase 1 MVP Complete - Moving to Phase 2_
 ## Context Notes
 _Key decisions or context that should persist across sessions:_
 - Investment shown via boundary choropleth (blue gradient), not circle markers
-- OIM icons use circles not sprites - to match OIM exactly would need SVG icon loader
+- OIM icons use SVG sprites loaded on-demand via styleimagemissing handler (public/icons/oim/)
 - Using CARTO positron style for base map
 - OIM tiles loaded from openinframap.org/tiles/power
 - Power lines color-coded by voltage (275kV+ purple, 132kV+ red, 33kV+ amber, 11kV+ green)
