@@ -31,7 +31,7 @@
       "mapState": {
         "center": [0.0815, 51.5365],
         "zoom": 14,
-        "pitch": 45,
+        "pitch": 50,
         "bearing": -20
       },
       "annotations": [
@@ -45,12 +45,34 @@
         "layers": ["power-line", "power-substation"],
         "visualEffects": [
           {
-            "type": "pulse",
+            "type": "3d-building",
             "position": [0.0815, 51.5365],
-            "label": "Barking Grid",
+            "label": "BARKING GRID 132kV",
+            "config": {
+              "buildingType": "substation",
+              "scale": 1.2,
+              "color": "#f97316",
+              "powerMW": 78,
+              "holographic": false
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.084, 51.535],
             "config": {
               "color": "#f97316",
-              "scale": 1.5
+              "secondaryColor": "#fbbf24",
+              "scale": 0.8,
+              "intensity": 3
+            }
+          },
+          {
+            "type": "demand-meter",
+            "position": [0.079, 51.538],
+            "label": "Asset Age: 60+ years",
+            "config": {
+              "demandValue": 78,
+              "color": "#f97316"
             }
           }
         ]
@@ -67,7 +89,7 @@
       "mapState": {
         "center": [0.05, 51.52],
         "zoom": 12,
-        "pitch": 30,
+        "pitch": 35,
         "bearing": 15
       },
       "annotations": [
@@ -83,7 +105,38 @@
         }
       ],
       "highlights": {
-        "boundaries": ["gsp_bark"]
+        "boundaries": ["gsp_bark"],
+        "visualEffects": [
+          {
+            "type": "power-pulse-line",
+            "position": [0.0815, 51.5365],
+            "config": {
+              "color": "#f97316",
+              "scale": 1.5,
+              "particleCount": 8
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.05, 51.50],
+            "config": {
+              "color": "#3b82f6",
+              "secondaryColor": "#06b6d4",
+              "scale": 1.0,
+              "intensity": 3
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.10, 51.53],
+            "config": {
+              "color": "#22c55e",
+              "secondaryColor": "#4ade80",
+              "scale": 0.8,
+              "intensity": 2
+            }
+          }
+        ]
       },
       "transition": {
         "duration": 2500,
@@ -102,34 +155,54 @@
       },
       "annotations": [
         {
-          "type": "marker",
-          "position": [0.0815, 51.5365],
-          "content": "New GIS Installation"
-        },
-        {
-          "type": "marker",
-          "position": [0.085, 51.534],
-          "content": "New Transformer Bay"
+          "type": "popup",
+          "position": [0.083, 51.535],
+          "content": "Total Investment: £45 million"
         }
       ],
       "highlights": {
         "visualEffects": [
           {
-            "type": "pulse",
+            "type": "3d-building",
             "position": [0.0815, 51.5365],
-            "label": "New GIS",
+            "label": "NEW 132kV GIS",
             "config": {
+              "buildingType": "substation",
+              "scale": 1.3,
               "color": "#22c55e",
-              "scale": 1.8
+              "powerMW": 180,
+              "holographic": true
             }
           },
           {
-            "type": "icon-overlay",
+            "type": "3d-building",
             "position": [0.085, 51.534],
-            "label": "90MVA Transformer",
+            "label": "NEW 90MVA TRANSFORMERS",
             "config": {
-              "icon": "substation",
-              "scale": 1.2
+              "buildingType": "substation",
+              "scale": 0.9,
+              "color": "#3b82f6",
+              "powerMW": 90,
+              "holographic": true
+            }
+          },
+          {
+            "type": "power-pulse-line",
+            "position": [0.083, 51.5355],
+            "config": {
+              "color": "#22c55e",
+              "scale": 1.5,
+              "particleCount": 6
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.084, 51.5365],
+            "config": {
+              "color": "#22c55e",
+              "secondaryColor": "#00ffaa",
+              "scale": 0.7,
+              "intensity": 3
             }
           }
         ]
@@ -146,12 +219,60 @@
       "mapState": {
         "center": [0.08, 51.53],
         "zoom": 11,
-        "pitch": 0,
+        "pitch": 25,
         "bearing": 0
       },
       "highlights": {
-        "boundaries": ["la_barking_dagenham"]
+        "boundaries": ["la_barking_dagenham"],
+        "visualEffects": [
+          {
+            "type": "power-pulse-line",
+            "position": [0.08, 51.53],
+            "config": {
+              "color": "#22c55e",
+              "scale": 2.5,
+              "particleCount": 12
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.12, 51.55],
+            "config": {
+              "color": "#3b82f6",
+              "secondaryColor": "#06b6d4",
+              "scale": 0.8,
+              "intensity": 2
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.04, 51.51],
+            "config": {
+              "color": "#3b82f6",
+              "secondaryColor": "#06b6d4",
+              "scale": 0.8,
+              "intensity": 2
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.10, 51.50],
+            "config": {
+              "color": "#22c55e",
+              "secondaryColor": "#4ade80",
+              "scale": 0.8,
+              "intensity": 2
+            }
+          }
+        ]
       },
+      "annotations": [
+        {
+          "type": "popup",
+          "position": [0.08, 51.53],
+          "content": "200MW new capacity unlocked"
+        }
+      ],
       "transition": {
         "duration": 3000,
         "easing": "fly"

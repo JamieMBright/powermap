@@ -35,7 +35,7 @@
       "mapState": {
         "center": [0.935, 51.885],
         "zoom": 16,
-        "pitch": 45,
+        "pitch": 50,
         "bearing": 20
       },
       "annotations": [
@@ -43,23 +43,31 @@
           "type": "popup",
           "position": [0.935, 51.885],
           "content": "Transformer Capacity: 500kVA | Peak Demand: 520kVA"
-        },
-        {
-          "type": "marker",
-          "position": [0.937, 51.886],
-          "content": "35 EVs on network"
         }
       ],
       "highlights": {
         "layers": ["power-line"],
         "visualEffects": [
           {
-            "type": "pulse",
+            "type": "3d-building",
             "position": [0.935, 51.885],
-            "label": "Overloaded",
+            "label": "TRANSFORMER OVERLOAD",
+            "config": {
+              "buildingType": "substation",
+              "scale": 0.8,
+              "color": "#ef4444",
+              "powerMW": 104,
+              "holographic": false
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.936, 51.8855],
             "config": {
               "color": "#ef4444",
-              "scale": 1.5
+              "secondaryColor": "#f97316",
+              "scale": 1.0,
+              "intensity": 4
             }
           },
           {
@@ -74,7 +82,7 @@
           {
             "type": "demand-meter",
             "position": [0.933, 51.884],
-            "label": "Peak Demand",
+            "label": "Peak Demand: 104%",
             "config": {
               "demandValue": 104,
               "color": "#ef4444"
@@ -94,19 +102,14 @@
       "mapState": {
         "center": [0.936, 51.886],
         "zoom": 17,
-        "pitch": 50,
+        "pitch": 55,
         "bearing": -15
       },
       "annotations": [
         {
           "type": "popup",
           "position": [0.934, 51.885],
-          "content": "Smart Charger A: Paused until 11pm (7kW available)"
-        },
-        {
-          "type": "popup",
-          "position": [0.936, 51.886],
-          "content": "Smart Charger B: Charging now (departure 6am)"
+          "content": "Smart Charger A: Paused until 11pm"
         },
         {
           "type": "popup",
@@ -117,8 +120,29 @@
       "highlights": {
         "visualEffects": [
           {
+            "type": "3d-building",
+            "position": [0.935, 51.885],
+            "label": "SMART GRID CONTROL",
+            "config": {
+              "buildingType": "substation",
+              "scale": 0.7,
+              "color": "#22c55e",
+              "powerMW": 65,
+              "holographic": true
+            }
+          },
+          {
+            "type": "power-pulse-line",
+            "position": [0.936, 51.886],
+            "config": {
+              "color": "#22c55e",
+              "scale": 1.2,
+              "particleCount": 6
+            }
+          },
+          {
             "type": "icon-overlay",
-            "position": [0.934, 51.885],
+            "position": [0.934, 51.8855],
             "label": "Paused",
             "config": {
               "icon": "ev-charger",
@@ -127,7 +151,7 @@
           },
           {
             "type": "icon-overlay",
-            "position": [0.936, 51.886],
+            "position": [0.9365, 51.8865],
             "label": "Charging",
             "config": {
               "icon": "ev-charger",
@@ -135,17 +159,8 @@
             }
           },
           {
-            "type": "flow-animation",
-            "position": [0.936, 51.886],
-            "label": "Active Charging",
-            "config": {
-              "flowDirection": "in",
-              "color": "#22c55e"
-            }
-          },
-          {
             "type": "icon-overlay",
-            "position": [0.938, 51.884],
+            "position": [0.938, 51.8845],
             "label": "Scheduled",
             "config": {
               "icon": "ev-charger",
@@ -166,24 +181,19 @@
       "mapState": {
         "center": [0.935, 51.885],
         "zoom": 16,
-        "pitch": 40,
+        "pitch": 45,
         "bearing": 30
       },
       "annotations": [
         {
           "type": "popup",
           "position": [0.933, 51.886],
-          "content": "V2G Export: 7kW (80% SoC, min 50%)"
+          "content": "V2G Export: 7kW"
         },
         {
           "type": "popup",
           "position": [0.937, 51.884],
-          "content": "V2G Export: 10kW (90% SoC)"
-        },
-        {
-          "type": "marker",
-          "position": [0.935, 51.885],
-          "content": "Net import reduced by 80kW"
+          "content": "V2G Export: 10kW"
         }
       ],
       "highlights": {
@@ -198,12 +208,13 @@
             }
           },
           {
-            "type": "flow-animation",
+            "type": "energy-arc",
             "position": [0.933, 51.886],
-            "label": "Export 7kW",
             "config": {
-              "flowDirection": "out",
-              "color": "#f97316"
+              "color": "#f97316",
+              "secondaryColor": "#fbbf24",
+              "scale": 0.7,
+              "intensity": 3
             }
           },
           {
@@ -216,21 +227,31 @@
             }
           },
           {
-            "type": "flow-animation",
+            "type": "energy-arc",
             "position": [0.937, 51.884],
-            "label": "Export 10kW",
             "config": {
-              "flowDirection": "out",
-              "color": "#f97316"
+              "color": "#f97316",
+              "secondaryColor": "#fbbf24",
+              "scale": 0.7,
+              "intensity": 3
             }
           },
           {
             "type": "icon-overlay",
             "position": [0.935, 51.885],
-            "label": "Battery Support",
+            "label": "Distributed Battery",
             "config": {
               "icon": "battery",
               "scale": 1.5
+            }
+          },
+          {
+            "type": "power-pulse-line",
+            "position": [0.935, 51.885],
+            "config": {
+              "color": "#f97316",
+              "scale": 1.5,
+              "particleCount": 8
             }
           }
         ]
@@ -247,16 +268,38 @@
       "mapState": {
         "center": [0.935, 51.885],
         "zoom": 15,
-        "pitch": 30,
+        "pitch": 35,
         "bearing": 0
       },
       "annotations": [
         {
           "type": "popup",
           "position": [0.935, 51.885],
-          "content": "5-Year Savings: 5,000 pounds + faster deployment"
+          "content": "5-Year Savings: £5,000 + faster deployment"
         }
       ],
+      "highlights": {
+        "visualEffects": [
+          {
+            "type": "power-pulse-line",
+            "position": [0.935, 51.885],
+            "config": {
+              "color": "#22c55e",
+              "scale": 1.8,
+              "particleCount": 10
+            }
+          },
+          {
+            "type": "demand-meter",
+            "position": [0.938, 51.886],
+            "label": "Load Managed",
+            "config": {
+              "demandValue": 72,
+              "color": "#22c55e"
+            }
+          }
+        ]
+      },
       "transition": {
         "duration": 2000,
         "easing": "easeInOut"
@@ -276,7 +319,7 @@
         {
           "type": "popup",
           "position": [0.936, 51.886],
-          "content": "Customer earnings: 75 pounds/year from smart charging"
+          "content": "Customer earnings: £75/year from smart charging"
         },
         {
           "type": "marker",
@@ -284,6 +327,28 @@
           "content": "Car ready by 7am as requested"
         }
       ],
+      "highlights": {
+        "visualEffects": [
+          {
+            "type": "icon-overlay",
+            "position": [0.936, 51.886],
+            "label": "Happy Customer",
+            "config": {
+              "icon": "ev-charger",
+              "scale": 1.4
+            }
+          },
+          {
+            "type": "power-pulse-line",
+            "position": [0.936, 51.886],
+            "config": {
+              "color": "#22c55e",
+              "scale": 1.0,
+              "particleCount": 5
+            }
+          }
+        ]
+      },
       "transition": {
         "duration": 2000,
         "easing": "fly"
@@ -296,17 +361,58 @@
       "mapState": {
         "center": [0.9, 51.89],
         "zoom": 12,
-        "pitch": 0,
+        "pitch": 25,
         "bearing": 0
       },
       "highlights": {
-        "boundaries": ["gsp_colchester"]
+        "boundaries": ["gsp_colchester"],
+        "visualEffects": [
+          {
+            "type": "power-pulse-line",
+            "position": [0.9, 51.89],
+            "config": {
+              "color": "#22c55e",
+              "scale": 2.5,
+              "particleCount": 12
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.85, 51.92],
+            "config": {
+              "color": "#3b82f6",
+              "secondaryColor": "#06b6d4",
+              "scale": 0.8,
+              "intensity": 2
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.95, 51.86],
+            "config": {
+              "color": "#3b82f6",
+              "secondaryColor": "#06b6d4",
+              "scale": 0.8,
+              "intensity": 2
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.88, 51.87],
+            "config": {
+              "color": "#22c55e",
+              "secondaryColor": "#4ade80",
+              "scale": 0.8,
+              "intensity": 2
+            }
+          }
+        ]
       },
       "annotations": [
         {
           "type": "popup",
           "position": [0.9, 51.89],
-          "content": "ED3 Target: 500MW flexibility, 200 million pounds saved"
+          "content": "ED3 Target: 500MW flexibility, £200M saved"
         }
       ],
       "transition": {
@@ -321,8 +427,41 @@
       "mapState": {
         "center": [0.935, 51.885],
         "zoom": 13,
-        "pitch": 0,
+        "pitch": 20,
         "bearing": 0
+      },
+      "highlights": {
+        "visualEffects": [
+          {
+            "type": "power-pulse-line",
+            "position": [0.935, 51.885],
+            "config": {
+              "color": "#22c55e",
+              "scale": 2.0,
+              "particleCount": 10
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.92, 51.89],
+            "config": {
+              "color": "#3b82f6",
+              "secondaryColor": "#06b6d4",
+              "scale": 0.6,
+              "intensity": 2
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.95, 51.88],
+            "config": {
+              "color": "#22c55e",
+              "secondaryColor": "#4ade80",
+              "scale": 0.6,
+              "intensity": 2
+            }
+          }
+        ]
       },
       "transition": {
         "duration": 2500,

@@ -76,6 +76,16 @@ import Home from '@/app/page';
 describe('Home Page', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    // Mock sessionStorage to skip landing page
+    const mockSessionStorage = {
+      getItem: vi.fn().mockReturnValue('true'),
+      setItem: vi.fn(),
+      removeItem: vi.fn(),
+      clear: vi.fn(),
+      length: 0,
+      key: vi.fn(),
+    };
+    Object.defineProperty(window, 'sessionStorage', { value: mockSessionStorage, writable: true });
   });
 
   it('should render without crashing (SSG compatibility)', async () => {
@@ -99,8 +109,10 @@ describe('Home Page', () => {
     render(<Home />);
 
     // Wait for content to load through Suspense
-    const header = await screen.findByText('PowerMap', {}, { timeout: 3000 });
+    // The header text is split: "Power" + <span>Map</span>
+    const header = await screen.findByRole('heading', { level: 1 }, { timeout: 3000 });
     expect(header).toBeInTheDocument();
+    expect(header.textContent).toBe('PowerMap');
   });
 
   it('should render the map component', async () => {
@@ -126,6 +138,19 @@ describe('Home Page', () => {
 });
 
 describe('Home Page SSG Requirements', () => {
+  beforeEach(() => {
+    // Mock sessionStorage to skip landing page
+    const mockSessionStorage = {
+      getItem: vi.fn().mockReturnValue('true'),
+      setItem: vi.fn(),
+      removeItem: vi.fn(),
+      clear: vi.fn(),
+      length: 0,
+      key: vi.fn(),
+    };
+    Object.defineProperty(window, 'sessionStorage', { value: mockSessionStorage, writable: true });
+  });
+
   it('should be wrapped in Suspense for useSearchParams compatibility', () => {
     // This is a compile-time check - if the page renders, Suspense is working
     // The actual SSG error would occur during Next.js build if Suspense is missing
