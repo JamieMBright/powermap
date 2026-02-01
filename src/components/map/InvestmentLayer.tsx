@@ -10,7 +10,6 @@ import {
   type InvestmentDriverMeta,
 } from '@/hooks/useInvestmentData';
 import { useYearFilter } from '@/hooks/useYearFilter';
-import { MAP_STYLE_CHANGE_EVENT } from '@/components/filters/MapStyleSelector';
 
 // Layer and source IDs
 const INVESTMENT_SOURCE_ID = 'investment-data';
@@ -314,115 +313,6 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
       }
     };
   }, [map, initializeLayer]);
-
-  // Re-add investment layers after map style change
-  // Uses refs for stable handler that always accesses current values
-  useEffect(() => {
-    console.log('[InvestmentLayer] Setting up style change listener');
-
-    const handleStyleChange = () => {
-      console.log('[InvestmentLayer] Style change event received');
-      const currentMap = mapRef.current;
-      const currentInvestments = investmentsRef.current;
-      const currentDriverColors = driverColorsRef.current;
-
-      console.log('[InvestmentLayer] Current state:', {
-        hasMap: !!currentMap,
-        investmentsCount: currentInvestments?.length ?? 0,
-      });
-
-      if (!currentMap) {
-        console.log('[InvestmentLayer] Style change ignored - no map');
-        return;
-      }
-
-      // Check if the source was removed (it would be after a style change)
-      const sourceExists = !!currentMap.getSource(INVESTMENT_SOURCE_ID);
-      console.log('[InvestmentLayer] Source exists:', sourceExists);
-
-      if (!sourceExists) {
-        console.log('[InvestmentLayer] Re-adding layers after style change');
-        setIsLayerAdded(false);
-
-        try {
-          // Re-initialize source and layers
-          currentMap.addSource(INVESTMENT_SOURCE_ID, {
-            type: 'geojson',
-            data: {
-              type: 'FeatureCollection',
-              features: [],
-            },
-          });
-          console.log('[InvestmentLayer] Source added');
-
-          if (!currentMap.getLayer(INVESTMENT_LAYER_ID)) {
-            currentMap.addLayer({
-              id: INVESTMENT_LAYER_ID,
-              type: 'circle',
-              source: INVESTMENT_SOURCE_ID,
-              layout: {
-                'visibility': 'none',
-              },
-              paint: {
-                'circle-radius': ['get', 'radius'],
-                'circle-color': ['get', 'color'],
-                'circle-opacity': 0.8,
-                'circle-stroke-width': 2,
-                'circle-stroke-color': '#ffffff',
-                'circle-stroke-opacity': 0.9,
-              },
-            });
-            console.log('[InvestmentLayer] Circle layer added');
-
-            currentMap.addLayer({
-              id: INVESTMENT_LABELS_LAYER_ID,
-              type: 'symbol',
-              source: INVESTMENT_SOURCE_ID,
-              filter: ['>=', ['get', 'amount'], 10000000],
-              layout: {
-                'visibility': 'none',
-                'text-field': ['get', 'projectName'],
-                'text-size': 11,
-                'text-offset': [0, 2],
-                'text-anchor': 'top',
-                'text-max-width': 12,
-              },
-              paint: {
-                'text-color': '#374151',
-                'text-halo-color': '#ffffff',
-                'text-halo-width': 1.5,
-              },
-            });
-            console.log('[InvestmentLayer] Labels layer added');
-
-            setIsLayerAdded(true);
-          }
-
-          // Re-populate with current data
-          const source = currentMap.getSource(INVESTMENT_SOURCE_ID) as GeoJSONSource | undefined;
-          if (source && currentInvestments.length > 0) {
-            const geojson = investmentsToGeoJSON(currentInvestments, currentDriverColors());
-            source.setData(geojson);
-            console.log('[InvestmentLayer] Data repopulated with', currentInvestments.length, 'investments');
-          }
-          console.log('[InvestmentLayer] Layers restored successfully');
-        } catch (err) {
-          console.error('[InvestmentLayer] Error restoring layers:', err);
-          if (err instanceof Error) {
-            console.error('[InvestmentLayer] Error details:', err.message, err.stack);
-          }
-        }
-      } else {
-        console.log('[InvestmentLayer] Source still exists, no restoration needed');
-      }
-    };
-
-    window.addEventListener(MAP_STYLE_CHANGE_EVENT, handleStyleChange);
-    return () => {
-      console.log('[InvestmentLayer] Removing style change listener');
-      window.removeEventListener(MAP_STYLE_CHANGE_EVENT, handleStyleChange);
-    };
-  }, []); // Empty deps - handler uses refs for current values
 
   // Update data when investments change
   useEffect(() => {

@@ -1,120 +1,34 @@
 import type { StyleSpecification, LngLatBoundsLike } from 'maplibre-gl';
 
-// Available map styles - external tile providers
-export const MAP_STYLES: Record<string, string | StyleSpecification> = {
-  // OpenStreetMap standard raster tiles
-  osm: {
-    version: 8,
-    sources: {
-      'osm-tiles': {
-        type: 'raster',
-        tiles: [
-          'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
-          'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png',
-          'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png',
-        ],
-        tileSize: 256,
-        attribution: '© OpenStreetMap contributors',
-      },
+// CARTO Positron light style - clean basemap for data visualization
+const CARTO_LIGHT_STYLE: StyleSpecification = {
+  version: 8,
+  sources: {
+    'carto-tiles': {
+      type: 'raster',
+      tiles: [
+        'https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+        'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+        'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+      ],
+      tileSize: 256,
+      attribution: '© CARTO © OpenStreetMap contributors',
     },
-    layers: [
-      {
-        id: 'osm-tiles-layer',
-        type: 'raster',
-        source: 'osm-tiles',
-        minzoom: 0,
-        maxzoom: 19,
-      },
-    ],
   },
-  // CARTO Positron (light)
-  'carto-light': {
-    version: 8,
-    sources: {
-      'carto-tiles': {
-        type: 'raster',
-        tiles: [
-          'https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
-          'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
-          'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
-        ],
-        tileSize: 256,
-        attribution: '© CARTO © OpenStreetMap contributors',
-      },
+  layers: [
+    {
+      id: 'carto-tiles-layer',
+      type: 'raster',
+      source: 'carto-tiles',
+      minzoom: 0,
+      maxzoom: 19,
     },
-    layers: [
-      {
-        id: 'carto-tiles-layer',
-        type: 'raster',
-        source: 'carto-tiles',
-        minzoom: 0,
-        maxzoom: 19,
-      },
-    ],
-  },
-  // CARTO Dark Matter
-  'carto-dark': {
-    version: 8,
-    sources: {
-      'carto-tiles': {
-        type: 'raster',
-        tiles: [
-          'https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-          'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-          'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-        ],
-        tileSize: 256,
-        attribution: '© CARTO © OpenStreetMap contributors',
-      },
-    },
-    layers: [
-      {
-        id: 'carto-tiles-layer',
-        type: 'raster',
-        source: 'carto-tiles',
-        minzoom: 0,
-        maxzoom: 19,
-      },
-    ],
-  },
-  // CARTO Voyager (colorful)
-  'carto-voyager': {
-    version: 8,
-    sources: {
-      'carto-tiles': {
-        type: 'raster',
-        tiles: [
-          'https://a.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',
-          'https://b.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',
-          'https://c.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',
-        ],
-        tileSize: 256,
-        attribution: '© CARTO © OpenStreetMap contributors',
-      },
-    },
-    layers: [
-      {
-        id: 'carto-tiles-layer',
-        type: 'raster',
-        source: 'carto-tiles',
-        minzoom: 0,
-        maxzoom: 19,
-      },
-    ],
-  },
-};
-
-// Style display names for UI
-export const MAP_STYLE_NAMES: Record<string, string> = {
-  'osm': 'OpenStreetMap',
-  'carto-light': 'Light',
-  'carto-dark': 'Dark',
-  'carto-voyager': 'Voyager',
+  ],
 };
 
 // Map configuration - centered on UKPN coverage area
 export const MAP_CONFIG = {
-  style: MAP_STYLES['carto-light'], // Default to light style
+  style: CARTO_LIGHT_STYLE,
   center: [0.3, 51.6] as [number, number],
   zoom: 8,
   minZoom: 0,

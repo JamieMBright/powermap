@@ -79,10 +79,6 @@ vi.mock('@/components/filters/LayerControl', () => ({
   LayerControl: () => null,
 }));
 
-vi.mock('@/components/filters/MapStyleSelector', () => ({
-  MapStyleSelector: () => null,
-}));
-
 vi.mock('@/components/map/InvestmentLayer', () => ({
   InvestmentLayer: () => null,
 }));

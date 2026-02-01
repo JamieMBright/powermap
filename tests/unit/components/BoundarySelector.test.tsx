@@ -100,11 +100,6 @@ vi.mock('@/hooks/useBoundaryTimeSeries', () => ({
   }),
 }));
 
-// Mock MapStyleSelector event
-vi.mock('@/components/filters/MapStyleSelector', () => ({
-  MAP_STYLE_CHANGE_EVENT: 'map-style-change',
-}));
-
 // Mock dynamic import for BoundaryInvestmentChart
 vi.mock('next/dynamic', () => ({
   default: () => () => null,
