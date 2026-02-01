@@ -110,14 +110,16 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
     if (!map || !activeBoundary) return;
 
     const handleStyleChange = async () => {
-      // Check if the source was removed (it would be after a style change)
-      if (!map.getSource(getBoundarySourceId(activeBoundary))) {
-        console.log('[BoundarySelector] Re-adding boundary after style change:', activeBoundary);
-        try {
-          await addBoundaryToMap(map, activeBoundary);
-        } catch (err) {
-          console.error('[BoundarySelector] Failed to re-add boundary after style change:', err);
+      // Always re-add boundary after style change (source is always removed)
+      console.log('[BoundarySelector] Re-adding boundary after style change:', activeBoundary);
+      try {
+        await addBoundaryToMap(map, activeBoundary);
+        // Re-apply choropleth if we have investment stats
+        if (investmentStats?.byCode && investmentStats.byCode.size > 0) {
+          updateBoundaryChoropleth(map, activeBoundary, investmentStats.byCode, investmentStats.min, investmentStats.max);
         }
+      } catch (err) {
+        console.error('[BoundarySelector] Failed to re-add boundary after style change:', err);
       }
     };
 
@@ -125,7 +127,7 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
     return () => {
       window.removeEventListener(MAP_STYLE_CHANGE_EVENT, handleStyleChange);
     };
-  }, [map, activeBoundary]);
+  }, [map, activeBoundary, investmentStats]);
 
   // Handle boundary selection
   const handleBoundarySelect = useCallback(async (boundaryType: BoundaryType | null) => {

@@ -233,12 +233,16 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
       });
     }
 
-    // Add circle layer for investments
+    // Add circle layer for investments (hidden by default - use choropleth for visualization)
     if (!map.getLayer(INVESTMENT_LAYER_ID)) {
       map.addLayer({
         id: INVESTMENT_LAYER_ID,
         type: 'circle',
         source: INVESTMENT_SOURCE_ID,
+        layout: {
+          // Hidden by default - investment data shown via boundary choropleth
+          'visibility': 'none',
+        },
         paint: {
           'circle-radius': ['get', 'radius'],
           'circle-color': ['get', 'color'],
@@ -249,13 +253,15 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
         },
       });
 
-      // Add labels layer for larger investments
+      // Add labels layer for larger investments (hidden by default)
       map.addLayer({
         id: INVESTMENT_LABELS_LAYER_ID,
         type: 'symbol',
         source: INVESTMENT_SOURCE_ID,
         filter: ['>=', ['get', 'amount'], 10000000], // Only show labels for investments >= 10M
         layout: {
+          // Hidden by default - investment data shown via boundary choropleth
+          'visibility': 'none',
           'text-field': ['get', 'projectName'],
           'text-size': 11,
           'text-offset': [0, 2],
