@@ -264,6 +264,17 @@ const power_transformer: LayerSpecification = {
   },
 };
 
+// Common text paint settings (matching OIM)
+const text_paint = {
+  'text-color': 'hsl(0, 0%, 10%)',
+  'text-halo-width': 4,
+  'text-halo-blur': 2,
+  'text-halo-color': 'hsla(0, 0%, 100%, 0.9)',
+};
+
+// Font stack for labels
+const font: [string, ...string[]] = ['Noto Sans Regular', 'Open Sans Regular', 'Arial Unicode MS Regular'];
+
 // Transformer labels
 const power_transformer_label: LayerSpecification = {
   id: 'power_transformer_label',
@@ -284,17 +295,13 @@ const power_transformer_label: LayerSpecification = {
         ''
       ]
     ],
+    'text-font': font,
     'text-size': 10,
     'text-anchor': 'top',
     'text-offset': [0, 1],
     'text-optional': true,
   },
-  paint: {
-    'text-color': 'hsl(0, 0%, 10%)',
-    'text-halo-color': '#fff',
-    'text-halo-width': 1.5,
-    'text-halo-blur': 1,
-  },
+  paint: text_paint,
 };
 
 // Wind turbine points (low zoom)
@@ -424,6 +431,7 @@ const power_substation_label: LayerSpecification = {
   minzoom: 9,
   layout: {
     'text-field': ['coalesce', ['get', 'name'], ['get', 'ref'], ''],
+    'text-font': font,
     'text-size': [
       'interpolate', ['linear'], ['zoom'],
       8, 10,
@@ -434,12 +442,7 @@ const power_substation_label: LayerSpecification = {
     'text-optional': true,
     'text-max-width': 8,
   },
-  paint: {
-    'text-color': 'hsl(0, 0%, 10%)',
-    'text-halo-color': '#fff',
-    'text-halo-width': 1.5,
-    'text-halo-blur': 1,
-  },
+  paint: text_paint,
 };
 
 // Power line labels
@@ -458,6 +461,7 @@ const power_line_label: LayerSpecification = {
         ''
       ]
     ],
+    'text-font': font,
     'symbol-placement': 'line',
     'symbol-spacing': 400,
     'text-size': [
@@ -468,12 +472,7 @@ const power_line_label: LayerSpecification = {
     'text-offset': [0, 1],
     'text-max-angle': 20,
   },
-  paint: {
-    'text-color': 'hsl(0, 0%, 10%)',
-    'text-halo-color': '#fff',
-    'text-halo-width': 1.5,
-    'text-halo-blur': 1,
-  },
+  paint: text_paint,
 };
 
 // Power plant labels
@@ -485,6 +484,7 @@ const power_plant_label: LayerSpecification = {
   minzoom: 5.5,
   layout: {
     'text-field': ['coalesce', ['get', 'name'], ''],
+    'text-font': font,
     'text-size': [
       'interpolate', ['linear'], ['zoom'],
       7, 10,
@@ -495,12 +495,7 @@ const power_plant_label: LayerSpecification = {
     'text-optional': true,
     'text-max-width': 10,
   },
-  paint: {
-    'text-color': 'hsl(0, 0%, 10%)',
-    'text-halo-color': '#fff',
-    'text-halo-width': 1.5,
-    'text-halo-blur': 1,
-  },
+  paint: text_paint,
 };
 
 // Compensators (reactors, capacitors)
