@@ -70,11 +70,6 @@ export function BoundarySelector({ map, className = '', isTourActive = false }: 
   const [selectedDriver, setSelectedDriver] = useState<DriverSelection>('all');
   const isMobile = useIsMobile();
 
-  // Hide entirely on mobile during tours to reduce visual clutter
-  if (isMobile && isTourActive) {
-    return null;
-  }
-
   // Refs for stable event handler access to current values
   const mapRef = useRef(map);
   const activeBoundaryRef = useRef(activeBoundary);
@@ -292,6 +287,12 @@ export function BoundarySelector({ map, className = '', isTourActive = false }: 
   const handleBackdropClick = useCallback(() => {
     setIsOpen(false);
   }, []);
+
+  // Hide entirely on mobile during tours to reduce visual clutter
+  // Note: Must be after all hooks to avoid violating Rules of Hooks
+  if (isMobile && isTourActive) {
+    return null;
+  }
 
   return (
     <div data-testid="boundary-selector" className={`absolute top-14 left-2 z-20 sm:top-20 sm:left-4 ${className}`}>
