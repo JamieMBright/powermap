@@ -96,7 +96,7 @@ export const SUBSTATION_LAYER: LayerSpecification = {
   },
 };
 
-// Substation labels
+// Substation labels - show name and ref/ID
 export const SUBSTATION_LABEL_LAYER: LayerSpecification = {
   id: 'oim-substation-label',
   type: 'symbol',
@@ -104,7 +104,16 @@ export const SUBSTATION_LABEL_LAYER: LayerSpecification = {
   'source-layer': 'power_substation_point',
   minzoom: 10,
   layout: {
-    'text-field': ['get', 'name'],
+    'text-field': [
+      'case',
+      ['all', ['has', 'name'], ['has', 'ref']],
+      ['concat', ['get', 'name'], '\n', ['get', 'ref']],
+      ['has', 'name'],
+      ['get', 'name'],
+      ['has', 'ref'],
+      ['get', 'ref'],
+      ''
+    ],
     'text-size': [
       'interpolate', ['linear'], ['zoom'],
       10, 9,
@@ -171,11 +180,11 @@ export const TRANSFORMER_LAYER: LayerSpecification = {
   type: 'circle',
   source: 'oim-power',
   'source-layer': 'power_transformer',
-  minzoom: 13,
+  minzoom: 12,
   paint: {
     'circle-radius': [
       'interpolate', ['linear'], ['zoom'],
-      13, 3,
+      12, 3,
       16, 6,
       20, 10
     ],
@@ -183,6 +192,34 @@ export const TRANSFORMER_LAYER: LayerSpecification = {
     'circle-stroke-width': 2,
     'circle-stroke-color': '#ffffff',
     'circle-opacity': 0.9,
+  },
+};
+
+// Transformer labels - show ref/ID
+export const TRANSFORMER_LABEL_LAYER: LayerSpecification = {
+  id: 'oim-transformer-label',
+  type: 'symbol',
+  source: 'oim-power',
+  'source-layer': 'power_transformer',
+  minzoom: 14,
+  layout: {
+    'text-field': [
+      'case',
+      ['has', 'ref'],
+      ['get', 'ref'],
+      ['has', 'name'],
+      ['get', 'name'],
+      ''
+    ],
+    'text-size': 10,
+    'text-anchor': 'top',
+    'text-offset': [0, 0.6],
+    'text-optional': true,
+  },
+  paint: {
+    'text-color': '#b45309',  // Amber-700 for transformer labels
+    'text-halo-color': '#ffffff',
+    'text-halo-width': 1.5,
   },
 };
 
@@ -281,6 +318,7 @@ export const OIM_LAYER_IDS = [
   'oim-solar',
   'oim-substation-label',
   'oim-power-plant-label',
+  'oim-transformer-label',
 ] as const;
 
 // All OIM layers with their specs
@@ -295,6 +333,7 @@ const ALL_OIM_LAYERS = [
   { spec: SOLAR_LAYER, name: 'solar generators' },
   { spec: SUBSTATION_LABEL_LAYER, name: 'substation labels' },
   { spec: POWER_PLANT_LABEL_LAYER, name: 'power plant labels' },
+  { spec: TRANSFORMER_LABEL_LAYER, name: 'transformer labels' },
 ];
 
 // Test if OIM tiles are accessible
