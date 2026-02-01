@@ -30,40 +30,38 @@
       "narrative": "A 50MW datacentre is equivalent to powering 100,000 homes. The facility will operate 24/7/365 with exceptional reliability requirements - even brief power interruptions can cost millions. The Lea Valley corridor is becoming a growing hub for datacentres, attracted by good connectivity and available land. This new connection will test the local network's capacity.",
       "mapState": {
         "center": [-0.005, 51.765],
-        "zoom": 13,
-        "pitch": 30,
-        "bearing": -15
+        "zoom": 14,
+        "pitch": 45,
+        "bearing": -20
       },
       "annotations": [
         {
           "type": "popup",
           "position": [-0.005, 51.765],
           "content": "Proposed Datacentre: 50MW demand, 99.999% reliability required"
-        },
-        {
-          "type": "marker",
-          "position": [-0.01, 51.77],
-          "content": "Rye House area"
         }
       ],
       "highlights": {
         "visualEffects": [
           {
-            "type": "icon-overlay",
+            "type": "3d-building",
             "position": [-0.005, 51.765],
-            "label": "50MW Datacentre",
+            "label": "HYPERSCALE DATACENTRE",
             "config": {
-              "icon": "datacentre",
-              "scale": 2.0
+              "buildingType": "datacentre",
+              "scale": 1.2,
+              "color": "#3b82f6",
+              "powerMW": 50,
+              "holographic": true
             }
           },
           {
-            "type": "demand-meter",
+            "type": "power-pulse-line",
             "position": [-0.008, 51.763],
-            "label": "Power Demand",
             "config": {
-              "demandValue": 50,
-              "color": "#ef4444"
+              "color": "#f97316",
+              "scale": 1.5,
+              "particleCount": 8
             }
           }
         ]
@@ -80,8 +78,8 @@
       "mapState": {
         "center": [-0.008, 51.768],
         "zoom": 14,
-        "pitch": 45,
-        "bearing": 25
+        "pitch": 50,
+        "bearing": 30
       },
       "annotations": [
         {
@@ -99,21 +97,34 @@
         "layers": ["power-line", "power-substation"],
         "visualEffects": [
           {
-            "type": "pulse",
+            "type": "3d-building",
             "position": [-0.008, 51.768],
-            "label": "Rye House Grid",
+            "label": "RYE HOUSE GRID 132/33kV",
+            "config": {
+              "buildingType": "substation",
+              "scale": 1.0,
+              "color": "#f97316",
+              "powerMW": 85,
+              "holographic": false
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [-0.006, 51.767],
             "config": {
               "color": "#f97316",
-              "scale": 1.5
+              "secondaryColor": "#fbbf24",
+              "scale": 1.2,
+              "intensity": 4
             }
           },
           {
             "type": "demand-meter",
             "position": [-0.003, 51.767],
-            "label": "Available Capacity",
+            "label": "Grid Stress: 85%",
             "config": {
-              "demandValue": 20,
-              "color": "#22c55e"
+              "demandValue": 85,
+              "color": "#ef4444"
             }
           }
         ]
@@ -128,55 +139,61 @@
       "title": "The Reinforcement Solution",
       "narrative": "To enable the connection, the network needs: a new 132/33kV 90MVA transformer at Rye House Grid (cost: 8 million pounds), 2km of new 33kV cable to the customer's site (cost: 3 million pounds), and switchgear upgrades at two primary substations (cost: 2 million pounds). Total network investment: 13 million pounds. The customer will fund a significant portion as their connection contribution.",
       "mapState": {
-        "center": [-0.005, 51.765],
+        "center": [-0.006, 51.766],
         "zoom": 14,
-        "pitch": 50,
-        "bearing": -30
+        "pitch": 55,
+        "bearing": -25
       },
       "annotations": [
         {
-          "type": "marker",
-          "position": [-0.008, 51.768],
-          "content": "New 90MVA Transformer"
-        },
-        {
-          "type": "marker",
-          "position": [-0.005, 51.765],
-          "content": "New 33kV Cable Route"
-        },
-        {
           "type": "popup",
           "position": [-0.006, 51.766],
-          "content": "Total Investment: 13 million pounds"
+          "content": "Total Investment: £13 million"
         }
       ],
       "highlights": {
         "visualEffects": [
           {
-            "type": "pulse",
+            "type": "3d-building",
             "position": [-0.008, 51.768],
-            "label": "New Transformer",
+            "label": "NEW 90MVA TRANSFORMER",
+            "config": {
+              "buildingType": "substation",
+              "scale": 0.9,
+              "color": "#22c55e",
+              "powerMW": 90,
+              "holographic": true
+            }
+          },
+          {
+            "type": "power-pulse-line",
+            "position": [-0.0065, 51.7665],
+            "config": {
+              "color": "#3b82f6",
+              "scale": 1.8,
+              "particleCount": 6
+            }
+          },
+          {
+            "type": "3d-building",
+            "position": [-0.005, 51.765],
+            "label": "DATACENTRE 50MW",
+            "config": {
+              "buildingType": "datacentre",
+              "scale": 0.9,
+              "color": "#3b82f6",
+              "powerMW": 50,
+              "holographic": false
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [-0.0065, 51.7665],
             "config": {
               "color": "#22c55e",
-              "scale": 1.8
-            }
-          },
-          {
-            "type": "flow-animation",
-            "position": [-0.006, 51.766],
-            "label": "Power Flow",
-            "config": {
-              "flowDirection": "out",
-              "color": "#3b82f6"
-            }
-          },
-          {
-            "type": "icon-overlay",
-            "position": [-0.005, 51.765],
-            "label": "Datacentre",
-            "config": {
-              "icon": "datacentre",
-              "scale": 1.5
+              "secondaryColor": "#00ffaa",
+              "scale": 0.8,
+              "intensity": 3
             }
           }
         ]
@@ -203,6 +220,31 @@
           "content": "Energisation: Q3 2029"
         }
       ],
+      "highlights": {
+        "visualEffects": [
+          {
+            "type": "3d-building",
+            "position": [-0.005, 51.765],
+            "label": "ENERGISED Q3 2029",
+            "config": {
+              "buildingType": "datacentre",
+              "scale": 1.3,
+              "color": "#22c55e",
+              "powerMW": 50,
+              "holographic": true
+            }
+          },
+          {
+            "type": "power-pulse-line",
+            "position": [-0.005, 51.765],
+            "config": {
+              "color": "#22c55e",
+              "scale": 2.0,
+              "particleCount": 10
+            }
+          }
+        ]
+      },
       "transition": {
         "duration": 2000,
         "easing": "fly"
@@ -215,11 +257,52 @@
       "mapState": {
         "center": [-0.01, 51.77],
         "zoom": 12,
-        "pitch": 0,
+        "pitch": 30,
         "bearing": 0
       },
       "highlights": {
-        "boundaries": ["la_broxbourne"]
+        "boundaries": ["la_broxbourne"],
+        "visualEffects": [
+          {
+            "type": "power-pulse-line",
+            "position": [-0.01, 51.77],
+            "config": {
+              "color": "#22c55e",
+              "scale": 2.5,
+              "particleCount": 12
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [-0.02, 51.78],
+            "config": {
+              "color": "#3b82f6",
+              "secondaryColor": "#06b6d4",
+              "scale": 0.8,
+              "intensity": 2
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [0.0, 51.76],
+            "config": {
+              "color": "#3b82f6",
+              "secondaryColor": "#06b6d4",
+              "scale": 0.8,
+              "intensity": 2
+            }
+          },
+          {
+            "type": "energy-arc",
+            "position": [-0.02, 51.75],
+            "config": {
+              "color": "#3b82f6",
+              "secondaryColor": "#06b6d4",
+              "scale": 0.8,
+              "intensity": 2
+            }
+          }
+        ]
       },
       "annotations": [
         {
