@@ -25,7 +25,7 @@ const LAYER_GROUPS: LayerGroup[] = [
     name: 'Power Lines',
     description: 'Overhead & underground lines',
     color: '#B55D00',  // OIM 132kV orange
-    layers: ['oim-power-line', 'oim-power-line-underground'],
+    layers: ['power_line', 'power_line_underground', 'power_line_label'],
     defaultVisible: true,
   },
   {
@@ -33,7 +33,7 @@ const LAYER_GROUPS: LayerGroup[] = [
     name: 'Substations',
     description: 'Primary & secondary substations',
     color: '#C73030',  // OIM 220kV red
-    layers: ['oim-substation', 'oim-substation-fill', 'oim-substation-outline', 'oim-substation-label'],
+    layers: ['power_substation', 'power_substation_outline', 'power_substation_point', 'power_substation_label'],
     defaultVisible: true,
   },
   {
@@ -41,7 +41,7 @@ const LAYER_GROUPS: LayerGroup[] = [
     name: 'Transformers',
     description: 'Distribution transformers',
     color: '#B59F10',  // OIM 52kV gold
-    layers: ['oim-transformer', 'oim-transformer-label'],
+    layers: ['power_transformer', 'power_transformer_label'],
     defaultVisible: true,
   },
   {
@@ -49,7 +49,7 @@ const LAYER_GROUPS: LayerGroup[] = [
     name: 'Towers & Poles',
     description: 'Pylons and distribution poles',
     color: '#444',
-    layers: ['oim-power-tower', 'oim-power-pole'],
+    layers: ['power_tower', 'power_pole'],
     defaultVisible: true,
   },
   {
@@ -57,7 +57,15 @@ const LAYER_GROUPS: LayerGroup[] = [
     name: 'Generation',
     description: 'Power plants, wind & solar',
     color: '#3b82f6',
-    layers: ['oim-power-plant', 'oim-power-plant-outline', 'oim-power-plant-label', 'oim-wind-turbine', 'oim-solar'],
+    layers: ['power_plant', 'power_plant_outline', 'power_plant_label', 'power_wind_turbine', 'power_wind_turbine_point', 'power_generator_solar', 'power_generator', 'power_solar_panel'],
+    defaultVisible: true,
+  },
+  {
+    id: 'other',
+    name: 'Other Equipment',
+    description: 'Switches & compensators',
+    color: '#8b5cf6',
+    layers: ['power_switch', 'power_compensator'],
     defaultVisible: true,
   },
 ];

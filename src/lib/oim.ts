@@ -20,217 +20,223 @@ export const OIM_SOURCE: SourceSpecification = {
   attribution: '© <a href="https://openinframap.org">Open Infrastructure Map</a> | © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 };
 
-// OpenInfraMap voltage color scale (exact colors from OIM)
-const VOLTAGE_SCALE: [number, string][] = [
-  [0, '#7A7A85'],      // Unknown/null - gray
-  [10000, '#6E97B8'],  // 10kV - blue
-  [25000, '#55B555'],  // 25kV - green
-  [52000, '#B59F10'],  // 52kV - gold
-  [132000, '#B55D00'], // 132kV - orange
-  [220000, '#C73030'], // 220kV - red
-  [310000, '#B54EB2'], // 310kV - purple
-  [550000, '#00C1CF'], // 550kV - cyan
-];
+// OpenInfraMap voltage color scale (values in kV)
+// Stepwise function matching OIM exactly
+const voltage_color = (field: string): ExpressionSpecification => {
+  return [
+    'step',
+    ['to-number', ['coalesce', ['get', field], 0]],
+    '#7A7A85',  // Default (null/unknown) - gray
+    10, '#6E97B8',   // 10kV - blue
+    25, '#55B555',   // 25kV - green
+    52, '#B59F10',   // 52kV - gold
+    132, '#B55D00',  // 132kV - orange
+    220, '#C73030',  // 220kV - red
+    310, '#B54EB2',  // 310kV - purple
+    550, '#00C1CF',  // 550kV - cyan
+  ] as ExpressionSpecification;
+};
 
-// Voltage color expression matching OIM exactly
-const voltageColorExpression: ExpressionSpecification = [
-  'interpolate',
-  ['linear'],
-  ['coalesce', ['to-number', ['get', 'voltage'], 0], 0],
-  ...VOLTAGE_SCALE.flat()
-];
-
-// Voltage-based line width (thicker for higher voltages)
-const voltageLineWidth: ExpressionSpecification = [
-  'interpolate', ['linear'], ['zoom'],
-  0, ['interpolate', ['linear'], ['coalesce', ['to-number', ['get', 'voltage'], 0], 0],
-    0, 0.5,
-    132000, 1,
-    400000, 1.5
-  ],
-  10, ['interpolate', ['linear'], ['coalesce', ['to-number', ['get', 'voltage'], 0], 0],
-    0, 1,
-    132000, 2,
-    400000, 4
-  ],
-  20, ['interpolate', ['linear'], ['coalesce', ['to-number', ['get', 'voltage'], 0], 0],
-    0, 2,
-    132000, 4,
-    400000, 7
+// Voltage-based line thickness (matching OIM)
+const voltage_line_thickness: ExpressionSpecification = [
+  'interpolate', ['exponential', 1.1], ['zoom'],
+  1, 0.5,
+  20, [
+    'interpolate', ['linear'],
+    ['coalesce', ['get', 'voltage'], 0],
+    0, 1.5,
+    20, 2,
+    30, 4,
+    100, 5,
+    500, 7
   ]
 ];
 
-// Power line layer - voltage colored like OIM
-export const POWER_LINE_LAYER: LayerSpecification = {
-  id: 'oim-power-line',
+// Power opacity (matching OIM)
+const power_opacity: ExpressionSpecification = [
+  'interpolate', ['linear'], ['zoom'],
+  4, 0.6,
+  8, 1
+];
+
+// Substation radius based on voltage
+const substation_radius: ExpressionSpecification = [
+  'interpolate', ['linear'], ['zoom'],
+  5.5, ['interpolate', ['linear'], ['coalesce', ['to-number', ['get', 'voltage']], 0],
+    0, 0,
+    200, 1,
+    750, 3
+  ],
+  13, ['interpolate', ['linear'], ['coalesce', ['to-number', ['get', 'voltage']], 0],
+    10, 1,
+    30, 3,
+    100, 4,
+    500, 8
+  ],
+  20, 8
+];
+
+// === LAYERS ===
+
+// Underground power lines
+const power_line_underground: LayerSpecification = {
+  id: 'power_line_underground',
   type: 'line',
   source: 'oim-power',
   'source-layer': 'power_line',
+  filter: ['==', ['get', 'location'], 'underground'],
   minzoom: 0,
+  paint: {
+    'line-color': voltage_color('voltage'),
+    'line-width': voltage_line_thickness,
+    'line-dasharray': [3, 2],
+    'line-opacity': power_opacity,
+  },
+  layout: {
+    'line-join': 'round',
+    'line-cap': 'round',
+  },
+};
+
+// Overhead power lines
+const power_line: LayerSpecification = {
+  id: 'power_line',
+  type: 'line',
+  source: 'oim-power',
+  'source-layer': 'power_line',
   filter: ['all',
     ['!=', ['get', 'location'], 'underground'],
-    ['!=', ['get', 'line'], 'busbar']
+    ['!=', ['get', 'line'], 'busbar'],
+    ['!=', ['get', 'line'], 'bay']
   ],
+  minzoom: 0,
   paint: {
-    'line-color': voltageColorExpression,
-    'line-width': voltageLineWidth,
-    'line-opacity': 0.9,
+    'line-color': voltage_color('voltage'),
+    'line-width': voltage_line_thickness,
+    'line-opacity': power_opacity,
   },
   layout: {
-    'line-cap': 'round',
     'line-join': 'round',
+    'line-cap': 'round',
   },
 };
 
-// Underground power lines - dashed
-export const POWER_LINE_UNDERGROUND_LAYER: LayerSpecification = {
-  id: 'oim-power-line-underground',
+// Power plant fill
+const power_plant: LayerSpecification = {
+  id: 'power_plant',
+  type: 'fill',
+  source: 'oim-power',
+  'source-layer': 'power_plant',
+  minzoom: 5,
+  paint: {
+    'fill-color': 'hsl(30, 20%, 35%)',
+    'fill-opacity': 0.2,
+  },
+};
+
+// Power plant outline
+const power_plant_outline: LayerSpecification = {
+  id: 'power_plant_outline',
   type: 'line',
   source: 'oim-power',
-  'source-layer': 'power_line',
-  minzoom: 0,
-  filter: ['==', ['get', 'location'], 'underground'],
+  'source-layer': 'power_plant',
+  minzoom: 8,
   paint: {
-    'line-color': voltageColorExpression,
-    'line-width': voltageLineWidth,
-    'line-opacity': 0.7,
-    'line-dasharray': [3, 2],
+    'line-color': 'rgb(30, 30, 30)',
+    'line-opacity': 0.8,
+    'line-width': [
+      'interpolate', ['exponential', 1.2], ['zoom'],
+      8, 0,
+      20, 4
+    ],
   },
   layout: {
-    'line-cap': 'round',
     'line-join': 'round',
   },
 };
 
-// Substation fill layer
-export const SUBSTATION_FILL_LAYER: LayerSpecification = {
-  id: 'oim-substation-fill',
+// Substation fill
+const power_substation: LayerSpecification = {
+  id: 'power_substation',
   type: 'fill',
   source: 'oim-power',
   'source-layer': 'power_substation',
   minzoom: 13,
   paint: {
-    'fill-color': voltageColorExpression,
     'fill-opacity': 0.3,
+    'fill-color': voltage_color('voltage'),
   },
 };
 
-// Substation outline layer
-export const SUBSTATION_OUTLINE_LAYER: LayerSpecification = {
-  id: 'oim-substation-outline',
+// Substation outline
+const power_substation_outline: LayerSpecification = {
+  id: 'power_substation_outline',
   type: 'line',
   source: 'oim-power',
   'source-layer': 'power_substation',
   minzoom: 13,
   paint: {
-    'line-color': '#333',
-    'line-width': 1,
+    'line-color': 'rgb(30, 30, 30)',
     'line-opacity': 0.8,
-  },
-};
-
-// Substation point layer (for low zoom)
-export const SUBSTATION_POINT_LAYER: LayerSpecification = {
-  id: 'oim-substation',
-  type: 'circle',
-  source: 'oim-power',
-  'source-layer': 'power_substation_point',
-  minzoom: 5,
-  paint: {
-    'circle-radius': [
+    'line-width': [
       'interpolate', ['linear'], ['zoom'],
-      5, ['interpolate', ['linear'], ['coalesce', ['to-number', ['get', 'voltage'], 0], 0],
-        0, 1,
-        132000, 3,
-        400000, 5
-      ],
-      12, ['interpolate', ['linear'], ['coalesce', ['to-number', ['get', 'voltage'], 0], 0],
-        0, 3,
-        132000, 6,
-        400000, 10
-      ],
-      20, ['interpolate', ['linear'], ['coalesce', ['to-number', ['get', 'voltage'], 0], 0],
-        0, 6,
-        132000, 12,
-        400000, 20
-      ]
+      13, 0.5,
+      20, 4
     ],
-    'circle-color': voltageColorExpression,
-    'circle-stroke-width': [
-      'interpolate', ['linear'], ['zoom'],
-      5, 0,
-      10, 1,
-      20, 2
-    ],
-    'circle-stroke-color': '#fff',
   },
 };
 
-// Substation labels
-export const SUBSTATION_LABEL_LAYER: LayerSpecification = {
-  id: 'oim-substation-label',
-  type: 'symbol',
+// Solar panel areas
+const power_solar_panel: LayerSpecification = {
+  id: 'power_solar_panel',
+  type: 'fill',
   source: 'oim-power',
-  'source-layer': 'power_substation_point',
-  minzoom: 10,
-  layout: {
-    'text-field': ['coalesce', ['get', 'name'], ['get', 'ref'], ''],
-    'text-size': 11,
-    'text-anchor': 'top',
-    'text-offset': [0, 0.8],
-    'text-optional': true,
-  },
+  'source-layer': 'power_generator_area',
+  filter: ['==', ['get', 'source'], 'solar'],
+  minzoom: 13,
   paint: {
-    'text-color': '#333',
-    'text-halo-color': '#fff',
-    'text-halo-width': 1.5,
+    'fill-color': '#726BA9',
+    'fill-outline-color': 'rgb(50, 50, 50)',
   },
 };
 
-// Power towers layer
-export const POWER_TOWER_LAYER: LayerSpecification = {
-  id: 'oim-power-tower',
+// Power towers
+const power_tower: LayerSpecification = {
+  id: 'power_tower',
   type: 'circle',
   source: 'oim-power',
   'source-layer': 'power_tower',
   filter: ['==', ['get', 'type'], 'tower'],
   minzoom: 13,
   paint: {
+    'circle-color': '#444',
     'circle-radius': [
-      'interpolate', ['linear'], ['zoom'],
+      'interpolate', ['exponential', 1.2], ['zoom'],
       13, 1.5,
-      18, 4,
       21, 6
     ],
-    'circle-color': '#444',
-    'circle-stroke-width': 1,
     'circle-stroke-color': '#fff',
-    'circle-opacity': [
-      'interpolate', ['linear'], ['zoom'],
-      13, 0.5,
-      14, 1
-    ],
+    'circle-stroke-width': 1,
   },
 };
 
-// Power poles layer
-export const POWER_POLE_LAYER: LayerSpecification = {
-  id: 'oim-power-pole',
+// Power poles
+const power_pole: LayerSpecification = {
+  id: 'power_pole',
   type: 'circle',
   source: 'oim-power',
   'source-layer': 'power_tower',
   filter: ['==', ['get', 'type'], 'pole'],
   minzoom: 13,
   paint: {
+    'circle-color': '#666',
     'circle-radius': [
-      'interpolate', ['linear'], ['zoom'],
+      'interpolate', ['exponential', 1.3], ['zoom'],
       13, 1,
-      18, 3,
       20, 4
     ],
-    'circle-color': '#666',
-    'circle-stroke-width': 0.5,
     'circle-stroke-color': '#fff',
+    'circle-stroke-width': 0.5,
     'circle-opacity': [
       'interpolate', ['linear'], ['zoom'],
       13, 0,
@@ -239,175 +245,353 @@ export const POWER_POLE_LAYER: LayerSpecification = {
   },
 };
 
-// Transformer layer
-export const TRANSFORMER_LAYER: LayerSpecification = {
-  id: 'oim-transformer',
+// Transformers
+const power_transformer: LayerSpecification = {
+  id: 'power_transformer',
   type: 'circle',
   source: 'oim-power',
   'source-layer': 'power_transformer',
   minzoom: 14,
   paint: {
+    'circle-color': voltage_color('voltage_primary'),
     'circle-radius': [
-      'interpolate', ['linear'], ['zoom'],
-      14, 2,
-      18, 5,
+      'interpolate', ['exponential', 1.2], ['zoom'],
+      14, 3,
       20, 8
     ],
-    'circle-color': voltageColorExpression,
-    'circle-stroke-width': 1,
     'circle-stroke-color': '#fff',
+    'circle-stroke-width': 1.5,
   },
 };
 
 // Transformer labels
-export const TRANSFORMER_LABEL_LAYER: LayerSpecification = {
-  id: 'oim-transformer-label',
+const power_transformer_label: LayerSpecification = {
+  id: 'power_transformer_label',
   type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_transformer',
   minzoom: 17,
   layout: {
-    'text-field': ['coalesce', ['get', 'ref'], ['get', 'name'], ''],
+    'text-field': ['concat',
+      ['case',
+        ['has', 'voltage_primary'],
+        ['concat', ['to-string', ['round', ['to-number', ['get', 'voltage_primary']]]], 'kV'],
+        ''
+      ],
+      ['case',
+        ['has', 'voltage_secondary'],
+        ['concat', '/', ['to-string', ['round', ['to-number', ['get', 'voltage_secondary']]]], 'kV'],
+        ''
+      ]
+    ],
     'text-size': 10,
     'text-anchor': 'top',
-    'text-offset': [0, 0.6],
+    'text-offset': [0, 1],
     'text-optional': true,
   },
   paint: {
-    'text-color': '#333',
+    'text-color': 'hsl(0, 0%, 10%)',
     'text-halo-color': '#fff',
     'text-halo-width': 1.5,
+    'text-halo-blur': 1,
   },
 };
 
-// Wind turbine layer
-export const WIND_TURBINE_LAYER: LayerSpecification = {
-  id: 'oim-wind-turbine',
+// Wind turbine points (low zoom)
+const power_wind_turbine_point: LayerSpecification = {
+  id: 'power_wind_turbine_point',
   type: 'circle',
   source: 'oim-power',
   'source-layer': 'power_generator',
   filter: ['==', ['get', 'source'], 'wind'],
   minzoom: 9,
+  maxzoom: 11,
   paint: {
     'circle-radius': [
       'interpolate', ['linear'], ['zoom'],
       9, 0.5,
-      11, 1.5,
-      14, 4
+      11, 0.9
     ],
-    'circle-color': '#3b82f6',  // Blue
-    'circle-stroke-width': 1,
-    'circle-stroke-color': '#fff',
+    'circle-color': '#fff',
+    'circle-stroke-color': '#000',
+    'circle-stroke-width': [
+      'interpolate', ['linear'], ['zoom'],
+      9, 0.3,
+      11, 0.6
+    ],
   },
 };
 
-// Solar layer
-export const SOLAR_LAYER: LayerSpecification = {
-  id: 'oim-solar',
+// Wind turbines (high zoom)
+const power_wind_turbine: LayerSpecification = {
+  id: 'power_wind_turbine',
   type: 'circle',
   source: 'oim-power',
   'source-layer': 'power_generator',
-  filter: ['==', ['get', 'source'], 'solar'],
-  minzoom: 13,
+  filter: ['==', ['get', 'source'], 'wind'],
+  minzoom: 11,
   paint: {
+    'circle-color': '#3b82f6',
     'circle-radius': [
       'interpolate', ['linear'], ['zoom'],
-      13, 1,
-      16, 3,
-      18, 5
+      11, 2,
+      16, 6
     ],
-    'circle-color': '#726BA9',  // OIM solar purple
-    'circle-stroke-width': 1,
     'circle-stroke-color': '#fff',
+    'circle-stroke-width': 1,
   },
 };
 
-// Power plant fill layer
-export const POWER_PLANT_LAYER: LayerSpecification = {
-  id: 'oim-power-plant',
-  type: 'fill',
+// Solar generators (points)
+const power_generator_solar: LayerSpecification = {
+  id: 'power_generator_solar',
+  type: 'circle',
   source: 'oim-power',
-  'source-layer': 'power_plant',
-  minzoom: 6,
+  'source-layer': 'power_generator',
+  filter: ['all',
+    ['==', ['get', 'source'], 'solar'],
+    ['==', ['get', 'is_node'], true]
+  ],
+  minzoom: 15,
   paint: {
-    'fill-color': 'hsl(30, 20%, 35%)',
-    'fill-opacity': 0.5,
+    'circle-color': '#726BA9',
+    'circle-radius': [
+      'interpolate', ['linear'], ['zoom'],
+      15, 2,
+      20, 6
+    ],
+    'circle-stroke-color': '#fff',
+    'circle-stroke-width': 1,
   },
 };
 
-// Power plant outline
-export const POWER_PLANT_OUTLINE_LAYER: LayerSpecification = {
-  id: 'oim-power-plant-outline',
-  type: 'line',
+// Other generators
+const power_generator: LayerSpecification = {
+  id: 'power_generator',
+  type: 'circle',
   source: 'oim-power',
-  'source-layer': 'power_plant',
-  minzoom: 6,
+  'source-layer': 'power_generator',
+  filter: ['all',
+    ['!=', ['get', 'source'], 'wind'],
+    ['!=', ['get', 'source'], 'solar'],
+    ['has', 'output']
+  ],
+  minzoom: 11,
   paint: {
-    'line-color': 'rgb(30, 30, 30)',
-    'line-width': 1,
-    'line-opacity': 0.8,
+    'circle-color': '#059669',
+    'circle-radius': [
+      'interpolate', ['linear'], ['zoom'],
+      11, 2,
+      16, 6
+    ],
+    'circle-stroke-color': '#fff',
+    'circle-stroke-width': 1,
+  },
+};
+
+// Substation points
+const power_substation_point: LayerSpecification = {
+  id: 'power_substation_point',
+  type: 'circle',
+  source: 'oim-power',
+  'source-layer': 'power_substation_point',
+  minzoom: 5,
+  paint: {
+    'circle-radius': substation_radius,
+    'circle-color': voltage_color('voltage'),
+    'circle-stroke-color': [
+      'interpolate-hcl', ['linear'], ['zoom'],
+      8, '#eee',
+      12, '#333'
+    ],
+    'circle-stroke-width': [
+      'interpolate', ['linear'], ['zoom'],
+      5, 0,
+      8, 0.5,
+      20, 2
+    ],
+    'circle-opacity': power_opacity,
+    'circle-stroke-opacity': power_opacity,
+  },
+};
+
+// Substation labels
+const power_substation_label: LayerSpecification = {
+  id: 'power_substation_label',
+  type: 'symbol',
+  source: 'oim-power',
+  'source-layer': 'power_substation_point',
+  minzoom: 9,
+  layout: {
+    'text-field': ['coalesce', ['get', 'name'], ['get', 'ref'], ''],
+    'text-size': [
+      'interpolate', ['linear'], ['zoom'],
+      8, 10,
+      18, 14
+    ],
+    'text-anchor': 'top',
+    'text-offset': [0, 0.8],
+    'text-optional': true,
+    'text-max-width': 8,
+  },
+  paint: {
+    'text-color': 'hsl(0, 0%, 10%)',
+    'text-halo-color': '#fff',
+    'text-halo-width': 1.5,
+    'text-halo-blur': 1,
+  },
+};
+
+// Power line labels
+const power_line_label: LayerSpecification = {
+  id: 'power_line_label',
+  type: 'symbol',
+  source: 'oim-power',
+  'source-layer': 'power_line',
+  minzoom: 10,
+  layout: {
+    'text-field': ['concat',
+      ['coalesce', ['get', 'name'], ''],
+      ['case',
+        ['has', 'voltage'],
+        ['concat', ' ', ['to-string', ['round', ['get', 'voltage']]], 'kV'],
+        ''
+      ]
+    ],
+    'symbol-placement': 'line',
+    'symbol-spacing': 400,
+    'text-size': [
+      'interpolate', ['exponential', 1.4], ['zoom'],
+      10, 10,
+      20, 21
+    ],
+    'text-offset': [0, 1],
+    'text-max-angle': 20,
+  },
+  paint: {
+    'text-color': 'hsl(0, 0%, 10%)',
+    'text-halo-color': '#fff',
+    'text-halo-width': 1.5,
+    'text-halo-blur': 1,
   },
 };
 
 // Power plant labels
-export const POWER_PLANT_LABEL_LAYER: LayerSpecification = {
-  id: 'oim-power-plant-label',
+const power_plant_label: LayerSpecification = {
+  id: 'power_plant_label',
   type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_plant_point',
-  minzoom: 8,
+  minzoom: 5.5,
   layout: {
-    'text-field': ['get', 'name'],
-    'text-size': 11,
-    'text-anchor': 'center',
+    'text-field': ['coalesce', ['get', 'name'], ''],
+    'text-size': [
+      'interpolate', ['linear'], ['zoom'],
+      7, 10,
+      18, 14
+    ],
+    'text-anchor': 'top',
+    'text-offset': [0, 1],
     'text-optional': true,
+    'text-max-width': 10,
   },
   paint: {
-    'text-color': '#333',
+    'text-color': 'hsl(0, 0%, 10%)',
     'text-halo-color': '#fff',
     'text-halo-width': 1.5,
+    'text-halo-blur': 1,
+  },
+};
+
+// Compensators (reactors, capacitors)
+const power_compensator: LayerSpecification = {
+  id: 'power_compensator',
+  type: 'circle',
+  source: 'oim-power',
+  'source-layer': 'power_compensator',
+  minzoom: 14,
+  paint: {
+    'circle-color': '#8b5cf6',
+    'circle-radius': [
+      'interpolate', ['exponential', 1.2], ['zoom'],
+      14, 3,
+      20, 8
+    ],
+    'circle-stroke-color': '#fff',
+    'circle-stroke-width': 1,
+  },
+};
+
+// Switches
+const power_switch: LayerSpecification = {
+  id: 'power_switch',
+  type: 'circle',
+  source: 'oim-power',
+  'source-layer': 'power_switch',
+  minzoom: 15,
+  paint: {
+    'circle-color': '#ef4444',
+    'circle-radius': [
+      'interpolate', ['exponential', 1.2], ['zoom'],
+      15, 2,
+      20, 6
+    ],
+    'circle-stroke-color': '#fff',
+    'circle-stroke-width': 1,
   },
 };
 
 // All OIM layer IDs (in order from bottom to top)
 export const OIM_LAYER_IDS = [
-  'oim-power-plant',
-  'oim-power-plant-outline',
-  'oim-power-line-underground',
-  'oim-power-line',
-  'oim-substation-fill',
-  'oim-substation-outline',
-  'oim-substation',
-  'oim-power-tower',
-  'oim-power-pole',
-  'oim-transformer',
-  'oim-wind-turbine',
-  'oim-solar',
-  'oim-substation-label',
-  'oim-power-plant-label',
-  'oim-transformer-label',
+  'power_plant',
+  'power_plant_outline',
+  'power_substation',
+  'power_substation_outline',
+  'power_solar_panel',
+  'power_line_underground',
+  'power_line',
+  'power_tower',
+  'power_pole',
+  'power_transformer',
+  'power_compensator',
+  'power_switch',
+  'power_wind_turbine_point',
+  'power_wind_turbine',
+  'power_generator_solar',
+  'power_generator',
+  'power_substation_point',
+  'power_line_label',
+  'power_substation_label',
+  'power_plant_label',
+  'power_transformer_label',
 ] as const;
 
 // First OIM layer (for inserting other layers before OIM)
-export const FIRST_OIM_LAYER_ID = 'oim-power-plant';
+export const FIRST_OIM_LAYER_ID = 'power_plant';
 
 // All OIM layers with their specs
 const ALL_OIM_LAYERS = [
-  { spec: POWER_PLANT_LAYER, name: 'power plants' },
-  { spec: POWER_PLANT_OUTLINE_LAYER, name: 'power plant outlines' },
-  { spec: POWER_LINE_UNDERGROUND_LAYER, name: 'underground power lines' },
-  { spec: POWER_LINE_LAYER, name: 'power lines' },
-  { spec: SUBSTATION_FILL_LAYER, name: 'substation fills' },
-  { spec: SUBSTATION_OUTLINE_LAYER, name: 'substation outlines' },
-  { spec: SUBSTATION_POINT_LAYER, name: 'substations' },
-  { spec: POWER_TOWER_LAYER, name: 'power towers' },
-  { spec: POWER_POLE_LAYER, name: 'power poles' },
-  { spec: TRANSFORMER_LAYER, name: 'transformers' },
-  { spec: WIND_TURBINE_LAYER, name: 'wind turbines' },
-  { spec: SOLAR_LAYER, name: 'solar generators' },
-  { spec: SUBSTATION_LABEL_LAYER, name: 'substation labels' },
-  { spec: POWER_PLANT_LABEL_LAYER, name: 'power plant labels' },
-  { spec: TRANSFORMER_LABEL_LAYER, name: 'transformer labels' },
+  { spec: power_plant, name: 'power plants' },
+  { spec: power_plant_outline, name: 'power plant outlines' },
+  { spec: power_substation, name: 'substation areas' },
+  { spec: power_substation_outline, name: 'substation outlines' },
+  { spec: power_solar_panel, name: 'solar panels' },
+  { spec: power_line_underground, name: 'underground lines' },
+  { spec: power_line, name: 'power lines' },
+  { spec: power_tower, name: 'towers' },
+  { spec: power_pole, name: 'poles' },
+  { spec: power_transformer, name: 'transformers' },
+  { spec: power_compensator, name: 'compensators' },
+  { spec: power_switch, name: 'switches' },
+  { spec: power_wind_turbine_point, name: 'wind turbine points' },
+  { spec: power_wind_turbine, name: 'wind turbines' },
+  { spec: power_generator_solar, name: 'solar generators' },
+  { spec: power_generator, name: 'other generators' },
+  { spec: power_substation_point, name: 'substation points' },
+  { spec: power_line_label, name: 'line labels' },
+  { spec: power_substation_label, name: 'substation labels' },
+  { spec: power_plant_label, name: 'plant labels' },
+  { spec: power_transformer_label, name: 'transformer labels' },
 ];
 
 // Test OIM availability
@@ -534,9 +718,9 @@ export function setOIMVisibility(map: MaplibreMap, visible: boolean): void {
 // Check if OIM is visible
 export function isOIMVisible(map: MaplibreMap): boolean {
   try {
-    const layer = map.getLayer('oim-power-line');
+    const layer = map.getLayer('power_line');
     if (!layer) return false;
-    return map.getLayoutProperty('oim-power-line', 'visibility') !== 'none';
+    return map.getLayoutProperty('power_line', 'visibility') !== 'none';
   } catch {
     return false;
   }
