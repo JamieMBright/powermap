@@ -15,9 +15,11 @@ import { useInfrastructurePopup } from '@/hooks/useInfrastructurePopup';
 interface MapProps {
   className?: string;
   onMapLoad?: (map: MaplibreMap) => void;
+  /** Whether a tour is currently active (hides controls on mobile) */
+  isTourActive?: boolean;
 }
 
-export function Map({ className = '', onMapLoad }: MapProps) {
+export function Map({ className = '', onMapLoad, isTourActive = false }: MapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MaplibreMap | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -196,8 +198,8 @@ export function Map({ className = '', onMapLoad }: MapProps) {
       {/* Investment data layer */}
       {isLoaded && <InvestmentLayer map={map} />}
 
-      {/* Boundary selector overlay */}
-      {isLoaded && <BoundarySelector map={map} />}
+      {/* Boundary selector overlay - hidden on mobile during tours */}
+      {isLoaded && <BoundarySelector map={map} isTourActive={isTourActive} />}
 
       {/* Layer control overlay */}
       {isLoaded && <LayerControl map={map} />}

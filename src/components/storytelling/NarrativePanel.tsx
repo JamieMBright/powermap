@@ -3,6 +3,17 @@
 import { useEffect, useState } from 'react';
 import type { TourChapter } from '@/data/tour-types';
 
+/**
+ * Truncates text to a maximum character limit, breaking at word boundaries.
+ */
+function truncateText(text: string, maxLength: number): { truncated: string; isTruncated: boolean } {
+  if (text.length <= maxLength) {
+    return { truncated: text, isTruncated: false };
+  }
+  const truncated = text.slice(0, maxLength).replace(/\s+\S*$/, '') + '...';
+  return { truncated, isTruncated: true };
+}
+
 interface NarrativePanelProps {
   /** Current chapter to display */
   chapter: TourChapter | null;
@@ -42,6 +53,12 @@ export function NarrativePanel({
 }: NarrativePanelProps) {
   const [displayedChapter, setDisplayedChapter] = useState<TourChapter | null>(chapter);
   const [isContentTransitioning, setIsContentTransitioning] = useState(false);
+  const [isMobileExpanded, setIsMobileExpanded] = useState(false);
+
+  // Reset mobile expansion when chapter changes
+  useEffect(() => {
+    setIsMobileExpanded(false);
+  }, [chapter?.id]);
 
   // Handle smooth chapter transitions
   useEffect(() => {
@@ -98,9 +115,9 @@ export function NarrativePanel({
         )}
 
         {/* Header */}
-        <div className="px-4 py-3 border-b border-gray-100">
-          <div className="flex items-start justify-between gap-3">
-            <h3 className="font-semibold text-gray-900 text-base sm:text-lg leading-tight">
+        <div className="px-3 py-2 sm:px-4 sm:py-3 border-b border-gray-100">
+          <div className="flex items-start justify-between gap-2 sm:gap-3">
+            <h3 className="font-semibold text-gray-900 text-sm sm:text-lg leading-tight">
               {displayedChapter.title}
             </h3>
             {/* Side position collapse button */}
@@ -125,8 +142,31 @@ export function NarrativePanel({
 
         {/* Content - hidden when collapsed */}
         {!collapsed && (
-          <div className={`px-4 py-3 ${isBottom ? '' : 'flex-1 overflow-y-auto'}`}>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+          <div className={`px-3 py-2 sm:px-4 sm:py-3 ${isBottom ? '' : 'flex-1 overflow-y-auto'}`}>
+            {/* Mobile: truncated text with expand option */}
+            <div className="sm:hidden">
+              {(() => {
+                const { truncated, isTruncated } = truncateText(displayedChapter.narrative, 120);
+                const showFull = isMobileExpanded || !isTruncated;
+                return (
+                  <>
+                    <p className="text-gray-600 text-xs leading-relaxed">
+                      {showFull ? displayedChapter.narrative : truncated}
+                    </p>
+                    {isTruncated && (
+                      <button
+                        onClick={() => setIsMobileExpanded(!isMobileExpanded)}
+                        className="text-orange-600 text-xs font-medium mt-1"
+                      >
+                        {isMobileExpanded ? 'Less' : 'More'}
+                      </button>
+                    )}
+                  </>
+                );
+              })()}
+            </div>
+            {/* Desktop: full text */}
+            <p className="hidden sm:block text-gray-600 text-base leading-relaxed">
               {displayedChapter.narrative}
             </p>
           </div>
@@ -134,7 +174,7 @@ export function NarrativePanel({
 
         {/* Integrated navigation controls for mobile */}
         {hasNavigation && isBottom && !collapsed && (
-          <div className="px-4 py-3 border-t border-gray-100 flex items-center justify-between gap-3 sm:hidden">
+          <div className="px-3 py-2 border-t border-gray-100 flex items-center justify-between gap-2 sm:hidden">
             {/* Previous button */}
             <button
               onClick={onPrevious}

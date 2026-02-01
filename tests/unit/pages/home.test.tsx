@@ -129,10 +129,10 @@ describe('Home Page', () => {
     expect(yearSlider).toBeInTheDocument();
   });
 
-  it('should render the Guided Tours button', async () => {
+  it('should render the Stories button', async () => {
     render(<Home />);
 
-    const button = await screen.findByRole('button', { name: /guided tours|open guided tours/i }, { timeout: 3000 });
+    const button = await screen.findByRole('button', { name: /stories|explore investment stories/i }, { timeout: 3000 });
     expect(button).toBeInTheDocument();
   });
 });
