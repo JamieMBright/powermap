@@ -202,3 +202,55 @@ body {
 .infrastructure-popup .maplibregl-popup-tip {
   border-top-color: white;
 }
+
+/* Stories button attention animations - runs once on mobile first visit */
+@keyframes stories-attention {
+  0% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 0 12px rgba(249, 115, 22, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes stories-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes stories-hint {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-4px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+  }
+}
+
+.animate-stories-attention {
+  animation: stories-attention 1s ease-out forwards;
+}
+
+.animate-stories-pulse {
+  animation: stories-pulse 0.5s ease-in-out 2;
+}
+
+.animate-stories-hint {
+  animation: stories-hint 1s ease-in-out forwards;
+}
