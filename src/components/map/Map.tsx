@@ -6,6 +6,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { MAP_CONFIG } from '@/lib/maplibre';
 import { addOIMToMapAsync, type OIMStatus } from '@/lib/oim';
 import { BoundarySelector } from '@/components/filters/BoundarySelector';
+import { LayerControl } from '@/components/filters/LayerControl';
 import { InvestmentLayer } from '@/components/map/InvestmentLayer';
 import { useInfrastructurePopup } from '@/hooks/useInfrastructurePopup';
 
@@ -173,6 +174,9 @@ export function Map({ className = '', onMapLoad }: MapProps) {
 
       {/* Boundary selector overlay */}
       {isLoaded && <BoundarySelector map={map} />}
+
+      {/* Layer control overlay */}
+      {isLoaded && <LayerControl map={map} />}
 
       {!isLoaded && (
         <div data-testid="map-loading" className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
