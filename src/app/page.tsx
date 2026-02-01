@@ -144,7 +144,7 @@ function HomeContent() {
       {isHelpOpen && <HelpModal onClose={() => setIsHelpOpen(false)} />}
 
       {/* Map - positioned behind header/attribution overlays */}
-      <Map className="absolute inset-0 z-0" onMapLoad={handleMapLoad} />
+      <Map className="absolute inset-0 z-0" onMapLoad={handleMapLoad} isTourActive={isTourActive} />
 
       {/* Year Slider - responsive positioning and width */}
       {/* Hide during active tour to avoid UI clutter */}

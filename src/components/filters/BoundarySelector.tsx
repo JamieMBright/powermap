@@ -30,6 +30,8 @@ const BoundaryInvestmentChart = dynamic(
 interface BoundarySelectorProps {
   map: MaplibreMap | null;
   className?: string;
+  /** Whether a tour is currently active (hides controls on mobile) */
+  isTourActive?: boolean;
 }
 
 interface BoundaryInfoPopup {
@@ -58,7 +60,7 @@ function useIsMobile() {
 // Default boundary type to load on startup
 const DEFAULT_BOUNDARY: BoundaryType = 'gsp';
 
-export function BoundarySelector({ map, className = '' }: BoundarySelectorProps) {
+export function BoundarySelector({ map, className = '', isTourActive = false }: BoundarySelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeBoundary, setActiveBoundary] = useState<BoundaryType | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -67,6 +69,11 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
   const [hasLoadedDefault, setHasLoadedDefault] = useState(false);
   const [selectedDriver, setSelectedDriver] = useState<DriverSelection>('all');
   const isMobile = useIsMobile();
+
+  // Hide entirely on mobile during tours to reduce visual clutter
+  if (isMobile && isTourActive) {
+    return null;
+  }
 
   // Refs for stable event handler access to current values
   const mapRef = useRef(map);
