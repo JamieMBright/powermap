@@ -130,27 +130,8 @@ function HomeContent() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </button>
-            {/* Guided Tours button with subtle feedback */}
-            <button
-              onClick={handleOpenTourSelector}
-              className="
-                group relative flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5
-                rounded-lg bg-orange-500 hover:bg-orange-400 active:bg-orange-600 text-white font-semibold text-sm
-                transition-all duration-200 ease-out shadow-lg hover:shadow-orange-500/25 active:scale-[0.98]
-                min-h-[40px]
-              "
-              aria-label="Open guided tours"
-            >
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-200 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                />
-              </svg>
-              <span className="hidden sm:inline">Explore Tours</span>
-            </button>
+            {/* Stories button with subtle feedback */}
+            <StoriesButton onClick={handleOpenTourSelector} />
             {/* Subtitle - hidden on mobile */}
             <span className="hidden text-sm text-slate-400 lg:inline border-l border-slate-700 pl-3 ml-1">
               Investment Strategy 2025-2050
@@ -247,13 +228,13 @@ function HelpModal({ onClose }: { onClose: () => void }) {
           <section>
             <h3 className="text-orange-500 font-semibold mb-2 flex items-center gap-2">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
-              Guided Tours
+              Stories
             </h3>
             <p className="text-slate-300 text-sm leading-relaxed">
-              Click <strong className="text-orange-400">Explore Tours</strong> for narrated journeys through real investment projects.
-              Perfect if you want to understand why investments are being made.
+              Tap <strong className="text-orange-400">Stories</strong> for narrated journeys through real investment projects.
+              See why and where investments are being made.
             </p>
           </section>
 
@@ -355,6 +336,76 @@ function YearSliderSkeleton() {
         <div className="flex-1 h-3 bg-slate-700 rounded-full sm:h-2" />
         <div className="h-11 w-11 bg-slate-700 rounded-full sm:h-9 sm:w-9" />
       </div>
+    </div>
+  );
+}
+
+// Stories button with one-time attention animation for mobile
+function StoriesButton({ onClick }: { onClick: () => void }) {
+  const [showHint, setShowHint] = useState(false);
+
+  useEffect(() => {
+    // Only show hint once per session and on mobile
+    const hasSeenHint = sessionStorage.getItem('powermap-stories-hint-seen');
+    const isMobile = window.innerWidth < 640;
+
+    if (!hasSeenHint && isMobile) {
+      // Small delay before showing animation so page loads first
+      const startTimeout = setTimeout(() => {
+        setShowHint(true);
+        sessionStorage.setItem('powermap-stories-hint-seen', 'true');
+
+        // Auto-dismiss after 1 second
+        const hideTimeout = setTimeout(() => {
+          setShowHint(false);
+        }, 1000);
+
+        return () => clearTimeout(hideTimeout);
+      }, 500);
+
+      return () => clearTimeout(startTimeout);
+    }
+  }, []);
+
+  return (
+    <div className="relative">
+      {/* Animated attention ring - only on first visit mobile */}
+      {showHint && (
+        <div className="absolute inset-0 -m-1 rounded-lg animate-stories-attention pointer-events-none" />
+      )}
+
+      {/* Main button */}
+      <button
+        onClick={onClick}
+        className={`
+          group relative flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5
+          rounded-lg bg-orange-500 hover:bg-orange-400 active:bg-orange-600 text-white font-semibold text-sm
+          transition-all duration-200 ease-out shadow-lg hover:shadow-orange-500/25 active:scale-[0.98]
+          min-h-[40px]
+          ${showHint ? 'animate-stories-pulse' : ''}
+        `}
+        aria-label="Explore investment stories"
+      >
+        {/* Book/story icon - more intuitive than map icon */}
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-200 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+          />
+        </svg>
+        <span className="text-xs sm:text-sm">Stories</span>
+      </button>
+
+      {/* Floating hint text - fades in and out */}
+      {showHint && (
+        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap animate-stories-hint pointer-events-none sm:hidden">
+          <div className="bg-slate-800 text-white text-xs px-2 py-1 rounded shadow-lg">
+            Explore our plans
+          </div>
+        </div>
+      )}
     </div>
   );
 }
