@@ -1,6 +1,7 @@
 import type { Map as MaplibreMap, LayerSpecification, GeoJSONSourceSpecification } from 'maplibre-gl';
 import type { FeatureCollection } from 'geojson';
 import type { BoundaryType, BoundaryFeature } from '@/data/types';
+import { FIRST_OIM_LAYER_ID } from './oim';
 
 // Boundary configuration for each type
 export interface BoundaryConfig {
@@ -218,11 +219,14 @@ export async function addBoundaryToMap(
     };
     map.addSource(sourceId, sourceSpec);
 
-    // Add layers in order (fill, highlight, line, label)
-    map.addLayer(createFillLayer(config));
-    map.addLayer(createHighlightLayer(config));
-    map.addLayer(createLineLayer(config));
-    map.addLayer(createLabelLayer(config));
+    // Determine beforeId - add boundaries BEFORE OIM layers so infrastructure is on top
+    const beforeId = map.getLayer(FIRST_OIM_LAYER_ID) ? FIRST_OIM_LAYER_ID : undefined;
+
+    // Add layers in order (fill, highlight, line, label) - all before OIM layers
+    map.addLayer(createFillLayer(config), beforeId);
+    map.addLayer(createHighlightLayer(config), beforeId);
+    map.addLayer(createLineLayer(config), beforeId);
+    map.addLayer(createLabelLayer(config), beforeId);
 
     // Set up hover effect
     setupBoundaryHover(map, boundaryType);

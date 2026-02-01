@@ -11,7 +11,7 @@ interface MapStyleSelectorProps {
 
 export function MapStyleSelector({ map }: MapStyleSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentStyle, setCurrentStyle] = useState<string>('osm');
+  const [currentStyle, setCurrentStyle] = useState<string>('carto-light');
 
   const handleStyleChange = useCallback((styleKey: string) => {
     if (!map) return;
