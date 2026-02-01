@@ -204,6 +204,11 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
   const popupRef = useRef<Popup | null>(null);
   const [isLayerAdded, setIsLayerAdded] = useState(false);
 
+  // Refs for stable event handler access to current values
+  const mapRef = useRef(map);
+  const investmentsRef = useRef(investments);
+  const isLayerAddedRef = useRef(isLayerAdded);
+
   // Get driver colors from metadata or use defaults
   const driverColors = useCallback((): Record<string, string> => {
     if (driversMetadata?.drivers) {
@@ -217,6 +222,17 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
     }
     return DEFAULT_DRIVER_COLORS;
   }, [driversMetadata]);
+
+  // Ref for driverColors function
+  const driverColorsRef = useRef(driverColors);
+
+  // Keep refs updated with latest values
+  useEffect(() => {
+    mapRef.current = map;
+    investmentsRef.current = investments;
+    isLayerAddedRef.current = isLayerAdded;
+    driverColorsRef.current = driverColors;
+  });
 
   // Initialize layer on map
   const initializeLayer = useCallback(() => {
@@ -300,19 +316,77 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
   }, [map, initializeLayer]);
 
   // Re-add investment layers after map style change
+  // Uses refs for stable handler that always accesses current values
   useEffect(() => {
-    if (!map) return;
-
     const handleStyleChange = () => {
+      const currentMap = mapRef.current;
+      const currentInvestments = investmentsRef.current;
+      const currentDriverColors = driverColorsRef.current;
+
+      if (!currentMap) {
+        console.log('[InvestmentLayer] Style change ignored - no map');
+        return;
+      }
+
       // Check if the source was removed (it would be after a style change)
-      if (!map.getSource(INVESTMENT_SOURCE_ID)) {
+      if (!currentMap.getSource(INVESTMENT_SOURCE_ID)) {
         console.log('[InvestmentLayer] Re-adding layers after style change');
         setIsLayerAdded(false);
-        initializeLayer();
+
+        // Re-initialize source and layers
+        currentMap.addSource(INVESTMENT_SOURCE_ID, {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: [],
+          },
+        });
+
+        if (!currentMap.getLayer(INVESTMENT_LAYER_ID)) {
+          currentMap.addLayer({
+            id: INVESTMENT_LAYER_ID,
+            type: 'circle',
+            source: INVESTMENT_SOURCE_ID,
+            layout: {
+              'visibility': 'none',
+            },
+            paint: {
+              'circle-radius': ['get', 'radius'],
+              'circle-color': ['get', 'color'],
+              'circle-opacity': 0.8,
+              'circle-stroke-width': 2,
+              'circle-stroke-color': '#ffffff',
+              'circle-stroke-opacity': 0.9,
+            },
+          });
+
+          currentMap.addLayer({
+            id: INVESTMENT_LABELS_LAYER_ID,
+            type: 'symbol',
+            source: INVESTMENT_SOURCE_ID,
+            filter: ['>=', ['get', 'amount'], 10000000],
+            layout: {
+              'visibility': 'none',
+              'text-field': ['get', 'projectName'],
+              'text-size': 11,
+              'text-offset': [0, 2],
+              'text-anchor': 'top',
+              'text-max-width': 12,
+            },
+            paint: {
+              'text-color': '#374151',
+              'text-halo-color': '#ffffff',
+              'text-halo-width': 1.5,
+            },
+          });
+
+          setIsLayerAdded(true);
+        }
+
         // Re-populate with current data
-        const source = map.getSource(INVESTMENT_SOURCE_ID) as GeoJSONSource | undefined;
-        if (source && investments.length > 0) {
-          const geojson = investmentsToGeoJSON(investments, driverColors());
+        const source = currentMap.getSource(INVESTMENT_SOURCE_ID) as GeoJSONSource | undefined;
+        if (source && currentInvestments.length > 0) {
+          const geojson = investmentsToGeoJSON(currentInvestments, currentDriverColors());
           source.setData(geojson);
         }
       }
@@ -322,7 +396,7 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
     return () => {
       window.removeEventListener(MAP_STYLE_CHANGE_EVENT, handleStyleChange);
     };
-  }, [map, initializeLayer, investments, driverColors]);
+  }, []); // Empty deps - handler uses refs for current values
 
   // Update data when investments change
   useEffect(() => {
