@@ -41,12 +41,7 @@ const voltageColorExpression: ExpressionSpecification = [
   VOLTAGE_COLORS['default']
 ];
 
-// === POWER INFRASTRUCTURE LAYERS ===
-// See ZOOM_LEVELS.md for comprehensive zoom visibility strategy
-// Layer hierarchy: Lines (2) → Plants (6) → Substations (5) → Turbines (8) → Solar (10) → Towers (12) → Transformers (13) → Poles (14)
-
-// Power line layer - green gradient by voltage (global view zoom 2+)
-// Fades in smoothly from zoom 2-3, increases opacity with zoom
+// Power line layer - green gradient by voltage
 export const POWER_LINE_LAYER: LayerSpecification = {
   id: 'oim-power-line',
   type: 'line',
@@ -64,8 +59,7 @@ export const POWER_LINE_LAYER: LayerSpecification = {
     ],
     'line-opacity': [
       'interpolate', ['linear'], ['zoom'],
-      2, 0,
-      3, 0.6,
+      2, 0.6,
       8, 0.9
     ],
   },
@@ -75,8 +69,7 @@ export const POWER_LINE_LAYER: LayerSpecification = {
   },
 };
 
-// Substation point layer - colored by voltage (regional view zoom 5+)
-// Fades in smoothly from zoom 5-6
+// Substation point layer - colored by voltage
 export const SUBSTATION_LAYER: LayerSpecification = {
   id: 'oim-substation',
   type: 'circle',
@@ -99,16 +92,11 @@ export const SUBSTATION_LAYER: LayerSpecification = {
       15, 2
     ],
     'circle-stroke-color': '#ffffff',
-    'circle-opacity': [
-      'interpolate', ['linear'], ['zoom'],
-      5, 0,
-      6, 0.9,
-    ],
+    'circle-opacity': 0.9,
   },
 };
 
-// Substation labels (local view zoom 10+)
-// Fades in smoothly from zoom 10-11
+// Substation labels
 export const SUBSTATION_LABEL_LAYER: LayerSpecification = {
   id: 'oim-substation-label',
   type: 'symbol',
@@ -131,16 +119,10 @@ export const SUBSTATION_LABEL_LAYER: LayerSpecification = {
     'text-color': '#1f2937',
     'text-halo-color': '#ffffff',
     'text-halo-width': 1.5,
-    'text-opacity': [
-      'interpolate', ['linear'], ['zoom'],
-      10, 0,
-      11, 1,
-    ],
   },
 };
 
-// Power towers layer (street view zoom 12+)
-// Fades in smoothly from zoom 12-13
+// Power towers layer
 export const POWER_TOWER_LAYER: LayerSpecification = {
   id: 'oim-power-tower',
   type: 'circle',
@@ -158,16 +140,11 @@ export const POWER_TOWER_LAYER: LayerSpecification = {
     'circle-color': '#374151',
     'circle-stroke-width': 1,
     'circle-stroke-color': '#ffffff',
-    'circle-opacity': [
-      'interpolate', ['linear'], ['zoom'],
-      12, 0,
-      13, 0.8,
-    ],
+    'circle-opacity': 0.8,
   },
 };
 
-// Power poles layer (detail view zoom 14+)
-// Fades in smoothly from zoom 14-15
+// Power poles layer
 export const POWER_POLE_LAYER: LayerSpecification = {
   id: 'oim-power-pole',
   type: 'circle',
@@ -184,16 +161,11 @@ export const POWER_POLE_LAYER: LayerSpecification = {
     'circle-color': '#6b7280',
     'circle-stroke-width': 1,
     'circle-stroke-color': '#ffffff',
-    'circle-opacity': [
-      'interpolate', ['linear'], ['zoom'],
-      14, 0,
-      15, 0.7,
-    ],
+    'circle-opacity': 0.7,
   },
 };
 
-// Transformer layer (street view zoom 13+)
-// Fades in smoothly from zoom 13-14
+// Transformer layer
 export const TRANSFORMER_LAYER: LayerSpecification = {
   id: 'oim-transformer',
   type: 'circle',
@@ -210,16 +182,11 @@ export const TRANSFORMER_LAYER: LayerSpecification = {
     'circle-color': '#f59e0b',  // Amber for transformers
     'circle-stroke-width': 2,
     'circle-stroke-color': '#ffffff',
-    'circle-opacity': [
-      'interpolate', ['linear'], ['zoom'],
-      13, 0,
-      14, 0.9,
-    ],
+    'circle-opacity': 0.9,
   },
 };
 
-// Wind turbine layer (local view zoom 8+)
-// Fades in smoothly from zoom 8-9
+// Wind turbine layer
 export const WIND_TURBINE_LAYER: LayerSpecification = {
   id: 'oim-wind-turbine',
   type: 'circle',
@@ -237,16 +204,11 @@ export const WIND_TURBINE_LAYER: LayerSpecification = {
     'circle-color': '#0ea5e9',  // Sky blue for wind
     'circle-stroke-width': 1.5,
     'circle-stroke-color': '#ffffff',
-    'circle-opacity': [
-      'interpolate', ['linear'], ['zoom'],
-      8, 0,
-      9, 0.9,
-    ],
+    'circle-opacity': 0.9,
   },
 };
 
-// Solar panel/generator layer (local view zoom 10+)
-// Fades in smoothly from zoom 10-11
+// Solar panel/generator layer
 export const SOLAR_LAYER: LayerSpecification = {
   id: 'oim-solar',
   type: 'circle',
@@ -264,16 +226,11 @@ export const SOLAR_LAYER: LayerSpecification = {
     'circle-color': '#eab308',  // Yellow for solar
     'circle-stroke-width': 1.5,
     'circle-stroke-color': '#ffffff',
-    'circle-opacity': [
-      'interpolate', ['linear'], ['zoom'],
-      10, 0,
-      11, 0.9,
-    ],
+    'circle-opacity': 0.9,
   },
 };
 
-// Power plant layer (regional view zoom 6+)
-// Fades in smoothly from zoom 6-7
+// Power plant layer
 export const POWER_PLANT_LAYER: LayerSpecification = {
   id: 'oim-power-plant',
   type: 'fill',
@@ -282,17 +239,12 @@ export const POWER_PLANT_LAYER: LayerSpecification = {
   minzoom: 6,
   paint: {
     'fill-color': '#78716c',  // Stone color for power plants
-    'fill-opacity': [
-      'interpolate', ['linear'], ['zoom'],
-      6, 0,
-      7, 0.3,
-    ],
+    'fill-opacity': 0.3,
     'fill-outline-color': '#44403c',
   },
 };
 
-// Power plant labels (local view zoom 8+)
-// Fades in smoothly from zoom 8-9
+// Power plant labels
 export const POWER_PLANT_LABEL_LAYER: LayerSpecification = {
   id: 'oim-power-plant-label',
   type: 'symbol',
@@ -314,11 +266,6 @@ export const POWER_PLANT_LABEL_LAYER: LayerSpecification = {
     'text-color': '#44403c',
     'text-halo-color': '#ffffff',
     'text-halo-width': 1.5,
-    'text-opacity': [
-      'interpolate', ['linear'], ['zoom'],
-      8, 0,
-      9, 1,
-    ],
   },
 };
 

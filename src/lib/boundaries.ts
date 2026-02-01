@@ -17,10 +17,8 @@ export interface BoundaryConfig {
   };
 }
 
-// === UKPN BOUNDARY LAYERS ===
-// See ZOOM_LEVELS.md for comprehensive zoom visibility strategy
-// Boundary hierarchy: RESP/GSP/LA (zoom 2) → LSOA (zoom 8)
-// Labels appear progressively: RESP (5) → GSP (7) → LA (9) → LSOA (11)
+// Boundary type configurations
+// minZoom set low (2) to allow boundaries visible even when zoomed out
 export const BOUNDARY_CONFIGS: Record<BoundaryType, BoundaryConfig> = {
   resp: {
     id: 'resp',
@@ -106,7 +104,7 @@ function createFillLayer(config: BoundaryConfig): LayerSpecification {
     minzoom: config.minZoom,
     paint: {
       'fill-color': config.colors.fill,
-      'fill-opacity': 0.1,
+      'fill-opacity': 0.05,  // Very transparent
     },
   };
 }
@@ -123,11 +121,11 @@ function createLineLayer(config: BoundaryConfig): LayerSpecification {
       'line-color': config.colors.line,
       'line-width': [
         'interpolate', ['linear'], ['zoom'],
-        config.minZoom, 1,
-        config.minZoom + 4, 2,
-        config.minZoom + 8, 3,
+        config.minZoom, 0.5,
+        config.minZoom + 4, 1,
+        config.minZoom + 8, 1.5,
       ],
-      'line-opacity': 0.8,
+      'line-opacity': 0.4,  // More transparent
     },
     layout: {
       'line-cap': 'round',
