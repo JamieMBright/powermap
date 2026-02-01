@@ -236,6 +236,7 @@ describe('YearSlider Component', () => {
   describe('playback controls', () => {
     it('should call togglePlayback when play button is clicked', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const playButton = screen.getByRole('button', { name: /play/i });
       fireEvent.click(playButton);
@@ -250,6 +251,7 @@ describe('YearSlider Component', () => {
       };
 
       render(<YearSlider />);
+      expandSlider();
 
       const pauseButton = screen.getByRole('button', { name: /pause/i });
       expect(pauseButton).toBeInTheDocument();
@@ -264,6 +266,7 @@ describe('YearSlider Component', () => {
       };
 
       render(<YearSlider />);
+      expandSlider();
 
       const playButton = screen.getByRole('button', { name: /play/i });
       expect(playButton).toBeDisabled();
@@ -278,6 +281,7 @@ describe('YearSlider Component', () => {
       };
 
       render(<YearSlider />);
+      expandSlider();
 
       const pauseButton = screen.getByRole('button', { name: /pause/i });
       expect(pauseButton).not.toBeDisabled();
@@ -287,6 +291,7 @@ describe('YearSlider Component', () => {
   describe('key years tick marks', () => {
     it('should render tick marks for key years', () => {
       render(<YearSlider />);
+      expandSlider();
 
       // Current year should be displayed prominently
       expect(screen.getByTestId('year-display')).toHaveTextContent('2030');
@@ -294,6 +299,7 @@ describe('YearSlider Component', () => {
 
     it('should call setYear when key year tick is clicked', () => {
       render(<YearSlider />);
+      expandSlider();
 
       // Find buttons that are tick marks (have title "Go to YEAR")
       const tickButtons = screen.getAllByRole('button').filter((btn) =>
@@ -310,6 +316,7 @@ describe('YearSlider Component', () => {
   describe('accessibility', () => {
     it('should have accessible label for slider', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const slider = screen.getByRole('slider');
       expect(slider).toHaveAttribute('aria-label', 'Select year');
@@ -317,6 +324,7 @@ describe('YearSlider Component', () => {
 
     it('should have accessible label for play button', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const playButton = screen.getByRole('button', { name: /play/i });
       expect(playButton).toHaveAttribute('aria-label');
@@ -324,6 +332,7 @@ describe('YearSlider Component', () => {
 
     it('should have accessible label for previous button', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const prevButton = screen.getByRole('button', { name: /previous year/i });
       expect(prevButton).toHaveAttribute('aria-label', 'Previous year');
@@ -331,6 +340,7 @@ describe('YearSlider Component', () => {
 
     it('should have accessible label for next button', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const nextButton = screen.getByRole('button', { name: /next year/i });
       expect(nextButton).toHaveAttribute('aria-label', 'Next year');
@@ -338,6 +348,7 @@ describe('YearSlider Component', () => {
 
     it('should have title attributes for tooltips', () => {
       render(<YearSlider />);
+      expandSlider();
 
       const prevButton = screen.getByRole('button', { name: /previous year/i });
       const nextButton = screen.getByRole('button', { name: /next year/i });
@@ -356,6 +367,7 @@ describe('YearSlider Component', () => {
       };
 
       render(<YearSlider />);
+      expandSlider();
 
       expect(screen.getByTestId('year-display')).toHaveTextContent(String(MIN_YEAR));
     });
@@ -368,6 +380,7 @@ describe('YearSlider Component', () => {
       };
 
       render(<YearSlider />);
+      expandSlider();
 
       expect(screen.getByTestId('year-display')).toHaveTextContent(String(MAX_YEAR));
     });
@@ -379,8 +392,21 @@ describe('YearSlider Component', () => {
       };
 
       render(<YearSlider />);
+      expandSlider();
 
       expect(screen.getByTestId('year-display')).toHaveTextContent('2037');
+    });
+
+    it('should display year in collapsed state', () => {
+      mockHookReturn = {
+        ...mockHookReturn,
+        year: 2035,
+      };
+
+      render(<YearSlider />);
+
+      // In collapsed state, year is shown in the button text
+      expect(screen.getByText('2035')).toBeInTheDocument();
     });
   });
 });

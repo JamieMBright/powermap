@@ -61,45 +61,7 @@ export interface BoundaryProperties {
 // Boundary GeoJSON feature
 export type BoundaryFeature = Feature<Polygon | MultiPolygon, BoundaryProperties>;
 
-// Story tour types
-export interface StoryTour {
-  id: string;
-  title: string;
-  summary: string;
-  duration: string;
-  thumbnail: string;
-  chapters: StoryChapter[];
-}
-
-export interface StoryChapter {
-  id: string;
-  title: string;
-  narrative: string;
-  mapState: {
-    center: [number, number];
-    zoom: number;
-    pitch?: number;
-    bearing?: number;
-    bounds?: [number, number, number, number];
-  };
-  highlights: {
-    assets?: string[];
-    boundaries?: string[];
-    layers?: string[];
-  };
-  annotations?: {
-    type: 'marker' | 'popup' | 'line';
-    position: [number, number];
-    content: string;
-  }[];
-  transition: {
-    duration: number;
-    easing: 'linear' | 'easeInOut' | 'fly';
-  };
-}
-
-// Map mode
-export type MapMode = 'explore' | 'story';
+// Note: Story tour types are defined in ./tour-types.ts
 
 // =============================================================================
 // UK Power Networks Open Data Portal (ODP) API Types
@@ -222,40 +184,4 @@ export interface ODPDatasetField {
   description?: string;
   /** Annotations/metadata */
   annotations?: Record<string, unknown>;
-}
-
-/**
- * Common UKPN ODP record field types
- */
-export interface UKPNSubstationFields {
-  substation_name?: string;
-  substation_number?: string;
-  voltage?: number;
-  licence_area?: string;
-  geo_point_2d?: {
-    lat: number;
-    lon: number;
-  };
-  geo_shape?: GeoJSON.Geometry;
-}
-
-export interface UKPNCableFields {
-  cable_route_id?: string;
-  voltage?: number;
-  cable_type?: string;
-  installation_date?: string;
-  licence_area?: string;
-  geo_shape?: GeoJSON.Geometry;
-}
-
-export interface UKPNCapacityFields {
-  substation_name?: string;
-  demand_headroom_mva?: number;
-  generation_headroom_mva?: number;
-  constraint_type?: string;
-  forecast_year?: number;
-  geo_point_2d?: {
-    lat: number;
-    lon: number;
-  };
 }

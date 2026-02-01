@@ -94,8 +94,8 @@ The current tour ("Barking Grid Reinforcement 2028") could be expanded:
 - [x] Added debug page at `/debug/map` for troubleshooting
 - [x] Downloaded real boundary data from UKPN ODP (GSP, LA, RESP)
 - [x] UKPN ODP API key configured
-- [x] All tests passing (219 tests)
+- [x] All tests passing (235 tests)
 
 ---
 
-*Last updated: 2026-01-31*
+*Last updated: 2026-02-01*
