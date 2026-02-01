@@ -43,28 +43,43 @@ export function MapStyleSelector({ map }: MapStyleSelectorProps) {
     map.setStyle(style);
 
     // Re-add all layers after style loads
+    // Note: 'style.load' fires when setStyle completes, 'load' only fires on initial load
     map.once('style.load', () => {
+      console.log('[MapStyleSelector] Style loaded, restoring layers...');
+
       // Reinitialize OIM symbol loader for new style
       initializeOIMSymbols(map);
 
       // Re-add OIM layers
       addOIMToMap(map);
+      console.log('[MapStyleSelector] OIM layers added, layer count:',
+        OIM_LAYER_IDS.filter(id => map.getLayer(id)).length);
 
       // Restore OIM visibility states
-      setTimeout(() => {
-        OIM_LAYER_IDS.forEach(layerId => {
-          try {
-            if (map.getLayer(layerId) && layerVisibility[layerId]) {
-              map.setLayoutProperty(layerId, 'visibility', layerVisibility[layerId]);
-            }
-          } catch {
-            // Ignore
+      OIM_LAYER_IDS.forEach(layerId => {
+        try {
+          if (map.getLayer(layerId) && layerVisibility[layerId]) {
+            map.setLayoutProperty(layerId, 'visibility', layerVisibility[layerId]);
           }
-        });
+        } catch {
+          // Ignore
+        }
+      });
 
-        // Dispatch custom event so other components can re-add their layers
-        window.dispatchEvent(new CustomEvent(MAP_STYLE_CHANGE_EVENT, { detail: { map } }));
-      }, 100);
+      console.log('[MapStyleSelector] OIM visibility restored, dispatching event...');
+
+      // Dispatch custom event so other components can re-add their layers
+      // Use requestAnimationFrame + setTimeout to ensure:
+      // 1. The current frame completes (rAF)
+      // 2. Additional time for any async operations (setTimeout)
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          console.log('[MapStyleSelector] Dispatching style change event, OIM layers present:',
+            OIM_LAYER_IDS.filter(id => map.getLayer(id)).length);
+          window.dispatchEvent(new CustomEvent(MAP_STYLE_CHANGE_EVENT, { detail: { map } }));
+          console.log('[MapStyleSelector] Style change event dispatched');
+        }, 100);
+      });
     });
 
     setCurrentStyle(styleKey);

@@ -9,3 +9,4 @@ export { TourSelector } from './TourSelector';
 export { TourCard } from './TourCard';
 export { ChapterIndicator } from './ChapterIndicator';
 export { NarrativePanel } from './NarrativePanel';
+export { TourVisualEffects } from './TourVisualEffects';

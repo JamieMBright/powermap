@@ -155,83 +155,106 @@ const power_plant_outline: LayerSpecification = {
   },
 };
 
-// Substation fill
+// Substation fill - visible from lower zoom
 const power_substation: LayerSpecification = {
   id: 'power_substation',
   type: 'fill',
   source: 'oim-power',
   'source-layer': 'power_substation',
-  minzoom: 13,
+  minzoom: 10,
   paint: {
-    'fill-opacity': 0.3,
+    'fill-opacity': [
+      'interpolate', ['linear'], ['zoom'],
+      10, 0.2,
+      13, 0.3
+    ],
     'fill-color': voltage_color('voltage'),
   },
 };
 
-// Substation outline
+// Substation outline - visible from lower zoom
 const power_substation_outline: LayerSpecification = {
   id: 'power_substation_outline',
   type: 'line',
   source: 'oim-power',
   'source-layer': 'power_substation',
-  minzoom: 13,
+  minzoom: 10,
   paint: {
     'line-color': 'rgb(30, 30, 30)',
-    'line-opacity': 0.8,
+    'line-opacity': [
+      'interpolate', ['linear'], ['zoom'],
+      10, 0.4,
+      13, 0.8
+    ],
     'line-width': [
       'interpolate', ['linear'], ['zoom'],
+      10, 0.3,
       13, 0.5,
       20, 4
     ],
   },
 };
 
-// Solar panel areas
+// Solar panel areas - visible from lower zoom for better overview
 const power_solar_panel: LayerSpecification = {
   id: 'power_solar_panel',
   type: 'fill',
   source: 'oim-power',
   'source-layer': 'power_generator_area',
   filter: ['==', ['get', 'source'], 'solar'],
-  minzoom: 13,
+  minzoom: 8,
   paint: {
     'fill-color': '#726BA9',
     'fill-outline-color': 'rgb(50, 50, 50)',
+    'fill-opacity': [
+      'interpolate', ['linear'], ['zoom'],
+      8, 0.4,
+      13, 0.8
+    ],
   },
 };
 
-// Power towers
+// Power towers - visible from lower zoom
 const power_tower: LayerSpecification = {
   id: 'power_tower',
   type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_tower',
   filter: ['==', ['get', 'type'], 'tower'],
-  minzoom: 13,
+  minzoom: 10,
   layout: {
     'icon-image': 'power_tower',
     'icon-size': [
       'interpolate', ['exponential', 1.2], ['zoom'],
+      10, 0.15,
       13, 0.3,
       17, 0.6,
       21, 1.0
     ],
     'icon-allow-overlap': true,
   },
+  paint: {
+    'icon-opacity': [
+      'interpolate', ['linear'], ['zoom'],
+      10, 0.6,
+      13, 1
+    ],
+  },
 };
 
-// Power poles
+// Power poles - visible from lower zoom
 const power_pole: LayerSpecification = {
   id: 'power_pole',
   type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_tower',
   filter: ['==', ['get', 'type'], 'pole'],
-  minzoom: 13,
+  minzoom: 11,
   layout: {
     'icon-image': 'power_pole',
     'icon-size': [
       'interpolate', ['exponential', 1.3], ['zoom'],
+      11, 0.1,
       13, 0.2,
       17, 0.4,
       20, 0.7
@@ -241,28 +264,37 @@ const power_pole: LayerSpecification = {
   paint: {
     'icon-opacity': [
       'interpolate', ['linear'], ['zoom'],
-      13, 0,
-      13.5, 1
+      11, 0.4,
+      13, 0.8,
+      14, 1
     ],
   },
 };
 
-// Transformers
+// Transformers - visible from lower zoom
 const power_transformer: LayerSpecification = {
   id: 'power_transformer',
   type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_transformer',
-  minzoom: 14,
+  minzoom: 11,
   layout: {
     'icon-image': 'power_transformer',
     'icon-size': [
       'interpolate', ['exponential', 1.2], ['zoom'],
+      11, 0.2,
       14, 0.4,
       17, 0.7,
       20, 1.0
     ],
     'icon-allow-overlap': true,
+  },
+  paint: {
+    'icon-opacity': [
+      'interpolate', ['linear'], ['zoom'],
+      11, 0.5,
+      14, 1
+    ],
   },
 };
 
@@ -306,44 +338,50 @@ const power_transformer_label: LayerSpecification = {
   paint: text_paint,
 };
 
-// Wind turbine points (low zoom)
+// Wind turbine points (low zoom) - visible from very low zoom
 const power_wind_turbine_point: LayerSpecification = {
   id: 'power_wind_turbine_point',
   type: 'circle',
   source: 'oim-power',
   'source-layer': 'power_generator',
   filter: ['==', ['get', 'source'], 'wind'],
-  minzoom: 9,
-  maxzoom: 11,
+  minzoom: 6,
+  maxzoom: 10,
   paint: {
     'circle-radius': [
       'interpolate', ['linear'], ['zoom'],
-      9, 0.5,
-      11, 0.9
+      6, 1,
+      8, 1.5,
+      10, 2
     ],
     'circle-color': '#fff',
-    'circle-stroke-color': '#000',
+    'circle-stroke-color': '#2563eb',
     'circle-stroke-width': [
       'interpolate', ['linear'], ['zoom'],
-      9, 0.3,
-      11, 0.6
+      6, 0.5,
+      10, 1
+    ],
+    'circle-opacity': [
+      'interpolate', ['linear'], ['zoom'],
+      6, 0.7,
+      10, 1
     ],
   },
 };
 
-// Wind turbines (high zoom)
+// Wind turbines (high zoom) - icon version at higher zoom
 const power_wind_turbine: LayerSpecification = {
   id: 'power_wind_turbine',
   type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_generator',
   filter: ['==', ['get', 'source'], 'wind'],
-  minzoom: 11,
+  minzoom: 10,
   layout: {
     'icon-image': 'power_wind',
     'icon-size': [
       'interpolate', ['linear'], ['zoom'],
-      11, 0.3,
+      10, 0.2,
       14, 0.5,
       17, 0.8
     ],
@@ -351,7 +389,7 @@ const power_wind_turbine: LayerSpecification = {
   },
 };
 
-// Solar generators (points)
+// Solar generators (points) - visible from lower zoom
 const power_generator_solar: LayerSpecification = {
   id: 'power_generator_solar',
   type: 'symbol',
@@ -361,20 +399,28 @@ const power_generator_solar: LayerSpecification = {
     ['==', ['get', 'source'], 'solar'],
     ['==', ['get', 'is_node'], true]
   ],
-  minzoom: 15,
+  minzoom: 10,
   layout: {
     'icon-image': 'power_generator_solar',
     'icon-size': [
       'interpolate', ['linear'], ['zoom'],
-      15, 0.3,
+      10, 0.15,
+      14, 0.3,
       18, 0.5,
       20, 0.8
     ],
     'icon-allow-overlap': true,
   },
+  paint: {
+    'icon-opacity': [
+      'interpolate', ['linear'], ['zoom'],
+      10, 0.6,
+      14, 1
+    ],
+  },
 };
 
-// Other generators
+// Other generators - visible from lower zoom
 const power_generator: LayerSpecification = {
   id: 'power_generator',
   type: 'symbol',
@@ -385,16 +431,24 @@ const power_generator: LayerSpecification = {
     ['!=', ['get', 'source'], 'solar'],
     ['has', 'output']
   ],
-  minzoom: 11,
+  minzoom: 8,
   layout: {
     'icon-image': 'power_generator',
     'icon-size': [
       'interpolate', ['linear'], ['zoom'],
+      8, 0.2,
       11, 0.3,
       14, 0.5,
       17, 0.8
     ],
     'icon-allow-overlap': true,
+  },
+  paint: {
+    'icon-opacity': [
+      'interpolate', ['linear'], ['zoom'],
+      8, 0.6,
+      11, 1
+    ],
   },
 };
 
@@ -500,41 +554,57 @@ const power_plant_label: LayerSpecification = {
   paint: text_paint,
 };
 
-// Compensators (reactors, capacitors)
+// Compensators (reactors, capacitors) - visible from lower zoom
 const power_compensator: LayerSpecification = {
   id: 'power_compensator',
   type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_compensator',
-  minzoom: 14,
+  minzoom: 12,
   layout: {
     'icon-image': 'power_compensator',
     'icon-size': [
       'interpolate', ['exponential', 1.2], ['zoom'],
+      12, 0.25,
       14, 0.4,
       17, 0.7,
       20, 1.0
     ],
     'icon-allow-overlap': true,
   },
+  paint: {
+    'icon-opacity': [
+      'interpolate', ['linear'], ['zoom'],
+      12, 0.5,
+      14, 1
+    ],
+  },
 };
 
-// Switches
+// Switches - visible from lower zoom
 const power_switch: LayerSpecification = {
   id: 'power_switch',
   type: 'symbol',
   source: 'oim-power',
   'source-layer': 'power_switch',
-  minzoom: 15,
+  minzoom: 13,
   layout: {
     'icon-image': 'power_switch',
     'icon-size': [
       'interpolate', ['exponential', 1.2], ['zoom'],
+      13, 0.2,
       15, 0.3,
       18, 0.5,
       20, 0.8
     ],
     'icon-allow-overlap': true,
+  },
+  paint: {
+    'icon-opacity': [
+      'interpolate', ['linear'], ['zoom'],
+      13, 0.5,
+      15, 1
+    ],
   },
 };
 
