@@ -2,7 +2,6 @@ import type { StyleSpecification, LngLatBoundsLike } from 'maplibre-gl';
 
 // Minimal grayscale basemap style - designed to let infrastructure stand out
 // Uses OpenFreeMap vector tiles (OpenMapTiles schema) + Natural Earth for low zoom
-// See ZOOM_LEVELS.md for comprehensive zoom visibility strategy
 const minimalStyle: StyleSpecification = {
   version: 8,
   name: 'PowerMap Minimal',
@@ -67,62 +66,52 @@ const minimalStyle: StyleSpecification = {
       },
     },
     // Water - visible blue for oceans, lakes, rivers
-    // Note: Background color #a8c8e8 provides ocean at zoom 0-3
     {
       id: 'water',
       type: 'fill',
       source: 'openmaptiles',
       'source-layer': 'water',
-      minzoom: 0,
+      minzoom: 4,
       paint: {
         'fill-color': '#a8c8e8',
-        'fill-opacity': [
-          'interpolate', ['linear'], ['zoom'],
-          0, 0,
-          4, 1,
-        ],
       },
     },
-    // Landcover base - subtle fill (visible from zoom 0 for consistency)
+    // Landcover base - subtle fill
     {
       id: 'landcover-base',
       type: 'fill',
       source: 'openmaptiles',
       'source-layer': 'landcover',
-      minzoom: 0,
       paint: {
         'fill-color': '#f0f1f2',
         'fill-opacity': 0.5,
       },
     },
-    // Landcover - grass areas (subtle green, consistent 0-18)
+    // Landcover - very subtle differentiation (optional, keeps it minimal)
     {
       id: 'landcover-grass',
       type: 'fill',
       source: 'openmaptiles',
       'source-layer': 'landcover',
-      minzoom: 0,
       filter: ['==', ['get', 'class'], 'grass'],
       paint: {
         'fill-color': '#e8f0e8',
         'fill-opacity': 0.6,
       },
     },
-    // Landcover - woodland/forest (muted green, consistent 0-18)
+    // Landcover - woodland/forest
     {
       id: 'landcover-wood',
       type: 'fill',
       source: 'openmaptiles',
       'source-layer': 'landcover',
-      minzoom: 0,
       filter: ['in', ['get', 'class'], ['literal', ['wood', 'forest']]],
       paint: {
         'fill-color': '#dce8dc',
         'fill-opacity': 0.5,
       },
     },
-    // Buildings - pale yellow/cream, only at street view (zoom 13+)
-    // Fades in smoothly from zoom 13-14
+    // Buildings - pale yellow/cream, only at higher zoom
     {
       id: 'building',
       type: 'fill',
@@ -131,36 +120,10 @@ const minimalStyle: StyleSpecification = {
       minzoom: 13,
       paint: {
         'fill-color': '#fef9e7',  // Pale yellow/cream
-        'fill-opacity': [
-          'interpolate', ['linear'], ['zoom'],
-          13, 0,
-          14, 0.7,
-        ],
+        'fill-opacity': 0.7,
       },
     },
-    // Building outlines for better definition
-    {
-      id: 'building-outline',
-      type: 'line',
-      source: 'openmaptiles',
-      'source-layer': 'building',
-      minzoom: 14,
-      paint: {
-        'line-color': '#d4d4d4',
-        'line-width': 0.5,
-        'line-opacity': [
-          'interpolate', ['linear'], ['zoom'],
-          14, 0,
-          15, 0.5,
-        ],
-      },
-    },
-    // === ROAD INFRASTRUCTURE ===
-    // Road hierarchy: Motorway (zoom 2) → Primary (4) → Secondary (6) → Minor (10)
-    // Colors: Darker gray = more important road
-
-    // Minor roads - light gray (local view zoom 10+)
-    // Fades in smoothly from zoom 10-11
+    // Minor roads - light gray
     {
       id: 'road-minor',
       type: 'line',
@@ -183,15 +146,9 @@ const minimalStyle: StyleSpecification = {
           14, 2,
           18, 4,
         ],
-        'line-opacity': [
-          'interpolate', ['linear'], ['zoom'],
-          10, 0,
-          11, 1,
-        ],
       },
     },
-    // Secondary/tertiary roads - medium gray (regional view zoom 6+)
-    // Fades in smoothly from zoom 6-7
+    // Secondary/tertiary roads - medium gray (visible from zoom 6)
     {
       id: 'road-secondary',
       type: 'line',
@@ -215,15 +172,9 @@ const minimalStyle: StyleSpecification = {
           12, 2,
           16, 5,
         ],
-        'line-opacity': [
-          'interpolate', ['linear'], ['zoom'],
-          6, 0,
-          7, 1,
-        ],
       },
     },
-    // Primary roads - darker gray (regional view zoom 4+)
-    // Fades in smoothly from zoom 4-5
+    // Primary roads - darker gray (visible from zoom 4)
     {
       id: 'road-primary',
       type: 'line',
@@ -245,15 +196,9 @@ const minimalStyle: StyleSpecification = {
           14, 4,
           18, 8,
         ],
-        'line-opacity': [
-          'interpolate', ['linear'], ['zoom'],
-          4, 0,
-          5, 1,
-        ],
       },
     },
-    // Motorways/trunk roads - slate gray (global view zoom 2+)
-    // Fades in smoothly from zoom 2-3
+    // Motorways/trunk roads - visible pale gray at low zoom
     {
       id: 'road-motorway',
       type: 'line',
@@ -275,15 +220,9 @@ const minimalStyle: StyleSpecification = {
           12, 4,
           16, 8,
         ],
-        'line-opacity': [
-          'interpolate', ['linear'], ['zoom'],
-          2, 0,
-          3, 1,
-        ],
       },
     },
-    // Railway lines - dashed gray (local view zoom 8+)
-    // Fades in smoothly from zoom 8-9, width scales with zoom
+    // Railway lines - dashed gray
     {
       id: 'railway',
       type: 'line',
@@ -293,24 +232,11 @@ const minimalStyle: StyleSpecification = {
       minzoom: 8,
       paint: {
         'line-color': '#c4c7cc',
-        'line-width': [
-          'interpolate', ['linear'], ['zoom'],
-          8, 0.5,
-          12, 1,
-          16, 2,
-        ],
+        'line-width': 1,
         'line-dasharray': [3, 3],
-        'line-opacity': [
-          'interpolate', ['linear'], ['zoom'],
-          8, 0,
-          9, 1,
-        ],
       },
     },
-    // === ADMINISTRATIVE BOUNDARIES ===
-    // Country borders visible from zoom 0, region borders from zoom 4
-
-    // Boundaries - country borders (global view, all zoom levels)
+    // Boundaries - country borders
     {
       id: 'boundary-country',
       type: 'line',
@@ -323,8 +249,7 @@ const minimalStyle: StyleSpecification = {
         'line-dasharray': [4, 2],
       },
     },
-    // Boundaries - region/county borders (regional view zoom 4+)
-    // Fades in smoothly from zoom 4-5
+    // Boundaries - region/county borders (visible from zoom 4)
     {
       id: 'boundary-region',
       type: 'line',
@@ -338,20 +263,12 @@ const minimalStyle: StyleSpecification = {
           'interpolate', ['linear'], ['zoom'],
           4, 0.5,
           8, 1,
-          12, 1.5,
         ],
         'line-dasharray': [2, 2],
-        'line-opacity': [
-          'interpolate', ['linear'], ['zoom'],
-          4, 0,
-          5, 0.6,
-        ],
+        'line-opacity': 0.6,
       },
     },
-    // === PLACE LABELS ===
-    // Label hierarchy: Country (0-6) → City (3-14) → Town (6-15) → Village (10+)
-
-    // Place labels - country names (global view zoom 0-6)
+    // Place labels - country names
     {
       id: 'place-country',
       type: 'symbol',
@@ -372,7 +289,7 @@ const minimalStyle: StyleSpecification = {
         'text-halo-width': 2,
       },
     },
-    // Place labels - large cities (zoom 3-14)
+    // Place labels - cities (visible from zoom 3)
     {
       id: 'place-city',
       type: 'symbol',
@@ -397,7 +314,7 @@ const minimalStyle: StyleSpecification = {
         'text-halo-width': 2,
       },
     },
-    // Place labels - towns (zoom 6-15)
+    // Place labels - towns (visible from zoom 6)
     {
       id: 'place-town',
       type: 'symbol',
@@ -422,7 +339,7 @@ const minimalStyle: StyleSpecification = {
         'text-halo-width': 1.5,
       },
     },
-    // Place labels - villages (local view zoom 10+)
+    // Place labels - villages
     {
       id: 'place-village',
       type: 'symbol',
@@ -441,7 +358,7 @@ const minimalStyle: StyleSpecification = {
         'text-halo-width': 1.5,
       },
     },
-    // Road labels - major roads (local view zoom 10+)
+    // Road labels - major roads
     {
       id: 'road-label-major',
       type: 'symbol',
