@@ -122,6 +122,7 @@ const minimalStyle: StyleSpecification = {
       },
     },
     // Buildings - pale yellow/cream, only at street view (zoom 13+)
+    // Fades in smoothly from zoom 13-14
     {
       id: 'building',
       type: 'fill',
@@ -130,7 +131,28 @@ const minimalStyle: StyleSpecification = {
       minzoom: 13,
       paint: {
         'fill-color': '#fef9e7',  // Pale yellow/cream
-        'fill-opacity': 0.7,
+        'fill-opacity': [
+          'interpolate', ['linear'], ['zoom'],
+          13, 0,
+          14, 0.7,
+        ],
+      },
+    },
+    // Building outlines for better definition
+    {
+      id: 'building-outline',
+      type: 'line',
+      source: 'openmaptiles',
+      'source-layer': 'building',
+      minzoom: 14,
+      paint: {
+        'line-color': '#d4d4d4',
+        'line-width': 0.5,
+        'line-opacity': [
+          'interpolate', ['linear'], ['zoom'],
+          14, 0,
+          15, 0.5,
+        ],
       },
     },
     // === ROAD INFRASTRUCTURE ===
@@ -138,6 +160,7 @@ const minimalStyle: StyleSpecification = {
     // Colors: Darker gray = more important road
 
     // Minor roads - light gray (local view zoom 10+)
+    // Fades in smoothly from zoom 10-11
     {
       id: 'road-minor',
       type: 'line',
@@ -160,9 +183,15 @@ const minimalStyle: StyleSpecification = {
           14, 2,
           18, 4,
         ],
+        'line-opacity': [
+          'interpolate', ['linear'], ['zoom'],
+          10, 0,
+          11, 1,
+        ],
       },
     },
     // Secondary/tertiary roads - medium gray (regional view zoom 6+)
+    // Fades in smoothly from zoom 6-7
     {
       id: 'road-secondary',
       type: 'line',
@@ -186,9 +215,15 @@ const minimalStyle: StyleSpecification = {
           12, 2,
           16, 5,
         ],
+        'line-opacity': [
+          'interpolate', ['linear'], ['zoom'],
+          6, 0,
+          7, 1,
+        ],
       },
     },
     // Primary roads - darker gray (regional view zoom 4+)
+    // Fades in smoothly from zoom 4-5
     {
       id: 'road-primary',
       type: 'line',
@@ -210,9 +245,15 @@ const minimalStyle: StyleSpecification = {
           14, 4,
           18, 8,
         ],
+        'line-opacity': [
+          'interpolate', ['linear'], ['zoom'],
+          4, 0,
+          5, 1,
+        ],
       },
     },
     // Motorways/trunk roads - slate gray (global view zoom 2+)
+    // Fades in smoothly from zoom 2-3
     {
       id: 'road-motorway',
       type: 'line',
@@ -234,9 +275,15 @@ const minimalStyle: StyleSpecification = {
           12, 4,
           16, 8,
         ],
+        'line-opacity': [
+          'interpolate', ['linear'], ['zoom'],
+          2, 0,
+          3, 1,
+        ],
       },
     },
     // Railway lines - dashed gray (local view zoom 8+)
+    // Fades in smoothly from zoom 8-9, width scales with zoom
     {
       id: 'railway',
       type: 'line',
@@ -246,8 +293,18 @@ const minimalStyle: StyleSpecification = {
       minzoom: 8,
       paint: {
         'line-color': '#c4c7cc',
-        'line-width': 1,
+        'line-width': [
+          'interpolate', ['linear'], ['zoom'],
+          8, 0.5,
+          12, 1,
+          16, 2,
+        ],
         'line-dasharray': [3, 3],
+        'line-opacity': [
+          'interpolate', ['linear'], ['zoom'],
+          8, 0,
+          9, 1,
+        ],
       },
     },
     // === ADMINISTRATIVE BOUNDARIES ===
@@ -267,6 +324,7 @@ const minimalStyle: StyleSpecification = {
       },
     },
     // Boundaries - region/county borders (regional view zoom 4+)
+    // Fades in smoothly from zoom 4-5
     {
       id: 'boundary-region',
       type: 'line',
@@ -280,9 +338,14 @@ const minimalStyle: StyleSpecification = {
           'interpolate', ['linear'], ['zoom'],
           4, 0.5,
           8, 1,
+          12, 1.5,
         ],
         'line-dasharray': [2, 2],
-        'line-opacity': 0.6,
+        'line-opacity': [
+          'interpolate', ['linear'], ['zoom'],
+          4, 0,
+          5, 0.6,
+        ],
       },
     },
     // === PLACE LABELS ===

@@ -298,6 +298,32 @@ Poles:  zoom 14→2px, zoom 18→4px
 
 ---
 
+## Smooth Transitions
+
+All layers use smooth fade-in transitions at their minZoom threshold:
+
+| Layer Type | Transition Range |
+|------------|------------------|
+| Motorways | zoom 2→3 |
+| Primary roads | zoom 4→5 |
+| Secondary roads | zoom 6→7 |
+| Minor roads | zoom 10→11 |
+| Railways | zoom 8→9 |
+| Region borders | zoom 4→5 |
+| Buildings | zoom 13→14 |
+| Building outlines | zoom 14→15 |
+| Power lines | zoom 2→3 |
+| Substations | zoom 5→6 |
+| Power plants | zoom 6→7 |
+| Wind turbines | zoom 8→9 |
+| Solar | zoom 10→11 |
+| Power towers | zoom 12→13 |
+| Transformers | zoom 13→14 |
+| Power poles | zoom 14→15 |
+| Labels | +1 zoom level fade |
+
+---
+
 ## Performance Notes
 
 1. **LSOA boundaries** limited to zoom 8+ due to high polygon count
@@ -305,6 +331,7 @@ Poles:  zoom 14→2px, zoom 18→4px
 3. **Raster basemap** limited to zoom 6 to reduce tile requests
 4. **OIM tiles** bounded to UK for performance
 5. **Labels** use `text-optional: true` to prevent collisions
+6. **Smooth transitions** prevent jarring visual changes when zooming
 
 ---
 
