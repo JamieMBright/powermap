@@ -54,7 +54,10 @@ export type VisualEffectType =
   | 'spotlight'       // Spotlight/highlight effect
   | 'icon-overlay'    // Large icon overlay on map
   | 'flow-animation'  // Animated flow (e.g., electricity flow)
-  | 'demand-meter';   // Animated demand/load visualization
+  | 'demand-meter'    // Animated demand/load visualization
+  | '3d-building'     // Dramatic 3D isometric building with effects
+  | 'energy-arc'      // Electric arc/lightning effect
+  | 'power-pulse-line'; // Animated power flowing along a path
 
 /**
  * Configuration for a visual effect
@@ -70,6 +73,8 @@ export interface ChapterVisualEffect {
   config?: {
     /** Color for the effect (default: orange) */
     color?: string;
+    /** Secondary color for gradients/effects */
+    secondaryColor?: string;
     /** Size multiplier (default: 1) */
     scale?: number;
     /** Icon name for icon-overlay type */
@@ -80,6 +85,18 @@ export interface ChapterVisualEffect {
     demandValue?: number;
     /** For flow-animation: direction ('in' | 'out' | 'bidirectional') */
     flowDirection?: 'in' | 'out' | 'bidirectional';
+    /** For 3d-building: building type */
+    buildingType?: 'datacentre' | 'substation' | 'factory';
+    /** For 3d-building: power consumption in MW */
+    powerMW?: number;
+    /** For 3d-building: show holographic effect */
+    holographic?: boolean;
+    /** For energy-arc/power-pulse-line: end position [lng, lat] */
+    endPosition?: [number, number];
+    /** For power-pulse-line: number of particles */
+    particleCount?: number;
+    /** For energy-arc: intensity (1-5) */
+    intensity?: number;
   };
 }
 
