@@ -354,15 +354,15 @@ export function getBoundaryConfig(boundaryType: BoundaryType): BoundaryConfig {
   return BOUNDARY_CONFIGS[boundaryType];
 }
 
-// Choropleth color scale (orange gradient matching PowerMap theme)
+// Choropleth color scale (light navy to dark navy gradient)
 export const CHOROPLETH_COLORS = [
-  '#fff7ed', // Very light orange (lowest)
-  '#fed7aa', // Light orange
-  '#fdba74', // Orange-300
-  '#fb923c', // Orange-400 (medium)
-  '#f97316', // Orange-500
-  '#ea580c', // Orange-600
-  '#c2410c', // Orange-700 (highest)
+  '#e8eef4', // Very light navy (lowest)
+  '#c5d5e4', // Light navy
+  '#9bb8d3', // Medium-light navy
+  '#6b97be', // Medium navy
+  '#3d78a8', // Medium-dark navy
+  '#1e5a8a', // Dark navy
+  '#0d3b5c', // Very dark navy (highest)
 ] as const;
 
 /**
@@ -423,8 +423,8 @@ export function updateBoundaryChoropleth(
 
   // Update the fill color with the match expression
   map.setPaintProperty(layerIds.fill, 'fill-color', matchExpression);
-  // Increase opacity to make choropleth more visible
-  map.setPaintProperty(layerIds.fill, 'fill-opacity', 0.6);
+  // Set opacity - transparent enough to see infrastructure beneath
+  map.setPaintProperty(layerIds.fill, 'fill-opacity', 0.4);
 }
 
 /**

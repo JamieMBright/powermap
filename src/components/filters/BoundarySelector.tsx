@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import type { Map as MaplibreMap, MapMouseEvent } from 'maplibre-gl';
 import type { BoundaryType } from '@/data/types';
 import {
@@ -11,6 +11,7 @@ import {
   getBoundaryFeatureAtPoint,
   updateBoundaryChoropleth,
   resetBoundaryChoropleth,
+  getBoundarySourceId,
   type BoundaryConfig,
 } from '@/lib/boundaries';
 import { useSelectedBoundary } from '@/contexts/BoundaryContext';
@@ -18,6 +19,14 @@ import { useYearFilter } from '@/hooks/useYearFilter';
 import { useBoundaryInvestments, type DriverSelection } from '@/hooks/useBoundaryInvestments';
 import { InvestmentDriverSelector } from './InvestmentDriverSelector';
 import { InvestmentLegend } from '@/components/ui/InvestmentLegend';
+import { MAP_STYLE_CHANGE_EVENT } from './MapStyleSelector';
+import dynamic from 'next/dynamic';
+import { useBoundaryTimeSeries } from '@/hooks/useBoundaryTimeSeries';
+
+const BoundaryInvestmentChart = dynamic(
+  () => import('@/components/ui/BoundaryInvestmentChart'),
+  { ssr: false, loading: () => <div className="h-24 flex items-center justify-center text-xs text-gray-400">Loading chart...</div> }
+);
 
 interface BoundarySelectorProps {
   map: MaplibreMap | null;
@@ -95,6 +104,28 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
 
     loadDefaultBoundary();
   }, [map, hasLoadedDefault]);
+
+  // Re-add boundary layers after map style change
+  useEffect(() => {
+    if (!map || !activeBoundary) return;
+
+    const handleStyleChange = async () => {
+      // Check if the source was removed (it would be after a style change)
+      if (!map.getSource(getBoundarySourceId(activeBoundary))) {
+        console.log('[BoundarySelector] Re-adding boundary after style change:', activeBoundary);
+        try {
+          await addBoundaryToMap(map, activeBoundary);
+        } catch (err) {
+          console.error('[BoundarySelector] Failed to re-add boundary after style change:', err);
+        }
+      }
+    };
+
+    window.addEventListener(MAP_STYLE_CHANGE_EVENT, handleStyleChange);
+    return () => {
+      window.removeEventListener(MAP_STYLE_CHANGE_EVENT, handleStyleChange);
+    };
+  }, [map, activeBoundary]);
 
   // Handle boundary selection
   const handleBoundarySelect = useCallback(async (boundaryType: BoundaryType | null) => {
@@ -494,6 +525,11 @@ interface BoundaryInfoPanelProps {
 
 function BoundaryInfoPanel({ popup, onClose, isMobile = false }: BoundaryInfoPanelProps) {
   const config = BOUNDARY_CONFIGS[popup.boundaryType];
+  const { data: timeSeriesData, isLoading: chartLoading } = useBoundaryTimeSeries({
+    boundaryType: popup.boundaryType,
+    boundaryCode: popup.code,
+    enabled: true,
+  });
 
   // On mobile, show as a toast/card at the bottom
   if (isMobile) {
@@ -529,11 +565,16 @@ function BoundaryInfoPanel({ popup, onClose, isMobile = false }: BoundaryInfoPan
             <p className="text-sm text-gray-500 mt-0.5">Code: {popup.code}</p>
           </div>
 
-          {/* Placeholder for future aggregate data */}
+          {/* Investment Chart */}
           <div className="px-4 py-3 border-t border-gray-100 bg-gray-50">
-            <p className="text-sm text-gray-400 italic">
-              Investment data will be displayed here
-            </p>
+            <div className="text-xs font-medium text-gray-600 mb-2">Investment 2025-2050</div>
+            {chartLoading ? (
+              <div className="h-24 flex items-center justify-center text-xs text-gray-400">Loading...</div>
+            ) : timeSeriesData ? (
+              <BoundaryInvestmentChart data={timeSeriesData} compact />
+            ) : (
+              <div className="h-24 flex items-center justify-center text-xs text-gray-400">No data available</div>
+            )}
           </div>
         </div>
       </div>
@@ -543,7 +584,7 @@ function BoundaryInfoPanel({ popup, onClose, isMobile = false }: BoundaryInfoPan
   // Desktop version
   return (
     <div
-      className="boundary-popup mt-2 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden"
+      className="boundary-popup mt-2 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden w-72"
     >
       {/* Header */}
       <div
@@ -573,11 +614,16 @@ function BoundaryInfoPanel({ popup, onClose, isMobile = false }: BoundaryInfoPan
         <p className="text-xs text-gray-500 mt-0.5">Code: {popup.code}</p>
       </div>
 
-      {/* Placeholder for future aggregate data */}
+      {/* Investment Chart */}
       <div className="px-3 py-2 border-t border-gray-100 bg-gray-50">
-        <p className="text-xs text-gray-400 italic">
-          Investment data will be displayed here
-        </p>
+        <div className="text-xs font-medium text-gray-600 mb-2">Investment 2025-2050</div>
+        {chartLoading ? (
+          <div className="h-32 flex items-center justify-center text-xs text-gray-400">Loading...</div>
+        ) : timeSeriesData ? (
+          <BoundaryInvestmentChart data={timeSeriesData} compact />
+        ) : (
+          <div className="h-32 flex items-center justify-center text-xs text-gray-400">No data available</div>
+        )}
       </div>
     </div>
   );
