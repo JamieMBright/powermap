@@ -52,6 +52,8 @@ export function MapStyleSelector({ map }: MapStyleSelectorProps) {
 
       // Re-add OIM layers
       addOIMToMap(map);
+      console.log('[MapStyleSelector] OIM layers added, layer count:',
+        OIM_LAYER_IDS.filter(id => map.getLayer(id)).length);
 
       // Restore OIM visibility states
       OIM_LAYER_IDS.forEach(layerId => {
@@ -64,14 +66,20 @@ export function MapStyleSelector({ map }: MapStyleSelectorProps) {
         }
       });
 
-      console.log('[MapStyleSelector] OIM layers restored, dispatching event...');
+      console.log('[MapStyleSelector] OIM visibility restored, dispatching event...');
 
       // Dispatch custom event so other components can re-add their layers
-      // Use setTimeout to ensure layers are fully initialized before other components try to add theirs
-      setTimeout(() => {
-        window.dispatchEvent(new CustomEvent(MAP_STYLE_CHANGE_EVENT, { detail: { map } }));
-        console.log('[MapStyleSelector] Style change event dispatched');
-      }, 50);
+      // Use requestAnimationFrame + setTimeout to ensure:
+      // 1. The current frame completes (rAF)
+      // 2. Additional time for any async operations (setTimeout)
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          console.log('[MapStyleSelector] Dispatching style change event, OIM layers present:',
+            OIM_LAYER_IDS.filter(id => map.getLayer(id)).length);
+          window.dispatchEvent(new CustomEvent(MAP_STYLE_CHANGE_EVENT, { detail: { map } }));
+          console.log('[MapStyleSelector] Style change event dispatched');
+        }, 100);
+      });
     });
 
     setCurrentStyle(styleKey);

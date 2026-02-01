@@ -42,7 +42,18 @@
         }
       ],
       "highlights": {
-        "layers": ["power-line", "power-substation"]
+        "layers": ["power-line", "power-substation"],
+        "visualEffects": [
+          {
+            "type": "pulse",
+            "position": [0.0815, 51.5365],
+            "label": "Barking Grid",
+            "config": {
+              "color": "#f97316",
+              "scale": 1.5
+            }
+          }
+        ]
       },
       "transition": {
         "duration": 3000,
@@ -101,6 +112,28 @@
           "content": "New Transformer Bay"
         }
       ],
+      "highlights": {
+        "visualEffects": [
+          {
+            "type": "pulse",
+            "position": [0.0815, 51.5365],
+            "label": "New GIS",
+            "config": {
+              "color": "#22c55e",
+              "scale": 1.8
+            }
+          },
+          {
+            "type": "icon-overlay",
+            "position": [0.085, 51.534],
+            "label": "90MVA Transformer",
+            "config": {
+              "icon": "substation",
+              "scale": 1.2
+            }
+          }
+        ]
+      },
       "transition": {
         "duration": 2000,
         "easing": "fly"

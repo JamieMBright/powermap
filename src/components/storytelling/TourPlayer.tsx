@@ -6,6 +6,7 @@ import type { TourChapter, TourPlaybackStatus } from '@/data/tour-types';
 import { TourControls } from './TourControls';
 import { ChapterIndicator } from './ChapterIndicator';
 import { NarrativePanel } from './NarrativePanel';
+import { TourVisualEffects } from './TourVisualEffects';
 
 interface TourPlayerProps {
   /** Map instance to control */
@@ -98,8 +99,14 @@ export function TourPlayer({
 
   const isTransitioning = status === 'transitioning' || status === 'loading';
 
+  // Get visual effects for current chapter
+  const visualEffects = currentChapter?.highlights?.visualEffects ?? [];
+
   return (
     <>
+      {/* Visual effects layer (renders markers on map) */}
+      <TourVisualEffects map={map} effects={visualEffects} />
+
       {/* Top bar with tour title and chapter indicator */}
       <div className="fixed top-14 left-0 right-0 z-30 sm:top-16">
         <div className="mx-auto max-w-2xl px-4">

@@ -51,7 +51,36 @@
         }
       ],
       "highlights": {
-        "layers": ["power-line"]
+        "layers": ["power-line"],
+        "visualEffects": [
+          {
+            "type": "pulse",
+            "position": [0.935, 51.885],
+            "label": "Overloaded",
+            "config": {
+              "color": "#ef4444",
+              "scale": 1.5
+            }
+          },
+          {
+            "type": "icon-overlay",
+            "position": [0.937, 51.886],
+            "label": "35 EVs",
+            "config": {
+              "icon": "ev-charger",
+              "scale": 1.2
+            }
+          },
+          {
+            "type": "demand-meter",
+            "position": [0.933, 51.884],
+            "label": "Peak Demand",
+            "config": {
+              "demandValue": 104,
+              "color": "#ef4444"
+            }
+          }
+        ]
       },
       "transition": {
         "duration": 2500,
@@ -85,6 +114,46 @@
           "content": "Smart Charger C: Scheduled for 2am"
         }
       ],
+      "highlights": {
+        "visualEffects": [
+          {
+            "type": "icon-overlay",
+            "position": [0.934, 51.885],
+            "label": "Paused",
+            "config": {
+              "icon": "ev-charger",
+              "scale": 1.0
+            }
+          },
+          {
+            "type": "icon-overlay",
+            "position": [0.936, 51.886],
+            "label": "Charging",
+            "config": {
+              "icon": "ev-charger",
+              "scale": 1.2
+            }
+          },
+          {
+            "type": "flow-animation",
+            "position": [0.936, 51.886],
+            "label": "Active Charging",
+            "config": {
+              "flowDirection": "in",
+              "color": "#22c55e"
+            }
+          },
+          {
+            "type": "icon-overlay",
+            "position": [0.938, 51.884],
+            "label": "Scheduled",
+            "config": {
+              "icon": "ev-charger",
+              "scale": 1.0
+            }
+          }
+        ]
+      },
       "transition": {
         "duration": 2000,
         "easing": "easeInOut"
@@ -117,6 +186,55 @@
           "content": "Net import reduced by 80kW"
         }
       ],
+      "highlights": {
+        "visualEffects": [
+          {
+            "type": "icon-overlay",
+            "position": [0.933, 51.886],
+            "label": "V2G Active",
+            "config": {
+              "icon": "ev-charger",
+              "scale": 1.3
+            }
+          },
+          {
+            "type": "flow-animation",
+            "position": [0.933, 51.886],
+            "label": "Export 7kW",
+            "config": {
+              "flowDirection": "out",
+              "color": "#f97316"
+            }
+          },
+          {
+            "type": "icon-overlay",
+            "position": [0.937, 51.884],
+            "label": "V2G Export",
+            "config": {
+              "icon": "ev-charger",
+              "scale": 1.3
+            }
+          },
+          {
+            "type": "flow-animation",
+            "position": [0.937, 51.884],
+            "label": "Export 10kW",
+            "config": {
+              "flowDirection": "out",
+              "color": "#f97316"
+            }
+          },
+          {
+            "type": "icon-overlay",
+            "position": [0.935, 51.885],
+            "label": "Battery Support",
+            "config": {
+              "icon": "battery",
+              "scale": 1.5
+            }
+          }
+        ]
+      },
       "transition": {
         "duration": 2500,
         "easing": "fly"

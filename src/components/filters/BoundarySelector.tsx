@@ -133,6 +133,7 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
         hasMap: !!currentMap,
         boundary: currentBoundary,
         hasStats: !!currentStats,
+        statsSize: currentStats?.byCode?.size ?? 0,
       });
 
       if (!currentMap || !currentBoundary) {
@@ -140,18 +141,34 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
         return;
       }
 
+      // Check if source already exists (it shouldn't after style change)
+      const sourceId = `boundary-${currentBoundary}`;
+      const sourceExists = !!currentMap.getSource(sourceId);
+      console.log('[BoundarySelector] Source exists before re-add:', sourceExists);
+
       // Always re-add boundary after style change (source is always removed)
       console.log('[BoundarySelector] Re-adding boundary after style change:', currentBoundary);
       try {
         await addBoundaryToMap(currentMap, currentBoundary);
-        console.log('[BoundarySelector] Boundary layers added successfully');
+
+        // Verify layers were added
+        const fillLayerId = `boundary-${currentBoundary}-fill`;
+        const layerExists = !!currentMap.getLayer(fillLayerId);
+        console.log('[BoundarySelector] Boundary layers added, fill layer exists:', layerExists);
+
         // Re-apply choropleth if we have investment stats
         if (currentStats?.byCode && currentStats.byCode.size > 0) {
           updateBoundaryChoropleth(currentMap, currentBoundary, currentStats.byCode, currentStats.min, currentStats.max);
-          console.log('[BoundarySelector] Choropleth applied');
+          console.log('[BoundarySelector] Choropleth applied with', currentStats.byCode.size, 'entries');
+        } else {
+          console.log('[BoundarySelector] No investment stats to apply');
         }
       } catch (err) {
         console.error('[BoundarySelector] Failed to re-add boundary after style change:', err);
+        // Log more details about the error
+        if (err instanceof Error) {
+          console.error('[BoundarySelector] Error details:', err.message, err.stack);
+        }
       }
     };
 

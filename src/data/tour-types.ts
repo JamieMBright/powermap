@@ -47,6 +47,43 @@ export interface ChapterAnnotation {
 }
 
 /**
+ * Visual effect types for immersive storytelling
+ */
+export type VisualEffectType =
+  | 'pulse'           // Pulsing glow effect on a location
+  | 'spotlight'       // Spotlight/highlight effect
+  | 'icon-overlay'    // Large icon overlay on map
+  | 'flow-animation'  // Animated flow (e.g., electricity flow)
+  | 'demand-meter';   // Animated demand/load visualization
+
+/**
+ * Configuration for a visual effect
+ */
+export interface ChapterVisualEffect {
+  /** Type of visual effect */
+  type: VisualEffectType;
+  /** Position on map [longitude, latitude] */
+  position: [number, number];
+  /** Optional label/title */
+  label?: string;
+  /** Effect-specific configuration */
+  config?: {
+    /** Color for the effect (default: orange) */
+    color?: string;
+    /** Size multiplier (default: 1) */
+    scale?: number;
+    /** Icon name for icon-overlay type */
+    icon?: 'substation' | 'datacentre' | 'ev-charger' | 'solar' | 'wind' | 'battery';
+    /** Animation speed (ms per cycle, default: 2000) */
+    animationDuration?: number;
+    /** For demand-meter: current value (0-100) */
+    demandValue?: number;
+    /** For flow-animation: direction ('in' | 'out' | 'bidirectional') */
+    flowDirection?: 'in' | 'out' | 'bidirectional';
+  };
+}
+
+/**
  * Elements to highlight during a chapter
  */
 export interface ChapterHighlights {
@@ -56,6 +93,8 @@ export interface ChapterHighlights {
   boundaries?: string[];
   /** Layer IDs to make visible */
   layers?: string[];
+  /** Visual effects to display */
+  visualEffects?: ChapterVisualEffect[];
 }
 
 /**
