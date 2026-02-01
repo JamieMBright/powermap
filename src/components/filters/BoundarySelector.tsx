@@ -121,10 +121,19 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
   // Re-add boundary layers after map style change
   // Uses refs for stable handler that always accesses current values
   useEffect(() => {
+    console.log('[BoundarySelector] Setting up style change listener');
+
     const handleStyleChange = async () => {
+      console.log('[BoundarySelector] Style change event received');
       const currentMap = mapRef.current;
       const currentBoundary = activeBoundaryRef.current;
       const currentStats = investmentStatsRef.current;
+
+      console.log('[BoundarySelector] Current state:', {
+        hasMap: !!currentMap,
+        boundary: currentBoundary,
+        hasStats: !!currentStats,
+      });
 
       if (!currentMap || !currentBoundary) {
         console.log('[BoundarySelector] Style change ignored - no map or boundary');
@@ -135,9 +144,11 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
       console.log('[BoundarySelector] Re-adding boundary after style change:', currentBoundary);
       try {
         await addBoundaryToMap(currentMap, currentBoundary);
+        console.log('[BoundarySelector] Boundary layers added successfully');
         // Re-apply choropleth if we have investment stats
         if (currentStats?.byCode && currentStats.byCode.size > 0) {
           updateBoundaryChoropleth(currentMap, currentBoundary, currentStats.byCode, currentStats.min, currentStats.max);
+          console.log('[BoundarySelector] Choropleth applied');
         }
       } catch (err) {
         console.error('[BoundarySelector] Failed to re-add boundary after style change:', err);
@@ -146,6 +157,7 @@ export function BoundarySelector({ map, className = '' }: BoundarySelectorProps)
 
     window.addEventListener(MAP_STYLE_CHANGE_EVENT, handleStyleChange);
     return () => {
+      console.log('[BoundarySelector] Removing style change listener');
       window.removeEventListener(MAP_STYLE_CHANGE_EVENT, handleStyleChange);
     };
   }, []); // Empty deps - handler uses refs for current values

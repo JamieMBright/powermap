@@ -318,10 +318,18 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
   // Re-add investment layers after map style change
   // Uses refs for stable handler that always accesses current values
   useEffect(() => {
+    console.log('[InvestmentLayer] Setting up style change listener');
+
     const handleStyleChange = () => {
+      console.log('[InvestmentLayer] Style change event received');
       const currentMap = mapRef.current;
       const currentInvestments = investmentsRef.current;
       const currentDriverColors = driverColorsRef.current;
+
+      console.log('[InvestmentLayer] Current state:', {
+        hasMap: !!currentMap,
+        investmentsCount: currentInvestments?.length ?? 0,
+      });
 
       if (!currentMap) {
         console.log('[InvestmentLayer] Style change ignored - no map');
@@ -388,12 +396,17 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
         if (source && currentInvestments.length > 0) {
           const geojson = investmentsToGeoJSON(currentInvestments, currentDriverColors());
           source.setData(geojson);
+          console.log('[InvestmentLayer] Data repopulated with', currentInvestments.length, 'investments');
         }
+        console.log('[InvestmentLayer] Layers restored successfully');
+      } else {
+        console.log('[InvestmentLayer] Source still exists, no restoration needed');
       }
     };
 
     window.addEventListener(MAP_STYLE_CHANGE_EVENT, handleStyleChange);
     return () => {
+      console.log('[InvestmentLayer] Removing style change listener');
       window.removeEventListener(MAP_STYLE_CHANGE_EVENT, handleStyleChange);
     };
   }, []); // Empty deps - handler uses refs for current values

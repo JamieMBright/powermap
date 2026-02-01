@@ -43,7 +43,10 @@ export function MapStyleSelector({ map }: MapStyleSelectorProps) {
     map.setStyle(style);
 
     // Re-add all layers after style loads
+    // Note: 'style.load' fires when setStyle completes, 'load' only fires on initial load
     map.once('style.load', () => {
+      console.log('[MapStyleSelector] Style loaded, restoring layers...');
+
       // Reinitialize OIM symbol loader for new style
       initializeOIMSymbols(map);
 
@@ -51,20 +54,24 @@ export function MapStyleSelector({ map }: MapStyleSelectorProps) {
       addOIMToMap(map);
 
       // Restore OIM visibility states
-      setTimeout(() => {
-        OIM_LAYER_IDS.forEach(layerId => {
-          try {
-            if (map.getLayer(layerId) && layerVisibility[layerId]) {
-              map.setLayoutProperty(layerId, 'visibility', layerVisibility[layerId]);
-            }
-          } catch {
-            // Ignore
+      OIM_LAYER_IDS.forEach(layerId => {
+        try {
+          if (map.getLayer(layerId) && layerVisibility[layerId]) {
+            map.setLayoutProperty(layerId, 'visibility', layerVisibility[layerId]);
           }
-        });
+        } catch {
+          // Ignore
+        }
+      });
 
-        // Dispatch custom event so other components can re-add their layers
+      console.log('[MapStyleSelector] OIM layers restored, dispatching event...');
+
+      // Dispatch custom event so other components can re-add their layers
+      // Use setTimeout to ensure layers are fully initialized before other components try to add theirs
+      setTimeout(() => {
         window.dispatchEvent(new CustomEvent(MAP_STYLE_CHANGE_EVENT, { detail: { map } }));
-      }, 100);
+        console.log('[MapStyleSelector] Style change event dispatched');
+      }, 50);
     });
 
     setCurrentStyle(styleKey);
