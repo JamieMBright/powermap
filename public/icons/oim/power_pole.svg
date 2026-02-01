@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Power pole icon -->
+  <circle cx="16" cy="16" r="14" fill="white" stroke="#333" stroke-width="1.5"/>
+  <!-- Pole -->
+  <rect x="14.5" y="6" width="3" height="22" fill="#666"/>
+  <!-- Cross arm -->
+  <rect x="8" y="9" width="16" height="2" fill="#666"/>
+  <!-- Insulators -->
+  <circle cx="10" cy="9" r="1.5" fill="#8B5CF6"/>
+  <circle cx="22" cy="9" r="1.5" fill="#8B5CF6"/>
+  <circle cx="16" cy="9" r="1.5" fill="#8B5CF6"/>
+</svg>

@@ -354,15 +354,15 @@ export function getBoundaryConfig(boundaryType: BoundaryType): BoundaryConfig {
   return BOUNDARY_CONFIGS[boundaryType];
 }
 
-// Choropleth color scale (light navy to dark navy gradient)
+// Choropleth color scale (light blue to dark navy gradient)
 export const CHOROPLETH_COLORS = [
-  '#e8eef4', // Very light navy (lowest)
-  '#c5d5e4', // Light navy
-  '#9bb8d3', // Medium-light navy
-  '#6b97be', // Medium navy
-  '#3d78a8', // Medium-dark navy
-  '#1e5a8a', // Dark navy
-  '#0d3b5c', // Very dark navy (highest)
+  '#a8c8e8', // Light blue (lowest - visible even with no data)
+  '#7fb0db', // Light-medium blue
+  '#5898ce', // Medium blue
+  '#3580ba', // Medium-dark blue
+  '#1d5f94', // Dark blue
+  '#10426d', // Very dark navy
+  '#082845', // Darkest navy (highest)
 ] as const;
 
 /**

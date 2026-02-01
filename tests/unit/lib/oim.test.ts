@@ -1,11 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import {
   OIM_SOURCE,
-  POWER_LINE_LAYER,
-  SUBSTATION_LAYER,
-  SUBSTATION_LABEL_LAYER,
+  OIM_LAYER_IDS,
   addOIMToMap,
   setOIMVisibility,
+  isOIMVisible,
+  removeOIMFromMap,
+  checkOIMSourceLoaded,
 } from '@/lib/oim';
 import type { Map as MaplibreMap } from 'maplibre-gl';
 
@@ -13,6 +14,7 @@ import type { Map as MaplibreMap } from 'maplibre-gl';
 function createMockMap(): MaplibreMap {
   const sources = new Map<string, unknown>();
   const layers = new Map<string, unknown>();
+  const layoutProperties = new Map<string, Map<string, unknown>>();
 
   return {
     getSource: vi.fn((id: string) => sources.get(id)),
@@ -23,12 +25,23 @@ function createMockMap(): MaplibreMap {
     addLayer: vi.fn((layer: { id: string }) => {
       layers.set(layer.id, layer);
     }),
-    setLayoutProperty: vi.fn(),
-    getLayoutProperty: vi.fn(),
+    setLayoutProperty: vi.fn((layerId: string, prop: string, value: unknown) => {
+      if (!layoutProperties.has(layerId)) {
+        layoutProperties.set(layerId, new Map());
+      }
+      layoutProperties.get(layerId)!.set(prop, value);
+    }),
+    getLayoutProperty: vi.fn((layerId: string, prop: string) => {
+      return layoutProperties.get(layerId)?.get(prop);
+    }),
     on: vi.fn(),
     off: vi.fn(),
-    removeLayer: vi.fn(),
-    removeSource: vi.fn(),
+    removeLayer: vi.fn((id: string) => {
+      layers.delete(id);
+    }),
+    removeSource: vi.fn((id: string) => {
+      sources.delete(id);
+    }),
   } as unknown as MaplibreMap;
 }
 
@@ -56,78 +69,31 @@ describe('OIM (Open Infrastructure Map) Module', () => {
     });
   });
 
-  describe('POWER_LINE_LAYER', () => {
-    it('should have correct layer configuration', () => {
-      expect(POWER_LINE_LAYER.id).toBe('oim-power-line');
-      expect(POWER_LINE_LAYER.type).toBe('line');
-      expect(POWER_LINE_LAYER.source).toBe('oim-power');
-      expect(POWER_LINE_LAYER['source-layer']).toBe('power_line');
+  describe('OIM_LAYER_IDS', () => {
+    it('should include power line layers', () => {
+      expect(OIM_LAYER_IDS).toContain('power_line');
+      expect(OIM_LAYER_IDS).toContain('power_line_underground');
     });
 
-    it('should have minzoom set', () => {
-      expect(POWER_LINE_LAYER.minzoom).toBe(2);
+    it('should include substation layers', () => {
+      expect(OIM_LAYER_IDS).toContain('power_substation');
+      expect(OIM_LAYER_IDS).toContain('power_substation_point');
+      expect(OIM_LAYER_IDS).toContain('power_substation_label');
     });
 
-    it('should have paint properties', () => {
-      expect(POWER_LINE_LAYER.paint).toBeDefined();
-      expect(POWER_LINE_LAYER.paint).toHaveProperty('line-color');
-      expect(POWER_LINE_LAYER.paint).toHaveProperty('line-width');
-      expect(POWER_LINE_LAYER.paint).toHaveProperty('line-opacity');
+    it('should include generator layers', () => {
+      expect(OIM_LAYER_IDS).toContain('power_wind_turbine');
+      expect(OIM_LAYER_IDS).toContain('power_generator_solar');
+      expect(OIM_LAYER_IDS).toContain('power_generator');
     });
 
-    it('should have layout properties for line caps', () => {
-      expect(POWER_LINE_LAYER.layout).toBeDefined();
-      expect(POWER_LINE_LAYER.layout).toHaveProperty('line-cap', 'round');
-      expect(POWER_LINE_LAYER.layout).toHaveProperty('line-join', 'round');
-    });
-  });
-
-  describe('SUBSTATION_LAYER', () => {
-    it('should have correct layer configuration', () => {
-      expect(SUBSTATION_LAYER.id).toBe('oim-substation');
-      expect(SUBSTATION_LAYER.type).toBe('circle');
-      expect(SUBSTATION_LAYER.source).toBe('oim-power');
-      expect(SUBSTATION_LAYER['source-layer']).toBe('power_substation_point');
+    it('should include power plant layers', () => {
+      expect(OIM_LAYER_IDS).toContain('power_plant');
+      expect(OIM_LAYER_IDS).toContain('power_plant_label');
     });
 
-    it('should have minzoom set', () => {
-      expect(SUBSTATION_LAYER.minzoom).toBe(5);
-    });
-
-    it('should have paint properties for circle styling', () => {
-      expect(SUBSTATION_LAYER.paint).toBeDefined();
-      expect(SUBSTATION_LAYER.paint).toHaveProperty('circle-radius');
-      expect(SUBSTATION_LAYER.paint).toHaveProperty('circle-color');
-      expect(SUBSTATION_LAYER.paint).toHaveProperty('circle-stroke-width');
-      expect(SUBSTATION_LAYER.paint).toHaveProperty('circle-stroke-color');
-      expect(SUBSTATION_LAYER.paint).toHaveProperty('circle-opacity');
-    });
-  });
-
-  describe('SUBSTATION_LABEL_LAYER', () => {
-    it('should have correct layer configuration', () => {
-      expect(SUBSTATION_LABEL_LAYER.id).toBe('oim-substation-label');
-      expect(SUBSTATION_LABEL_LAYER.type).toBe('symbol');
-      expect(SUBSTATION_LABEL_LAYER.source).toBe('oim-power');
-      expect(SUBSTATION_LABEL_LAYER['source-layer']).toBe('power_substation_point');
-    });
-
-    it('should have minzoom for labels', () => {
-      expect(SUBSTATION_LABEL_LAYER.minzoom).toBe(10);
-    });
-
-    it('should have layout properties for text', () => {
-      expect(SUBSTATION_LABEL_LAYER.layout).toBeDefined();
-      expect(SUBSTATION_LABEL_LAYER.layout).toHaveProperty('text-field');
-      expect(SUBSTATION_LABEL_LAYER.layout).toHaveProperty('text-size');
-      expect(SUBSTATION_LABEL_LAYER.layout).toHaveProperty('text-anchor');
-    });
-
-    it('should have paint properties for text styling', () => {
-      expect(SUBSTATION_LABEL_LAYER.paint).toBeDefined();
-      expect(SUBSTATION_LABEL_LAYER.paint).toHaveProperty('text-color');
-      expect(SUBSTATION_LABEL_LAYER.paint).toHaveProperty('text-halo-color');
-      expect(SUBSTATION_LABEL_LAYER.paint).toHaveProperty('text-halo-width');
+    it('should include transformer layer', () => {
+      expect(OIM_LAYER_IDS).toContain('power_transformer');
     });
   });
 
@@ -152,22 +118,11 @@ describe('OIM (Open Infrastructure Map) Module', () => {
       expect(mockMap.addSource).not.toHaveBeenCalled();
     });
 
-    it('should add power line layer if not already present', () => {
+    it('should add all OIM layers', () => {
       addOIMToMap(mockMap);
 
-      expect(mockMap.addLayer).toHaveBeenCalledWith(POWER_LINE_LAYER);
-    });
-
-    it('should add substation layer if not already present', () => {
-      addOIMToMap(mockMap);
-
-      expect(mockMap.addLayer).toHaveBeenCalledWith(SUBSTATION_LAYER);
-    });
-
-    it('should add substation label layer if not already present', () => {
-      addOIMToMap(mockMap);
-
-      expect(mockMap.addLayer).toHaveBeenCalledWith(SUBSTATION_LABEL_LAYER);
+      // Should add all layers
+      expect(mockMap.addLayer).toHaveBeenCalledTimes(OIM_LAYER_IDS.length);
     });
 
     it('should not add layers if already present', () => {
@@ -192,18 +147,12 @@ describe('OIM (Open Infrastructure Map) Module', () => {
     it('should set visibility to visible for all OIM layers', () => {
       setOIMVisibility(mockMap, true);
 
+      // Should be called for each layer
+      expect(mockMap.setLayoutProperty).toHaveBeenCalledTimes(OIM_LAYER_IDS.length);
+
+      // Check a specific call
       expect(mockMap.setLayoutProperty).toHaveBeenCalledWith(
-        'oim-power-line',
-        'visibility',
-        'visible'
-      );
-      expect(mockMap.setLayoutProperty).toHaveBeenCalledWith(
-        'oim-substation',
-        'visibility',
-        'visible'
-      );
-      expect(mockMap.setLayoutProperty).toHaveBeenCalledWith(
-        'oim-substation-label',
+        'power_line',
         'visibility',
         'visible'
       );
@@ -212,18 +161,10 @@ describe('OIM (Open Infrastructure Map) Module', () => {
     it('should set visibility to none for all OIM layers', () => {
       setOIMVisibility(mockMap, false);
 
+      expect(mockMap.setLayoutProperty).toHaveBeenCalledTimes(OIM_LAYER_IDS.length);
+
       expect(mockMap.setLayoutProperty).toHaveBeenCalledWith(
-        'oim-power-line',
-        'visibility',
-        'none'
-      );
-      expect(mockMap.setLayoutProperty).toHaveBeenCalledWith(
-        'oim-substation',
-        'visibility',
-        'none'
-      );
-      expect(mockMap.setLayoutProperty).toHaveBeenCalledWith(
-        'oim-substation-label',
+        'power_line',
         'visibility',
         'none'
       );
@@ -238,10 +179,9 @@ describe('OIM (Open Infrastructure Map) Module', () => {
     });
 
     it('should handle mixed layer existence', () => {
-      // Mock: some layers exist, some don't
+      // Mock: only power_line and power_substation exist
       vi.mocked(mockMap.getLayer).mockImplementation((id: string) => {
-        // Only power-line and substation-label exist
-        if (id === 'oim-power-line' || id === 'oim-substation-label') {
+        if (id === 'power_line' || id === 'power_substation') {
           return {} as never;
         }
         return undefined;
@@ -250,16 +190,94 @@ describe('OIM (Open Infrastructure Map) Module', () => {
       setOIMVisibility(mockMap, true);
 
       // Should only call setLayoutProperty for existing layers
+      expect(mockMap.setLayoutProperty).toHaveBeenCalledTimes(2);
       expect(mockMap.setLayoutProperty).toHaveBeenCalledWith(
-        'oim-power-line',
+        'power_line',
         'visibility',
         'visible'
       );
       expect(mockMap.setLayoutProperty).toHaveBeenCalledWith(
-        'oim-substation-label',
+        'power_substation',
         'visibility',
         'visible'
       );
+    });
+  });
+
+  describe('isOIMVisible', () => {
+    let mockMap: MaplibreMap;
+
+    beforeEach(() => {
+      mockMap = createMockMap();
+    });
+
+    it('should return false if power_line layer does not exist', () => {
+      vi.mocked(mockMap.getLayer).mockReturnValue(undefined);
+
+      expect(isOIMVisible(mockMap)).toBe(false);
+    });
+
+    it('should return false if visibility is none', () => {
+      vi.mocked(mockMap.getLayer).mockReturnValue({} as never);
+      vi.mocked(mockMap.getLayoutProperty).mockReturnValue('none');
+
+      expect(isOIMVisible(mockMap)).toBe(false);
+    });
+
+    it('should return true if visibility is not none', () => {
+      vi.mocked(mockMap.getLayer).mockReturnValue({} as never);
+      vi.mocked(mockMap.getLayoutProperty).mockReturnValue('visible');
+
+      expect(isOIMVisible(mockMap)).toBe(true);
+    });
+  });
+
+  describe('removeOIMFromMap', () => {
+    let mockMap: MaplibreMap;
+
+    beforeEach(() => {
+      mockMap = createMockMap();
+      vi.mocked(mockMap.getLayer).mockReturnValue({} as never);
+      vi.mocked(mockMap.getSource).mockReturnValue({} as never);
+    });
+
+    it('should remove all OIM layers', () => {
+      removeOIMFromMap(mockMap);
+
+      expect(mockMap.removeLayer).toHaveBeenCalledTimes(OIM_LAYER_IDS.length);
+    });
+
+    it('should remove OIM source', () => {
+      removeOIMFromMap(mockMap);
+
+      expect(mockMap.removeSource).toHaveBeenCalledWith('oim-power');
+    });
+
+    it('should not throw if layers do not exist', () => {
+      vi.mocked(mockMap.getLayer).mockReturnValue(undefined);
+      vi.mocked(mockMap.getSource).mockReturnValue(undefined);
+
+      expect(() => removeOIMFromMap(mockMap)).not.toThrow();
+    });
+  });
+
+  describe('checkOIMSourceLoaded', () => {
+    let mockMap: MaplibreMap;
+
+    beforeEach(() => {
+      mockMap = createMockMap();
+    });
+
+    it('should return true if source exists', () => {
+      vi.mocked(mockMap.getSource).mockReturnValue({} as never);
+
+      expect(checkOIMSourceLoaded(mockMap)).toBe(true);
+    });
+
+    it('should return false if source does not exist', () => {
+      vi.mocked(mockMap.getSource).mockReturnValue(undefined);
+
+      expect(checkOIMSourceLoaded(mockMap)).toBe(false);
     });
   });
 });
