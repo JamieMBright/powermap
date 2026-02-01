@@ -40,6 +40,28 @@ body > div {
   }
 }
 
+/* Force attribution control to start collapsed */
+.maplibregl-ctrl-attrib {
+  /* Start collapsed by default */
+}
+
+.maplibregl-ctrl-attrib:not(.maplibregl-compact-show) {
+  /* Ensure collapsed state is properly hidden */
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.maplibregl-ctrl-attrib.maplibregl-compact {
+  /* Compact mode styling */
+  min-height: 20px;
+}
+
+/* On mobile, ensure attribution doesn't auto-expand */
+@media (max-width: 639px) {
+  .maplibregl-ctrl-attrib:not(.maplibregl-compact-show) .maplibregl-ctrl-attrib-inner {
+    display: none !important;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

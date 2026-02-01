@@ -106,11 +106,22 @@ export function Map({ className = '', onMapLoad }: MapProps) {
         isMobile ? 'bottom-right' : 'top-right'
       );
 
-      // Add attribution
+      // Add attribution - always start collapsed
       mapInstance.addControl(
         new maplibregl.AttributionControl({ compact: true }),
         'bottom-right'
       );
+
+      // Force attribution to be collapsed after a short delay
+      // This ensures it's collapsed even if MapLibre opens it by default on mobile
+      setTimeout(() => {
+        const attribBtn = container.querySelector('.maplibregl-ctrl-attrib-button');
+        const attribContainer = container.querySelector('.maplibregl-ctrl-attrib');
+        if (attribBtn && attribContainer) {
+          attribContainer.classList.remove('maplibregl-compact-show');
+          attribBtn.setAttribute('aria-expanded', 'false');
+        }
+      }, 100);
 
       mapInstance.on('load', async () => {
         console.log('[Map] Style loaded successfully');
