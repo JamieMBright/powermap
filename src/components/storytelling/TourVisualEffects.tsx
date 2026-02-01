@@ -587,24 +587,23 @@ function get3DBuildingSVG(
             Array.from({ length: 3 }, (_, col) => {
               const x = 30 + col * 20;
               const y = 70 + row * 22;
-              const skewY = -0.3;
               return `
-                <rect x="${x}" y="${y}" width="15" height="16" fill="#0a1020" transform="skewY(${skewY * 20}deg)"/>
+                <rect x="${x}" y="${y}" width="15" height="16" fill="#0a1020"/>
                 <rect x="${x + 2}" y="${y + 2}" width="11" height="4" fill="#22c55e" opacity="0.9">
-                  <animate attributeName="opacity" values="0.9;0.4;0.9" dur="${0.3 + Math.random() * 0.5}s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.9;0.4;0.9" dur="${(0.3 + row * 0.1 + col * 0.15).toFixed(2)}s" repeatCount="indefinite"/>
                 </rect>
                 <rect x="${x + 2}" y="${y + 8}" width="11" height="4" fill="${color}" opacity="0.8">
-                  <animate attributeName="opacity" values="0.8;0.3;0.8" dur="${0.4 + Math.random() * 0.4}s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.8;0.3;0.8" dur="${(0.4 + row * 0.12 + col * 0.08).toFixed(2)}s" repeatCount="indefinite"/>
                 </rect>
                 <!-- Activity lights -->
                 <circle cx="${x + 4}" cy="${y + 14}" r="1.5" fill="#22c55e">
-                  <animate attributeName="opacity" values="1;0.2;1" dur="${0.1 + Math.random() * 0.2}s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="1;0.2;1" dur="${(0.1 + row * 0.05).toFixed(2)}s" repeatCount="indefinite"/>
                 </circle>
                 <circle cx="${x + 8}" cy="${y + 14}" r="1.5" fill="#f59e0b">
-                  <animate attributeName="opacity" values="0.3;1;0.3" dur="${0.15 + Math.random() * 0.3}s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.3;1;0.3" dur="${(0.15 + col * 0.1).toFixed(2)}s" repeatCount="indefinite"/>
                 </circle>
                 <circle cx="${x + 12}" cy="${y + 14}" r="1.5" fill="${color}">
-                  <animate attributeName="opacity" values="1;0.5;1" dur="${0.2 + Math.random() * 0.2}s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="1;0.5;1" dur="${(0.2 + row * 0.08).toFixed(2)}s" repeatCount="indefinite"/>
                 </circle>
               `;
             }).join('')
@@ -618,12 +617,12 @@ function get3DBuildingSVG(
               const x = 110 + col * 20;
               const y = 75 + row * 20;
               return `
-                <rect x="${x}" y="${y}" width="15" height="14" fill="#0a1020" transform="skewY(0.3rad)"/>
+                <rect x="${x}" y="${y}" width="15" height="14" fill="#0a1020"/>
                 <rect x="${x + 2}" y="${y + 2}" width="11" height="3" fill="#3b82f6" opacity="0.8">
-                  <animate attributeName="opacity" values="0.8;0.2;0.8" dur="${0.25 + Math.random() * 0.4}s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.8;0.2;0.8" dur="${(0.25 + row * 0.1).toFixed(2)}s" repeatCount="indefinite"/>
                 </rect>
                 <rect x="${x + 2}" y="${y + 7}" width="11" height="3" fill="#06b6d4" opacity="0.7">
-                  <animate attributeName="opacity" values="0.7;0.3;0.7" dur="${0.35 + Math.random() * 0.3}s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.7;0.3;0.7" dur="${(0.35 + col * 0.08).toFixed(2)}s" repeatCount="indefinite"/>
                 </rect>
               `;
             }).join('')
@@ -734,12 +733,14 @@ function createEnergyArc(
   const arcCount = Math.min(intensity, 5);
   for (let i = 0; i < arcCount; i++) {
     const arc = document.createElement('div');
+    // Use deterministic timing based on index
+    const flickerDuration = 0.1 + (i * 0.05);
     arc.style.cssText = `
       position: absolute;
       width: 100%;
       height: 100%;
-      animation: tour-arc-flicker ${0.1 + Math.random() * 0.2}s linear infinite;
-      animation-delay: ${i * 0.1}s;
+      animation: tour-arc-flicker ${flickerDuration.toFixed(2)}s linear infinite;
+      animation-delay: ${(i * 0.1).toFixed(2)}s;
     `;
     arc.innerHTML = generateLightningPath(size, color, secondaryColor, i);
     container.appendChild(arc);
@@ -775,27 +776,31 @@ function createEnergyArc(
 }
 
 /**
- * Generates SVG lightning path
+ * Generates SVG lightning path with deterministic jitter based on index
  */
 function generateLightningPath(size: number, color: string, secondaryColor: string, index: number): string {
   const cx = size / 2;
   const cy = size / 2;
   const angles = [0, 72, 144, 216, 288]; // 5 directions
-  const angle = (angles[index % 5] + Math.random() * 30) * Math.PI / 180;
+  // Use deterministic offset based on index instead of random
+  const angleOffset = (index * 7) % 30;
+  const angle = (angles[index % 5] + angleOffset) * Math.PI / 180;
   const length = size * 0.4;
 
-  // Generate jagged lightning path
+  // Generate jagged lightning path with deterministic jitter
   let path = `M${cx},${cy}`;
   let x = cx;
   let y = cy;
   const segments = 4;
+  // Seed-like pattern for jitter based on index and segment
+  const jitterPattern = [0.3, -0.4, 0.2, -0.3];
 
   for (let j = 0; j < segments; j++) {
     const segLen = length / segments;
-    const jitter = (Math.random() - 0.5) * 20;
+    const jitter = jitterPattern[(j + index) % 4] * 20;
     x += Math.cos(angle) * segLen + Math.cos(angle + Math.PI/2) * jitter;
     y += Math.sin(angle) * segLen + Math.sin(angle + Math.PI/2) * jitter;
-    path += ` L${x},${y}`;
+    path += ` L${x.toFixed(1)},${y.toFixed(1)}`;
   }
 
   return `
