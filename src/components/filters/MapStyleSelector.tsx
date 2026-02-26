@@ -15,7 +15,7 @@ interface MapStyleSelectorProps {
 
 export function MapStyleSelector({ map }: MapStyleSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentStyle, setCurrentStyle] = useState<string>('carto-light');
+  const [currentStyle, setCurrentStyle] = useState<string>('carto-dark');
 
   const handleStyleChange = useCallback((styleKey: string) => {
     if (!map) return;
@@ -91,7 +91,7 @@ export function MapStyleSelector({ map }: MapStyleSelectorProps) {
       {/* Style selector button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 bg-white rounded shadow px-2.5 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50 border border-gray-200"
+        className="flex items-center gap-1.5 bg-gray-900/90 rounded shadow px-2.5 py-1.5 text-sm font-medium text-gray-200 hover:bg-gray-800 border border-gray-700"
         title="Change map style"
       >
         <svg
@@ -123,13 +123,13 @@ export function MapStyleSelector({ map }: MapStyleSelectorProps) {
 
       {/* Dropdown menu */}
       {isOpen && (
-        <div className="absolute right-0 mt-1 w-44 bg-white rounded shadow-lg border border-gray-200 py-1">
+        <div className="absolute right-0 mt-1 w-44 bg-gray-900/95 rounded shadow-lg border border-gray-700 py-1">
           {Object.entries(MAP_STYLE_NAMES).map(([key, name]) => (
             <button
               key={key}
               onClick={() => handleStyleChange(key)}
-              className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 flex items-center gap-2 ${
-                currentStyle === key ? 'bg-orange-50 text-orange-700' : 'text-gray-700'
+              className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-700 flex items-center gap-2 ${
+                currentStyle === key ? 'bg-orange-900/30 text-orange-400' : 'text-gray-200'
               }`}
             >
               {currentStyle === key && (

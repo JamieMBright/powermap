@@ -42,9 +42,9 @@ export const BOUNDARY_CONFIGS: Record<BoundaryType, BoundaryConfig> = {
     minZoom: 2,
     labelMinZoom: 7,
     colors: {
-      fill: '#1e3a5a',    // Deep navy
-      line: '#1e3a5a',
-      highlight: '#2d4a6a',
+      fill: '#4a90d9',    // Bright blue (visible on dark)
+      line: '#5a9fe6',
+      highlight: '#6bb0f0',
     },
   },
   la: {
@@ -105,7 +105,7 @@ function createFillLayer(config: BoundaryConfig): LayerSpecification {
     minzoom: config.minZoom,
     paint: {
       'fill-color': config.colors.fill,
-      'fill-opacity': 0.05,  // Very transparent
+      'fill-opacity': 0.08,  // Slightly visible on dark backgrounds
     },
   };
 }
@@ -126,7 +126,7 @@ function createLineLayer(config: BoundaryConfig): LayerSpecification {
         config.minZoom + 4, 1,
         config.minZoom + 8, 1.5,
       ],
-      'line-opacity': 0.4,  // More transparent
+      'line-opacity': 0.6,  // Visible on dark backgrounds
     },
     layout: {
       'line-cap': 'round',
@@ -172,8 +172,8 @@ function createLabelLayer(config: BoundaryConfig): LayerSpecification {
       'symbol-placement': 'point',
     },
     paint: {
-      'text-color': config.colors.line,
-      'text-halo-color': '#ffffff',
+      'text-color': config.colors.highlight,
+      'text-halo-color': '#1a1a2e',
       'text-halo-width': 2,
     },
   };
@@ -354,15 +354,15 @@ export function getBoundaryConfig(boundaryType: BoundaryType): BoundaryConfig {
   return BOUNDARY_CONFIGS[boundaryType];
 }
 
-// Choropleth color scale (light blue to dark navy gradient)
+// Choropleth color scale (teal to bright yellow gradient for dark backgrounds)
 export const CHOROPLETH_COLORS = [
-  '#a8c8e8', // Light blue (lowest - visible even with no data)
-  '#7fb0db', // Light-medium blue
-  '#5898ce', // Medium blue
-  '#3580ba', // Medium-dark blue
-  '#1d5f94', // Dark blue
-  '#10426d', // Very dark navy
-  '#082845', // Darkest navy (highest)
+  '#1a3a4a', // Dark teal (lowest - subtle on dark)
+  '#1b6b5a', // Teal green
+  '#2a9d6e', // Medium green
+  '#4cc97e', // Bright green
+  '#8ee06a', // Lime green
+  '#d4f059', // Yellow-green
+  '#fff176', // Bright yellow (highest)
 ] as const;
 
 /**

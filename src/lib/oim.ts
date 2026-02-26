@@ -142,8 +142,8 @@ const power_plant_outline: LayerSpecification = {
   'source-layer': 'power_plant',
   minzoom: 8,
   paint: {
-    'line-color': 'rgb(30, 30, 30)',
-    'line-opacity': 0.8,
+    'line-color': 'rgb(180, 180, 180)',
+    'line-opacity': 0.6,
     'line-width': [
       'interpolate', ['exponential', 1.2], ['zoom'],
       8, 0,
@@ -180,7 +180,7 @@ const power_substation_outline: LayerSpecification = {
   'source-layer': 'power_substation',
   minzoom: 10,
   paint: {
-    'line-color': 'rgb(30, 30, 30)',
+    'line-color': 'rgb(180, 180, 180)',
     'line-opacity': [
       'interpolate', ['linear'], ['zoom'],
       10, 0.4,
@@ -205,7 +205,7 @@ const power_solar_panel: LayerSpecification = {
   minzoom: 8,
   paint: {
     'fill-color': '#726BA9',
-    'fill-outline-color': 'rgb(50, 50, 50)',
+    'fill-outline-color': 'rgb(160, 160, 160)',
     'fill-opacity': [
       'interpolate', ['linear'], ['zoom'],
       8, 0.4,
@@ -298,12 +298,12 @@ const power_transformer: LayerSpecification = {
   },
 };
 
-// Common text paint settings (matching OIM)
+// Common text paint settings (dark mode)
 const text_paint = {
-  'text-color': 'hsl(0, 0%, 10%)',
+  'text-color': 'hsl(0, 0%, 90%)',
   'text-halo-width': 4,
   'text-halo-blur': 2,
-  'text-halo-color': 'hsla(0, 0%, 100%, 0.9)',
+  'text-halo-color': 'hsla(0, 0%, 0%, 0.8)',
 };
 
 // Font stack for labels
@@ -464,8 +464,8 @@ const power_substation_point: LayerSpecification = {
     'circle-color': voltage_color('voltage'),
     'circle-stroke-color': [
       'interpolate-hcl', ['linear'], ['zoom'],
-      8, '#eee',
-      12, '#333'
+      8, '#333',
+      12, '#ccc'
     ],
     'circle-stroke-width': [
       'interpolate', ['linear'], ['zoom'],

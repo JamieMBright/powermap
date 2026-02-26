@@ -114,7 +114,7 @@ export const MAP_STYLE_NAMES: Record<string, string> = {
 
 // Map configuration - centered on UKPN coverage area
 export const MAP_CONFIG = {
-  style: MAP_STYLES['carto-light'], // Default to light style
+  style: MAP_STYLES['carto-dark'], // Default to dark style
   center: [0.3, 51.6] as [number, number],
   zoom: 8,
   minZoom: 0,

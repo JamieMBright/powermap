@@ -48,7 +48,7 @@ const LAYER_GROUPS: LayerGroup[] = [
     id: 'towers-poles',
     name: 'Towers & Poles',
     description: 'Pylons and distribution poles',
-    color: '#444',
+    color: '#aaa',
     layers: ['power_tower', 'power_pole'],
     defaultVisible: true,
   },
@@ -159,29 +159,29 @@ export function LayerControl({ map, className = '' }: LayerControlProps) {
         onClick={() => setIsOpen(!isOpen)}
         className={`
           flex items-center gap-2 px-3 py-2.5 rounded-lg shadow-lg
-          bg-white border border-gray-200 hover:bg-gray-50 active:bg-gray-100
+          bg-gray-900/90 border border-gray-700 hover:bg-gray-800 active:bg-gray-700
           transition-colors duration-150 min-h-[44px]
           sm:py-2 sm:min-h-0
           ${isOpen ? 'ring-2 ring-orange-500' : ''}
         `}
       >
         {/* Layers icon */}
-        <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
         </svg>
 
-        <span className="text-sm font-medium text-gray-700">
+        <span className="text-sm font-medium text-gray-200">
           Layers
         </span>
 
         {/* Count badge */}
-        <span className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">
+        <span className="text-xs bg-gray-800 text-gray-300 px-1.5 py-0.5 rounded">
           {visibleCount}/{totalCount}
         </span>
 
         {/* Chevron */}
         <svg
-          className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-4 h-4 text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -192,20 +192,20 @@ export function LayerControl({ map, className = '' }: LayerControlProps) {
 
       {/* Dropdown panel */}
       {isOpen && (
-        <div className="absolute top-full right-0 mt-1 w-72 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+        <div className="absolute top-full right-0 mt-1 w-72 bg-gray-900/95 rounded-lg shadow-lg border border-gray-700 overflow-hidden">
           {/* Header with quick actions */}
-          <div className="px-3 py-2 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
-            <span className="text-sm font-medium text-gray-700">Map Layers</span>
+          <div className="px-3 py-2 bg-gray-800 border-b border-gray-700 flex items-center justify-between">
+            <span className="text-sm font-medium text-gray-200">Map Layers</span>
             <div className="flex gap-1">
               <button
                 onClick={showAll}
-                className="text-xs text-blue-600 hover:text-blue-800 px-2 py-1 hover:bg-blue-50 rounded"
+                className="text-xs text-blue-400 hover:text-blue-300 px-2 py-1 hover:bg-blue-900/30 rounded"
               >
                 Show All
               </button>
               <button
                 onClick={hideAll}
-                className="text-xs text-gray-600 hover:text-gray-800 px-2 py-1 hover:bg-gray-100 rounded"
+                className="text-xs text-gray-400 hover:text-gray-300 px-2 py-1 hover:bg-gray-700 rounded"
               >
                 Hide All
               </button>
@@ -223,7 +223,7 @@ export function LayerControl({ map, className = '' }: LayerControlProps) {
                   onClick={() => toggleGroup(group.id)}
                   className={`
                     w-full flex items-center gap-3 px-3 py-2.5 text-left
-                    hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0
+                    hover:bg-gray-700 transition-colors border-b border-gray-800 last:border-b-0
                     ${isVisible ? '' : 'opacity-60'}
                   `}
                 >
@@ -234,7 +234,7 @@ export function LayerControl({ map, className = '' }: LayerControlProps) {
                       transition-colors
                       ${isVisible
                         ? 'bg-orange-500 border-orange-500'
-                        : 'bg-white border-gray-300'
+                        : 'bg-gray-800 border-gray-600'
                       }
                     `}
                   >
@@ -251,14 +251,14 @@ export function LayerControl({ map, className = '' }: LayerControlProps) {
 
                   {/* Color indicator */}
                   <span
-                    className="w-3 h-3 rounded-full shrink-0 border border-gray-200"
+                    className="w-3 h-3 rounded-full shrink-0 border border-gray-600"
                     style={{ backgroundColor: group.color }}
                   />
 
                   {/* Text content */}
                   <div className="flex-1 min-w-0">
-                    <div className="text-sm font-medium text-gray-700">{group.name}</div>
-                    <div className="text-xs text-gray-500 truncate">{group.description}</div>
+                    <div className="text-sm font-medium text-gray-200">{group.name}</div>
+                    <div className="text-xs text-gray-400 truncate">{group.description}</div>
                   </div>
                 </button>
               );
@@ -266,8 +266,8 @@ export function LayerControl({ map, className = '' }: LayerControlProps) {
           </div>
 
           {/* Footer hint */}
-          <div className="px-3 py-2 bg-gray-50 border-t border-gray-200">
-            <p className="text-xs text-gray-500">
+          <div className="px-3 py-2 bg-gray-800 border-t border-gray-700">
+            <p className="text-xs text-gray-400">
               Toggle layers to customize map display
             </p>
           </div>

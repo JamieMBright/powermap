@@ -304,7 +304,7 @@ export function BoundarySelector({ map, className = '', isTourActive = false }: 
           data-testid="boundary-selector-button"
           className={`
             flex items-center gap-2 px-3 py-2.5 rounded-lg shadow-lg
-            bg-white border border-gray-200 hover:bg-gray-50 active:bg-gray-100
+            bg-gray-900/90 border border-gray-700 hover:bg-gray-800 active:bg-gray-700
             transition-colors duration-150 min-h-[44px]
             sm:py-2 sm:min-h-0
             ${isOpen ? 'ring-2 ring-orange-500' : ''}
@@ -313,20 +313,20 @@ export function BoundarySelector({ map, className = '', isTourActive = false }: 
         >
           {/* Color indicator */}
           <span
-            className="w-4 h-4 rounded-full border border-gray-300 sm:w-3 sm:h-3"
+            className="w-4 h-4 rounded-full border border-gray-600 sm:w-3 sm:h-3"
             style={{
-              backgroundColor: activeConfig?.colors.fill ?? '#e5e7eb',
+              backgroundColor: activeConfig?.colors.fill ?? '#4b5563',
             }}
           />
 
           {/* Label */}
-          <span className="text-sm font-medium text-gray-700">
+          <span className="text-sm font-medium text-gray-200">
             {isLoading ? 'Loading...' : activeConfig?.name ?? 'Boundaries'}
           </span>
 
           {/* Chevron */}
           <svg
-            className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+            className={`w-4 h-4 text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -337,25 +337,25 @@ export function BoundarySelector({ map, className = '', isTourActive = false }: 
 
         {/* Desktop dropdown menu */}
         {isOpen && !isMobile && (
-          <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+          <div className="absolute top-full left-0 mt-1 w-64 bg-gray-900/95 rounded-lg shadow-lg border border-gray-700 overflow-hidden">
             {/* Clear option */}
             <button
               onClick={() => handleBoundarySelect(null)}
               className={`
                 w-full flex items-center gap-3 px-3 py-2 text-left
-                hover:bg-gray-50 transition-colors
-                ${!activeBoundary ? 'bg-gray-50' : ''}
+                hover:bg-gray-700 transition-colors
+                ${!activeBoundary ? 'bg-gray-800' : ''}
               `}
             >
-              <span className="w-3 h-3 rounded-full border-2 border-dashed border-gray-300" />
+              <span className="w-3 h-3 rounded-full border-2 border-dashed border-gray-500" />
               <div className="flex-1">
-                <div className="text-sm font-medium text-gray-700">None</div>
-                <div className="text-xs text-gray-500">Hide all boundaries</div>
+                <div className="text-sm font-medium text-gray-200">None</div>
+                <div className="text-xs text-gray-400">Hide all boundaries</div>
               </div>
             </button>
 
             {/* Separator */}
-            <div className="border-t border-gray-100" />
+            <div className="border-t border-gray-700" />
 
             {/* Boundary options */}
             {boundaryTypes.map((type) => {
@@ -456,8 +456,8 @@ export function BoundarySelector({ map, className = '', isTourActive = false }: 
 
       {/* Error message */}
       {error && (
-        <div className="mt-2 px-3 py-2 bg-red-50 border border-red-200 rounded-lg max-w-[200px] sm:max-w-none">
-          <p className="text-xs text-red-600">{error}</p>
+        <div className="mt-2 px-3 py-2 bg-red-900/30 border border-red-800 rounded-lg max-w-[200px] sm:max-w-none">
+          <p className="text-xs text-red-400">{error}</p>
         </div>
       )}
 
@@ -508,20 +508,20 @@ function BoundaryOption({ config, isActive, onClick, testId }: BoundaryOptionPro
       data-testid={testId}
       className={`
         w-full flex items-center gap-3 px-3 py-2 text-left
-        hover:bg-gray-50 transition-colors
-        ${isActive ? 'bg-orange-50' : ''}
+        hover:bg-gray-700 transition-colors
+        ${isActive ? 'bg-orange-900/30' : ''}
       `}
     >
       {/* Color indicator */}
       <span
-        className={`w-3 h-3 rounded-full ${isActive ? 'ring-2 ring-offset-1 ring-orange-500' : ''}`}
+        className={`w-3 h-3 rounded-full ${isActive ? 'ring-2 ring-offset-1 ring-offset-gray-900 ring-orange-500' : ''}`}
         style={{ backgroundColor: config.colors.fill }}
       />
 
       {/* Text content */}
       <div className="flex-1 min-w-0">
-        <div className="text-sm font-medium text-gray-700">{config.name}</div>
-        <div className="text-xs text-gray-500 truncate">{config.description}</div>
+        <div className="text-sm font-medium text-gray-200">{config.name}</div>
+        <div className="text-xs text-gray-400 truncate">{config.description}</div>
       </div>
 
       {/* Checkmark for active */}
@@ -644,7 +644,7 @@ function BoundaryInfoPanel({ popup, onClose, isMobile = false }: BoundaryInfoPan
   // Desktop version
   return (
     <div
-      className="boundary-popup mt-2 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden w-72"
+      className="boundary-popup mt-2 bg-gray-900/95 rounded-lg shadow-lg border border-gray-700 overflow-hidden w-72"
     >
       {/* Header */}
       <div
@@ -656,13 +656,13 @@ function BoundaryInfoPanel({ popup, onClose, isMobile = false }: BoundaryInfoPan
             className="w-2 h-2 rounded-full"
             style={{ backgroundColor: config.colors.fill }}
           />
-          <span className="text-xs font-medium text-gray-600">{config.name}</span>
+          <span className="text-xs font-medium text-gray-300">{config.name}</span>
         </div>
         <button
           onClick={onClose}
-          className="p-1 hover:bg-white/50 rounded transition-colors"
+          className="p-1 hover:bg-gray-700/50 rounded transition-colors"
         >
-          <svg className="w-3 h-3 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-3 h-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
@@ -670,19 +670,19 @@ function BoundaryInfoPanel({ popup, onClose, isMobile = false }: BoundaryInfoPan
 
       {/* Content */}
       <div className="px-3 py-2">
-        <h3 className="text-sm font-semibold text-gray-900">{popup.name}</h3>
-        <p className="text-xs text-gray-500 mt-0.5">Code: {popup.code}</p>
+        <h3 className="text-sm font-semibold text-gray-100">{popup.name}</h3>
+        <p className="text-xs text-gray-400 mt-0.5">Code: {popup.code}</p>
       </div>
 
       {/* Investment Chart */}
-      <div className="px-3 py-2 border-t border-gray-100 bg-gray-50">
-        <div className="text-xs font-medium text-gray-600 mb-2">Investment 2025-2050</div>
+      <div className="px-3 py-2 border-t border-gray-700 bg-gray-800/50">
+        <div className="text-xs font-medium text-gray-300 mb-2">Investment 2025-2050</div>
         {chartLoading ? (
-          <div className="h-32 flex items-center justify-center text-xs text-gray-400">Loading...</div>
+          <div className="h-32 flex items-center justify-center text-xs text-gray-500">Loading...</div>
         ) : timeSeriesData ? (
           <BoundaryInvestmentChart data={timeSeriesData} compact />
         ) : (
-          <div className="h-32 flex items-center justify-center text-xs text-gray-400">No data available</div>
+          <div className="h-32 flex items-center justify-center text-xs text-gray-500">No data available</div>
         )}
       </div>
     </div>

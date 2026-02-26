@@ -69,7 +69,7 @@ export function InvestmentDriverSelector({
         onClick={() => setIsOpen(!isOpen)}
         className={`
           flex items-center gap-2 px-3 py-2 rounded-lg shadow-lg
-          bg-white border border-gray-200 hover:bg-gray-50
+          bg-gray-900/90 border border-gray-700 hover:bg-gray-800
           transition-colors duration-150 text-sm
           ${isOpen ? 'ring-2 ring-orange-500' : ''}
         `}
@@ -78,9 +78,9 @@ export function InvestmentDriverSelector({
           className="w-3 h-3 rounded-full"
           style={{ backgroundColor: selectedColor }}
         />
-        <span className="font-medium text-gray-700">{selectedLabel}</span>
+        <span className="font-medium text-gray-200">{selectedLabel}</span>
         <svg
-          className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-4 h-4 text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -90,14 +90,14 @@ export function InvestmentDriverSelector({
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden z-50">
+        <div className="absolute top-full left-0 mt-1 w-56 bg-gray-900/95 rounded-lg shadow-lg border border-gray-700 overflow-hidden z-50">
           {/* All Drivers option */}
           <button
             onClick={() => handleSelect('all')}
             className={`
               w-full flex items-center gap-3 px-3 py-2 text-left
-              hover:bg-gray-50 transition-colors
-              ${selectedDriver === 'all' ? 'bg-orange-50' : ''}
+              hover:bg-gray-700 transition-colors
+              ${selectedDriver === 'all' ? 'bg-orange-900/30' : ''}
             `}
           >
             <span
@@ -105,8 +105,8 @@ export function InvestmentDriverSelector({
               style={{ backgroundColor: '#f97316' }}
             />
             <div className="flex-1">
-              <div className="text-sm font-medium text-gray-700">All Drivers</div>
-              <div className="text-xs text-gray-500">Total investment</div>
+              <div className="text-sm font-medium text-gray-200">All Drivers</div>
+              <div className="text-xs text-gray-400">Total investment</div>
             </div>
             {selectedDriver === 'all' && (
               <svg className="w-4 h-4 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
@@ -119,7 +119,7 @@ export function InvestmentDriverSelector({
             )}
           </button>
 
-          <div className="border-t border-gray-100" />
+          <div className="border-t border-gray-700" />
 
           {/* Individual driver options */}
           {Object.entries(DRIVER_METADATA).map(([key, meta]) => {
@@ -132,8 +132,8 @@ export function InvestmentDriverSelector({
                 onClick={() => handleSelect(key)}
                 className={`
                   w-full flex items-center gap-3 px-3 py-2 text-left
-                  hover:bg-gray-50 transition-colors
-                  ${isActive ? 'bg-orange-50' : ''}
+                  hover:bg-gray-700 transition-colors
+                  ${isActive ? 'bg-orange-900/30' : ''}
                 `}
               >
                 <span
@@ -141,8 +141,8 @@ export function InvestmentDriverSelector({
                   style={{ backgroundColor: color }}
                 />
                 <div className="flex-1">
-                  <div className="text-sm font-medium text-gray-700">{meta.name}</div>
-                  <div className="text-xs text-gray-500">{meta.description}</div>
+                  <div className="text-sm font-medium text-gray-200">{meta.name}</div>
+                  <div className="text-xs text-gray-400">{meta.description}</div>
                 </div>
                 {isActive && (
                   <svg className="w-4 h-4 text-orange-600" fill="currentColor" viewBox="0 0 20 20">

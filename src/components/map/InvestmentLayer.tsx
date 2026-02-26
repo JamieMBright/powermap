@@ -264,7 +264,7 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
           'circle-color': ['get', 'color'],
           'circle-opacity': 0.8,
           'circle-stroke-width': 2,
-          'circle-stroke-color': '#ffffff',
+          'circle-stroke-color': '#1a1a2e',
           'circle-stroke-opacity': 0.9,
         },
       });
@@ -285,8 +285,8 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
           'text-max-width': 12,
         },
         paint: {
-          'text-color': '#374151',
-          'text-halo-color': '#ffffff',
+          'text-color': '#e5e7eb',
+          'text-halo-color': '#1a1a2e',
           'text-halo-width': 1.5,
         },
       });
@@ -368,7 +368,7 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
                 'circle-color': ['get', 'color'],
                 'circle-opacity': 0.8,
                 'circle-stroke-width': 2,
-                'circle-stroke-color': '#ffffff',
+                'circle-stroke-color': '#1a1a2e',
                 'circle-stroke-opacity': 0.9,
               },
             });
@@ -388,8 +388,8 @@ export function InvestmentLayer({ map, boundaryType, boundaryCode }: InvestmentL
                 'text-max-width': 12,
               },
               paint: {
-                'text-color': '#374151',
-                'text-halo-color': '#ffffff',
+                'text-color': '#e5e7eb',
+                'text-halo-color': '#1a1a2e',
                 'text-halo-width': 1.5,
               },
             });

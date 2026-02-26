@@ -28,8 +28,8 @@ export function InvestmentLegend({ minAmount, maxAmount, className = '' }: Inves
   const breakpoints = getChoroplethBreakpoints(minAmount, maxAmount);
 
   return (
-    <div className={`bg-white rounded-lg shadow-lg border border-gray-200 p-3 ${className}`}>
-      <div className="text-xs font-medium text-gray-600 mb-2">Investment</div>
+    <div className={`bg-gray-900/90 rounded-lg shadow-lg border border-gray-700 p-3 ${className}`}>
+      <div className="text-xs font-medium text-gray-300 mb-2">Investment</div>
 
       {/* Gradient bar */}
       <div
@@ -40,7 +40,7 @@ export function InvestmentLegend({ minAmount, maxAmount, className = '' }: Inves
       />
 
       {/* Min/Max labels */}
-      <div className="flex justify-between mt-1 text-xs text-gray-500">
+      <div className="flex justify-between mt-1 text-xs text-gray-400">
         <span>{formatCurrency(minAmount)}</span>
         <span>{formatCurrency(maxAmount)}</span>
       </div>
